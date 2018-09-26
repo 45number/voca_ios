@@ -36,6 +36,8 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     }
     @IBAction func okBtnPressed(_ sender: Any) {
     }
+    @IBAction func folderImgBtnPressed(_ sender: Any) {
+    }
     
 
 }

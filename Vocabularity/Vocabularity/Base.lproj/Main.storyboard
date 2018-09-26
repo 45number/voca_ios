@@ -179,6 +179,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="14"/>
                                 <state key="normal" title="Add Image"/>
+                                <connections>
+                                    <action selector="folderImgBtnPressed:" destination="EN8-lw-f17" eventType="touchUpInside" id="0ly-JK-1Qo"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Folder Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-Q1-Y8R">
                                 <rect key="frame" x="30" y="300" width="315" height="50"/>

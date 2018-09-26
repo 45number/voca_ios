@@ -8,13 +8,18 @@
 
 import UIKit
 
-class CreateFolderVC: UIViewController, UITextFieldDelegate {
+class CreateFolderVC: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     //Outlets
     @IBOutlet weak var buttonsStackView: UIStackView!
-    @IBOutlet weak var folderImg: UIButton!
+//    @IBOutlet weak var folderImg: UIButton!
     @IBOutlet weak var folderImgBtn: UIButton!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var folderImg: CircleImage!
+    @IBOutlet weak var imageView: UIImageView!
+    
+    //Variables
+    var imagePicker = UIImagePickerController()
     
     
     override func viewDidLoad() {
@@ -37,7 +42,27 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBAction func okBtnPressed(_ sender: Any) {
     }
     @IBAction func folderImgBtnPressed(_ sender: Any) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("Button capture")
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        
     }
     
+    //Functions
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+        self.dismiss(animated: true, completion: { () -> Void in
+            
+        })
+        
+        imageView.image = image
+//        folderImg.setImage(image, for: UIControlState.normal)
+    }
 
 }

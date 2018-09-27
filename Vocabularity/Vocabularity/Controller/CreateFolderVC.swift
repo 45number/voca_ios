@@ -9,19 +9,15 @@
 import UIKit
 
 class CreateFolderVC: UIViewController
-//    , UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate
+//    , UITextFieldDelegate
 //, CropViewControllerDelegate
 {
 
     //Outlets
     @IBOutlet weak var buttonsStackView: UIStackView!
-//    @IBOutlet weak var folderImg: UIButton!
     @IBOutlet weak var folderImgBtn: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var folderImg: CircleImage!
-//    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageView: UIImageView!
-    
     
     //Variables
     var imagePicker = UIImagePickerController()
@@ -48,44 +44,10 @@ class CreateFolderVC: UIViewController
     @IBAction func okBtnPressed(_ sender: Any) {
     }
     @IBAction func folderImgBtnPressed(_ sender: Any) {
-        
-//        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-//            print("Button capture")
-//
-//            imagePicker.delegate = self
-//            imagePicker.sourceType = .savedPhotosAlbum;
-//            imagePicker.allowsEditing = true
-//
-//            self.present(imagePicker, animated: true, completion: nil)
-//        }
-
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .savedPhotosAlbum
+        imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
-        
     }
-    
-//    //Functions
-//    @objc func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-//        self.dismiss(animated: true, completion: { () -> Void in
-//
-//        })
-//
-//        imageView.image = image
-////        folderImg.setImage(image, for: UIControlState.normal)
-//    }
-    
-//    func presentCropViewController(image: UIImage!) {
-//
-//        let cropViewController = CropViewController(image: image)
-//        cropViewController.delegate = self
-//        present(cropViewController, animated: true, completion: nil)
-//    }
-//
-//    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
-//        // 'image' is the newly cropped version of the original image
-//    }
-
 }
 
 extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

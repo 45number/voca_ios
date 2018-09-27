@@ -4,18 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Vocabularity.xcscheme</key>
+		<key>CropViewController-TOCropViewControllerBundle.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>84FBAC85215ABFF100936F61</key>
+		<key>CropViewController.xcscheme</key>
 		<dict>
-			<key>primary</key>
-			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pods-Vocabularity.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 </dict>

@@ -165,7 +165,7 @@
                                     <constraint firstAttribute="height" constant="80" id="zYM-YK-zry"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="XqG-2o-i0x" customClass="CircleImage" customModule="Vocabularity" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="XqG-2o-i0x" customClass="CircleImage" customModule="Vocabularity" customModuleProvider="target">
                                 <rect key="frame" x="123" y="100" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Ce4-67-MPX"/>
@@ -223,21 +223,21 @@
                                             <constraint firstAttribute="height" constant="50" id="lEU-9V-RRo"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t5k-us-thq">
-                                        <rect key="frame" x="67" y="0.0" width="240" height="128"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J2V-gP-Mht">
+                                        <rect key="frame" x="67.5" y="16" width="240" height="128"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="Ey1-XU-Jd2"/>
-                                            <constraint firstAttribute="height" constant="128" id="oup-we-EBl"/>
+                                            <constraint firstAttribute="height" constant="128" id="k7N-vs-eZL"/>
+                                            <constraint firstAttribute="width" constant="240" id="oWx-if-0XM"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="t5k-us-thq" firstAttribute="top" secondItem="eb3-M4-DaZ" secondAttribute="top" id="23a-a5-509"/>
-                                    <constraint firstItem="t5k-us-thq" firstAttribute="centerX" secondItem="eb3-M4-DaZ" secondAttribute="centerX" id="FpF-Pw-lXV"/>
                                     <constraint firstAttribute="bottom" secondItem="Jnt-ha-tlq" secondAttribute="bottom" id="Gke-XT-7yP"/>
+                                    <constraint firstItem="J2V-gP-Mht" firstAttribute="top" secondItem="eb3-M4-DaZ" secondAttribute="top" constant="16" id="Ijo-WP-F0z"/>
                                     <constraint firstAttribute="trailing" secondItem="Jnt-ha-tlq" secondAttribute="trailing" id="USt-QU-YMi"/>
                                     <constraint firstItem="Jnt-ha-tlq" firstAttribute="leading" secondItem="eb3-M4-DaZ" secondAttribute="leading" id="XhF-dw-NzE"/>
+                                    <constraint firstItem="J2V-gP-Mht" firstAttribute="centerX" secondItem="eb3-M4-DaZ" secondAttribute="centerX" id="hV3-k3-VSE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -266,7 +266,7 @@
                         <outlet property="buttonsStackView" destination="Jnt-ha-tlq" id="6nM-fv-FYH"/>
                         <outlet property="folderImg" destination="XqG-2o-i0x" id="ITX-1x-Kkr"/>
                         <outlet property="folderImgBtn" destination="ucU-3F-nNS" id="bLF-dm-KeG"/>
-                        <outlet property="imageView" destination="t5k-us-thq" id="tOq-Oo-9QC"/>
+                        <outlet property="imageView" destination="J2V-gP-Mht" id="v8r-3D-Snc"/>
                         <outlet property="textField" destination="5Am-Q1-Y8R" id="VKq-Nh-1La"/>
                     </connections>
                 </viewController>

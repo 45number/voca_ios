@@ -43,6 +43,14 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     }
     @IBAction func okBtnPressed(_ sender: Any) {
         if textField.text != "" {
+            if isImageChanged {
+                do {
+                    try ImageStore.store(image: self.image!, name: "imodj")
+                } catch let error {
+                    debugPrint(error as Any)
+                }
+                
+            }
             dismiss(animated: true, completion: nil)
         }
     }
@@ -54,31 +62,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     
     
     //Functions
-    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
-        let size = image.size
-        
-        let widthRatio  = targetSize.width  / size.width
-        let heightRatio = targetSize.height / size.height
-        
-        // Figure out what our orientation is, and use that to form the rectangle
-        var newSize: CGSize
-        if(widthRatio > heightRatio) {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
-        }
-        
-        // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-        
-        // Actually do the resizing to the rect using the ImageContext stuff
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        image.draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage!
-    }
+    
     
 }
 
@@ -88,7 +72,7 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
         let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
         cropController.delegate = self
-        self.image = image
+        
         picker.pushViewController(cropController, animated: true)
         
     }
@@ -96,9 +80,10 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         // 'image' is the newly cropped version of the original image
         
-        let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 256.0, height: 256.0))
+        let resizedImage = ImageStore.resizeImage(image: image, targetSize: CGSize(width: 256.0, height: 256.0))
 //        resizeImage(UIImage(named: image)!, targetSize: CGSizeMake(200.0, 200.0))
         folderImg.image = resizedImage
+        self.image = resizedImage
         isImageChanged = true
         dismiss(animated: true, completion: nil)
     }

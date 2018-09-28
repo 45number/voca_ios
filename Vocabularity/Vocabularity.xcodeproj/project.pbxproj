@@ -16,6 +16,7 @@
 		843730B5215BDB4E009915C1 /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843730B4215BDB4E009915C1 /* BorderButton.swift */; };
 		843730B9215BF2B8009915C1 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843730B7215BF2B0009915C1 /* OpenSans-Regular.ttf */; };
 		843730BA215BF2B8009915C1 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843730B8215BF2B7009915C1 /* OpenSans-Light.ttf */; };
+		844383A6215E50B5009246EC /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844383A5215E50B5009246EC /* ImageStore.swift */; };
 		84FBAC8A215ABFF100936F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC89215ABFF100936F61 /* AppDelegate.swift */; };
 		84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC8B215ABFF100936F61 /* FoldersVC.swift */; };
 		84FBAC8F215ABFF100936F61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBAC8D215ABFF100936F61 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		843730B4215BDB4E009915C1 /* BorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		843730B7215BF2B0009915C1 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		843730B8215BF2B7009915C1 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		844383A5215E50B5009246EC /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		84FBAC86215ABFF100936F61 /* Vocabularity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabularity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FBAC89215ABFF100936F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FBAC8B215ABFF100936F61 /* FoldersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersVC.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		844383A4215E4397009246EC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				844383A5215E50B5009246EC /* ImageStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				84FBAC92215ABFF100936F61 /* Vocabularity.xcdatamodeld in Sources */,
 				84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */,
 				843730B5215BDB4E009915C1 /* BorderButton.swift in Sources */,
+				844383A6215E50B5009246EC /* ImageStore.swift in Sources */,
 				84FBAC8A215ABFF100936F61 /* AppDelegate.swift in Sources */,
 				843730B0215BB7C3009915C1 /* KeyboardBoundView.swift in Sources */,
 				843730AE215BAEC0009915C1 /* CreateFolderVC.swift in Sources */,

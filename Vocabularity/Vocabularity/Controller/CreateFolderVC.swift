@@ -75,6 +75,7 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         // 'image' is the newly cropped version of the original image
         folderImg.image = image
+        dismiss(animated: true, completion: nil)
     }
     
 }

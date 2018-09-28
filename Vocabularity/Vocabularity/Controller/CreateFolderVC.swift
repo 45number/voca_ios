@@ -23,7 +23,7 @@ class CreateFolderVC: UIViewController
     //Variables
     var imagePicker = UIImagePickerController()
     private var image: UIImage?
-    private var croppingStyle = CropViewCroppingStyle.default
+    private var croppingStyle = CropViewCroppingStyle.circular
     
     override func viewDidLoad() {
         super.viewDidLoad()

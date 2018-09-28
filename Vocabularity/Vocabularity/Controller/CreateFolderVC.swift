@@ -9,10 +9,7 @@
 import UIKit
 import CropViewController
 
-class CreateFolderVC: UIViewController
-//    , UITextFieldDelegate
-//, CropViewControllerDelegate
-{
+class CreateFolderVC: UIViewController, UITextFieldDelegate {
 
     //Outlets
     @IBOutlet weak var buttonsStackView: UIStackView!
@@ -24,11 +21,12 @@ class CreateFolderVC: UIViewController
     var imagePicker = UIImagePickerController()
     private var image: UIImage?
     private var croppingStyle = CropViewCroppingStyle.circular
+    private var isImageChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        textField.delegate = self
+        textField.delegate = self
         imagePicker.delegate = self
         
 //        textField.becomeFirstResponder()
@@ -44,6 +42,9 @@ class CreateFolderVC: UIViewController
         dismiss(animated: true, completion: nil)
     }
     @IBAction func okBtnPressed(_ sender: Any) {
+        if textField.text != "" {
+            dismiss(animated: true, completion: nil)
+        }
     }
     @IBAction func folderImgBtnPressed(_ sender: Any) {
         imagePicker.sourceType = .savedPhotosAlbum
@@ -98,6 +99,7 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
         let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 256.0, height: 256.0))
 //        resizeImage(UIImage(named: image)!, targetSize: CGSizeMake(200.0, 200.0))
         folderImg.image = resizedImage
+        isImageChanged = true
         dismiss(animated: true, completion: nil)
     }
     

@@ -92,6 +92,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		844383A4215E4397009246EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84FBAC7D215ABFF100936F61 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +120,7 @@
 		84FBAC88215ABFF100936F61 /* Vocabularity */ = {
 			isa = PBXGroup;
 			children = (
+				844383A4215E4397009246EC /* Model */,
 				843730B6215BF278009915C1 /* Fonts */,
 				843730B1215BC506009915C1 /* Utilities */,
 				84FBAC9F215AC53E00936F61 /* View */,

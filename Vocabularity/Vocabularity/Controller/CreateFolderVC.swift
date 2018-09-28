@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CropViewController
 
 class CreateFolderVC: UIViewController
 //    , UITextFieldDelegate
@@ -21,7 +22,8 @@ class CreateFolderVC: UIViewController
     
     //Variables
     var imagePicker = UIImagePickerController()
-    
+    private var image: UIImage?
+    private var croppingStyle = CropViewCroppingStyle.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +52,29 @@ class CreateFolderVC: UIViewController
     }
 }
 
-extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate, CropViewControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            folderImg.image = image
-        }
-        dismiss(animated: true, completion: nil)
+//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+////            folderImg.image = image
+//
+////            let cropViewController = CropViewController(image: image)
+////            cropViewController.delegate = self
+////            present(cropViewController, animated: true, completion: nil)
+//
+//
+//        }
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {return}
+        let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
+        cropController.delegate = self
+        self.image = image
+        picker.pushViewController(cropController, animated: true)
+        
+//        dismiss(animated: true, completion: nil)
     }
+    
+    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+        // 'image' is the newly cropped version of the original image
+        folderImg.image = image
+    }
+    
 }

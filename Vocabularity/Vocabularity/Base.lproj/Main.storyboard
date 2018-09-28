@@ -223,12 +223,21 @@
                                             <constraint firstAttribute="height" constant="50" id="lEU-9V-RRo"/>
                                         </constraints>
                                     </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mgv-Fk-Pz5">
+                                        <rect key="frame" x="67" y="5" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="4hq-fU-bXe"/>
+                                            <constraint firstAttribute="height" constant="240" id="ZnP-kt-RJa"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="mgv-Fk-Pz5" firstAttribute="top" secondItem="eb3-M4-DaZ" secondAttribute="top" constant="5" id="5bq-sZ-v5z"/>
                                     <constraint firstAttribute="bottom" secondItem="Jnt-ha-tlq" secondAttribute="bottom" id="Gke-XT-7yP"/>
                                     <constraint firstAttribute="trailing" secondItem="Jnt-ha-tlq" secondAttribute="trailing" id="USt-QU-YMi"/>
                                     <constraint firstItem="Jnt-ha-tlq" firstAttribute="leading" secondItem="eb3-M4-DaZ" secondAttribute="leading" id="XhF-dw-NzE"/>
+                                    <constraint firstItem="mgv-Fk-Pz5" firstAttribute="centerX" secondItem="eb3-M4-DaZ" secondAttribute="centerX" id="iUv-Xc-5Dt"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -257,6 +266,7 @@
                         <outlet property="buttonsStackView" destination="Jnt-ha-tlq" id="6nM-fv-FYH"/>
                         <outlet property="folderImg" destination="XqG-2o-i0x" id="ITX-1x-Kkr"/>
                         <outlet property="folderImgBtn" destination="ucU-3F-nNS" id="bLF-dm-KeG"/>
+                        <outlet property="tempImage" destination="mgv-Fk-Pz5" id="W6x-z1-bGV"/>
                         <outlet property="textField" destination="5Am-Q1-Y8R" id="VKq-Nh-1La"/>
                     </connections>
                 </viewController>

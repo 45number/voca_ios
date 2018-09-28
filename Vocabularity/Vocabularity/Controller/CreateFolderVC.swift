@@ -16,6 +16,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var folderImgBtn: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var folderImg: CircleImage!
+    @IBOutlet weak var tempImage: UIImageView!
     
     //Variables
     var imagePicker = UIImagePickerController()
@@ -50,8 +51,10 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
                     debugPrint(error as Any)
                 }
                 
+                let tempImg = ImageStore.retrieve(imageNamed: "imodj")
+                self.tempImage.image = tempImg
             }
-            dismiss(animated: true, completion: nil)
+//            dismiss(animated: true, completion: nil)
         }
     }
     @IBAction func folderImgBtnPressed(_ sender: Any) {
@@ -77,7 +80,7 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
         
     }
     
-    func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+    func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         // 'image' is the newly cropped version of the original image
         
         let resizedImage = ImageStore.resizeImage(image: image, targetSize: CGSize(width: 256.0, height: 256.0))

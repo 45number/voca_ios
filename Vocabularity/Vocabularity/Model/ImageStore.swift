@@ -71,4 +71,22 @@ struct ImageStore {
         return newImage!
     }
     
+    static func generateImageName(length: Int) -> String {
+        
+        var timeStamp = String(UInt64((NSDate().timeIntervalSince1970 + 62_135_596_800) * 10_000_000))
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        let imageName = "v_\(randomString)_\(timeStamp)"
+        return imageName
+    }
+    
 }

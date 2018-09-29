@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import CropViewController
 
 class CreateFolderVC: UIViewController, UITextFieldDelegate {
@@ -39,24 +40,37 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func cancelBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func okBtnPressed(_ sender: Any) {
         if textField.text != "" {
+            var imageName = "default.png"
             if isImageChanged {
                 do {
-                    try ImageStore.store(image: self.image!, name: "imodj")
+                    imageName = ImageStore.generateImageName(length: 10)
+                    try ImageStore.store(image: self.image!, name: imageName)
                 } catch let error {
                     debugPrint(error as Any)
                 }
                 
-                let tempImg = ImageStore.retrieve(imageNamed: "imodj")
-                self.tempImage.image = tempImg
+//                let tempImg = ImageStore.retrieve(imageNamed: imageName)
+//                textField.text = imageName
+//                self.tempImage.image = tempImg
+            }
+            
+            
+            self.save(folderName: textField.text!, imageName: imageName) { (success) in
+                if success {
+                    dismiss(animated: true, completion: nil)
+                }
             }
 //            dismiss(animated: true, completion: nil)
         }
     }
+    
     @IBAction func folderImgBtnPressed(_ sender: Any) {
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.allowsEditing = false
@@ -65,7 +79,27 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     
     
     //Functions
-    
+    func save(folderName: String, imageName: String, completion: (_ finished: Bool) -> ()) {
+//        UIApplication.shared.delegate?.persistent
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        let newFolder = Folder(context: managedContext)
+        newFolder.folderName = folderName
+        newFolder.image = imageName
+        newFolder.learningLanguage = Int32(1)
+        newFolder.parent = nil
+        
+        do {
+            try managedContext.save()
+            print("Successfully saved data.")
+            completion(true)
+        } catch {
+            debugPrint("Could not save: \(error.localizedDescription)")
+            completion(false)
+        }
+        
+    }
     
 }
 
@@ -88,6 +122,9 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
         folderImg.image = resizedImage
         self.image = resizedImage
         isImageChanged = true
+        
+//        let imageName = ImageStore.generateImageName(length: 10)
+        
         dismiss(animated: true, completion: nil)
     }
     

@@ -94,6 +94,29 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         
         return [deleteAction, addAction]
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let chosenFolder = folders[indexPath.row]
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        let fetchREquest = NSFetchRequest<Folder>(entityName: "Folder")
+        fetchREquest.predicate = NSPredicate(format: "parent == %@", chosenFolder)
+        do {
+            folders = try managedContext.fetch(fetchREquest)
+            tableView.reloadData()
+            print("Successfully fetched data")
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+        
+//        let alertController = UIAlertController(title: "Simplified iOS", message: "You Selected " + chosenFolder.folderName! , preferredStyle: .alert)
+//        let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
+//        alertController.addAction(defaultAction)
+//
+//        present(alertController, animated: true, completion: nil)
+    }
 }
 
 

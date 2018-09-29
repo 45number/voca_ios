@@ -10,6 +10,12 @@ import UIKit
 
 class FolderCell: UITableViewCell {
 
+    //Outlets
+    @IBOutlet weak var folderImgView: CircleImage!
+    @IBOutlet weak var folderNameLbl: UILabel!
+    @IBOutlet weak var folderInfoLbl: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +25,22 @@ class FolderCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(folder: Folder) {
+        self.folderNameLbl.text = folder.folderName
+        self.folderInfoLbl.text = folder.image
+        
+        if folder.image != "default.png" {
+            let folderImg = ImageStore.retrieve(imageNamed: folder.image!)
+            self.folderImgView.image = folderImg
+        }
+        
+//        if goal.goalProgress == goal.goalCompletionValue {
+//            self.completionView.isHidden = false
+//        } else {
+//            self.completionView.isHidden = true
+//        }
     }
 
 }

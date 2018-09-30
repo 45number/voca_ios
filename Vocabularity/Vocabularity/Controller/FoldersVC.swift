@@ -18,6 +18,7 @@ class FoldersVC: UIViewController {
     
     //Variables
     var folders: [Folder] = []
+    var path: [Folder] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +29,11 @@ class FoldersVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchCoreDataObjects(parent: nil)
-//        fetchCoreDataObjects(nil)
+        fetchCoreDataObjects(parent: getCurrentFolder())
         tableView.reloadData()
     }
     
     func fetchCoreDataObjects(parent: Folder?) {
-//        self.fetch { (complete) in
-//            if complete {
-//                if folders.count >= 1 {
-//                    tableView.isHidden = false
-//                } else {
-//                    tableView.isHidden = true
-//                }
-//            }
-//        }
         self.fetch(parent: parent) { (complete) in
             if complete {
                 if folders.count >= 1 {
@@ -59,6 +50,21 @@ class FoldersVC: UIViewController {
         performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
     }
     
+    //Functions
+    func getCurrentFolder() -> Folder? {
+        let arraySlice = self.path.suffix(1)
+        let newArray = Array(arraySlice)
+        var currentFolder: Folder?
+        if newArray.count > 0 {
+            currentFolder = newArray[0]
+        } else {
+            currentFolder = nil
+        }
+        return currentFolder
+    }
+    func pushToPath(folder: Folder) {
+        self.path.append(folder)
+    }
 }
 
 extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
@@ -107,8 +113,11 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let chosenFolder = folders[indexPath.row]
-        self.fetchCoreDataObjects(parent: chosenFolder)
+        self.pushToPath(folder: folders[indexPath.row])
+        self.fetchCoreDataObjects(parent: self.getCurrentFolder())
+        
+//        self.currentFolder = folders[indexPath.row]
+//        self.fetchCoreDataObjects(parent: self.getCurrentFolder)
 
     }
 }

@@ -15,6 +15,8 @@ class FoldersVC: UIViewController {
     
     //Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backBtn: UIButton!
+    
     
     //Variables
     var folders: [Folder] = []
@@ -41,6 +43,13 @@ class FoldersVC: UIViewController {
                 } else {
                     tableView.isHidden = true
                 }
+                
+                if path.count > 0 {
+                    self.backBtn.isHidden = false
+                } else {
+                    self.backBtn.isHidden = true
+                }
+                
             }
         }
     }
@@ -49,6 +58,13 @@ class FoldersVC: UIViewController {
     @IBAction func addBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
     }
+    @IBAction func backBtnPressed(_ sender: Any) {
+        self.path.removeLast()
+        self.fetchCoreDataObjects(parent: self.getCurrentFolder())
+        self.tableView.reloadData() 
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? CreateFolderVC {

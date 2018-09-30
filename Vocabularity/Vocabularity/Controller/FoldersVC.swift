@@ -28,12 +28,22 @@ class FoldersVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchCoreDataObjects()
+        fetchCoreDataObjects(parent: nil)
+//        fetchCoreDataObjects(nil)
         tableView.reloadData()
     }
     
-    func fetchCoreDataObjects() {
-        self.fetch { (complete) in
+    func fetchCoreDataObjects(parent: Folder?) {
+//        self.fetch { (complete) in
+//            if complete {
+//                if folders.count >= 1 {
+//                    tableView.isHidden = false
+//                } else {
+//                    tableView.isHidden = true
+//                }
+//            }
+//        }
+        self.fetch(parent: parent) { (complete) in
             if complete {
                 if folders.count >= 1 {
                     tableView.isHidden = false
@@ -98,24 +108,8 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let chosenFolder = folders[indexPath.row]
-        
-        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
-        
-        let fetchREquest = NSFetchRequest<Folder>(entityName: "Folder")
-        fetchREquest.predicate = NSPredicate(format: "parent == %@", chosenFolder)
-        do {
-            folders = try managedContext.fetch(fetchREquest)
-            tableView.reloadData()
-            print("Successfully fetched data")
-        } catch {
-            debugPrint("Could not fetch: \(error.localizedDescription)")
-        }
-        
-//        let alertController = UIAlertController(title: "Simplified iOS", message: "You Selected " + chosenFolder.folderName! , preferredStyle: .alert)
-//        let defaultAction = UIAlertAction(title: "Close Alert", style: .default, handler: nil)
-//        alertController.addAction(defaultAction)
-//
-//        present(alertController, animated: true, completion: nil)
+        self.fetchCoreDataObjects(parent: chosenFolder)
+
     }
 }
 
@@ -154,10 +148,17 @@ extension FoldersVC {
 //        }
     }
     
-    func fetch(completion: (_ complete: Bool) -> ()) {
+    func fetch(parent: Folder?, completion: (_ complete: Bool) -> ()) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
         let fetchREquest = NSFetchRequest<Folder>(entityName: "Folder")
+        
+        if parent == nil {
+            fetchREquest.predicate = NSPredicate(format: "parent == nil")
+        } else {
+            fetchREquest.predicate = NSPredicate(format: "parent == %@", parent!)
+        }
+        
         
         do {
             folders = try managedContext.fetch(fetchREquest)

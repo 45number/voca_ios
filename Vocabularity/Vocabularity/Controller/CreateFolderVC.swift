@@ -21,6 +21,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     
     //Variables
     var imagePicker = UIImagePickerController()
+    var parentFolder: Folder?
     private var image: UIImage?
     private var croppingStyle = CropViewCroppingStyle.circular
     private var isImageChanged = false
@@ -88,7 +89,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
         newFolder.folderName = folderName
         newFolder.image = imageName
         newFolder.learningLanguage = Int32(1)
-        newFolder.parent = nil
+        newFolder.parent = self.parentFolder
         
         do {
             try managedContext.save()

@@ -50,7 +50,13 @@ class FoldersVC: UIViewController {
         performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
     }
     
-    //Functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CreateFolderVC {
+            vc.parentFolder = self.getCurrentFolder()
+        }
+    }
+    
+    // Path functions
     func getCurrentFolder() -> Folder? {
         let arraySlice = self.path.suffix(1)
         let newArray = Array(arraySlice)
@@ -113,13 +119,19 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+//        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+//        managedContext.ge
+//        print(folders[indexPath.row].objectID)
+//        print(indexPath.row)
         self.pushToPath(folder: folders[indexPath.row])
         self.fetchCoreDataObjects(parent: self.getCurrentFolder())
+        self.tableView.reloadData()
         
 //        self.currentFolder = folders[indexPath.row]
 //        self.fetchCoreDataObjects(parent: self.getCurrentFolder)
 
     }
+    
 }
 
 
@@ -165,6 +177,7 @@ extension FoldersVC {
         if parent == nil {
             fetchREquest.predicate = NSPredicate(format: "parent == nil")
         } else {
+//            print(parent as? Any)
             fetchREquest.predicate = NSPredicate(format: "parent == %@", parent!)
         }
         

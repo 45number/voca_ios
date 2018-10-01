@@ -179,7 +179,28 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
             self.fetchCoreDataObjects(parent: self.getCurrentFolder())
             self.tableView.reloadData()
         } else if decks.count > 0 {
-            print("opa")
+            
+            //getting the index path of selected row
+//            let indexPath = tableView.indexPathForSelectedRow
+            
+            //getting the current cell from the index path
+            let currentCell = tableView.cellForRow(at: indexPath)! as! FolderCell
+            
+            //getting the text of that cell
+            let currentItem = currentCell.folderNameLbl.text
+            
+            let alertController = UIAlertController(title: "Choose the mode", message: "Choose the mode of excercise for " + currentItem! , preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+//            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (success) in
+//                self.tableView.deselectRow(at: indexPath, animated: false)
+//            }))
+            
+            present(alertController, animated: true, completion: nil)
+            self.tableView.deselectRow(at: indexPath, animated: false)
+//            print("opa")
         }
         
         

@@ -62,6 +62,8 @@ class FoldersVC: UIViewController {
         
         if path.count == 0 || folders.count > 0 {
             performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
+        } else if decks.count > 0 {
+            performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
         } else {
             
             let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)

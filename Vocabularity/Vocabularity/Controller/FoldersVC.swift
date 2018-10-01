@@ -22,6 +22,9 @@ class FoldersVC: UIViewController {
     var folders: [Folder] = []
     var path: [Folder] = []
     
+    var decks: [Deck] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +41,7 @@ class FoldersVC: UIViewController {
     func fetchCoreDataObjects(parent: Folder?) {
         self.fetch(parent: parent) { (complete) in
             if complete {
-                if folders.count >= 1 {
+                if folders.count >= 1 || decks.count > 0 {
                     tableView.isHidden = false
                 } else {
                     tableView.isHidden = true
@@ -115,15 +118,26 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if folders.count > 0 {
+            return folders.count
+        } else if decks.count > 0 {
+            return decks.count
+        }
+        
         return folders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell") as? FolderCell else { return UITableViewCell() }
         
-        let folder = folders[indexPath.row]
-        
-        cell.configureCell(folder: folder)
+        if folders.count > 0 {
+            let folder = folders[indexPath.row]
+            cell.configureCell(folder: folder)
+        } else if decks.count > 0 {
+            let deck = decks[indexPath.row]
+            cell.configureCellForDeck(deck: deck)
+        }
+
         return cell
     }
     
@@ -206,6 +220,9 @@ extension FoldersVC {
     }
     
     func fetch(parent: Folder?, completion: (_ complete: Bool) -> ()) {
+        
+        self.decks.removeAll()
+        
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
         let fetchREquest = NSFetchRequest<Folder>(entityName: "Folder")
@@ -221,12 +238,23 @@ extension FoldersVC {
         do {
             folders = try managedContext.fetch(fetchREquest)
             print("Successfully fetched data")
+            
             if folders.count == 0 && parent != nil {
-                
-//                let fetchWordRequest = NSFetchRequest<Word>(entityName: "Word")
-//                fetchWordRequest.predicate = NSPredicate(format: "folder == %@", parent!)
-                print("Hello")
+                let fetchWordRequest = NSFetchRequest<Word>(entityName: "Word")
+                fetchWordRequest.predicate = NSPredicate(format: "folder == %@", parent!)
+                let words = try managedContext.fetch(fetchWordRequest)
+                print(words.count)
+                if words.count > 0 {
+//                    let decksQuantity = Int(ceil(Double(words.count/5)))
+                    let decksQuantity = Int(ceil(Double(words.count)/Double(5)))
+                    print(decksQuantity)
+                    for index in 1...decksQuantity {
+                        let deck = Deck(title: "Deck \(index)", info: "5 words in deck")
+                        self.decks.append(deck)
+                    }
+                }
             }
+            
             completion(true)
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")

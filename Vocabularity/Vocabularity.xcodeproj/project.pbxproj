@@ -17,6 +17,7 @@
 		843730B9215BF2B8009915C1 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843730B7215BF2B0009915C1 /* OpenSans-Regular.ttf */; };
 		843730BA215BF2B8009915C1 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 843730B8215BF2B7009915C1 /* OpenSans-Light.ttf */; };
 		84381E8B2162533F0052FDD9 /* CreateWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84381E8A2162533F0052FDD9 /* CreateWordVC.swift */; };
+		84381E8D2162AE300052FDD9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84381E8C2162AE300052FDD9 /* Deck.swift */; };
 		844383A6215E50B5009246EC /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844383A5215E50B5009246EC /* ImageStore.swift */; };
 		84FBAC8A215ABFF100936F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC89215ABFF100936F61 /* AppDelegate.swift */; };
 		84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC8B215ABFF100936F61 /* FoldersVC.swift */; };
@@ -37,6 +38,7 @@
 		843730B7215BF2B0009915C1 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		843730B8215BF2B7009915C1 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		84381E8A2162533F0052FDD9 /* CreateWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordVC.swift; sourceTree = "<group>"; };
+		84381E8C2162AE300052FDD9 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		844383A5215E50B5009246EC /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		84FBAC86215ABFF100936F61 /* Vocabularity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabularity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FBAC89215ABFF100936F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				844383A5215E50B5009246EC /* ImageStore.swift */,
+				84381E8C2162AE300052FDD9 /* Deck.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84381E8D2162AE300052FDD9 /* Deck.swift in Sources */,
 				84381E8B2162533F0052FDD9 /* CreateWordVC.swift in Sources */,
 				84FBAC92215ABFF100936F61 /* Vocabularity.xcdatamodeld in Sources */,
 				84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */,

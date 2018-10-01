@@ -42,5 +42,24 @@ class FolderCell: UITableViewCell {
 //            self.completionView.isHidden = true
 //        }
     }
+    
+    func configureCellForDeck(deck: Deck) {
+        self.folderNameLbl.text = deck.title
+        self.folderInfoLbl.text = deck.info
+        self.folderImgView.image = UIImage(named: "photo")
+        
+        
+//        if folder.image != "default.png" && folder.image != nil {
+//            let folderImg = ImageStore.retrieve(imageNamed: folder.image!)
+//            self.folderImgView.image = folderImg
+//        }
+        
+        //        if goal.goalProgress == goal.goalCompletionValue {
+        //            self.completionView.isHidden = false
+        //        } else {
+        //            self.completionView.isHidden = true
+        //        }
+    }
+    
 
 }

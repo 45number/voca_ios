@@ -66,7 +66,7 @@ class FoldersVC: UIViewController {
                 self.performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
             }))
             alert.addAction(UIAlertAction(title: "Word", style: .default, handler: { action in
-                print("ACTION 1 selected!")
+                self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { action in }))
             self.present(alert, animated: true, completion: nil)
@@ -84,6 +84,10 @@ class FoldersVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? CreateFolderVC {
+            vc.parentFolder = self.getCurrentFolder()
+        }
+        
+        if let vc = segue.destination as? CreateWordVC {
             vc.parentFolder = self.getCurrentFolder()
         }
     }

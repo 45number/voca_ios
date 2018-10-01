@@ -17,7 +17,6 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var folderImgBtn: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var folderImg: CircleImage!
-    @IBOutlet weak var tempImage: UIImageView!
     
     //Variables
     var imagePicker = UIImagePickerController()

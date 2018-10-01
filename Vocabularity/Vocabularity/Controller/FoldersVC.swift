@@ -173,9 +173,15 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //        managedContext.ge
 //        print(folders[indexPath.row].objectID)
 //        print(indexPath.row)
-        self.pushToPath(folder: folders[indexPath.row])
-        self.fetchCoreDataObjects(parent: self.getCurrentFolder())
-        self.tableView.reloadData()
+        
+        if folders.count > 0 {
+            self.pushToPath(folder: folders[indexPath.row])
+            self.fetchCoreDataObjects(parent: self.getCurrentFolder())
+            self.tableView.reloadData()
+        } else if decks.count > 0 {
+            print("opa")
+        }
+        
         
 //        self.currentFolder = folders[indexPath.row]
 //        self.fetchCoreDataObjects(parent: self.getCurrentFolder)

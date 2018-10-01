@@ -56,7 +56,23 @@ class FoldersVC: UIViewController {
     
     //Actions
     @IBAction func addBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
+        
+        if path.count == 0 || folders.count > 0 {
+            performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
+        } else {
+            
+            let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Folder", style: .default, handler: { action in
+                self.performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Word", style: .default, handler: { action in
+                print("ACTION 1 selected!")
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { action in }))
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+
     }
     @IBAction func backBtnPressed(_ sender: Any) {
         self.path.removeLast()

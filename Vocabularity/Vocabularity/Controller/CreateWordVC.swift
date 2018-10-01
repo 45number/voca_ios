@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateWordVC: UIViewController, UITextFieldDelegate  {
 
@@ -47,12 +48,14 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
+//        let nn = Word(
         let newWord = Word(context: managedContext)
         newWord.word = word
         newWord.translation = translation
         newWord.learningLang = Int32(1)
         newWord.repeatMem = false
         newWord.repeatSpell = false
+//        newWord.folderName = ""
         newWord.folder = self.parentFolder
         
         do {

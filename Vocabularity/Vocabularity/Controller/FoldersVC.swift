@@ -221,6 +221,12 @@ extension FoldersVC {
         do {
             folders = try managedContext.fetch(fetchREquest)
             print("Successfully fetched data")
+            if folders.count == 0 && parent != nil {
+                
+//                let fetchWordRequest = NSFetchRequest<Word>(entityName: "Word")
+//                fetchWordRequest.predicate = NSPredicate(format: "folder == %@", parent!)
+                print("Hello")
+            }
             completion(true)
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")

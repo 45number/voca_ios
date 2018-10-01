@@ -8,7 +8,7 @@
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="children" inverseEntity="Folder" syncable="YES"/>
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Word" inverseName="folder" inverseEntity="Word" syncable="YES"/>
     </entity>
-    <entity name="Word" representedClassName="Word" parentEntity="Folder" syncable="YES" codeGenerationType="class">
+    <entity name="Word" representedClassName="Word" syncable="YES" codeGenerationType="class">
         <attribute name="learningLang" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="repeatMem" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="repeatSpell" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>

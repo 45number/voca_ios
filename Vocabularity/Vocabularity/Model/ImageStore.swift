@@ -73,7 +73,7 @@ struct ImageStore {
     
     static func generateImageName(length: Int) -> String {
         
-        var timeStamp = String(UInt64((NSDate().timeIntervalSince1970 + 62_135_596_800) * 10_000_000))
+        let timeStamp = String(UInt64((NSDate().timeIntervalSince1970 + 62_135_596_800) * 10_000_000))
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len = UInt32(letters.length)
         

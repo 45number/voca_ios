@@ -31,7 +31,7 @@ class FolderCell: UITableViewCell {
         self.folderNameLbl.text = folder.folderName
         self.folderInfoLbl.text = folder.image
         
-        if folder.image != "default.png" {
+        if folder.image != "default.png" && folder.image != nil {
             let folderImg = ImageStore.retrieve(imageNamed: folder.image!)
             self.folderImgView.image = folderImg
         }

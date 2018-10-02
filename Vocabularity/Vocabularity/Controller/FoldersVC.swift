@@ -175,6 +175,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //        managedContext.ge
 //        print(folders[indexPath.row].objectID)
 //        print(indexPath.row)
+//        print("hello \(indexPath.row) hello")
         
         if folders.count > 0 {
             self.pushToPath(folder: folders[indexPath.row])
@@ -196,7 +197,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
             alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: { action in
                 let memorizeVC = MemorizeVC()
                 memorizeVC.folder = self.getCurrentFolder()
-                memorizeVC.part = 2
+                memorizeVC.part = indexPath.row
                 memorizeVC.modalPresentationStyle = .custom
                 self.present(memorizeVC, animated: true, completion: nil)
             }))

@@ -50,6 +50,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-fA-XQb">
                             <rect key="frame" x="148" y="225.5" width="46" height="30"/>
                             <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="speakBtnPressed:" destination="-1" eventType="touchUpInside" id="rNr-og-6ce"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-ax-7hA">
                             <rect key="frame" x="143.5" y="181" width="56.5" height="20.5"/>

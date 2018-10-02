@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class MemorizeVC: UIViewController {
 
@@ -34,6 +35,17 @@ class MemorizeVC: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func speakBtnPressed(_ sender: Any) {
+        let string = "привет, как дела?"
+        let utterance = AVSpeechUtterance(string: string)
+        utterance.voice = AVSpeechSynthesisVoice(language: "ru-RU")
+        
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
+    }
+    
+    
     
     //Functions
     func fetchCoreDataObjects(folder: Folder!, part: Int!) {

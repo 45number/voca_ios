@@ -193,7 +193,13 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
             
             let alertController = UIAlertController(title: "Choose the mode", message: "Choose the mode of excercise for " + currentItem! , preferredStyle: .alert)
             
-            alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: { action in
+                let memorizeVC = MemorizeVC()
+                memorizeVC.folder = self.getCurrentFolder()
+                memorizeVC.part = 2
+                memorizeVC.modalPresentationStyle = .custom
+                self.present(memorizeVC, animated: true, completion: nil)
+            }))
             alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: nil))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
 //            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (success) in

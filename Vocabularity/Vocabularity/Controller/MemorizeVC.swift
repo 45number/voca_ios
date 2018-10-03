@@ -43,6 +43,7 @@ class MemorizeVC: UIViewController {
         speakBtn.setImage(UIImage(named: "speaking_pressed"), for:.highlighted);
         
         
+        
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
 //        tap.delegate = self // This is not required
 //        cardView.addGestureRecognizer(tap)
@@ -55,6 +56,8 @@ class MemorizeVC: UIViewController {
 //        print(self.words.count)
         self.displayCurrentWord(index: indexCounter)
         self.setQuantity(index: indexCounter)
+        
+        setMarkBtnView()
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -76,7 +79,21 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func markBtnPressed(_ sender: Any) {
+//        words[indexCounter].repeatMem = !words[indexCounter].repeatMem
         
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        let currentWord = words[indexCounter]
+        currentWord.repeatMem = !words[indexCounter].repeatMem
+        
+        do {
+            try managedContext.save()
+            print("saved!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        setMarkBtnView()
     }
     
     @IBAction func shuffleBtnPressed(_ sender: Any) {
@@ -118,6 +135,10 @@ class MemorizeVC: UIViewController {
             debugPrint("Could not fetch: \(error.localizedDescription)")
             completion(false)
         }
+    }
+    
+    func markWord(toRepeat: Bool) {
+        
     }
     
     func displayCurrentWord(index: Int) {
@@ -166,6 +187,7 @@ class MemorizeVC: UIViewController {
             self.indexCounter += 1
             self.displayCurrentWord(index: indexCounter)
             self.setQuantity(index: indexCounter)
+            self.setMarkBtnView()
         }
     }
     
@@ -175,7 +197,24 @@ class MemorizeVC: UIViewController {
             self.indexCounter -= 1
             self.displayCurrentWord(index: indexCounter)
             self.setQuantity(index: indexCounter)
+            self.setMarkBtnView()
         }
+    }
+    
+    func setMarkBtnView() {
+        if words[indexCounter].repeatMem {
+            self.showWordAsMarked()
+        } else {
+            self.showWordAsUnmarked()
+        }
+    }
+    
+    func showWordAsMarked() {
+        markBtn.setImage(UIImage(named: "bookmark-pressed"), for:.normal);
+    }
+    
+    func showWordAsUnmarked() {
+        markBtn.setImage(UIImage(named: "bookmark-white"), for:.normal);
     }
     
 }

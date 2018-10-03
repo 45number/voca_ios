@@ -16,6 +16,8 @@ class MemorizeVC: UIViewController {
     @IBOutlet weak var quantityLbl: UILabel!
     @IBOutlet weak var firstLbl: UILabel!
     @IBOutlet weak var secondLbl: UILabel!
+    @IBOutlet weak var cardView: UIView!
+    
     
     //Variables
     var folder: Folder!
@@ -23,13 +25,24 @@ class MemorizeVC: UIViewController {
     
     var words: [Word] = []
     
+    private var indexCounter: Int = 0
+    private var mCardSwitcher: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        print(part)
+        
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
+//        tap.delegate = self // This is not required
+//        cardView.addGestureRecognizer(tap)
+        
+        let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
+        cardView.addGestureRecognizer(cardTap)
+        
+        
         self.fetchCoreDataObjects(folder: folder, part: part)
-        print(self.words.count)
-        self.displayCurrentWord(index: 0)
+//        print(self.words.count)
+        self.displayCurrentWord(index: indexCounter)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -37,12 +50,7 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func speakBtnPressed(_ sender: Any) {
-        let string = "привет, как дела?"
-        let utterance = AVSpeechUtterance(string: string)
-        utterance.voice = AVSpeechSynthesisVoice(language: "ru-RU")
         
-        let synth = AVSpeechSynthesizer()
-        synth.speak(utterance)
     }
     
     
@@ -77,8 +85,36 @@ class MemorizeVC: UIViewController {
     }
     
     func displayCurrentWord(index: Int) {
-        firstLbl.text = words[index].word
-        secondLbl.text = words[index].translation
+        print(index)
+        firstLbl.text = words[index].translation
+    }
+    
+    func translate(index: Int) {
+        secondLbl.text = words[index].word
+    }
+    
+    func speak(phrase: String!) {
+        let utterance = AVSpeechUtterance(string: phrase)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        let synth = AVSpeechSynthesizer()
+        synth.speak(utterance)
+    }
+    
+    @objc func onCardTap(_ recognizer: UITapGestureRecognizer) {
+        if !mCardSwitcher {
+            self.translate(index: indexCounter)
+            self.speak(phrase: words[indexCounter].word)
+            
+        } else {
+            if self.indexCounter < (self.words.count - 1){
+                self.secondLbl.text = ""
+                self.indexCounter += 1
+                self.displayCurrentWord(index: indexCounter)
+            } else {
+                print("opa")
+            }
+        }
+        mCardSwitcher = !mCardSwitcher
     }
     
 }

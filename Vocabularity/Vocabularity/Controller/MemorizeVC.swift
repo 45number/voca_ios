@@ -51,7 +51,7 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func speakBtnPressed(_ sender: Any) {
-        
+        speak(phrase: words[indexCounter].word)
     }
     
     

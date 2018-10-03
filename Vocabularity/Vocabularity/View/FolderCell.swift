@@ -46,7 +46,7 @@ class FolderCell: UITableViewCell {
     func configureCellForDeck(deck: Deck) {
         self.folderNameLbl.text = deck.title
         self.folderInfoLbl.text = deck.info
-        self.folderImgView.image = UIImage(named: "photo")
+        self.folderImgView.image = UIImage(named: "pile")
         
         
 //        if folder.image != "default.png" && folder.image != nil {

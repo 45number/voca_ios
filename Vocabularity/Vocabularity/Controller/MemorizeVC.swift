@@ -17,6 +17,13 @@ class MemorizeVC: UIViewController {
     @IBOutlet weak var firstLbl: UILabel!
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var speakBtn: UIButton!
+    @IBOutlet weak var directionBtn: UIButton!
+    @IBOutlet weak var shuffleBtn: UIButton!
+    @IBOutlet weak var previousBtn: UIButton!
+    @IBOutlet weak var markBtn: UIButton!
+    @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var circleBtn: UIButton!
     
     
     //Variables
@@ -31,6 +38,10 @@ class MemorizeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        speakBtn.setImage(UIImage(named: "speaking"), for:.normal);
+        speakBtn.setImage(UIImage(named: "speaking_pressed"), for:.highlighted);
+        
         
 //        let tap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
 //        tap.delegate = self // This is not required
@@ -53,6 +64,30 @@ class MemorizeVC: UIViewController {
     @IBAction func speakBtnPressed(_ sender: Any) {
         speak(phrase: words[indexCounter].word)
     }
+    
+    @IBAction func previousBtnPressed(_ sender: Any) {
+        mCardSwitcher = false
+        previousWord()
+    }
+    
+    @IBAction func nextBtnPressed(_ sender: Any) {
+        mCardSwitcher = false
+        nextWord()
+    }
+    
+    @IBAction func markBtnPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func shuffleBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func circleBtnPressed(_ sender: Any) {
+    }
+    
+    @IBAction func directionBtnPressed(_ sender: Any) {
+    }
+    
     
     
     
@@ -99,10 +134,19 @@ class MemorizeVC: UIViewController {
     }
     
     func speak(phrase: String!) {
-        let utterance = AVSpeechUtterance(string: phrase)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-        let synth = AVSpeechSynthesizer()
-        synth.speak(utterance)
+        
+        DispatchQueue.global(qos: .background).async {
+//            print("This is run on the background queue")
+            
+            let utterance = AVSpeechUtterance(string: phrase)
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            let synth = AVSpeechSynthesizer()
+            synth.speak(utterance)
+            
+//            DispatchQueue.main.async {
+//                print("This is run on the main queue, after the previous code in outer block")
+//            }
+        }
     }
     
     @objc func onCardTap(_ recognizer: UITapGestureRecognizer) {
@@ -111,16 +155,27 @@ class MemorizeVC: UIViewController {
             self.speak(phrase: words[indexCounter].word)
             
         } else {
-            if self.indexCounter < (self.words.count - 1){
-                self.secondLbl.text = ""
-                self.indexCounter += 1
-                self.displayCurrentWord(index: indexCounter)
-                self.setQuantity(index: indexCounter)
-            } else {
-                print("opa")
-            }
+            self.nextWord()
         }
         mCardSwitcher = !mCardSwitcher
+    }
+    
+    func nextWord() {
+        if self.indexCounter < (self.words.count - 1){
+            self.secondLbl.text = ""
+            self.indexCounter += 1
+            self.displayCurrentWord(index: indexCounter)
+            self.setQuantity(index: indexCounter)
+        }
+    }
+    
+    func previousWord() {
+        if self.indexCounter > 0 {
+            self.secondLbl.text = ""
+            self.indexCounter -= 1
+            self.displayCurrentWord(index: indexCounter)
+            self.setQuantity(index: indexCounter)
+        }
     }
     
 }

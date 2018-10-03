@@ -18,9 +18,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MemorizeVC" customModule="Vocabularity" customModuleProvider="target">
             <connections>
                 <outlet property="cardView" destination="gQY-aX-zLv" id="Npl-mk-0xR"/>
+                <outlet property="circleBtn" destination="xKh-KC-8F5" id="X2k-eP-nTJ"/>
+                <outlet property="directionBtn" destination="EgL-na-wu8" id="Ivb-T6-Rl7"/>
                 <outlet property="firstLbl" destination="PGt-ax-7hA" id="Lre-7S-tIv"/>
+                <outlet property="markBtn" destination="7AL-Ff-ojX" id="9Hr-Vq-97n"/>
+                <outlet property="nextBtn" destination="A12-kh-Uoc" id="Psl-w0-HEJ"/>
+                <outlet property="previousBtn" destination="KsG-oF-kEr" id="4dN-51-mPU"/>
                 <outlet property="quantityLbl" destination="LrY-YK-Se0" id="8pI-Hr-vDs"/>
                 <outlet property="secondLbl" destination="g5x-8g-64Y" id="cCd-8f-QIV"/>
+                <outlet property="shuffleBtn" destination="3NL-nr-5am" id="pp4-qO-s7c"/>
+                <outlet property="speakBtn" destination="7aZ-fA-XQb" id="xDc-Wl-uMk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,7 +37,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chV-rY-i6E">
-                    <rect key="frame" x="16" y="41.5" width="14" height="25"/>
+                    <rect key="frame" x="16" y="38.5" width="14" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="14" id="eaS-wB-uQc"/>
                         <constraint firstAttribute="height" constant="25" id="utL-Sh-hPh"/>
@@ -41,21 +48,24 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrY-YK-Se0">
-                    <rect key="frame" x="154" y="43" width="68.5" height="23.5"/>
+                    <rect key="frame" x="154" y="40" width="68.5" height="23.5"/>
                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgL-na-wu8">
-                    <rect key="frame" x="303" y="36" width="56" height="36"/>
-                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                    <rect key="frame" x="316" y="36" width="43" height="30"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
                     <state key="normal" title="Ru - En"/>
+                    <connections>
+                        <action selector="directionBtnPressed:" destination="-1" eventType="touchUpInside" id="5ad-ic-jR2"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-aX-zLv" customClass="RoundShadowView" customModule="Vocabularity" customModuleProvider="target">
-                    <rect key="frame" x="16" y="92" width="343" height="475"/>
+                    <rect key="frame" x="16" y="86" width="343" height="481"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-MM-7bA">
-                            <rect key="frame" x="131.5" y="26" width="81.5" height="223"/>
+                            <rect key="frame" x="131.5" y="29" width="81.5" height="223"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-ax-7hA">
                                     <rect key="frame" x="0.0" y="0.0" width="81.5" height="33"/>
@@ -100,24 +110,39 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsG-oF-kEr">
                             <rect key="frame" x="0.0" y="0.0" width="40" height="35"/>
                             <state key="normal" image="previous-word"/>
+                            <connections>
+                                <action selector="previousBtnPressed:" destination="-1" eventType="touchUpInside" id="wWe-7J-CE2"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AL-Ff-ojX">
                             <rect key="frame" x="70" y="0.0" width="30" height="35"/>
                             <state key="normal" image="bookmark-white"/>
+                            <connections>
+                                <action selector="markBtnPressed:" destination="-1" eventType="touchUpInside" id="Mvj-cg-Mhk"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A12-kh-Uoc">
                             <rect key="frame" x="130" y="0.0" width="40" height="35"/>
                             <state key="normal" image="next-word"/>
+                            <connections>
+                                <action selector="nextBtnPressed:" destination="-1" eventType="touchUpInside" id="cCa-SV-qVv"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKh-KC-8F5">
                     <rect key="frame" x="305" y="602.5" width="40" height="35"/>
                     <state key="normal" image="repeat"/>
+                    <connections>
+                        <action selector="circleBtnPressed:" destination="-1" eventType="touchUpInside" id="6OE-sA-DO0"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NL-nr-5am">
                     <rect key="frame" x="30" y="602" width="40" height="35"/>
                     <state key="normal" image="shuffle"/>
+                    <connections>
+                        <action selector="shuffleBtnPressed:" destination="-1" eventType="touchUpInside" id="tVB-DC-9hO"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -43,6 +43,7 @@ class MemorizeVC: UIViewController {
         self.fetchCoreDataObjects(folder: folder, part: part)
 //        print(self.words.count)
         self.displayCurrentWord(index: indexCounter)
+        self.setQuantity(index: indexCounter)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -93,6 +94,10 @@ class MemorizeVC: UIViewController {
         secondLbl.text = words[index].word
     }
     
+    func setQuantity(index: Int) {
+        quantityLbl.text = "\(index + 1) / \(words.count)"
+    }
+    
     func speak(phrase: String!) {
         let utterance = AVSpeechUtterance(string: phrase)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
@@ -110,6 +115,7 @@ class MemorizeVC: UIViewController {
                 self.secondLbl.text = ""
                 self.indexCounter += 1
                 self.displayCurrentWord(index: indexCounter)
+                self.setQuantity(index: indexCounter)
             } else {
                 print("opa")
             }

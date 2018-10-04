@@ -187,12 +187,12 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //            let indexPath = tableView.indexPathForSelectedRow
             
             //getting the current cell from the index path
-            let currentCell = tableView.cellForRow(at: indexPath)! as! FolderCell
+//            let currentCell = tableView.cellForRow(at: indexPath)! as! FolderCell
             
             //getting the text of that cell
-            let currentItem = currentCell.folderNameLbl.text
+//            let currentItem = currentCell.folderNameLbl.text
             
-            let alertController = UIAlertController(title: "Choose the mode", message: "Choose the mode of excercise for " + currentItem! , preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Choose the mode", message: "Excercise mode ", preferredStyle: .alert)
             
             alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: { action in
                 let memorizeVC = MemorizeVC()

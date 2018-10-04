@@ -44,17 +44,11 @@ class MemorizeVC: UIViewController {
         speakBtn.setImage(UIImage(named: "speaking_pressed"), for:.highlighted);
         
         
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
-//        tap.delegate = self // This is not required
-//        cardView.addGestureRecognizer(tap)
-        
         let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
         cardView.addGestureRecognizer(cardTap)
         
         
         self.fetchCoreDataObjects(folder: folder, part: part)
-//        print(self.words.count)
         self.displayCurrentWord(index: indexCounter)
         self.setQuantity(index: indexCounter)
         
@@ -110,7 +104,13 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func directionBtnPressed(_ sender: Any) {
-        
+        let directionReversed = !defaults.bool(forKey: "directionReversed")
+        defaults.set(directionReversed, forKey: "directionReversed")
+        displayCurrentWord(index: indexCounter)
+        if secondLbl.text != "" {
+            translate(index: indexCounter)
+        }
+        setDirectionBtnView()
     }
     
     
@@ -145,17 +145,24 @@ class MemorizeVC: UIViewController {
         }
     }
     
-    func markWord(toRepeat: Bool) {
-        
-    }
+//    func markWord(toRepeat: Bool) {
+//
+//    }
     
     func displayCurrentWord(index: Int) {
-        print(index)
-        firstLbl.text = words[index].translation
+        if !defaults.bool(forKey: "directionReversed") {
+            firstLbl.text = words[index].translation
+        } else {
+            firstLbl.text = words[index].word
+        }
     }
     
     func translate(index: Int) {
-        secondLbl.text = words[index].word
+        if !defaults.bool(forKey: "directionReversed") {
+            secondLbl.text = words[index].word
+        } else {
+            secondLbl.text = words[index].translation
+        }
     }
     
     func setQuantity(index: Int) {
@@ -164,7 +171,7 @@ class MemorizeVC: UIViewController {
     
     func speak(phrase: String!) {
         
-        DispatchQueue.global(qos: .background).async {            
+        DispatchQueue.global(qos: .background).async {
             let utterance = AVSpeechUtterance(string: phrase)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
             let synth = AVSpeechSynthesizer()

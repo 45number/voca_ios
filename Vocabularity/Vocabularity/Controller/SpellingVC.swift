@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import AVFoundation
 
-class SpellingVC: UIViewController {
+class SpellingVC: UIViewController, UITextFieldDelegate {
 
     //Outlets
     @IBOutlet weak var quantityLbl: UILabel!
@@ -39,6 +39,8 @@ class SpellingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.textField.delegate = self
+        
         speakBtn.setImage(UIImage(named: "speaking"), for:.normal);
         speakBtn.setImage(UIImage(named: "speaking_pressed"), for:.highlighted);
         
@@ -119,6 +121,23 @@ class SpellingVC: UIViewController {
     
     
     //Functions
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        //textField code
+        
+//        textField.resignFirstResponder()  //if desired
+        performAction()
+        return true
+    }
+    
+    func performAction() {
+        //action events
+        print("return pressed")
+        speak(phrase: words[indexCounter].word)
+    }
+    
     
     func fetchCoreDataObjects(folder: Folder!, part: Int!) {
         self.fetch(folder: folder, part: part) { (complete) in

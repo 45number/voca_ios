@@ -27,6 +27,7 @@ class MemorizeVC: UIViewController {
     
     
     //Variables
+    let defaults = UserDefaults.standard
     var folder: Folder!
     var part: Int!
     
@@ -58,6 +59,9 @@ class MemorizeVC: UIViewController {
         self.setQuantity(index: indexCounter)
         
         setMarkBtnView()
+        setCircleBtnView()
+        setShuffleBtnView()
+        setDirectionBtnView()
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -79,7 +83,6 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func markBtnPressed(_ sender: Any) {
-//        words[indexCounter].repeatMem = !words[indexCounter].repeatMem
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
@@ -97,12 +100,17 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func shuffleBtnPressed(_ sender: Any) {
+        
     }
     
     @IBAction func circleBtnPressed(_ sender: Any) {
+        let looped = !defaults.bool(forKey: "looped")
+        defaults.set(looped, forKey: "looped")
+        setCircleBtnView()
     }
     
     @IBAction func directionBtnPressed(_ sender: Any) {
+        
     }
     
     
@@ -156,9 +164,7 @@ class MemorizeVC: UIViewController {
     
     func speak(phrase: String!) {
         
-        DispatchQueue.global(qos: .background).async {
-//            print("This is run on the background queue")
-            
+        DispatchQueue.global(qos: .background).async {            
             let utterance = AVSpeechUtterance(string: phrase)
             utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
             let synth = AVSpeechSynthesizer()
@@ -182,22 +188,38 @@ class MemorizeVC: UIViewController {
     }
     
     func nextWord() {
-        if self.indexCounter < (self.words.count - 1){
+        if defaults.bool(forKey: "looped") && self.indexCounter == (self.words.count - 1) {
             self.secondLbl.text = ""
-            self.indexCounter += 1
+            self.indexCounter = 0
             self.displayCurrentWord(index: indexCounter)
             self.setQuantity(index: indexCounter)
             self.setMarkBtnView()
+        } else {
+            if self.indexCounter < (self.words.count - 1){
+                self.secondLbl.text = ""
+                self.indexCounter += 1
+                self.displayCurrentWord(index: indexCounter)
+                self.setQuantity(index: indexCounter)
+                self.setMarkBtnView()
+            }
         }
     }
     
     func previousWord() {
-        if self.indexCounter > 0 {
+        if defaults.bool(forKey: "looped") && self.indexCounter == 0 {
             self.secondLbl.text = ""
-            self.indexCounter -= 1
+            self.indexCounter = self.words.count - 1
             self.displayCurrentWord(index: indexCounter)
             self.setQuantity(index: indexCounter)
             self.setMarkBtnView()
+        } else {
+            if self.indexCounter > 0 {
+                self.secondLbl.text = ""
+                self.indexCounter -= 1
+                self.displayCurrentWord(index: indexCounter)
+                self.setQuantity(index: indexCounter)
+                self.setMarkBtnView()
+            }
         }
     }
     
@@ -215,6 +237,30 @@ class MemorizeVC: UIViewController {
     
     func showWordAsUnmarked() {
         markBtn.setImage(UIImage(named: "bookmark-white"), for:.normal);
+    }
+    
+    func setDirectionBtnView() {
+        if defaults.bool(forKey: "directionReversed") {
+            directionBtn.setTitle("En - Ru", for: .normal)
+        } else {
+            directionBtn.setTitle("Ru - En", for: .normal)
+        }
+    }
+    
+    func setCircleBtnView() {
+        if defaults.bool(forKey: "looped") {
+            circleBtn.setImage(UIImage(named: "repeat-pressed"), for:.normal);
+        } else {
+            circleBtn.setImage(UIImage(named: "repeat"), for:.normal);
+        }
+    }
+    
+    func setShuffleBtnView() {
+        if defaults.bool(forKey: "shuffled") {
+            shuffleBtn.setImage(UIImage(named: "shuffle-pressed"), for:.normal);
+        } else {
+            shuffleBtn.setImage(UIImage(named: "shuffle"), for:.normal);
+        }
     }
     
 }

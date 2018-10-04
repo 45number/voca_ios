@@ -96,6 +96,21 @@ class MemorizeVC: UIViewController {
     @IBAction func shuffleBtnPressed(_ sender: Any) {
         let shuffled = !defaults.bool(forKey: "shuffled")
         defaults.set(shuffled, forKey: "shuffled")
+        
+        if defaults.bool(forKey: "shuffled") {
+            self.shuffleWords()
+            self.indexCounter = 0
+            self.displayCurrentWord(index: indexCounter)
+            self.setQuantity(index: indexCounter)
+            self.secondLbl.text = ""
+        } else {
+            self.fetchCoreDataObjects(folder: self.folder, part: self.part)
+            self.indexCounter = 0
+            self.displayCurrentWord(index: indexCounter)
+            self.setQuantity(index: indexCounter)
+            self.secondLbl.text = ""
+        }
+        
         setShuffleBtnView()
     }
     
@@ -123,7 +138,9 @@ class MemorizeVC: UIViewController {
         self.fetch(folder: folder, part: part) { (complete) in
             if complete {
                 
-                print("ok")
+                if defaults.bool(forKey: "shuffled") {
+                    shuffleWords()
+                }
                 
             }
         }
@@ -147,7 +164,9 @@ class MemorizeVC: UIViewController {
         }
     }
     
-    
+    func shuffleWords() {
+        words = self.words.shuffled()
+    }
     
 //    func markWord(toRepeat: Bool) {
 //
@@ -273,5 +292,38 @@ class MemorizeVC: UIViewController {
             shuffleBtn.setImage(UIImage(named: "shuffle"), for:.normal);
         }
     }
-    
 }
+
+
+extension MutableCollection {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+        
+        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            // Change `Int` in the next line to `IndexDistance` in < Swift 4.1
+            let d: Int = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            let i = index(firstUnshuffled, offsetBy: d)
+            swapAt(firstUnshuffled, i)
+        }
+    }
+}
+
+extension Sequence {
+    /// Returns an array with the contents of this sequence, shuffled.
+    func shuffled() -> [Element] {
+        var result = Array(self)
+        result.shuffle()
+        return result
+    }
+}
+
+
+
+
+
+
+
+
+

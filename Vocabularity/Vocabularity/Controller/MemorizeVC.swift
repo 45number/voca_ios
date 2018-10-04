@@ -94,7 +94,9 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func shuffleBtnPressed(_ sender: Any) {
-        
+        let shuffled = !defaults.bool(forKey: "shuffled")
+        defaults.set(shuffled, forKey: "shuffled")
+        setShuffleBtnView()
     }
     
     @IBAction func circleBtnPressed(_ sender: Any) {
@@ -144,6 +146,8 @@ class MemorizeVC: UIViewController {
             completion(false)
         }
     }
+    
+    
     
 //    func markWord(toRepeat: Bool) {
 //

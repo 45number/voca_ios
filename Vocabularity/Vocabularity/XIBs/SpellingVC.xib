@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpellingVC" customModule="Vocabularity" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nhs-i1-Xts">
+                    <rect key="frame" x="16" y="36" width="14" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="8t3-Lf-brT"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="LyI-aU-1b0"/>
+                        <constraint firstAttribute="width" constant="14" id="SEZ-lx-N3f"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="14" id="kan-97-MRf"/>
+                    </constraints>
+                    <state key="normal" image="back"/>
+                    <connections>
+                        <action selector="backBtnPressed:" destination="-1" eventType="touchUpInside" id="tPP-xV-9rR"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRD-mf-BHn">
+                    <rect key="frame" x="153" y="37" width="68.5" height="23.5"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2br-PI-4G5" customClass="RoundShadowView" customModule="Vocabularity" customModuleProvider="target">
+                    <rect key="frame" x="16" y="81" width="343" height="486"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="7PL-ZE-DAe">
+                            <rect key="frame" x="131.5" y="31.5" width="81.5" height="223"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scb-7n-4y7">
+                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="33"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcN-kW-iki">
+                                    <rect key="frame" x="21" y="83" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="8F5-pu-rob"/>
+                                        <constraint firstAttribute="width" constant="40" id="dZ1-sP-ZrK"/>
+                                    </constraints>
+                                    <state key="normal" image="speaking"/>
+                                    <state key="selected" image="speaking_pressed"/>
+                                    <state key="highlighted" image="speaking"/>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-Wp-BFN">
+                                    <rect key="frame" x="16" y="173" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="QlW-cv-GCB"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="23"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="7PL-ZE-DAe" firstAttribute="centerY" secondItem="2br-PI-4G5" secondAttribute="centerY" constant="-100" id="OF0-Ds-VXo"/>
+                        <constraint firstItem="7PL-ZE-DAe" firstAttribute="centerX" secondItem="2br-PI-4G5" secondAttribute="centerX" id="RaG-dV-A09"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7Q-Mx-7MT">
+                    <rect key="frame" x="30" y="602" width="40" height="35"/>
+                    <state key="normal" image="shuffle"/>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="HWo-Xq-q3h">
+                    <rect key="frame" x="102.5" y="602" width="170" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CM-wW-Eij">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="35"/>
+                            <state key="normal" image="previous-word"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTZ-BL-Ihn">
+                            <rect key="frame" x="70" y="0.0" width="30" height="35"/>
+                            <state key="normal" image="bookmark-white"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYL-O7-R1p">
+                            <rect key="frame" x="130" y="0.0" width="40" height="35"/>
+                            <state key="normal" image="next-word"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eX-Nt-H3Q">
+                    <rect key="frame" x="305" y="602" width="40" height="35"/>
+                    <state key="normal" image="repeat"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nhs-i1-Xts" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="8Qo-d2-liV"/>
+                <constraint firstItem="tRD-mf-BHn" firstAttribute="centerY" secondItem="Nhs-i1-Xts" secondAttribute="centerY" id="98o-kJ-gV7"/>
+                <constraint firstItem="o7Q-Mx-7MT" firstAttribute="centerY" secondItem="HWo-Xq-q3h" secondAttribute="centerY" id="Ap7-VL-AhL"/>
+                <constraint firstItem="HWo-Xq-q3h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FCi-Uf-w8i"/>
+                <constraint firstItem="2br-PI-4G5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="N6u-ek-8a7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eX-Nt-H3Q" secondAttribute="trailing" constant="30" id="PJ9-2a-nJm"/>
+                <constraint firstItem="Nhs-i1-Xts" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="YZn-0M-8Ho"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2br-PI-4G5" secondAttribute="trailing" constant="16" id="bdl-G3-7Nf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HWo-Xq-q3h" secondAttribute="bottom" constant="30" id="dY8-Zq-EO2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2br-PI-4G5" secondAttribute="bottom" constant="100" id="j6e-xQ-kQQ"/>
+                <constraint firstItem="o7Q-Mx-7MT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="lcy-3Y-swC"/>
+                <constraint firstItem="8eX-Nt-H3Q" firstAttribute="centerY" secondItem="HWo-Xq-q3h" secondAttribute="centerY" id="m6q-Ri-bcb"/>
+                <constraint firstItem="2br-PI-4G5" firstAttribute="top" secondItem="Nhs-i1-Xts" secondAttribute="bottom" constant="20" id="qj8-vp-DsW"/>
+                <constraint firstItem="tRD-mf-BHn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tvn-tL-lNS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="14" height="25"/>
+        <image name="bookmark-white" width="30" height="35"/>
+        <image name="next-word" width="40" height="35"/>
+        <image name="previous-word" width="40" height="35"/>
+        <image name="repeat" width="40" height="35"/>
+        <image name="shuffle" width="40" height="35"/>
+        <image name="speaking" width="40" height="40"/>
+        <image name="speaking_pressed" width="40" height="40"/>
+    </resources>
+</document>

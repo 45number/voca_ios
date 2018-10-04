@@ -201,7 +201,13 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 memorizeVC.modalPresentationStyle = .custom
                 self.present(memorizeVC, animated: true, completion: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: { action in
+                let spellingVC = SpellingVC()
+                spellingVC.folder = self.getCurrentFolder()
+                spellingVC.part = indexPath.row
+                spellingVC.modalPresentationStyle = .custom
+                self.present(spellingVC, animated: true, completion: nil)
+            }))
             alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
 //            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (success) in
 //                self.tableView.deselectRow(at: indexPath, animated: false)

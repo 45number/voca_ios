@@ -30,6 +30,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     var folder: Folder!
     var part: Int!
     
+    var isCorrect: Bool = false
+    
     var words: [Word] = []
     
     private var indexCounter: Int = 0
@@ -126,14 +128,81 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     //Functions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //        textField.resignFirstResponder()  //if desired
-        performAction()
+        checkPhrase()
         return true
     }
     
-    func performAction() {
+    func checkPhrase() {
         let userWordUntrimmed = textField.text
         let userWord = userWordUntrimmed?.trimmingCharacters(in: .whitespacesAndNewlines)
-
+        
+        if userWord != "" {
+            
+            if self.isCorrect {
+                self.nextWord()
+                self.isCorrect = false
+            } else {
+                speak(phrase: words[indexCounter].word)
+                
+                let (userInput, mismatches1) = findMismatch(compared: userWord!, reference: words[indexCounter].word!)
+                let (rightPhrase, mismatches2) = findMismatch(compared: words[indexCounter].word!, reference: userWord!)
+                
+            
+                if mismatches1 + mismatches2 == 0 {
+                    self.setCorrectAnswerTextFieldView()
+                    self.isCorrect = true
+                } else {
+                    self.setDefaultAnswerTextFieldView()
+                    self.secondLbl.attributedText = rightPhrase
+                }
+                self.textField.attributedText =  userInput
+            }
+        }
+    }
+    
+    func findMismatch(compared: String, reference: String) -> (NSAttributedString, Int) {
+        let comparedArray = compared.lowercased().components(separatedBy: " ")
+        let referenceArray = reference.lowercased().components(separatedBy: " ")
+        var wrongWords = comparedArray.filter{ item in !(referenceArray.contains(item)) }
+        
+        let attribString = NSMutableAttributedString()
+        var mistakesCounter = 0
+        
+        for word in comparedArray {
+            
+            var isWrong = false
+            
+            if wrongWords.count != 0 {
+                for wrongWord in wrongWords {
+                    if word == wrongWord {
+                        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.red]
+                        let attribWord = NSAttributedString(string: "\(word)", attributes: attributes)
+                        attribString.append(attribWord)
+                        attribString.append(NSAttributedString(string: " "))
+                        
+                        isWrong = true
+                        mistakesCounter += 1
+                        wrongWords.removeFirst()
+                        break
+                    }
+                }
+            }
+            
+            if isWrong == false {
+                attribString.append(NSAttributedString(string: word))
+                attribString.append(NSAttributedString(string: " "))
+            }
+        }
+        
+        return (attribString, mistakesCounter)
+        
+    }
+    
+    /*
+    func findMismatch1(compared: String, reference: String) {
+        let userWordUntrimmed = textField.text
+        let userWord = userWordUntrimmed?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         if userWord != "" {
             speak(phrase: words[indexCounter].word)
             let userWordsArray = userWord?.lowercased().components(separatedBy: " ")
@@ -176,6 +245,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             }
         }
     }
+ */
     
     func setCorrectAnswerTextFieldView() {
         self.textField.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.768627451, blue: 0.1294117647, alpha: 1)

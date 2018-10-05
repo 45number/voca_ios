@@ -134,8 +134,12 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     func performAction() {
         //action events
-        print("return pressed")
+//        print("return pressed")
         speak(phrase: words[indexCounter].word)
+        let userWordUntrimmed = textField.text
+        let userWord = userWordUntrimmed?.trimmingCharacters(in: .whitespacesAndNewlines)
+//        print(userWordUntrimmed ?? "default")
+//        print(userWord ?? "default")
     }
     
     

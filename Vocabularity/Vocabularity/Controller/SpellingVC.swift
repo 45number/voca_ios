@@ -11,7 +11,7 @@ import CoreData
 import AVFoundation
 
 class SpellingVC: UIViewController, UITextFieldDelegate {
-
+    
     //Outlets
     @IBOutlet weak var quantityLbl: UILabel!
     @IBOutlet weak var firstLbl: UILabel!
@@ -24,7 +24,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     
     
-   
+    
     //Variables
     let defaults = UserDefaults.standard
     var folder: Folder!
@@ -38,7 +38,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.textField.delegate = self
         
         speakBtn.setImage(UIImage(named: "speaking"), for:.normal);
@@ -53,7 +53,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         setShuffleBtnView()
     }
     
-
+    
     //Actions
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -127,51 +127,146 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         
         //textField code
         
-//        textField.resignFirstResponder()  //if desired
+        //        textField.resignFirstResponder()  //if desired
         performAction()
         return true
     }
     
     func performAction() {
-//        print("return pressed")
+        //        print("return pressed")
         let userWordUntrimmed = textField.text
         let userWord = userWordUntrimmed?.trimmingCharacters(in: .whitespacesAndNewlines)
-//        print(userWordUntrimmed ?? "default")
-//        print(userWord ?? "default")
+        //        print(userWordUntrimmed ?? "default")
+        //        print(userWord ?? "default")
         if userWord != "" {
             speak(phrase: words[indexCounter].word)
             let userWordsArray = userWord?.lowercased().components(separatedBy: " ")
             let rightWordsArray = words[indexCounter].word?.lowercased().components(separatedBy: " ")
             
-            let wrongWords = userWordsArray?.filter{ item in !(rightWordsArray?.contains(item))! }
+            var wrongWords = userWordsArray?.filter{ item in !(rightWordsArray?.contains(item))! }
             
+//            print(wrongWords)
+            
+            var afterArray: [String] = []
+            for word in userWordsArray! {
+                
+                var isWrong = false
+                
+                if wrongWords?.count != 0 {
+                    for wrongWord in wrongWords! {
+                        if word == wrongWord {
+                            let string = "[[ \(word) ]]"
+                            afterArray.append(string)
+                            isWrong = true
+                            wrongWords?.removeFirst()
+                            break
+                        }
+                    }
+                }
+                
+                if isWrong == false {
+                    afterArray.append(word)
+                }
+            }
+            print(afterArray)
+            
+            
+            /*
             var indicesOfWrongWords: [[Int]] = []
             for word in wrongWords! {
-                indicesOfWrongWords.append( (userWordsArray?.indexes(of: word))! )
+                
+                for (userWord1Index, userWord1) in (userWordsArray?.enumerated())! {
+                    if word == userWord1 {
+                        
+                    }
+                }
+                
+//                indicesOfWrongWords.append( (userWordsArray?.indexes(of: word))! )
+                break
             }
             
             print(indicesOfWrongWords)
             
+            var userWordsAfter: [String] = []
+            for (wordIndex, word) in (userWordsArray?.enumerated())! {
+                for indexes in indicesOfWrongWords {
+                    for index in indexes {
+                        if wordIndex == index {
+                            let word1 = "ll \(word) ll"
+                            userWordsAfter.append(word1)
+                            
+                        } else {
+                            userWordsAfter.append(word)
+                            
+                        }
+                    }
+                }
+            }
+            print (userWordsAfter)
+            */
+            
+            
+            //            let stringText = "Test String"
+            //            let stringCount = stringText.count
+            //            let string: NSMutableAttributedString = NSMutableAttributedString(string: stringText)
+            //
+            //            string.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.red, range: NSMakeRange(0, 6))
+            //            string.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: NSMakeRange(0, 6))
+            //            self.textField.attributedText =  string
+            //            textView.attributedText = attribString
+            
+            let attribWords = getAttributedStrings(text: "Java")
+            let attribString = NSMutableAttributedString()
+            attribWords.forEach{
+                attribString.append(NSAttributedString(string: "  "))
+                attribString.append($0)
+            }
+            self.textField.attributedText =  attribString
             
             
             
         }
     }
     
-//    func matches(for regex: String, in text: String) -> [String] {
-//        
-//        do {
-//            let regex = try NSRegularExpression(pattern: regex)
-//            let results = regex.matches(in: text,
-//                                        range: NSRange(text.startIndex..., in: text))
-//            return results.map {
-//                String(text[Range($0.range, in: text)!])
-//            }
-//        } catch let error {
-//            print("invalid regex: \(error.localizedDescription)")
-//            return []
-//        }
-//    }
+    
+    
+    func getAttributedStrings(text: String) -> [NSAttributedString] {
+        let words:[String] = text.components(separatedBy: " , ")
+        
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.red]
+        
+        let attribWords = words.map({
+            return NSAttributedString(string: " \($0) ", attributes: attributes)
+        })
+        return attribWords
+    }
+    
+    
+    func createLabel(string:NSAttributedString) ->UILabel {
+        let label = UILabel()
+        label.backgroundColor = UIColor.red
+        label.attributedText = string
+        label.sizeToFit()
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = label.frame.height * 0.5
+        return label
+    }
+    
+    
+    //    func matches(for regex: String, in text: String) -> [String] {
+    //
+    //        do {
+    //            let regex = try NSRegularExpression(pattern: regex)
+    //            let results = regex.matches(in: text,
+    //                                        range: NSRange(text.startIndex..., in: text))
+    //            return results.map {
+    //                String(text[Range($0.range, in: text)!])
+    //            }
+    //        } catch let error {
+    //            print("invalid regex: \(error.localizedDescription)")
+    //            return []
+    //        }
+    //    }
     
     
     func fetchCoreDataObjects(folder: Folder!, part: Int!) {
@@ -316,30 +411,4 @@ extension Array where Element: Equatable {
         return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
     }
 }
-
-extension NSMutableAttributedString {
-    
-    func highlightTarget(target: String, color: UIColor) -> NSMutableAttributedString {
-        let targetValue = String(target.characters.dropFirst().dropLast())
-        let regPattern = "\\[\(targetValue)\\]"
-        if let regex = try? NSRegularExpression(pattern: regPattern, options: []) {
-            let matchesArray = regex.matches(in: self.string, options: [], range: NSRange(location: 0, length: self.length))
-            for match in matchesArray {
-                let attributedText = NSMutableAttributedString(string: targetValue)
-                attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value:color, range:NSRange (location:0, length: attributedText.length))
-//                attributedText.addAttribute(NSForegroundColorAttributeName, value: color, range: NSRange(location: 0, length: attributedText.length))
-                self.replaceCharacters(in: match.range, with: attributedText)
-            }
-        }
-        return self
-    }
-}
-
-
-
-
-
-
-
-
 

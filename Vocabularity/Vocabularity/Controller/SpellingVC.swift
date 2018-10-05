@@ -150,6 +150,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             
                 if mismatches1 + mismatches2 == 0 {
                     self.setCorrectAnswerTextFieldView()
+                    self.secondLbl.text = ""
                     self.isCorrect = true
                 } else {
                     self.setDefaultAnswerTextFieldView()

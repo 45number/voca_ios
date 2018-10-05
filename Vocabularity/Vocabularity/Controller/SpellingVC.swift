@@ -51,6 +51,9 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         setMarkBtnView()
         setCircleBtnView()
         setShuffleBtnView()
+        
+        self.textField.autocorrectionType = .no
+//        buttonsStackView.bindToKeyboard()
     }
     
     
@@ -121,23 +124,16 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     
     //Functions
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        //textField code
-        
         //        textField.resignFirstResponder()  //if desired
         performAction()
         return true
     }
     
     func performAction() {
-        //        print("return pressed")
         let userWordUntrimmed = textField.text
         let userWord = userWordUntrimmed?.trimmingCharacters(in: .whitespacesAndNewlines)
-        //        print(userWordUntrimmed ?? "default")
-        //        print(userWord ?? "default")
+
         if userWord != "" {
             speak(phrase: words[indexCounter].word)
             let userWordsArray = userWord?.lowercased().components(separatedBy: " ")
@@ -145,10 +141,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             
             var wrongWords = userWordsArray?.filter{ item in !(rightWordsArray?.contains(item))! }
             
-//            print(wrongWords)
-            
-//            var afterArray: [String] = []
             let attribString = NSMutableAttributedString()
+            var mistakesCounter = 0
             
             for word in userWordsArray! {
                 
@@ -157,16 +151,13 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                 if wrongWords?.count != 0 {
                     for wrongWord in wrongWords! {
                         if word == wrongWord {
-                            
-                            
                             let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.red]
-                            let attribWord = NSAttributedString(string: " \(word) ", attributes: attributes)
+                            let attribWord = NSAttributedString(string: "\(word)", attributes: attributes)
                             attribString.append(attribWord)
                             attribString.append(NSAttributedString(string: " "))
-//                            let string = "[[ \(word) ]]"
-//                            afterArray.append(string)
                             
                             isWrong = true
+                            mistakesCounter += 1
                             wrongWords?.removeFirst()
                             break
                         }
@@ -176,74 +167,26 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                 if isWrong == false {
                     attribString.append(NSAttributedString(string: word))
                     attribString.append(NSAttributedString(string: " "))
-//                    afterArray.append(word)
                 }
             }
-            
-            self.textField.attributedText =  attribString
-            
-//            print(afterArray)
-            
-            
-            /*
-            var indicesOfWrongWords: [[Int]] = []
-            for word in wrongWords! {
-                
-                for (userWord1Index, userWord1) in (userWordsArray?.enumerated())! {
-                    if word == userWord1 {
-                        
-                    }
-                }
-                
-//                indicesOfWrongWords.append( (userWordsArray?.indexes(of: word))! )
-                break
+            if mistakesCounter == 0 {
+                self.setCorrectAnswerTextFieldView()
+            } else {
+                self.textField.attributedText =  attribString
             }
-            
-            print(indicesOfWrongWords)
-            
-            var userWordsAfter: [String] = []
-            for (wordIndex, word) in (userWordsArray?.enumerated())! {
-                for indexes in indicesOfWrongWords {
-                    for index in indexes {
-                        if wordIndex == index {
-                            let word1 = "ll \(word) ll"
-                            userWordsAfter.append(word1)
-                            
-                        } else {
-                            userWordsAfter.append(word)
-                            
-                        }
-                    }
-                }
-            }
-            print (userWordsAfter)
-            */
-            
-            
-            //            let stringText = "Test String"
-            //            let stringCount = stringText.count
-            //            let string: NSMutableAttributedString = NSMutableAttributedString(string: stringText)
-            //
-            //            string.addAttribute(NSAttributedStringKey.backgroundColor, value: UIColor.red, range: NSMakeRange(0, 6))
-            //            string.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white, range: NSMakeRange(0, 6))
-            //            self.textField.attributedText =  string
-            //            textView.attributedText = attribString
-            
-            /*
-            let attribWords = getAttributedStrings(text: "Java")
-            let attribString = NSMutableAttributedString()
-            attribWords.forEach{
-                attribString.append(NSAttributedString(string: "  "))
-                attribString.append($0)
-            }
-            self.textField.attributedText =  attribString
-            */
-            
-            
         }
     }
     
+    func setCorrectAnswerTextFieldView() {
+        self.textField.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.768627451, blue: 0.1294117647, alpha: 1)
+        self.textField.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        self.textField.isUserInteractionEnabled = false 3EC421
+    }
     
+    func setDefaultAnswerTextFieldView() {
+        self.textField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.textField.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
     
     func getAttributedStrings(text: String) -> [NSAttributedString] {
         let words:[String] = text.components(separatedBy: " , ")
@@ -256,7 +199,6 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         return attribWords
     }
     
-    
     func createLabel(string:NSAttributedString) ->UILabel {
         let label = UILabel()
         label.backgroundColor = UIColor.red
@@ -266,23 +208,6 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         label.layer.cornerRadius = label.frame.height * 0.5
         return label
     }
-    
-    
-    //    func matches(for regex: String, in text: String) -> [String] {
-    //
-    //        do {
-    //            let regex = try NSRegularExpression(pattern: regex)
-    //            let results = regex.matches(in: text,
-    //                                        range: NSRange(text.startIndex..., in: text))
-    //            return results.map {
-    //                String(text[Range($0.range, in: text)!])
-    //            }
-    //        } catch let error {
-    //            print("invalid regex: \(error.localizedDescription)")
-    //            return []
-    //        }
-    //    }
-    
     
     func fetchCoreDataObjects(folder: Folder!, part: Int!) {
         self.fetch(folder: folder, part: part) { (complete) in
@@ -351,13 +276,17 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     func nextWord() {
         if defaults.bool(forKey: "looped") && self.indexCounter == (self.words.count - 1) {
             self.secondLbl.text = ""
+            self.textField.text = ""
             self.indexCounter = 0
+            self.setDefaultAnswerTextFieldView()
             self.displayCurrentWord(index: indexCounter)
             self.setQuantity(index: indexCounter)
             self.setMarkBtnView()
         } else {
             if self.indexCounter < (self.words.count - 1){
                 self.secondLbl.text = ""
+                self.textField.text = ""
+                self.setDefaultAnswerTextFieldView()
                 self.indexCounter += 1
                 self.displayCurrentWord(index: indexCounter)
                 self.setQuantity(index: indexCounter)
@@ -369,6 +298,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     func previousWord() {
         if defaults.bool(forKey: "looped") && self.indexCounter == 0 {
             self.secondLbl.text = ""
+            self.textField.text = ""
+            self.setDefaultAnswerTextFieldView()
             self.indexCounter = self.words.count - 1
             self.displayCurrentWord(index: indexCounter)
             self.setQuantity(index: indexCounter)
@@ -376,6 +307,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         } else {
             if self.indexCounter > 0 {
                 self.secondLbl.text = ""
+                self.textField.text = ""
+                self.setDefaultAnswerTextFieldView()
                 self.indexCounter -= 1
                 self.displayCurrentWord(index: indexCounter)
                 self.setQuantity(index: indexCounter)
@@ -426,7 +359,5 @@ extension Array where Element: Equatable {
         return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
     }
 }
-
-
 
 

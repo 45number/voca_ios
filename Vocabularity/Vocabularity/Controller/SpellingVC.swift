@@ -143,19 +143,35 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             let userWordsArray = userWord?.lowercased().components(separatedBy: " ")
             let rightWordsArray = words[indexCounter].word?.lowercased().components(separatedBy: " ")
             
-//            let commonElements = userWordsArray?.filter((rightWordsArray?.contains)!)
-//            in words
+            let wrongWords = userWordsArray?.filter{ item in !(rightWordsArray?.contains(item))! }
             
-            let answer = userWordsArray?.filter{ item in !(rightWordsArray?.contains(item))! }
+            var indicesOfWrongWords: [[Int]] = []
+            for word in wrongWords! {
+                indicesOfWrongWords.append( (userWordsArray?.indexes(of: word))! )
+            }
             
-//            var set1 = Set(userWordsArray!)
-//            let set2 = Set(rightWordsArray!)
-//
-//            let filter = Array(set1.subtract(set2))
-            print(answer ?? "default") //[apple, orange]
+            print(indicesOfWrongWords)
+            
+            
+            
             
         }
     }
+    
+//    func matches(for regex: String, in text: String) -> [String] {
+//        
+//        do {
+//            let regex = try NSRegularExpression(pattern: regex)
+//            let results = regex.matches(in: text,
+//                                        range: NSRange(text.startIndex..., in: text))
+//            return results.map {
+//                String(text[Range($0.range, in: text)!])
+//            }
+//        } catch let error {
+//            print("invalid regex: \(error.localizedDescription)")
+//            return []
+//        }
+//    }
     
     
     func fetchCoreDataObjects(folder: Folder!, part: Int!) {
@@ -293,4 +309,37 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     
 }
+
+
+extension Array where Element: Equatable {
+    func indexes(of element: Element) -> [Int] {
+        return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
+    }
+}
+
+extension NSMutableAttributedString {
+    
+    func highlightTarget(target: String, color: UIColor) -> NSMutableAttributedString {
+        let targetValue = String(target.characters.dropFirst().dropLast())
+        let regPattern = "\\[\(targetValue)\\]"
+        if let regex = try? NSRegularExpression(pattern: regPattern, options: []) {
+            let matchesArray = regex.matches(in: self.string, options: [], range: NSRange(location: 0, length: self.length))
+            for match in matchesArray {
+                let attributedText = NSMutableAttributedString(string: targetValue)
+                attributedText.addAttribute(NSAttributedStringKey.foregroundColor, value:color, range:NSRange (location:0, length: attributedText.length))
+//                attributedText.addAttribute(NSForegroundColorAttributeName, value: color, range: NSRange(location: 0, length: attributedText.length))
+                self.replaceCharacters(in: match.range, with: attributedText)
+            }
+        }
+        return self
+    }
+}
+
+
+
+
+
+
+
+
 

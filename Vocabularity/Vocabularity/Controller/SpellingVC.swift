@@ -133,13 +133,28 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     }
     
     func performAction() {
-        //action events
 //        print("return pressed")
-        speak(phrase: words[indexCounter].word)
         let userWordUntrimmed = textField.text
         let userWord = userWordUntrimmed?.trimmingCharacters(in: .whitespacesAndNewlines)
 //        print(userWordUntrimmed ?? "default")
 //        print(userWord ?? "default")
+        if userWord != "" {
+            speak(phrase: words[indexCounter].word)
+            let userWordsArray = userWord?.lowercased().components(separatedBy: " ")
+            let rightWordsArray = words[indexCounter].word?.lowercased().components(separatedBy: " ")
+            
+//            let commonElements = userWordsArray?.filter((rightWordsArray?.contains)!)
+//            in words
+            
+            let answer = userWordsArray?.filter{ item in !(rightWordsArray?.contains(item))! }
+            
+//            var set1 = Set(userWordsArray!)
+//            let set2 = Set(rightWordsArray!)
+//
+//            let filter = Array(set1.subtract(set2))
+            print(answer ?? "default") //[apple, orange]
+            
+        }
     }
     
     

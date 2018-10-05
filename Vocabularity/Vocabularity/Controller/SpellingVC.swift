@@ -147,7 +147,9 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             
 //            print(wrongWords)
             
-            var afterArray: [String] = []
+//            var afterArray: [String] = []
+            let attribString = NSMutableAttributedString()
+            
             for word in userWordsArray! {
                 
                 var isWrong = false
@@ -155,8 +157,15 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                 if wrongWords?.count != 0 {
                     for wrongWord in wrongWords! {
                         if word == wrongWord {
-                            let string = "[[ \(word) ]]"
-                            afterArray.append(string)
+                            
+                            
+                            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.backgroundColor: UIColor.red]
+                            let attribWord = NSAttributedString(string: " \(word) ", attributes: attributes)
+                            attribString.append(attribWord)
+                            attribString.append(NSAttributedString(string: " "))
+//                            let string = "[[ \(word) ]]"
+//                            afterArray.append(string)
+                            
                             isWrong = true
                             wrongWords?.removeFirst()
                             break
@@ -165,10 +174,15 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                 }
                 
                 if isWrong == false {
-                    afterArray.append(word)
+                    attribString.append(NSAttributedString(string: word))
+                    attribString.append(NSAttributedString(string: " "))
+//                    afterArray.append(word)
                 }
             }
-            print(afterArray)
+            
+            self.textField.attributedText =  attribString
+            
+//            print(afterArray)
             
             
             /*
@@ -215,6 +229,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             //            self.textField.attributedText =  string
             //            textView.attributedText = attribString
             
+            /*
             let attribWords = getAttributedStrings(text: "Java")
             let attribString = NSMutableAttributedString()
             attribWords.forEach{
@@ -222,7 +237,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                 attribString.append($0)
             }
             self.textField.attributedText =  attribString
-            
+            */
             
             
         }
@@ -411,4 +426,7 @@ extension Array where Element: Equatable {
         return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
     }
 }
+
+
+
 

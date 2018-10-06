@@ -22,13 +22,15 @@ class SettingsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if defaults.integer(forKey: "wordsAtTime") != 0 {
-            wordsAmountBtn.setTitle(String(defaults.integer(forKey: "wordsAtTime")), for: UIControlState.normal)
+            setWordsAtTimeTitle()
         }
     }
     
@@ -55,6 +57,15 @@ class SettingsVC: UIViewController {
         customAlert.delegate = self
         self.present(customAlert, animated: true, completion: nil)
     }
+    
+    @objc func wordsAtTimeDidChange(_ notif: Notification) {
+        setWordsAtTimeTitle()
+    }
+    
+    func setWordsAtTimeTitle() {
+        wordsAmountBtn.setTitle(String(defaults.integer(forKey: "wordsAtTime")), for: UIControlState.normal)
+    }
+    
 }
 
 
@@ -64,6 +75,7 @@ extension SettingsVC: CustomAlertViewDelegate {
     func okButtonTapped(selectedOption: Int) {
         
         defaults.set(selectedOption, forKey: "wordsAtTime")
+        NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
         print("okButtonTapped with \(selectedOption) option selected")
 //        print("TextField has value: \(textFieldValue)")
 //        , textFieldValue: String

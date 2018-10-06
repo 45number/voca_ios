@@ -38,13 +38,20 @@ class FoldersVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchCoreDataObjects(parent: getCurrentFolder())
-        tableView.reloadData()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+        
+        updateView()
+        
+    }
+    
+    func updateView() {
         if defaults.integer(forKey: "wordsAtTime") != 0 {
             self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
         }
         
+        fetchCoreDataObjects(parent: getCurrentFolder())
+        tableView.reloadData()
     }
     
     func fetchCoreDataObjects(parent: Folder?) {
@@ -238,6 +245,10 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //        self.currentFolder = folders[indexPath.row]
 //        self.fetchCoreDataObjects(parent: self.getCurrentFolder)
 
+    }
+    
+    @objc func wordsAtTimeDidChange(_ notif: Notification) {
+        updateView()
     }
     
 }

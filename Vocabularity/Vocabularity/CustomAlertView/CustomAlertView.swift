@@ -12,11 +12,11 @@ class CustomAlertView: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var alertTextField: UITextField!
+//    @IBOutlet weak var alertTextField: UITextField!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+//    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var delegate: CustomAlertViewDelegate?
     var selectedOption = "First"
@@ -24,7 +24,7 @@ class CustomAlertView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        alertTextField.becomeFirstResponder()
+//        alertTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,29 +51,31 @@ class CustomAlertView: UIViewController {
     }
     
     @IBAction func onTapCancelButton(_ sender: Any) {
-        alertTextField.resignFirstResponder()
+//        alertTextField.resignFirstResponder()
         delegate?.cancelButtonTapped()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onTapOkButton(_ sender: Any) {
-        alertTextField.resignFirstResponder()
-        delegate?.okButtonTapped(selectedOption: selectedOption, textFieldValue: alertTextField.text!)
+//        alertTextField.resignFirstResponder()
+        delegate?.okButtonTapped()
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func onTapSegmentedControl(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print("First option")
-            selectedOption = "First"
-            break
-        case 1:
-            print("Second option")
-            selectedOption = "Second"
-            break
-        default:
-            break
-        }
-    }
+//    selectedOption: selectedOption, textFieldValue: alertTextField.text!
+    
+//    @IBAction func onTapSegmentedControl(_ sender: UISegmentedControl) {
+//        switch sender.selectedSegmentIndex {
+//        case 0:
+//            print("First option")
+//            selectedOption = "First"
+//            break
+//        case 1:
+//            print("Second option")
+//            selectedOption = "Second"
+//            break
+//        default:
+//            break
+//        }
+//    }
 }

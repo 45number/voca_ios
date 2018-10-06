@@ -89,9 +89,10 @@ extension SettingsVC: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension SettingsVC: CustomAlertViewDelegate {
     
-    func okButtonTapped(selectedOption: String, textFieldValue: String) {
-        print("okButtonTapped with \(selectedOption) option selected")
-        print("TextField has value: \(textFieldValue)")
+    func okButtonTapped() {
+//        print("okButtonTapped with \(selectedOption) option selected")
+//        print("TextField has value: \(textFieldValue)")
+//        selectedOption: String, textFieldValue: String
     }
     
     func cancelButtonTapped() {

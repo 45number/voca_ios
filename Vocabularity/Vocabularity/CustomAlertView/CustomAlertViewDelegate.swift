@@ -7,6 +7,7 @@
 //
 
 protocol CustomAlertViewDelegate: class {
-    func okButtonTapped(selectedOption: String, textFieldValue: String)
+    func okButtonTapped()
+//    selectedOption: String, textFieldValue: String
     func cancelButtonTapped()
 }

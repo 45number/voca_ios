@@ -21,18 +21,22 @@ class CustomAlertView: UIViewController {
 //    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
+    private var dataSource1: [Int] = []
     
     var delegate: CustomAlertViewDelegate?
     var selectedOption = "First"
+    var selectedOption1 = 0
     let alertViewGrayColor = UIColor(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        populateDataSource()
+        
         pickerView.dataSource = self
         pickerView.delegate = self
         
-        pickerView.selectRow(2, inComponent: 0, animated: true)
+        pickerView.selectRow(20, inComponent: 0, animated: true)
 //        alertTextField.becomeFirstResponder()
     }
     
@@ -59,6 +63,13 @@ class CustomAlertView: UIViewController {
         })
     }
     
+    func populateDataSource() {
+        for index in 5...100 {
+            self.dataSource1.append(index)
+        }
+    }
+    
+    
     @IBAction func onTapCancelButton(_ sender: Any) {
 //        alertTextField.resignFirstResponder()
         delegate?.cancelButtonTapped()
@@ -67,7 +78,7 @@ class CustomAlertView: UIViewController {
     
     @IBAction func onTapOkButton(_ sender: Any) {
 //        alertTextField.resignFirstResponder()
-        delegate?.okButtonTapped(selectedOption: self.selectedOption)
+        delegate?.okButtonTapped(selectedOption: self.selectedOption1)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -95,16 +106,16 @@ extension CustomAlertView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSource.count
+        return dataSource1.count
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //        detailLabel.text = dataSource[row]
-        self.selectedOption = dataSource[row]
+        self.selectedOption1 = dataSource1[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource[row]
+        return String(dataSource1[row])
     }
     
 }

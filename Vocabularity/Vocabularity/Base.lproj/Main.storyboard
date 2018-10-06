@@ -537,12 +537,12 @@
                                                 </connections>
                                             </button>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyG-A1-2ak">
-                                                <rect key="frame" x="5" y="68" width="290" height="216"/>
+                                                <rect key="frame" x="5" y="60" width="290" height="216"/>
                                             </pickerView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="SyG-A1-2ak" firstAttribute="top" secondItem="6qs-Au-e1c" secondAttribute="bottom" constant="8" id="0IP-il-ENM"/>
+                                            <constraint firstItem="SyG-A1-2ak" firstAttribute="top" secondItem="6qs-Au-e1c" secondAttribute="bottom" id="0IP-il-ENM"/>
                                             <constraint firstItem="bAe-Ny-plg" firstAttribute="leading" secondItem="eAV-pV-fLL" secondAttribute="leading" id="1du-MV-VEF"/>
                                             <constraint firstAttribute="bottom" secondItem="bAe-Ny-plg" secondAttribute="bottom" id="7Pk-6M-YUm"/>
                                             <constraint firstItem="SyG-A1-2ak" firstAttribute="leading" secondItem="eAV-pV-fLL" secondAttribute="leading" constant="5" id="JEM-Rm-hDh"/>

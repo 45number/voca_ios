@@ -12,7 +12,7 @@ class SettingsVC: UIViewController {
 
     
     //Variables
-    private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
+//    private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +74,7 @@ class SettingsVC: UIViewController {
 
 extension SettingsVC: CustomAlertViewDelegate {
     
-    func okButtonTapped(selectedOption: String) {
+    func okButtonTapped(selectedOption: Int) {
         print("okButtonTapped with \(selectedOption) option selected")
 //        print("TextField has value: \(textFieldValue)")
 //        , textFieldValue: String

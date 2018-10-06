@@ -400,6 +400,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KSn-Xj-wkk">
                                                                 <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="englishSwitchPressed:" destination="CAT-b6-jZW" eventType="valueChanged" id="ySb-Dc-9hC"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -414,6 +417,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A79-Cf-seD">
                                                                 <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="russianSwitchPressed:" destination="CAT-b6-jZW" eventType="valueChanged" id="StL-JJ-A8o"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -428,6 +434,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUe-Pd-YRt">
                                                                 <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="arabicSwitchPressed:" destination="CAT-b6-jZW" eventType="valueChanged" id="Vmx-Lg-vR9"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -509,6 +518,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
+                        <outlet property="arabicSwitch" destination="eUe-Pd-YRt" id="iFY-9g-4Ml"/>
+                        <outlet property="englishSwitch" destination="KSn-Xj-wkk" id="yr2-C1-spf"/>
+                        <outlet property="russianSwitch" destination="A79-Cf-seD" id="d4M-a5-zZC"/>
                         <outlet property="wordsAmountBtn" destination="EGM-ry-Xii" id="BPY-wx-U0R"/>
                     </connections>
                 </viewController>

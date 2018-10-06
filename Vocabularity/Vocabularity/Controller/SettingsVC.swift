@@ -10,11 +10,16 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    let defaults = UserDefaults.standard
+    
     //Outlets
     @IBOutlet weak var wordsAmountBtn: UIButton!
+    @IBOutlet weak var englishSwitch: UISwitch!
+    @IBOutlet weak var russianSwitch: UISwitch!
+    @IBOutlet weak var arabicSwitch: UISwitch!
     
     
-    let defaults = UserDefaults.standard
+    
     
     //Variables
     
@@ -24,6 +29,8 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +39,7 @@ class SettingsVC: UIViewController {
         if defaults.integer(forKey: "wordsAtTime") != 0 {
             setWordsAtTimeTitle()
         }
+        setSwitchViews()
     }
     
     //Actions
@@ -46,7 +54,40 @@ class SettingsVC: UIViewController {
     @IBAction func wordsAtTime1Pressed(_ sender: Any) {
         createWordsAtTimeAlertView()
     }
+   
     
+    @IBAction func englishSwitchPressed(_ sender: UISwitch) {
+        if sender.isOn == true {
+            defaults.set(true, forKey: "english")
+        } else {
+            defaults.set(false, forKey: "english")
+        }
+    }
+    
+    @IBAction func russianSwitchPressed(_ sender: UISwitch) {
+        if sender.isOn == true {
+            defaults.set(true, forKey: "russian")
+        } else {
+            defaults.set(false, forKey: "russian")
+        }
+    }
+    
+    @IBAction func arabicSwitchPressed(_ sender: UISwitch) {
+        if sender.isOn == true {
+            defaults.set(true, forKey: "arabic")
+        } else {
+            defaults.set(false, forKey: "arabic ")
+        }
+    }
+    
+    
+    
+    
+    func setSwitchViews() {
+        if defaults.bool(forKey: "english") { self.englishSwitch.setOn(true, animated: true) } else { self.englishSwitch.setOn(false, animated: true) }
+        if defaults.bool(forKey: "russian") { self.russianSwitch.setOn(true, animated: true) } else { self.russianSwitch.setOn(false, animated: true) }
+        if defaults.bool(forKey: "arabic") { self.arabicSwitch.setOn(true, animated: true) } else { self.arabicSwitch.setOn(false, animated: true) }
+    }
     
     func createWordsAtTimeAlertView() {
         let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "CustomAlertID") as! CustomAlertView

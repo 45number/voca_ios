@@ -10,15 +10,26 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    //Outlets
+    @IBOutlet weak var wordsAmountBtn: UIButton!
+    
+    
+    let defaults = UserDefaults.standard
     
     //Variables
-//    private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        
+        if defaults.integer(forKey: "wordsAtTime") != 0 {
+            wordsAmountBtn.setTitle(String(defaults.integer(forKey: "wordsAtTime")), for: UIControlState.normal)
+        }
     }
     
     //Actions
@@ -27,11 +38,15 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func wordsAtTimePressed(_ sender: Any) {
-//        createWordsAtTimeAlertView()
-        opa()
+        createWordsAtTimeAlertView()
     }
     
-    func opa() {
+    @IBAction func wordsAtTime1Pressed(_ sender: Any) {
+        createWordsAtTimeAlertView()
+    }
+    
+    
+    func createWordsAtTimeAlertView() {
         let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "CustomAlertID") as! CustomAlertView
         customAlert.providesPresentationContextTransitionStyle = true
         customAlert.definesPresentationContext = true
@@ -40,34 +55,6 @@ class SettingsVC: UIViewController {
         customAlert.delegate = self
         self.present(customAlert, animated: true, completion: nil)
     }
-    
-    /*
-    func createWordsAtTimeAlertView() {
-        
-        
-        let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
-
-//        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-//
-        let pickerFrame = CGRect(x: 17, y: 52, width: 270, height: 100)
-        let picker = UIPickerView(frame: pickerFrame)
-        
-        picker.delegate = self
-        picker.dataSource = self
-        
-        alert.view.addSubview(picker)
-//
-//        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-//
-//        alert.addAction(action)
-//        present(alert, animated: true, completion: nil)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { action in }))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
- */
-    
 }
 
 
@@ -75,6 +62,8 @@ class SettingsVC: UIViewController {
 extension SettingsVC: CustomAlertViewDelegate {
     
     func okButtonTapped(selectedOption: Int) {
+        
+        defaults.set(selectedOption, forKey: "wordsAtTime")
         print("okButtonTapped with \(selectedOption) option selected")
 //        print("TextField has value: \(textFieldValue)")
 //        , textFieldValue: String

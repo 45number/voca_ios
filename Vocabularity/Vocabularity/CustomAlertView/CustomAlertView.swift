@@ -10,6 +10,8 @@ import UIKit
 
 class CustomAlertView: UIViewController {
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
 //    @IBOutlet weak var alertTextField: UITextField!
@@ -36,7 +38,13 @@ class CustomAlertView: UIViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
         
-        pickerView.selectRow(20, inComponent: 0, animated: true)
+        if defaults.integer(forKey: "wordsAtTime") != 0 {
+            let initialRow = defaults.integer(forKey: "wordsAtTime") - 5
+            pickerView.selectRow(initialRow, inComponent: 0, animated: true)
+        }
+        
+        
+        
 //        alertTextField.becomeFirstResponder()
     }
     

@@ -440,13 +440,23 @@
                                                     <constraint firstItem="ZAy-6r-m5B" firstAttribute="leading" secondItem="POY-gT-X3g" secondAttribute="leading" id="nFB-p7-Duu"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBy-D8-Fiq">
+                                                <rect key="frame" x="30" y="224.5" width="315" height="30"/>
+                                                <state key="normal" title="Words at time"/>
+                                                <connections>
+                                                    <action selector="wordsAtTimePressed:" destination="CAT-b6-jZW" eventType="touchUpInside" id="JId-I7-ihH"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="HMV-Md-itr" firstAttribute="top" secondItem="M8v-av-hOR" secondAttribute="top" constant="16" id="EoH-fp-kOL"/>
                                             <constraint firstItem="HMV-Md-itr" firstAttribute="leading" secondItem="M8v-av-hOR" secondAttribute="leading" constant="30" id="Ffq-Nv-bQp"/>
+                                            <constraint firstItem="CBy-D8-Fiq" firstAttribute="top" secondItem="POY-gT-X3g" secondAttribute="bottom" constant="40" id="JQv-0c-Fgv"/>
                                             <constraint firstAttribute="trailing" secondItem="POY-gT-X3g" secondAttribute="trailing" constant="30" id="RJV-qs-0Ad"/>
+                                            <constraint firstItem="CBy-D8-Fiq" firstAttribute="leading" secondItem="M8v-av-hOR" secondAttribute="leading" constant="30" id="bFw-Hd-3WG"/>
                                             <constraint firstItem="POY-gT-X3g" firstAttribute="top" secondItem="HMV-Md-itr" secondAttribute="bottom" constant="20" id="mCi-zq-cfa"/>
+                                            <constraint firstAttribute="trailing" secondItem="CBy-D8-Fiq" secondAttribute="trailing" constant="30" id="ncf-ek-6o1"/>
                                             <constraint firstItem="POY-gT-X3g" firstAttribute="leading" secondItem="M8v-av-hOR" secondAttribute="leading" constant="30" id="zRV-CI-XVR"/>
                                         </constraints>
                                     </view>

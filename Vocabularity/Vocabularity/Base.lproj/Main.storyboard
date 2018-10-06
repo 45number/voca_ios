@@ -193,6 +193,7 @@
                     </view>
                     <connections>
                         <outlet property="backBtn" destination="fTB-Lp-QHm" id="Dwi-1u-54Q"/>
+                        <outlet property="tabBar" destination="vz5-iO-ysp" id="8r3-ow-9eO"/>
                         <outlet property="tableView" destination="ZEO-HB-PUc" id="jEj-ws-4FU"/>
                         <segue destination="EN8-lw-f17" kind="show" identifier="toCreateFolder" id="NaH-tg-Qwb"/>
                         <segue destination="UKO-Bd-KkH" kind="show" identifier="toCreateWord" id="eYP-1f-kpq"/>

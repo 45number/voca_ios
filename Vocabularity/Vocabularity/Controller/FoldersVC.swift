@@ -19,6 +19,8 @@ class FoldersVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backBtn: UIButton!
     
+    @IBOutlet weak var tabBar: UITabBar!
+    
     
     //Variables
     var folders: [Folder] = []
@@ -43,6 +45,11 @@ class FoldersVC: UIViewController {
         
         updateView()
         
+        let barItem1 = UITabBarItem(title: "English", image: nil, selectedImage: nil)
+        let barItem2 = UITabBarItem(title: "Russian", image: nil, selectedImage: nil)
+        let tabBarList = [barItem1, barItem2]
+        
+        self.tabBar.setItems(tabBarList, animated: true )
     }
     
     func updateView() {

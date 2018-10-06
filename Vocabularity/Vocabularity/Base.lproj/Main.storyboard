@@ -582,6 +582,7 @@
                         <outlet property="cancelButton" destination="bAe-Ny-plg" id="HGZ-Zn-1xi"/>
                         <outlet property="messageLabel" destination="6qs-Au-e1c" id="gJH-Il-x7m"/>
                         <outlet property="okButton" destination="gnz-Ab-cno" id="vEw-Iv-cWR"/>
+                        <outlet property="pickerView" destination="SyG-A1-2ak" id="Nqj-UI-JAZ"/>
                         <outlet property="titleLabel" destination="tGM-LI-xcW" id="8Bm-6a-HNn"/>
                     </connections>
                 </viewController>

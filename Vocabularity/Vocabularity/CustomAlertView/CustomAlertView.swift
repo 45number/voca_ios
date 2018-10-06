@@ -16,7 +16,11 @@ class CustomAlertView: UIViewController {
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var pickerView: UIPickerView!
+    
 //    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
     
     var delegate: CustomAlertViewDelegate?
     var selectedOption = "First"
@@ -24,6 +28,11 @@ class CustomAlertView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
+        pickerView.selectRow(2, inComponent: 0, animated: true)
 //        alertTextField.becomeFirstResponder()
     }
     
@@ -58,7 +67,7 @@ class CustomAlertView: UIViewController {
     
     @IBAction func onTapOkButton(_ sender: Any) {
 //        alertTextField.resignFirstResponder()
-        delegate?.okButtonTapped()
+        delegate?.okButtonTapped(selectedOption: self.selectedOption)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -78,4 +87,24 @@ class CustomAlertView: UIViewController {
 //            break
 //        }
 //    }
+}
+
+extension CustomAlertView: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //        detailLabel.text = dataSource[row]
+        self.selectedOption = dataSource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return dataSource[row]
+    }
+    
 }

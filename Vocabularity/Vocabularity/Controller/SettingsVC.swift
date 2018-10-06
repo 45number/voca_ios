@@ -41,6 +41,7 @@ class SettingsVC: UIViewController {
         self.present(customAlert, animated: true, completion: nil)
     }
     
+    /*
     func createWordsAtTimeAlertView() {
         
         
@@ -65,34 +66,18 @@ class SettingsVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+ */
     
 }
 
-extension SettingsVC: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSource.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        detailLabel.text = dataSource[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return dataSource[row]
-    }
-    
-}
+
 
 extension SettingsVC: CustomAlertViewDelegate {
     
-    func okButtonTapped() {
-//        print("okButtonTapped with \(selectedOption) option selected")
+    func okButtonTapped(selectedOption: String) {
+        print("okButtonTapped with \(selectedOption) option selected")
 //        print("TextField has value: \(textFieldValue)")
-//        selectedOption: String, textFieldValue: String
+//        , textFieldValue: String
     }
     
     func cancelButtonTapped() {

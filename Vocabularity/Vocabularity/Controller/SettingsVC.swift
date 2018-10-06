@@ -27,17 +27,25 @@ class SettingsVC: UIViewController {
     }
     
     @IBAction func wordsAtTimePressed(_ sender: Any) {
-        createWordsAtTimeAlertView()
+//        createWordsAtTimeAlertView()
+        opa()
+    }
+    
+    func opa() {
+        let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "CustomAlertID") as! CustomAlertView
+        customAlert.providesPresentationContextTransitionStyle = true
+        customAlert.definesPresentationContext = true
+        customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        customAlert.delegate = self
+        self.present(customAlert, animated: true, completion: nil)
     }
     
     func createWordsAtTimeAlertView() {
         
         
         let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
-        
-        
-        
-        
+
 //        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
 //
         let pickerFrame = CGRect(x: 17, y: 52, width: 270, height: 100)
@@ -78,3 +86,16 @@ extension SettingsVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
 }
+
+extension SettingsVC: CustomAlertViewDelegate {
+    
+    func okButtonTapped(selectedOption: String, textFieldValue: String) {
+        print("okButtonTapped with \(selectedOption) option selected")
+        print("TextField has value: \(textFieldValue)")
+    }
+    
+    func cancelButtonTapped() {
+        print("cancelButtonTapped")
+    }
+}
+

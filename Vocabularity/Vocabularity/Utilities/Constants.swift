@@ -11,3 +11,4 @@ import Foundation
 //Segues
 let TO_CREATE_FOLDER = "toCreateFolder"
 let TO_CREATE_WORD = "toCreateWord"
+let TO_SETTINGS = "toSettings"

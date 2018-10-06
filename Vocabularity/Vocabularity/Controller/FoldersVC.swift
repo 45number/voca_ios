@@ -85,6 +85,12 @@ class FoldersVC: UIViewController {
         self.tableView.reloadData() 
     }
     
+    @IBAction func dotsBtnPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: TO_SETTINGS, sender: nil)
+    }
+    
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,6 +101,7 @@ class FoldersVC: UIViewController {
         if let vc = segue.destination as? CreateWordVC {
             vc.parentFolder = self.getCurrentFolder()
         }
+        
     }
     
     // Path functions

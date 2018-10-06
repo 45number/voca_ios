@@ -139,6 +139,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         if userWord != "" {
             
             if self.isCorrect {
+                
                 self.nextWord()
                 self.isCorrect = false
             } else {

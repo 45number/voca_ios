@@ -13,6 +13,8 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class FoldersVC: UIViewController {
     
+    let defaults = UserDefaults.standard
+    
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var backBtn: UIButton!
@@ -23,6 +25,8 @@ class FoldersVC: UIViewController {
     var path: [Folder] = []
     
     var decks: [Deck] = []
+    
+    var wordsAtTime: Int = 25
     
     
     override func viewDidLoad() {
@@ -36,6 +40,11 @@ class FoldersVC: UIViewController {
         super.viewWillAppear(animated)
         fetchCoreDataObjects(parent: getCurrentFolder())
         tableView.reloadData()
+        
+        if defaults.integer(forKey: "wordsAtTime") != 0 {
+            self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
+        }
+        
     }
     
     func fetchCoreDataObjects(parent: Folder?) {
@@ -295,10 +304,14 @@ extension FoldersVC {
                 print(words.count)
                 if words.count > 0 {
 //                    let decksQuantity = Int(ceil(Double(words.count/5)))
-                    let decksQuantity = Int(ceil(Double(words.count)/Double(5)))
+                    
+                    let decksQuantity = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
                     print(decksQuantity)
                     for index in 1...decksQuantity {
-                        let deck = Deck(title: "Deck \(index)", info: "5 words in deck")
+                        let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck")
+//                        if defaults.integer(forKey: "wordsAtTime") != 0 {
+//                            wordsAmountBtn.setTitle(String(defaults.integer(forKey: "wordsAtTime")), for: UIControlState.normal)
+//                        }
                         self.decks.append(deck)
                     }
                 }

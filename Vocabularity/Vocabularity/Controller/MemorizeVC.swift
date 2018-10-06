@@ -12,6 +12,8 @@ import AVFoundation
 
 class MemorizeVC: UIViewController {
 
+    let defaults = UserDefaults.standard
+    
     //Outlets
     @IBOutlet weak var quantityLbl: UILabel!
     @IBOutlet weak var firstLbl: UILabel!
@@ -27,9 +29,10 @@ class MemorizeVC: UIViewController {
     
     
     //Variables
-    let defaults = UserDefaults.standard
     var folder: Folder!
     var part: Int!
+    var wordsAtTime: Int = 25
+    
     
     var words: [Word] = []
     
@@ -39,6 +42,9 @@ class MemorizeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if defaults.integer(forKey: "wordsAtTime") != 0 {
+            self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
+        }
         
         speakBtn.setImage(UIImage(named: "speaking"), for:.normal);
         speakBtn.setImage(UIImage(named: "speaking_pressed"), for:.highlighted);
@@ -56,6 +62,18 @@ class MemorizeVC: UIViewController {
         setCircleBtnView()
         setShuffleBtnView()
         setDirectionBtnView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if defaults.integer(forKey: "wordsAtTime") != 0 {
+            self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
+        }
+        
+        print(self.wordsAtTime)
+        print(defaults.integer(forKey: "wordsAtTime"))
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -151,12 +169,17 @@ class MemorizeVC: UIViewController {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
         fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
-        fetchREquest.fetchOffset = part * 5
-        fetchREquest.fetchLimit = 5
+        fetchREquest.fetchOffset = part * self.wordsAtTime
+        fetchREquest.fetchLimit = self.wordsAtTime
+        
+//        print("wordsAtTime = \(self.wordsAtTime)")
+//        print("part = \(part)")
+//        print("offset = \(fetchREquest.fetchOffset)")
+//        print("limit = \(fetchREquest.fetchLimit)")
         
         do {
             words = try managedContext.fetch(fetchREquest)
-            print("Successfully fetched words")
+//            print("Successfully fetched words")
             completion(true)
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")

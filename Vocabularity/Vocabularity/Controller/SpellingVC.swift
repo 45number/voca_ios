@@ -12,6 +12,8 @@ import AVFoundation
 
 class SpellingVC: UIViewController, UITextFieldDelegate {
     
+    let defaults = UserDefaults.standard
+    
     //Outlets
     @IBOutlet weak var quantityLbl: UILabel!
     @IBOutlet weak var firstLbl: UILabel!
@@ -26,7 +28,6 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     
     //Variables
-    let defaults = UserDefaults.standard
     var folder: Folder!
     var part: Int!
     
@@ -36,10 +37,15 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     private var indexCounter: Int = 0
     private var mCardSwitcher: Bool = false
+    var wordsAtTime: Int = 25
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if defaults.integer(forKey: "wordsAtTime") != 0 {
+            self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
+        }
         
         self.textField.delegate = self
         
@@ -60,7 +66,6 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     
     //Actions
-    
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -298,8 +303,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
         fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
-        fetchREquest.fetchOffset = part * 5
-        fetchREquest.fetchLimit = 5
+        fetchREquest.fetchOffset = part * self.wordsAtTime
+        fetchREquest.fetchLimit = self.wordsAtTime
         
         do {
             words = try managedContext.fetch(fetchREquest)

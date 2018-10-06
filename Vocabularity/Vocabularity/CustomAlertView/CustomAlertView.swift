@@ -14,19 +14,16 @@ class CustomAlertView: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-//    @IBOutlet weak var alertTextField: UITextField!
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     
-//    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
     private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
     private var dataSource1: [Int] = []
     
     var delegate: CustomAlertViewDelegate?
-    var selectedOption = "First"
+//    var selectedOption = "First"
     var selectedOption1 = 0
     let alertViewGrayColor = UIColor(red: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, alpha: 1)
     
@@ -39,13 +36,11 @@ class CustomAlertView: UIViewController {
         pickerView.delegate = self
         
         if defaults.integer(forKey: "wordsAtTime") != 0 {
+//            self.selectedOption1 = defaults.integer(forKey: "wordsAtTime")
             let initialRow = defaults.integer(forKey: "wordsAtTime") - 5
             pickerView.selectRow(initialRow, inComponent: 0, animated: true)
         }
         
-        
-        
-//        alertTextField.becomeFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,35 +72,17 @@ class CustomAlertView: UIViewController {
         }
     }
     
-    
     @IBAction func onTapCancelButton(_ sender: Any) {
-//        alertTextField.resignFirstResponder()
         delegate?.cancelButtonTapped()
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onTapOkButton(_ sender: Any) {
-//        alertTextField.resignFirstResponder()
-        delegate?.okButtonTapped(selectedOption: self.selectedOption1)
-        self.dismiss(animated: true, completion: nil)
+        if self.selectedOption1 != 0 {
+            delegate?.okButtonTapped(selectedOption: self.selectedOption1)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
-    
-//    selectedOption: selectedOption, textFieldValue: alertTextField.text!
-    
-//    @IBAction func onTapSegmentedControl(_ sender: UISegmentedControl) {
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            print("First option")
-//            selectedOption = "First"
-//            break
-//        case 1:
-//            print("Second option")
-//            selectedOption = "Second"
-//            break
-//        default:
-//            break
-//        }
-//    }
 }
 
 extension CustomAlertView: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -90,13 +90,14 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
         newFolder.learningLang = Int32(learningLanguage)
         newFolder.folderName = folderName
         newFolder.image = imageName
-        newFolder.learningLanguage = Int32(1)
+//        newFolder.learningLanguage = Int32(1)
         newFolder.parent = self.parentFolder
         
         print(newFolder.learningLang)
         
         do {
             try managedContext.save()
+            NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
             print("Successfully saved data.")
             completion(true)
         } catch {

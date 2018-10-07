@@ -71,7 +71,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func speakBtnPressed(_ sender: Any) {
-        speak(phrase: words[indexCounter].word)
+        speak(phrase: words[indexCounter].word, language: Int(words[indexCounter].learningLang))
     }
     
     @IBAction func shuffleBtnPressed(_ sender: Any) {
@@ -148,7 +148,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                 self.nextWord()
                 self.isCorrect = false
             } else {
-                speak(phrase: words[indexCounter].word)
+                speak(phrase: words[indexCounter].word, language: Int(words[indexCounter].learningLang))
                 
                 let (userInput, mismatches1) = findMismatch(compared: userWord!, reference: words[indexCounter].word!)
                 let (rightPhrase, mismatches2) = findMismatch(compared: words[indexCounter].word!, reference: userWord!)
@@ -320,10 +320,17 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         words = self.words.shuffled()
     }
     
-    func speak(phrase: String!) {
+    func speak(phrase: String!, language: Int!) {
         DispatchQueue.global(qos: .background).async {
             let utterance = AVSpeechUtterance(string: phrase)
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            if language == 1 {
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            } else if language == 2 {
+                utterance.voice = AVSpeechSynthesisVoice(language: "ru-RU")
+            } else if language == 3 {
+                utterance.voice = AVSpeechSynthesisVoice(language: "ar-SA")
+            }
+            print("language is \(language)")
             let synth = AVSpeechSynthesizer()
             synth.speak(utterance)
         }

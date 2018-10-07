@@ -62,6 +62,7 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
         
         do {
             try managedContext.save()
+            NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
             print("Successfully saved data.")
             completion(true)
         } catch {

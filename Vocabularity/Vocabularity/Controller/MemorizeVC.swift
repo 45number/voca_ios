@@ -81,7 +81,7 @@ class MemorizeVC: UIViewController {
     }
     
     @IBAction func speakBtnPressed(_ sender: Any) {
-        speak(phrase: words[indexCounter].word)
+        speak(phrase: words[indexCounter].word, language: Int(words[indexCounter].learningLang))
     }
     
     @IBAction func previousBtnPressed(_ sender: Any) {
@@ -215,11 +215,18 @@ class MemorizeVC: UIViewController {
         quantityLbl.text = "\(index + 1) / \(words.count)"
     }
     
-    func speak(phrase: String!) {
+    func speak(phrase: String!, language: Int!) {
         
         DispatchQueue.global(qos: .background).async {
             let utterance = AVSpeechUtterance(string: phrase)
-            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            if language == 1 {
+                utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            } else if language == 2 {
+                utterance.voice = AVSpeechSynthesisVoice(language: "ru-RU")
+            } else if language == 3 {
+                utterance.voice = AVSpeechSynthesisVoice(language: "ar-SA")
+            }
+            print("language is \(language)")
             let synth = AVSpeechSynthesizer()
             synth.speak(utterance)
             
@@ -232,7 +239,7 @@ class MemorizeVC: UIViewController {
     @objc func onCardTap(_ recognizer: UITapGestureRecognizer) {
         if !mCardSwitcher {
             self.translate(index: indexCounter)
-            self.speak(phrase: words[indexCounter].word)
+            self.speak(phrase: words[indexCounter].word, language: Int(words[indexCounter].learningLang))
             
         } else {
             self.nextWord()

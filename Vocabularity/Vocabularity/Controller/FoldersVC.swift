@@ -49,7 +49,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         
         
-//        defaults.set(true, forKey: "english")
+        defaults.set(true, forKey: "english")
         
         getCurrentLearningLanguage()
         let learningLanguages = getLearningLanguages()
@@ -65,8 +65,11 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     func getCurrentLearningLanguage() {
         let learningLanguages = getLearningLanguages()
+        if defaults.integer(forKey: "currentLearningLanguage") == 0 {
+            defaults.set(learningLanguages[0].tag, forKey: "currentLearningLanguage")
+        }
         let isInRange = isCurrentLangInRange(learningLanguages: learningLanguages)
-        if defaults.integer(forKey: "currentLearningLanguage") == 0 || !isInRange {
+        if !isInRange {
             defaults.set(learningLanguages[0].tag, forKey: "currentLearningLanguage")
         }
     }
@@ -90,21 +93,27 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     }
     
     func setTabView(learningLanguages: [LearningLanguage]) {
-        
-//        let learningLanguages = getLearningLanguages()
         if learningLanguages.count < 2 {
             hideTabBar()
         } else {
             showTabBar()
             var tabBarList: [UITabBarItem] = []
-            for lang in learningLanguages {
+            
+            var currentLangPosition = 0
+            for (index, lang) in learningLanguages.enumerated() {
                 tabBarList.append(UITabBarItem(title: lang.name, image: lang.image, tag: lang.tag))
+                if lang.tag == defaults.integer(forKey: "currentLearningLanguage") {
+                    currentLangPosition = index
+                }
             }
             
             self.tabBar.setItems(tabBarList, animated: true)
-//            self.tabBar.selectedItem = self.tabBar.items?[0]
-            self.tabBar.selectedItem = self.tabBar.items?[defaults.integer(forKey: "currentLearningLanguage") - 1]
+            
+            
+            
 //            print("first \(defaults.integer(forKey: "currentLearningLanguage") - 1)")
+            self.tabBar.selectedItem = self.tabBar.items?[currentLangPosition ]
+            
 //            print("secont \(self.tabBar.items?[defaults.integer(forKey: "currentLearningLanguage") - 1].tag)")
         }
         

@@ -11,7 +11,7 @@ import CoreData
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-class FoldersVC: UIViewController {
+class FoldersVC: UIViewController, UITabBarDelegate {
     
     let defaults = UserDefaults.standard
     
@@ -21,6 +21,7 @@ class FoldersVC: UIViewController {
     
     @IBOutlet weak var tabBar: UITabBar!
     
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     //Variables
     var folders: [Folder] = []
@@ -36,6 +37,8 @@ class FoldersVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tabBar.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +48,8 @@ class FoldersVC: UIViewController {
         
         updateView()
         
-        let barItem1 = UITabBarItem(title: "English", image: nil, selectedImage: nil)
-        let barItem2 = UITabBarItem(title: "Russian", image: nil, selectedImage: nil)
-        let tabBarList = [barItem1, barItem2]
+        setTabView()
         
-        self.tabBar.setItems(tabBarList, animated: true )
-        self.tabBar.selectedItem = self.tabBar.items?[1]
     }
     
     func updateView() {
@@ -61,6 +60,35 @@ class FoldersVC: UIViewController {
         fetchCoreDataObjects(parent: getCurrentFolder())
         tableView.reloadData()
     }
+    
+    func setTabView() {
+        
+        let barItem1 = UITabBarItem(title: "English", image: nil, selectedImage: nil)
+        let barItem2 = UITabBarItem(title: "Russian", image: nil, selectedImage: nil)
+
+        barItem1.tag = 0
+        barItem2.tag = 1
+        let tabBarList = [barItem1, barItem2]
+        
+        self.tabBar.setItems(tabBarList, animated: true )
+        self.tabBar.selectedItem = self.tabBar.items?[0]
+    }
+    
+    func hideTabBar() {
+        tabBar.isHidden = true
+        tableViewBottomConstraint.constant = 0
+        tableView.layoutIfNeeded()
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if(item.tag == 0) {
+            print("hello 1")
+        }
+        else if(item.tag == 1) {
+            print("hello 2")
+        }
+    }
+    
     
     func fetchCoreDataObjects(parent: Folder?) {
         self.fetch(parent: parent) { (complete) in
@@ -343,3 +371,5 @@ extension FoldersVC {
         }
     }
 }
+
+

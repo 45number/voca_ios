@@ -50,6 +50,7 @@ class FoldersVC: UIViewController {
         let tabBarList = [barItem1, barItem2]
         
         self.tabBar.setItems(tabBarList, animated: true )
+        self.tabBar.selectedItem = self.tabBar.items?[1]
     }
     
     func updateView() {

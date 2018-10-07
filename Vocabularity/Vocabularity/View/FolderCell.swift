@@ -34,6 +34,8 @@ class FolderCell: UITableViewCell {
         if folder.image != "default.png" && folder.image != nil {
             let folderImg = ImageStore.retrieve(imageNamed: folder.image!)
             self.folderImgView.image = folderImg
+        } else {
+            self.folderImgView.image = UIImage(named: "photo")
         }
         
 //        if goal.goalProgress == goal.goalCompletionValue {

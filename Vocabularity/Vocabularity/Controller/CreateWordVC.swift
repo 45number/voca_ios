@@ -18,6 +18,7 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
     
     //Variables
     var parentFolder: Folder?
+    var learningLanguage: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +38,14 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
     }
     @IBAction func okBtnPressed(_ sender: Any) {
         if wordTxtField.text != "" && translationTxtField.text != "" {
-            self.save(word: wordTxtField.text!, translation: translationTxtField.text!) { (success) in
+            self.save(learningLanguage: self.learningLanguage!, word: wordTxtField.text!, translation: translationTxtField.text!) { (success) in
                 dismiss(animated: true, completion: nil)
             }
         }
     }
     
     //Functions
-    func save(word: String, translation: String, completion: (_ finished: Bool) -> ()) {
+    func save(learningLanguage: Int, word: String, translation: String, completion: (_ finished: Bool) -> ()) {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
@@ -52,7 +53,8 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
         let newWord = Word(context: managedContext)
         newWord.word = word
         newWord.translation = translation
-        newWord.learningLang = Int32(1)
+//        newWord.learningLang = Int32(self.learningLanguage)
+        newWord.learningLang = Int32(learningLanguage)
         newWord.repeatMem = false
         newWord.repeatSpell = false
 //        newWord.folderName = ""

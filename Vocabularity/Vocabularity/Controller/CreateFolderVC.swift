@@ -21,9 +21,11 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     //Variables
     var imagePicker = UIImagePickerController()
     var parentFolder: Folder?
+    var learningLanguage: Int?
     private var image: UIImage?
     private var croppingStyle = CropViewCroppingStyle.circular
     private var isImageChanged = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +64,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
             }
             
             
-            self.save(folderName: textField.text!, imageName: imageName) { (success) in
+            self.save(learningLanguage: self.learningLanguage!, folderName: textField.text!, imageName: imageName) { (success) in
                 if success {
                     dismiss(animated: true, completion: nil)
                 }
@@ -79,16 +81,19 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     
     
     //Functions
-    func save(folderName: String, imageName: String, completion: (_ finished: Bool) -> ()) {
+    func save(learningLanguage: Int,folderName: String, imageName: String, completion: (_ finished: Bool) -> ()) {
 //        UIApplication.shared.delegate?.persistent
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
         let newFolder = Folder(context: managedContext)
+        newFolder.learningLang = Int32(learningLanguage)
         newFolder.folderName = folderName
         newFolder.image = imageName
         newFolder.learningLanguage = Int32(1)
         newFolder.parent = self.parentFolder
+        
+        print(newFolder.learningLang)
         
         do {
             try managedContext.save()

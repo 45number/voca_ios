@@ -31,6 +31,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     var wordsAtTime: Int = 25
     
+    var currentLearningLanguage: Int = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +50,15 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         
         
+        defaults.set(true, forKey: "english")
+        
+        let learningLanguages = getLearningLanguages()
+        setTabView(learningLanguages: learningLanguages)
+        self.currentLearningLanguage = learningLanguages[0].tag
+        
         updateView()
         
-        setTabView()
+        
         
     }
     
@@ -59,13 +67,13 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
         }
         
-        fetchCoreDataObjects(parent: getCurrentFolder())
+        fetchCoreDataObjects(learningLanguage: self.currentLearningLanguage, parent: getCurrentFolder())
         tableView.reloadData()
     }
     
-    func setTabView() {
+    func setTabView(learningLanguages: [LearningLanguage]) {
         
-        let learningLanguages = getLearningLanguages()
+//        let learningLanguages = getLearningLanguages()
         if learningLanguages.count < 2 {
             hideTabBar()
         } else {
@@ -103,17 +111,23 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if(item.tag == 1) {
-            print("hello 1")
-        } else if(item.tag == 2) {
-            print("hello 2")
-        } else if(item.tag == 3) {
-            print("hello 3")
-        }
+        self.currentLearningLanguage = item.tag
+//        var path: [Folder] = []
+        self.path.removeAll()
+        updateView()
+        
+//        if(item.tag == 1) {
+//            self.currentLearningLanguage = item.tag
+//        } else if(item.tag == 2) {
+//            self.currentLearningLanguage = item.tag
+//        } else if(item.tag == 3) {
+//            self.currentLearningLanguage = item.tag
+//        }
     }
     
     @objc func languagesChanged(_ notif: Notification) {
-        setTabView()
+        let learningLanguages = getLearningLanguages()
+        setTabView(learningLanguages: learningLanguages)
     }
     
     func getLearningLanguages() -> [LearningLanguage] {
@@ -130,8 +144,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         return learningLanguages
     }
     
-    func fetchCoreDataObjects(parent: Folder?) {
-        self.fetch(parent: parent) { (complete) in
+    func fetchCoreDataObjects(learningLanguage: Int, parent: Folder?) {
+        self.fetch(learningLanguage: learningLanguage, parent: parent) { (complete) in
             if complete {
                 if folders.count >= 1 || decks.count > 0 {
                     tableView.isHidden = false
@@ -173,7 +187,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     }
     @IBAction func backBtnPressed(_ sender: Any) {
         self.path.removeLast()
-        self.fetchCoreDataObjects(parent: self.getCurrentFolder())
+        self.fetchCoreDataObjects(learningLanguage: self.currentLearningLanguage, parent: self.getCurrentFolder())
         self.tableView.reloadData() 
     }
     
@@ -188,10 +202,12 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? CreateFolderVC {
             vc.parentFolder = self.getCurrentFolder()
+            vc.learningLanguage = self.currentLearningLanguage
         }
         
         if let vc = segue.destination as? CreateWordVC {
             vc.parentFolder = self.getCurrentFolder()
+            vc.learningLanguage = self.currentLearningLanguage
         }
         
     }
@@ -278,7 +294,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         
         if folders.count > 0 {
             self.pushToPath(folder: folders[indexPath.row])
-            self.fetchCoreDataObjects(parent: self.getCurrentFolder())
+            self.fetchCoreDataObjects(learningLanguage: self.currentLearningLanguage, parent: self.getCurrentFolder())
             self.tableView.reloadData()
         } else if decks.count > 0 {
             
@@ -364,7 +380,7 @@ extension FoldersVC {
 //        }
     }
     
-    func fetch(parent: Folder?, completion: (_ complete: Bool) -> ()) {
+    func fetch(learningLanguage: Int, parent: Folder?, completion: (_ complete: Bool) -> ()) {
         
         self.decks.removeAll()
         
@@ -373,10 +389,17 @@ extension FoldersVC {
         let fetchREquest = NSFetchRequest<Folder>(entityName: "Folder")
         
         if parent == nil {
-            fetchREquest.predicate = NSPredicate(format: "parent == nil")
+//            fetchREquest.predicate = NSPredicate(format: "parent == nil")
+//            fetchREquest.predicate = NSPredicate(format: "learningLang == \(learningLanguage)")
+            
+            let parentPredicate = NSPredicate(format: "parent == nil")
+            let learningLanguagePredicate = NSPredicate(format: "learningLang == \(learningLanguage)")
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [parentPredicate, learningLanguagePredicate])
+            fetchREquest.predicate = andPredicate
         } else {
 //            print(parent as? Any)
             fetchREquest.predicate = NSPredicate(format: "parent == %@", parent!)
+//            fetchREquest.predicate = NSPredicate(format: "learningLang == \(learningLanguage)")
         }
         
         

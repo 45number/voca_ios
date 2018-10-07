@@ -34,6 +34,7 @@
 		84FBAC92215ABFF100936F61 /* Vocabularity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC90215ABFF100936F61 /* Vocabularity.xcdatamodeld */; };
 		84FBAC94215ABFF700936F61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FBAC93215ABFF700936F61 /* Assets.xcassets */; };
 		84FBAC97215ABFF700936F61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBAC95215ABFF700936F61 /* LaunchScreen.storyboard */; };
+		84FD3371216A123B00ADD1B0 /* LearningLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD3370216A123B00ADD1B0 /* LearningLanguage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		84FBAC93215ABFF700936F61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84FBAC96215ABFF700936F61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84FBAC98215ABFF700936F61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84FD3370216A123B00ADD1B0 /* LearningLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningLanguage.swift; sourceTree = "<group>"; };
 		C67CEE8F8FDC56B23080F068 /* Pods-Vocabularity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vocabularity.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vocabularity/Pods-Vocabularity.release.xcconfig"; sourceTree = "<group>"; };
 		D7B0B0E012A23B94A4C07B73 /* Pods-Vocabularity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vocabularity.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vocabularity/Pods-Vocabularity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 			children = (
 				844383A5215E50B5009246EC /* ImageStore.swift */,
 				84381E8C2162AE300052FDD9 /* Deck.swift */,
+				84FD3370216A123B00ADD1B0 /* LearningLanguage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				843730B0215BB7C3009915C1 /* KeyboardBoundView.swift in Sources */,
 				843730AE215BAEC0009915C1 /* CreateFolderVC.swift in Sources */,
 				843730AA215BA765009915C1 /* FolderCell.swift in Sources */,
+				84FD3371216A123B00ADD1B0 /* LearningLanguage.swift in Sources */,
 				843730AC215BACC3009915C1 /* CircleImage.swift in Sources */,
 				843730B3215BC521009915C1 /* Constants.swift in Sources */,
 			);

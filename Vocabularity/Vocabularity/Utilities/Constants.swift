@@ -15,3 +15,4 @@ let TO_SETTINGS = "toSettings"
 
 //Notification Constants
 let NOTIF_WORDS_COUNT_DID_CHANGE = Notification.Name("notifUserDataChanged")
+let NOTIF_LANGUAGES_DID_CHANGE = Notification.Name("notifLearningLanguagesChanged")

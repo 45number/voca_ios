@@ -44,7 +44,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+        
         
         updateView()
         
@@ -63,15 +65,29 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     func setTabView() {
         
-        let barItem1 = UITabBarItem(title: "English", image: nil, selectedImage: nil)
-        let barItem2 = UITabBarItem(title: "Russian", image: nil, selectedImage: nil)
-
-        barItem1.tag = 0
-        barItem2.tag = 1
-        let tabBarList = [barItem1, barItem2]
+        let learningLanguages = getLearningLanguages()
+        if learningLanguages.count < 2 {
+            hideTabBar()
+        } else {
+            showTabBar()
+            var tabBarList: [UITabBarItem] = []
+            for lang in learningLanguages {
+                tabBarList.append(UITabBarItem(title: lang.name, image: lang.image, tag: lang.tag))
+            }
+            
+            self.tabBar.setItems(tabBarList, animated: true)
+            self.tabBar.selectedItem = self.tabBar.items?[0]
+        }
         
-        self.tabBar.setItems(tabBarList, animated: true )
-        self.tabBar.selectedItem = self.tabBar.items?[0]
+//        let barItem1 = UITabBarItem(title: "English", image: nil, selectedImage: nil)
+//        let barItem2 = UITabBarItem(title: "Russian", image: nil, selectedImage: nil)
+//
+//        barItem1.tag = 0
+//        barItem2.tag = 1
+//        let tabBarList = [barItem1, barItem2]
+//
+//        self.tabBar.setItems(tabBarList, animated: true )
+//        self.tabBar.selectedItem = self.tabBar.items?[0]
     }
     
     func hideTabBar() {
@@ -80,15 +96,39 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         tableView.layoutIfNeeded()
     }
     
+    func showTabBar() {
+        tabBar.isHidden = false
+        tableViewBottomConstraint.constant = 50
+        tableView.layoutIfNeeded()
+    }
+    
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if(item.tag == 0) {
+        if(item.tag == 1) {
             print("hello 1")
-        }
-        else if(item.tag == 1) {
+        } else if(item.tag == 2) {
             print("hello 2")
+        } else if(item.tag == 3) {
+            print("hello 3")
         }
     }
     
+    @objc func languagesChanged(_ notif: Notification) {
+        setTabView()
+    }
+    
+    func getLearningLanguages() -> [LearningLanguage] {
+        var learningLanguages: [LearningLanguage] = []
+        if defaults.bool(forKey: "english") {
+            learningLanguages.append(LearningLanguage(name: "English", tag: 1, image: nil, selectedImage: nil))
+        }
+        if defaults.bool(forKey: "russian") {
+            learningLanguages.append(LearningLanguage(name: "Russian", tag: 2, image: nil, selectedImage: nil))
+        }
+        if defaults.bool(forKey: "arabic") {
+            learningLanguages.append(LearningLanguage(name: "Arabic", tag: 3, image: nil, selectedImage: nil))
+        }
+        return learningLanguages
+    }
     
     func fetchCoreDataObjects(parent: Folder?) {
         self.fetch(parent: parent) { (complete) in

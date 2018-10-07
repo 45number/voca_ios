@@ -62,6 +62,7 @@ class SettingsVC: UIViewController {
         } else {
             defaults.set(false, forKey: "english")
         }
+        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     @IBAction func russianSwitchPressed(_ sender: UISwitch) {
@@ -70,14 +71,16 @@ class SettingsVC: UIViewController {
         } else {
             defaults.set(false, forKey: "russian")
         }
+        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     @IBAction func arabicSwitchPressed(_ sender: UISwitch) {
         if sender.isOn == true {
             defaults.set(true, forKey: "arabic")
         } else {
-            defaults.set(false, forKey: "arabic ")
+            defaults.set(false, forKey: "arabic")
         }
+        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     

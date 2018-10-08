@@ -14,6 +14,8 @@ class FolderCell: UITableViewCell {
     @IBOutlet weak var folderImgView: CircleImage!
     @IBOutlet weak var folderNameLbl: UILabel!
     @IBOutlet weak var folderInfoLbl: UILabel!
+
+    @IBOutlet weak var markedBadge: UIView!
     
     
     override func awakeFromNib() {
@@ -36,6 +38,12 @@ class FolderCell: UITableViewCell {
             self.folderImgView.image = folderImg
         } else {
             self.folderImgView.image = UIImage(named: "photo")
+        }
+        
+        if folder.marked {
+            self.markedBadge.isHidden = false
+        } else {
+            self.markedBadge.isHidden = true
         }
         
 //        if goal.goalProgress == goal.goalCompletionValue {

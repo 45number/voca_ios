@@ -128,16 +128,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2qu-je-H34">
-                                                    <rect key="frame" x="100" y="27.5" width="240" height="45.5"/>
+                                                    <rect key="frame" x="100" y="24" width="240" height="52"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uiu-Xr-In4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50.5" height="27.5"/>
                                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwe-wz-erf">
-                                                            <rect key="frame" x="0.0" y="31.5" width="29.5" height="14"/>
+                                                            <rect key="frame" x="0.0" y="35.5" width="29" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -151,12 +151,46 @@
                                                         <constraint firstAttribute="height" constant="1" id="Nqe-RL-Jca"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vzp-QN-Unp">
+                                                    <rect key="frame" x="295" y="0.0" width="80" height="99"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bSP-PS-Qdc">
+                                                            <rect key="frame" x="2" y="34.5" width="76" height="30"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marked" translatesAutoresizingMaskIntoConstraints="NO" id="wKx-ew-Q5B">
+                                                                    <rect key="frame" x="32" y="0.0" width="12" height="12"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="12" id="Kwm-af-B99"/>
+                                                                        <constraint firstAttribute="height" constant="12" id="Una-gi-34S"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQQ-aD-1RP">
+                                                                    <rect key="frame" x="19" y="16" width="38.5" height="14"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="10"/>
+                                                                    <color key="textColor" red="0.14901960784313725" green="0.72156862745098038" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="bSP-PS-Qdc" firstAttribute="centerY" secondItem="Vzp-QN-Unp" secondAttribute="centerY" id="4Ev-ZI-D6D"/>
+                                                        <constraint firstAttribute="width" constant="80" id="4nl-Pd-VRQ"/>
+                                                        <constraint firstItem="bSP-PS-Qdc" firstAttribute="leading" secondItem="Vzp-QN-Unp" secondAttribute="leading" constant="2" id="WnT-Vb-jiD"/>
+                                                        <constraint firstItem="bSP-PS-Qdc" firstAttribute="centerX" secondItem="Vzp-QN-Unp" secondAttribute="centerX" id="rSr-da-CLO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="bSP-PS-Qdc" secondAttribute="trailing" constant="2" id="y7O-ZH-wAj"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Vzp-QN-Unp" secondAttribute="bottom" constant="1" id="3ip-2r-T1T"/>
                                                 <constraint firstAttribute="bottom" secondItem="R8T-3K-8sl" secondAttribute="bottom" id="7Rc-mk-Axi"/>
                                                 <constraint firstItem="3er-L1-jmC" firstAttribute="leading" secondItem="zWc-XG-EuA" secondAttribute="leading" constant="16" id="LK0-KT-y3e"/>
                                                 <constraint firstItem="2qu-je-H34" firstAttribute="leading" secondItem="3er-L1-jmC" secondAttribute="trailing" constant="20" id="MX0-b1-86P"/>
+                                                <constraint firstItem="Vzp-QN-Unp" firstAttribute="top" secondItem="zWc-XG-EuA" secondAttribute="top" id="NZa-JG-jlg"/>
                                                 <constraint firstItem="R8T-3K-8sl" firstAttribute="leading" secondItem="zWc-XG-EuA" secondAttribute="leading" constant="88" id="ZzL-dE-aC5"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vzp-QN-Unp" secondAttribute="trailing" id="cG7-S1-qxV"/>
                                                 <constraint firstItem="3er-L1-jmC" firstAttribute="centerY" secondItem="zWc-XG-EuA" secondAttribute="centerY" id="htD-Pe-Xax"/>
                                                 <constraint firstAttribute="trailing" secondItem="R8T-3K-8sl" secondAttribute="trailing" id="huJ-cV-0fe"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2qu-je-H34" secondAttribute="trailing" constant="20" id="pga-eL-Acc"/>
@@ -167,6 +201,7 @@
                                             <outlet property="folderImgView" destination="3er-L1-jmC" id="u43-ag-wgV"/>
                                             <outlet property="folderInfoLbl" destination="rwe-wz-erf" id="3i8-9q-ipF"/>
                                             <outlet property="folderNameLbl" destination="Uiu-Xr-In4" id="SOx-nw-S7y"/>
+                                            <outlet property="markedBadge" destination="Vzp-QN-Unp" id="9vS-iy-tiz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -203,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="99"/>
+            <point key="canvasLocation" x="20" y="98.50074962518741"/>
         </scene>
         <!--Create FolderVC-->
         <scene sceneID="bzb-vC-nl4">
@@ -757,6 +792,7 @@
         <image name="add" width="32" height="32"/>
         <image name="back" width="14" height="25"/>
         <image name="dots" width="32" height="32"/>
+        <image name="marked" width="24" height="24"/>
         <image name="photo" width="128" height="128"/>
     </resources>
 </document>

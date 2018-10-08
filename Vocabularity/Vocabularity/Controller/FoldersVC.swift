@@ -23,6 +23,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
+
+    
+    
     //Variables
     var folders: [Folder] = []
     var path: [Folder] = []
@@ -323,10 +326,19 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
+        let chosenFolder = folders[indexPath.row]
+        var markTitle = "MARK"
+        if chosenFolder.marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
+        let markAction = UITableViewRowAction(style: .normal, title: markTitle) { (rowAction, indexPath) in
+            self.markFolder(atIndexPath: indexPath)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         addAction.backgroundColor = #colorLiteral(red: 0.9176470588, green: 0.662745098, blue: 0.2666666667, alpha: 1)
+        markAction.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.7215686275, blue: 0.1215686275, alpha: 1)
         
-        return [deleteAction, addAction]
+        return [deleteAction, addAction, markAction]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -418,6 +430,18 @@ extension FoldersVC {
 //        } catch {
 //            debugPrint("Could not set progress: \(error.localizedDescription)")
 //        }
+    }
+    
+    func markFolder(atIndexPath indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let chosenFolder = folders[indexPath.row]
+        chosenFolder.marked = !chosenFolder.marked
+        do {
+            try managedContext.save()
+            print("Successfully marked")
+        } catch {
+            debugPrint("Could not set progress: \(error.localizedDescription)")
+        }
     }
     
     

@@ -101,6 +101,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
             newFolder.learningLang = Int32(learningLanguage)
             newFolder.folderName = folderName
             newFolder.image = imageName
+            newFolder.marked = false
             newFolder.parent = self.parentFolder
             
         } else {

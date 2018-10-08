@@ -308,8 +308,9 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
             self.removeFolder(atIndexPath: indexPath)
-//            self.fetchCoreDataObjects()
 //            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.updateView()
+            
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
@@ -411,19 +412,21 @@ extension FoldersVC {
     
     
     func removeFolder(atIndexPath indexPath: IndexPath) {
-//        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
-//
-//        managedContext.delete(goals[indexPath.row])
-//
-//        do {
-//            try managedContext.save()
-//            print("Successfully removed goal")
-//        } catch {
-//            debugPrint("Could not remove: \(error.localizedDescription)")
-//        }
-//        var treeArray:[Folder] = []
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+
         buildTreeArray(folder: folders[indexPath.row])
         navigateThroughTree(treeArray: self.treeArray)
+        
+        managedContext.delete(folders[indexPath.row])
+
+        do {
+            try managedContext.save()
+            print("Successfully removed folders")
+        } catch {
+            debugPrint("Could not remove: \(error.localizedDescription)")
+        }
+        
 //        print(self.treeArray)
     }
     
@@ -435,15 +438,19 @@ extension FoldersVC {
     }
     
     func navigateThroughTree(treeArray: [Folder]) {
-        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+//        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         for folder in treeArray {
-            folder.image = "default.png"
-            do {
-                try managedContext.save()
-                print("Successfully set progress")
-            } catch {
-                debugPrint("Could not set progress: \(error.localizedDescription)")
+            if folder.image != "default.png" && folder.image != nil {
+                print(folder)
+                print("Hello [\(String(describing: folder.image))] Hello")
+                ImageStore.delete(imageNamed: folder.image!)
             }
+//            do {
+//                try managedContext.save()
+//                print("Successfully set progress")
+//            } catch {
+//                debugPrint("Could not set progress: \(error.localizedDescription)")
+//            }
         }
     }
     

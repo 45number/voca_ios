@@ -31,6 +31,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     var wordsAtTime: Int = 25
     
+    
+    var treeArray:[Folder] = []
+    
 //    var currentLearningLanguage: Int
     
     
@@ -306,11 +309,11 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
             self.removeFolder(atIndexPath: indexPath)
 //            self.fetchCoreDataObjects()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
-            self.editFolder(atIndexPath: indexPath)
+//            self.editFolder(atIndexPath: indexPath)
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
@@ -379,6 +382,8 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         updateView()
     }
     
+    
+    
 }
 
 
@@ -403,6 +408,8 @@ extension FoldersVC {
 //        }
     }
     
+    
+    
     func removeFolder(atIndexPath indexPath: IndexPath) {
 //        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
 //
@@ -414,6 +421,30 @@ extension FoldersVC {
 //        } catch {
 //            debugPrint("Could not remove: \(error.localizedDescription)")
 //        }
+//        var treeArray:[Folder] = []
+        buildTreeArray(folder: folders[indexPath.row])
+        navigateThroughTree(treeArray: self.treeArray)
+//        print(self.treeArray)
+    }
+    
+    func buildTreeArray(folder: Folder) {
+        self.treeArray.append(folder)
+        for child in folder.children! {
+            buildTreeArray(folder: child as! Folder)
+        }
+    }
+    
+    func navigateThroughTree(treeArray: [Folder]) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        for folder in treeArray {
+            folder.image = "default.png"
+            do {
+                try managedContext.save()
+                print("Successfully set progress")
+            } catch {
+                debugPrint("Could not set progress: \(error.localizedDescription)")
+            }
+        }
     }
     
     func fetch(learningLanguage: Int, parent: Folder?, completion: (_ complete: Bool) -> ()) {

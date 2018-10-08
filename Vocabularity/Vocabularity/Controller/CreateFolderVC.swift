@@ -21,6 +21,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     //Variables
     var imagePicker = UIImagePickerController()
     var parentFolder: Folder?
+    var editingFolder: Folder?
     var learningLanguage: Int?
     private var image: UIImage?
     private var croppingStyle = CropViewCroppingStyle.circular
@@ -32,6 +33,10 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         imagePicker.delegate = self
+        
+        if editingFolder != nil {
+            self.initializeEditingViews()
+        }
         
 //        textField.becomeFirstResponder()
         buttonsStackView.bindToKeyboard()
@@ -50,26 +55,29 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBAction func okBtnPressed(_ sender: Any) {
         if textField.text != "" {
             var imageName = "default.png"
+            
+            if editingFolder != nil {
+                imageName = (editingFolder?.image)!
+            }
+            
             if isImageChanged {
+                if editingFolder == nil && editingFolder?.image != "default.png" && editingFolder?.image != nil {
+                    ImageStore.delete(imageNamed: (editingFolder?.image)!)
+                }
+                
                 do {
                     imageName = ImageStore.generateImageName(length: 10)
                     try ImageStore.store(image: self.image!, name: imageName)
                 } catch let error {
                     debugPrint(error as Any)
                 }
-                
-//                let tempImg = ImageStore.retrieve(imageNamed: imageName)
-//                textField.text = imageName
-//                self.tempImage.image = tempImg
             }
-            
             
             self.save(learningLanguage: self.learningLanguage!, folderName: textField.text!, imageName: imageName) { (success) in
                 if success {
                     dismiss(animated: true, completion: nil)
                 }
             }
-//            dismiss(animated: true, completion: nil)
         }
     }
     
@@ -86,14 +94,24 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
-        let newFolder = Folder(context: managedContext)
-        newFolder.learningLang = Int32(learningLanguage)
-        newFolder.folderName = folderName
-        newFolder.image = imageName
-//        newFolder.learningLanguage = Int32(1)
-        newFolder.parent = self.parentFolder
+
+        if editingFolder == nil {
+            
+            let newFolder = Folder(context: managedContext)
+            newFolder.learningLang = Int32(learningLanguage)
+            newFolder.folderName = folderName
+            newFolder.image = imageName
+            newFolder.parent = self.parentFolder
+            
+        } else {
+            
+            self.editingFolder?.folderName = folderName
+            self.editingFolder?.image = imageName
+            
+        }
         
-        print(newFolder.learningLang)
+        
+//        print(newFolder.learningLang)
         
         do {
             try managedContext.save()
@@ -105,6 +123,19 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
             completion(false)
         }
         
+    }
+    
+    func initializeEditingViews() {
+//        folderImg
+        textField.text = editingFolder?.folderName
+        if editingFolder?.image == "default.png" {
+            self.folderImgBtn.setTitle("Add Image", for: .normal)
+        }
+        if editingFolder?.image != "default.png" && editingFolder?.image != nil {
+            let folderImage = ImageStore.retrieve(imageNamed: (editingFolder?.image)!)
+            self.folderImg.image = folderImage
+            self.folderImgBtn.setTitle("Change Image", for: .normal)
+        }
     }
     
 }
@@ -122,6 +153,7 @@ extension CreateFolderVC: UIImagePickerControllerDelegate, UINavigationControlle
     
     func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
         // 'image' is the newly cropped version of the original image
+        
         
         let resizedImage = ImageStore.resizeImage(image: image, targetSize: CGSize(width: 256.0, height: 256.0))
 //        resizeImage(UIImage(named: image)!, targetSize: CGSizeMake(200.0, 200.0))

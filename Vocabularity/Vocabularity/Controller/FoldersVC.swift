@@ -241,6 +241,11 @@ class FoldersVC: UIViewController, UITabBarDelegate {
 //            vc.learningLanguage = self.currentLearningLanguage
 //            defaults.set(learningLanguages[0].tag, forKey: "currentLearningLanguage")
             vc.learningLanguage = defaults.integer(forKey: "currentLearningLanguage")
+            
+            if sender != nil {
+                vc.editingFolder = sender as? Folder
+            }
+            
         }
         
         if let vc = segue.destination as? CreateWordVC {
@@ -314,7 +319,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
-//            self.editFolder(atIndexPath: indexPath)
+            self.editFolder(atIndexPath: indexPath)
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
@@ -391,6 +396,12 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 extension FoldersVC {
     
     func editFolder(atIndexPath indexPath: IndexPath) {
+        
+        let chosenFolder = folders[indexPath.row]
+        performSegue(withIdentifier: TO_CREATE_FOLDER, sender: chosenFolder)
+        
+        
+        
 //        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
 //        let chosenFolder = folders[indexPath.row]

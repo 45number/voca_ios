@@ -315,22 +315,48 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-            self.removeFolder(atIndexPath: indexPath)
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-            self.updateView()
+            if self.folders.count > 1 {
+                let alert = UIAlertController(title: "Delete folder", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+                    self.removeFolder(atIndexPath: indexPath)
+                    self.updateView()
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                
+                let alert = UIAlertController(title: "Delete deck of cards", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
+                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+                    self.removeDeck(atIndexPath: indexPath)
+                    self.updateView()
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }
             
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
-            self.editFolder(atIndexPath: indexPath)
+            if self.folders.count > 1 {
+                self.editFolder(atIndexPath: indexPath)
+            }
+            
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
-        let chosenFolder = folders[indexPath.row]
         var markTitle = "MARK"
-        if chosenFolder.marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
+        if folders.count > 1 {
+            let chosenFolder = folders[indexPath.row]
+            if chosenFolder.marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
+        } else {
+            markTitle = "MARK"
+        }
+        
         let markAction = UITableViewRowAction(style: .normal, title: markTitle) { (rowAction, indexPath) in
-            self.markFolder(atIndexPath: indexPath)
+            if self.folders.count > 1 {
+                self.markFolder(atIndexPath: indexPath)
+            }
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
@@ -461,8 +487,28 @@ extension FoldersVC {
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
         }
+    }
+    
+    func removeDeck(atIndexPath indexPath: IndexPath) {
+        print("index Path: \(indexPath.row)")
         
-//        print(self.treeArray)
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
+        fetchREquest.predicate = NSPredicate(format: "folder == %@", getCurrentFolder()!)
+        fetchREquest.fetchOffset = indexPath.row * self.wordsAtTime
+        fetchREquest.fetchLimit = self.wordsAtTime
+        
+        do {
+            let words = try managedContext.fetch(fetchREquest)
+            for word in words {
+                managedContext.delete(word)
+            }
+            try managedContext.save()
+//            completion(true)
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+//            completion(false)
+        }
     }
     
     func buildTreeArray(folder: Folder) {
@@ -525,9 +571,9 @@ extension FoldersVC {
 //                    let decksQuantity = Int(ceil(Double(words.count/5)))
                     
                     let decksQuantity = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
-                    print(decksQuantity)
+//                    print(decksQuantity)
                     for index in 1...decksQuantity {
-                        let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck")
+                        let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck", marked: false)
 //                        if defaults.integer(forKey: "wordsAtTime") != 0 {
 //                            wordsAmountBtn.setTitle(String(defaults.integer(forKey: "wordsAtTime")), for: UIControlState.normal)
 //                        }

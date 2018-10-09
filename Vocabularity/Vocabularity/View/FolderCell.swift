@@ -58,6 +58,11 @@ class FolderCell: UITableViewCell {
         self.folderInfoLbl.text = deck.info
         self.folderImgView.image = UIImage(named: "pile")
         
+        if deck.marked {
+            self.markedBadge.isHidden = false
+        } else {
+            self.markedBadge.isHidden = true
+        }
         
 //        if folder.image != "default.png" && folder.image != nil {
 //            let folderImg = ImageStore.retrieve(imageNamed: folder.image!)

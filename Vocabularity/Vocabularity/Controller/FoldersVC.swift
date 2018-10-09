@@ -356,6 +356,8 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         let markAction = UITableViewRowAction(style: .normal, title: markTitle) { (rowAction, indexPath) in
             if self.folders.count > 1 {
                 self.markFolder(atIndexPath: indexPath)
+            } else {
+                self.markDeck(atIndexPath: indexPath)
             }
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -470,7 +472,38 @@ extension FoldersVC {
         }
     }
     
-    
+    func markDeck(atIndexPath indexPath: IndexPath){
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        let fetchREquest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+        let parentPredicate = NSPredicate(format: "folder == %@", getCurrentFolder()!)
+        let numberPredicate = NSPredicate(format: "number == \(indexPath.row)")
+        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [parentPredicate, numberPredicate])
+        fetchREquest.predicate = andPredicate
+        
+        do {
+            let decksMarked = try managedContext.fetch(fetchREquest)
+            if decksMarked.count == 0 {
+                let deckMarked = DeckMarked(context: managedContext)
+                deckMarked.number = Int32(indexPath.row)
+                deckMarked.folder = getCurrentFolder()
+            } else {
+                for deck in decksMarked {
+                    managedContext.delete(deck)
+                }
+            }
+        } catch {
+            debugPrint("Could not fetch deckMarked: \(error.localizedDescription)")
+        }
+        
+        do {
+            try managedContext.save()
+            print("Saved deckMarked")
+        } catch {
+            debugPrint("Could not save: \(error.localizedDescription)")
+        }
+    }
     
     func removeFolder(atIndexPath indexPath: IndexPath) {
         
@@ -560,23 +593,21 @@ extension FoldersVC {
         
         do {
             folders = try managedContext.fetch(fetchREquest)
-            print("Successfully fetched data")
+//            print("Successfully fetched data")
             
             if folders.count == 0 && parent != nil {
                 let fetchWordRequest = NSFetchRequest<Word>(entityName: "Word")
                 fetchWordRequest.predicate = NSPredicate(format: "folder == %@", parent!)
                 let words = try managedContext.fetch(fetchWordRequest)
-                print(words.count)
                 if words.count > 0 {
-//                    let decksQuantity = Int(ceil(Double(words.count/5)))
+                    
+                    let markedDecks: [DeckMarked] = getMarkedDecks()!
                     
                     let decksQuantity = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
-//                    print(decksQuantity)
                     for index in 1...decksQuantity {
-                        let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck", marked: false)
-//                        if defaults.integer(forKey: "wordsAtTime") != 0 {
-//                            wordsAmountBtn.setTitle(String(defaults.integer(forKey: "wordsAtTime")), for: UIControlState.normal)
-//                        }
+                        let marked = isDeckMarked(index: index, markedDecks: markedDecks)
+                        let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck", marked: marked)
+                        print(marked)
                         self.decks.append(deck)
                     }
                 }
@@ -588,6 +619,36 @@ extension FoldersVC {
             completion(false)
         }
     }
+    
+    func getMarkedDecks() -> [DeckMarked]? {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return nil}
+        
+        let fetchREquest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+        fetchREquest.predicate = NSPredicate(format: "folder == %@", getCurrentFolder()!)
+        
+        do {
+            let decksMarked = try managedContext.fetch(fetchREquest)
+            return decksMarked
+        } catch {
+            debugPrint("Could not fetch deckMarked: \(error.localizedDescription)")
+        }
+        return nil
+    }
+    
+    func isDeckMarked(index: Int, markedDecks: [DeckMarked]) -> Bool {
+        for mark in markedDecks {
+            print("------------------")
+            print("mark.number: \(mark.number)")
+            print("index: \(index)")
+            print("------------------")
+            if (mark.number + 1) == index {
+                return true
+            }
+        }
+        return false
+    }
+    
 }
 
 

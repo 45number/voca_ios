@@ -27,6 +27,13 @@ class MemorizeVC: UIViewController {
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var circleBtn: UIButton!
     
+    @IBOutlet weak var firstLblTextField: UITextField!
+    @IBOutlet weak var secondLblTextField: UITextField!
+    @IBOutlet weak var editBtnsView: UIView!
+    
+    @IBOutlet weak var cancelBtn: RoundedButton!
+    @IBOutlet weak var editBtn: UIButton!
+    
     
     //Variables
     var folder: Folder!
@@ -53,6 +60,8 @@ class MemorizeVC: UIViewController {
         let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
         cardView.addGestureRecognizer(cardTap)
         
+        let cancelBtnTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.dismissKeyboard(_:)))
+        cancelBtn.addGestureRecognizer(cancelBtnTap)
         
         self.fetchCoreDataObjects(folder: folder, part: part)
         self.displayCurrentWord(index: indexCounter)
@@ -63,6 +72,9 @@ class MemorizeVC: UIViewController {
         setShuffleBtnView()
         setDirectionBtnView()
         
+        firstLblTextField.isHidden = true
+        secondLblTextField.isHidden = true
+        editBtnsView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +86,11 @@ class MemorizeVC: UIViewController {
         
         print(self.wordsAtTime)
         print(defaults.integer(forKey: "wordsAtTime"))
+    }
+    
+    @objc func dismissKeyboard(_ recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+        cancelEditing()
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -148,6 +165,96 @@ class MemorizeVC: UIViewController {
         setDirectionBtnView()
     }
     
+    @IBAction func editBtnPressed(_ sender: Any) {
+        
+        firstLbl.isHidden = true
+        secondLbl.isHidden = true
+        
+        firstLblTextField.isHidden = false
+        secondLblTextField.isHidden = false
+        
+        editBtnsView.isHidden = false
+        editBtn.isHidden = true
+        
+        
+    }
+    
+    @IBAction func deleteBtnPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete the card", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+            
+            guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+            
+            managedContext.delete(self.words[self.indexCounter])
+            
+            do {
+                try managedContext.save()
+                print("Successfully removed word")
+                if self.words.count > 1 {
+                    self.words.remove(at: self.indexCounter)
+                    self.indexCounter -= 1
+                    self.nextWord()
+                    self.setQuantity(index: self.indexCounter)
+                } else {
+                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+            } catch {
+                debugPrint("Could not remove: \(error.localizedDescription)")
+            }
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        cancelEditing()
+    }
+    
+    func cancelEditing() {
+        firstLblTextField.isHidden = true
+        secondLblTextField.isHidden = true
+        
+        displayCurrentWord(index: indexCounter)
+        
+        
+        
+        firstLbl.isHidden = false
+        secondLbl.isHidden = false
+        
+        editBtnsView.isHidden = true
+        editBtn.isHidden = false
+    }
+    
+    @IBAction func saveBtnPressed(_ sender: Any) {
+        editBtn.isHidden = false
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        if !defaults.bool(forKey: "directionReversed") {
+            words[self.indexCounter].translation = firstLblTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            words[self.indexCounter].word = secondLblTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        } else {
+            words[self.indexCounter].word = firstLblTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+            words[self.indexCounter].translation = secondLblTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
+        do {
+            try managedContext.save()
+            print("Successfully saved data.")
+            displayCurrentWord(index: indexCounter)
+            if secondLbl.text != "" {
+                translate(index: self.indexCounter)
+            }
+            cancelEditing()
+            view.endEditing(true)
+        } catch {
+            debugPrint("Could not save: \(error.localizedDescription)")
+        }
+    }
     
     
     
@@ -196,10 +303,20 @@ class MemorizeVC: UIViewController {
 //    }
     
     func displayCurrentWord(index: Int) {
+        
+        let translation = words[index].translation
+        let word = words[index].word
+        
         if !defaults.bool(forKey: "directionReversed") {
             firstLbl.text = words[index].translation
+            
+            firstLblTextField.text = translation
+            secondLblTextField.text = word
         } else {
             firstLbl.text = words[index].word
+            
+            firstLblTextField.text = word
+            secondLblTextField.text = translation
         }
     }
     

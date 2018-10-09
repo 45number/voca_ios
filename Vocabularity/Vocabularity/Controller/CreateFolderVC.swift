@@ -99,7 +99,7 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
             
             let newFolder = Folder(context: managedContext)
             newFolder.learningLang = Int32(learningLanguage)
-            newFolder.folderName = folderName
+            newFolder.folderName = folderName.trimmingCharacters(in: .whitespacesAndNewlines)
             newFolder.image = imageName
             newFolder.marked = false
             newFolder.parent = self.parentFolder

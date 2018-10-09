@@ -49,15 +49,12 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
-//        let nn = Word(
         let newWord = Word(context: managedContext)
-        newWord.word = word
-        newWord.translation = translation
-//        newWord.learningLang = Int32(self.learningLanguage)
+        newWord.word = word.trimmingCharacters(in: .whitespacesAndNewlines)
+        newWord.translation = translation.trimmingCharacters(in: .whitespacesAndNewlines)
         newWord.learningLang = Int32(learningLanguage)
         newWord.repeatMem = false
         newWord.repeatSpell = false
-//        newWord.folderName = ""
         newWord.folder = self.parentFolder
         
         do {

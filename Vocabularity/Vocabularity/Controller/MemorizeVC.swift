@@ -84,8 +84,8 @@ class MemorizeVC: UIViewController {
             self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
         }
         
-        print(self.wordsAtTime)
-        print(defaults.integer(forKey: "wordsAtTime"))
+//        print(self.wordsAtTime)
+//        print(defaults.integer(forKey: "wordsAtTime"))
     }
     
     @objc func dismissKeyboard(_ recognizer: UITapGestureRecognizer) {

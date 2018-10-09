@@ -70,22 +70,28 @@
                     <rect key="frame" x="16" y="86" width="343" height="481"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-MM-7bA">
-                            <rect key="frame" x="131.5" y="-57.5" width="81.5" height="396"/>
+                            <rect key="frame" x="30" y="-66.5" width="283" height="414"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-ax-7hA">
-                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="33"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstLbl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-ax-7hA">
+                                    <rect key="frame" x="101" y="0.0" width="81.5" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="T6U-t2-VEQ"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1I-3o-iRQ">
-                                    <rect key="frame" x="27" y="83" width="28" height="37"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1I-3o-iRQ">
+                                    <rect key="frame" x="0.0" y="90" width="283" height="42"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="42" id="h5h-8f-7kS"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-fA-XQb">
-                                    <rect key="frame" x="21" y="170" width="40" height="40"/>
+                                    <rect key="frame" x="121.5" y="182" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="3XU-9a-LcV"/>
                                         <constraint firstAttribute="width" constant="40" id="7hi-gD-SJw"/>
@@ -97,22 +103,32 @@
                                         <action selector="speakBtnPressed:" destination="-1" eventType="touchUpInside" id="rNr-og-6ce"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5x-8g-64Y">
-                                    <rect key="frame" x="16" y="260" width="50" height="50"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5x-8g-64Y">
+                                    <rect key="frame" x="116.5" y="272" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="6KI-DK-RLA"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rO9-eW-uX0"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="23"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPV-1W-5WJ">
-                                    <rect key="frame" x="27.5" y="360" width="27" height="36"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPV-1W-5WJ">
+                                    <rect key="frame" x="0.0" y="372" width="283" height="42"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="42" id="BVa-cj-1WY"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="23"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="MPV-1W-5WJ" firstAttribute="leading" secondItem="4Qx-MM-7bA" secondAttribute="leading" id="2nW-bU-Kns"/>
+                                <constraint firstAttribute="trailing" secondItem="K1I-3o-iRQ" secondAttribute="trailing" id="2zI-vc-FgY"/>
+                                <constraint firstItem="K1I-3o-iRQ" firstAttribute="leading" secondItem="4Qx-MM-7bA" secondAttribute="leading" id="Zp0-OY-UAl"/>
+                                <constraint firstAttribute="trailing" secondItem="MPV-1W-5WJ" secondAttribute="trailing" id="dik-He-aAU"/>
+                            </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPu-3e-bkM">
                             <rect key="frame" x="305" y="8" width="30" height="30"/>
@@ -120,13 +136,13 @@
                                 <constraint firstAttribute="height" constant="30" id="FM4-bY-nEJ"/>
                                 <constraint firstAttribute="width" constant="30" id="ceI-D1-O7m"/>
                             </constraints>
-                            <state key="normal" image="pencil"/>
+                            <state key="normal" image="pencil_01"/>
                             <connections>
                                 <action selector="editBtnPressed:" destination="-1" eventType="touchUpInside" id="ZaP-AS-yog"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBc-12-Id1">
-                            <rect key="frame" x="30" y="388.5" width="283" height="40"/>
+                            <rect key="frame" x="30" y="397.5" width="283" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-SG-Hxy">
                                     <rect key="frame" x="0.0" y="0.0" width="283" height="40"/>
@@ -191,6 +207,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="4Qx-MM-7bA" firstAttribute="leading" secondItem="gQY-aX-zLv" secondAttribute="leading" constant="30" id="57c-MU-Cd6"/>
                         <constraint firstItem="xBc-12-Id1" firstAttribute="top" secondItem="4Qx-MM-7bA" secondAttribute="bottom" constant="50" id="DjR-oT-98b"/>
                         <constraint firstItem="4Qx-MM-7bA" firstAttribute="centerX" secondItem="gQY-aX-zLv" secondAttribute="centerX" id="Kzd-Ml-uay"/>
                         <constraint firstItem="xBc-12-Id1" firstAttribute="leading" secondItem="gQY-aX-zLv" secondAttribute="leading" constant="30" id="URR-Nz-1uW"/>
@@ -268,7 +285,7 @@
         <image name="back" width="14" height="25"/>
         <image name="bookmark-white" width="30" height="35"/>
         <image name="next-word" width="40" height="35"/>
-        <image name="pencil" width="30" height="30"/>
+        <image name="pencil_01" width="30" height="30"/>
         <image name="previous-word" width="40" height="35"/>
         <image name="repeat" width="40" height="35"/>
         <image name="shuffle" width="40" height="35"/>

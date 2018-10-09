@@ -24,6 +24,10 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var circleBtn: UIButton!
     @IBOutlet weak var markBtn: UIButton!
     
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var firstLblTextField: UITextField!
+    @IBOutlet weak var secondLblTextField: UITextField!
+    @IBOutlet weak var editBtnsView: UIView!
     
     
     
@@ -62,6 +66,10 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         
         self.textField.autocorrectionType = .no
 //        buttonsStackView.bindToKeyboard()
+        
+        firstLblTextField.isHidden = true
+        secondLblTextField.isHidden = true
+        editBtnsView.isHidden = true
     }
     
     
@@ -128,6 +136,99 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         setMarkBtnView()
         
     }
+    
+    @IBAction func editBtnPressed(_ sender: Any) {
+        
+        textField.isUserInteractionEnabled = false
+        
+        firstLbl.isHidden = true
+        secondLbl.isHidden = true
+        
+        firstLblTextField.isHidden = false
+        secondLblTextField.isHidden = false
+        
+        editBtnsView.isHidden = false
+        editBtn.isHidden = true
+    }
+    
+    @IBAction func deleteBtnPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete the card", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
+        alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+            
+            guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+            
+            managedContext.delete(self.words[self.indexCounter])
+            
+            do {
+                try managedContext.save()
+                print("Successfully removed word")
+                if self.words.count > 1 {
+                    self.words.remove(at: self.indexCounter)
+                    self.indexCounter -= 1
+                    self.nextWord()
+                    self.setQuantity(index: self.indexCounter)
+                } else {
+                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+            } catch {
+                debugPrint("Could not remove: \(error.localizedDescription)")
+            }
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        cancelEditing()
+    }
+    
+    func cancelEditing() {
+        
+        textField.isUserInteractionEnabled = true
+        
+        firstLblTextField.isHidden = true
+        secondLblTextField.isHidden = true
+        
+        displayCurrentWord(index: indexCounter)
+        
+        
+        
+        firstLbl.isHidden = false
+        secondLbl.isHidden = false
+        
+        editBtnsView.isHidden = true
+        editBtn.isHidden = false
+        view.endEditing(true)
+    }
+    
+    @IBAction func saveBtnPressed(_ sender: Any) {
+        editBtn.isHidden = false
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        
+        words[self.indexCounter].translation = firstLblTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        words[self.indexCounter].word = secondLblTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
+        do {
+            try managedContext.save()
+            print("Successfully saved data.")
+            displayCurrentWord(index: indexCounter)
+            if secondLbl.text != "" {
+                translate(index: self.indexCounter)
+            }
+            cancelEditing()
+            view.endEditing(true)
+        } catch {
+            debugPrint("Could not save: \(error.localizedDescription)")
+        }
+    }
+    
     
     
     //Functions
@@ -337,11 +438,13 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     }
     
     func displayCurrentWord(index: Int) {
-        if !defaults.bool(forKey: "directionReversed") {
-            firstLbl.text = words[index].translation
-        } else {
-            firstLbl.text = words[index].word
-        }
+        let translation = words[index].translation
+        let word = words[index].word
+        
+        firstLbl.text = words[index].translation
+        
+        firstLblTextField.text = translation
+        secondLblTextField.text = word
     }
     
     func translate(index: Int) {

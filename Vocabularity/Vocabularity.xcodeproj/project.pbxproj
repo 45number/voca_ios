@@ -22,6 +22,8 @@
 		84379A90216906EF008AD3B4 /* UIButton+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84379A8F216906EF008AD3B4 /* UIButton+Border.swift */; };
 		84381E8B2162533F0052FDD9 /* CreateWordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84381E8A2162533F0052FDD9 /* CreateWordVC.swift */; };
 		84381E8D2162AE300052FDD9 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84381E8C2162AE300052FDD9 /* Deck.swift */; };
+		8439205A216E02CE003E5CB5 /* EditDeckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84392059216E02CE003E5CB5 /* EditDeckVC.swift */; };
+		8439205C216E1131003E5CB5 /* EditDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8439205B216E1131003E5CB5 /* EditDeckCell.swift */; };
 		84392D9221664F9000D37C2A /* SpellingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84392D9021664F9000D37C2A /* SpellingVC.swift */; };
 		84392D9321664F9000D37C2A /* SpellingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84392D9121664F9000D37C2A /* SpellingVC.xib */; };
 		844383A6215E50B5009246EC /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844383A5215E50B5009246EC /* ImageStore.swift */; };
@@ -54,6 +56,8 @@
 		84379A8F216906EF008AD3B4 /* UIButton+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Border.swift"; sourceTree = "<group>"; };
 		84381E8A2162533F0052FDD9 /* CreateWordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWordVC.swift; sourceTree = "<group>"; };
 		84381E8C2162AE300052FDD9 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		84392059216E02CE003E5CB5 /* EditDeckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckVC.swift; sourceTree = "<group>"; };
+		8439205B216E1131003E5CB5 /* EditDeckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDeckCell.swift; sourceTree = "<group>"; };
 		84392D9021664F9000D37C2A /* SpellingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingVC.swift; sourceTree = "<group>"; };
 		84392D9121664F9000D37C2A /* SpellingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellingVC.xib; sourceTree = "<group>"; };
 		844383A5215E50B5009246EC /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				844DD6AD216360F20021C4BD /* MemorizeVC.swift */,
 				84392D9021664F9000D37C2A /* SpellingVC.swift */,
 				84379A882168CCCA008AD3B4 /* SettingsVC.swift */,
+				84392059216E02CE003E5CB5 /* EditDeckVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				843730AB215BACC3009915C1 /* CircleImage.swift */,
 				843730AF215BB7C3009915C1 /* KeyboardBoundView.swift */,
 				84FA0D4E2165362F0073641F /* RoundShadowView.swift */,
+				8439205B216E1131003E5CB5 /* EditDeckCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 				84381E8D2162AE300052FDD9 /* Deck.swift in Sources */,
 				84381E8B2162533F0052FDD9 /* CreateWordVC.swift in Sources */,
 				84379A90216906EF008AD3B4 /* UIButton+Border.swift in Sources */,
+				8439205C216E1131003E5CB5 /* EditDeckCell.swift in Sources */,
 				84439F62216CD19800C839B3 /* RoundedButton.swift in Sources */,
 				84FBAC92215ABFF100936F61 /* Vocabularity.xcdatamodeld in Sources */,
 				84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */,
@@ -348,6 +355,7 @@
 				843730AE215BAEC0009915C1 /* CreateFolderVC.swift in Sources */,
 				843730AA215BA765009915C1 /* FolderCell.swift in Sources */,
 				84FD3371216A123B00ADD1B0 /* LearningLanguage.swift in Sources */,
+				8439205A216E02CE003E5CB5 /* EditDeckVC.swift in Sources */,
 				843730AC215BACC3009915C1 /* CircleImage.swift in Sources */,
 				843730B3215BC521009915C1 /* Constants.swift in Sources */,
 			);

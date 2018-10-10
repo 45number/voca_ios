@@ -257,6 +257,11 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             vc.learningLanguage = defaults.integer(forKey: "currentLearningLanguage")
         }
         
+        if let vc = segue.destination as? EditDeckVC {
+            vc.folder = self.getCurrentFolder()
+            vc.part = sender as? Int
+        }
+        
     }
     
     // Path functions
@@ -340,6 +345,8 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
             if self.folders.count > 1 {
                 self.editFolder(atIndexPath: indexPath)
+            } else {
+                self.editDeck(atIndexPath: indexPath)
             }
             
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -459,6 +466,11 @@ extension FoldersVC {
 //        } catch {
 //            debugPrint("Could not set progress: \(error.localizedDescription)")
 //        }
+    }
+    
+    func editDeck(atIndexPath indexPath: IndexPath) {
+//        let chosenFolder = folders[indexPath.row]
+        performSegue(withIdentifier: TO_EDIT_DECK, sender: indexPath.row)
     }
     
     func markFolder(atIndexPath indexPath: IndexPath) {

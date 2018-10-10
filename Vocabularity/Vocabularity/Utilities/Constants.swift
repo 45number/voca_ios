@@ -12,6 +12,7 @@ import Foundation
 let TO_CREATE_FOLDER = "toCreateFolder"
 let TO_CREATE_WORD = "toCreateWord"
 let TO_SETTINGS = "toSettings"
+let TO_EDIT_DECK = "toEditDeck"
 
 //Notification Constants
 let NOTIF_WORDS_COUNT_DID_CHANGE = Notification.Name("notifUserDataChanged")

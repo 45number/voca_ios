@@ -1079,42 +1079,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roA-aP-zEN">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-kJ-3HY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sil-CG-5ER">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QG8-KP-Gc4">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelBtnPressed:" destination="o9I-wB-oZz" eventType="touchUpInside" id="mH7-VF-Y39"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sil-CG-5ER">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                                <color key="backgroundColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Save">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="saveBtnPressed:" destination="o9I-wB-oZz" eventType="touchUpInside" id="9uH-IY-V0g"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="7BH-Kz-pm1"/>
-                                        </constraints>
-                                    </stackView>
+                                        <color key="backgroundColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Ok">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveBtnPressed:" destination="o9I-wB-oZz" eventType="touchUpInside" id="9uH-IY-V0g"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zEW-kJ-3HY" secondAttribute="trailing" id="542-em-mBM"/>
-                                    <constraint firstAttribute="bottom" secondItem="zEW-kJ-3HY" secondAttribute="bottom" id="SXI-1n-1hh"/>
-                                    <constraint firstItem="zEW-kJ-3HY" firstAttribute="leading" secondItem="roA-aP-zEN" secondAttribute="leading" id="WMQ-sS-1yP"/>
+                                    <constraint firstItem="Sil-CG-5ER" firstAttribute="leading" secondItem="roA-aP-zEN" secondAttribute="leading" id="4cp-XL-qHY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sil-CG-5ER" secondAttribute="trailing" id="hEp-In-5pF"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sil-CG-5ER" secondAttribute="bottom" id="kc9-UW-RSX"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="lFR-E6-mIc"/>
                                     <constraint firstAttribute="height" constant="50" id="lLB-CG-paZ"/>
+                                    <constraint firstItem="Sil-CG-5ER" firstAttribute="top" secondItem="roA-aP-zEN" secondAttribute="top" id="rGu-2w-8wE"/>
                                 </constraints>
                             </view>
                         </subviews>

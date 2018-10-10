@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DeckCellDelegate {
+    func cellDataChanged(cell: EditDeckCell)
+}
+
+
 class EditDeckCell: UITableViewCell {
 
     //Outlets
@@ -16,6 +21,8 @@ class EditDeckCell: UITableViewCell {
     @IBOutlet weak var translationTextView: UITextView!
     
     //Variables
+    var delegate: DeckCellDelegate?
+
 //    var word: Word
 //
 //    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -48,12 +55,14 @@ class EditDeckCell: UITableViewCell {
 extension EditDeckCell: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         
-        let startHeight = textView.frame.size.height
-        let calcHeight = textView.sizeThatFits(textView.frame.size).height  //iOS 8+ only
+//        let startHeight = textView.frame.size.height
+//        let calcHeight = textView.sizeThatFits(textView.frame.size).height
         
-        if startHeight != calcHeight {
-            NotificationCenter.default.post(name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
-        }
+        delegate?.cellDataChanged(cell: self)
+        
+//        if startHeight != calcHeight {
+//            NotificationCenter.default.post(name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
+//        }
         
         
     }

@@ -29,7 +29,7 @@ class EditDeckVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(EditDeckVC.textViewChanged(_:)), name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(EditDeckVC.textViewChanged(_:)), name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,9 +46,7 @@ class EditDeckVC: UIViewController {
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func cancelBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     @IBAction func saveBtnPressed(_ sender: Any) {
         saveDeck()
     }
@@ -58,27 +56,29 @@ class EditDeckVC: UIViewController {
     //Functions
     func saveDeck() {
         
-        let index = IndexPath(row: 0, section: 0)
-        let cell: EditDeckCell = self.tableView.cellForRow(at: index) as! EditDeckCell
-        let word = cell.wordTextView.text!
-        let translation = cell.translationTextView.text!
+//        let index = IndexPath(row: 0, section: 0)
+//        let cell: EditDeckCell = self.tableView.cellForRow(at: index) as! EditDeckCell
+//        let word = cell.wordTextView.text!
+//        let translation = cell.translationTextView.text!
+//
+//        print("Word: \(word), Translation: \(translation)")
         
-        print("Word: \(word), Translation: \(translation)")
-        
-//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
-//        for word in words {
-//            word.word = word.word?.trimmingCharacters(in: .whitespacesAndNewlines)
-//            word.translation = word.translation?.trimmingCharacters(in: .whitespacesAndNewlines)
-//            do {
-//                try managedContext.save()
-//            } catch {
-//                debugPrint("Could not save: \(error.localizedDescription)")
-//            }
-//        }
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        for word in words {
+            word.word = word.word?.trimmingCharacters(in: .whitespacesAndNewlines)
+            word.translation = word.translation?.trimmingCharacters(in: .whitespacesAndNewlines)
+            do {
+                try managedContext.save()
+            } catch {
+                debugPrint("Could not save: \(error.localizedDescription)")
+            }
+        }
+        dismiss(animated: true, completion: nil )
     }
     
-    @objc func textViewChanged(_ notif: Notification) {
+   /* @objc func textViewChanged(_ notif: Notification) {
+        
         UIView.setAnimationsEnabled(false) // Disable animations
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
@@ -101,7 +101,8 @@ class EditDeckVC: UIViewController {
 //        tableView.layoutIfNeeded()
         
         UIView.setAnimationsEnabled(true)  // Re-enable animations.
-    }
+ 
+    }*/
     
     func updateView() {
         if defaults.integer(forKey: "wordsAtTime") != 0 {
@@ -150,6 +151,8 @@ extension EditDeckVC: UITableViewDelegate, UITableViewDataSource {
         let word = words[indexPath.row]
         cell.configureCell(word: word, counter: (indexPath.row + 1))
         
+        cell.delegate = self
+        
         return cell
     }
     
@@ -159,7 +162,27 @@ extension EditDeckVC: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-
+extension EditDeckVC: DeckCellDelegate {
+    func cellDataChanged(cell: EditDeckCell) {
+        resizeCell()
+        
+//        let wordText = String(cell.wordTextView.text!)
+//        let translationText = String(cell.translationTextView.text!)
+        let index = Int(cell.counterLbl.text!)! - 1
+        
+        words[index].word = String(cell.wordTextView.text!)
+        words[index].translation = String(cell.translationTextView.text!)
+        
+//        print("Word: \(wordText), Translation: \(translationText), Index: \(String(describing: index))")
+    }
+    
+    func resizeCell() {
+        UIView.setAnimationsEnabled(false)
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+    }
+}
 
 
 

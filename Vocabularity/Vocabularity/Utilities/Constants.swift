@@ -17,3 +17,4 @@ let TO_EDIT_DECK = "toEditDeck"
 //Notification Constants
 let NOTIF_WORDS_COUNT_DID_CHANGE = Notification.Name("notifUserDataChanged")
 let NOTIF_LANGUAGES_DID_CHANGE = Notification.Name("notifLearningLanguagesChanged")
+let NOTIF_TEXT_VIEW_DID_CHANGE = Notification.Name("notifTextViewChanged")

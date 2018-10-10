@@ -1044,41 +1044,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roA-aP-zEN">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-kJ-3HY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QG8-KP-Gc4">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelBtnPressed:" destination="o9I-wB-oZz" eventType="touchUpInside" id="mH7-VF-Y39"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sil-CG-5ER">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                                <color key="backgroundColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Save">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="zEW-kJ-3HY" firstAttribute="leading" secondItem="roA-aP-zEN" secondAttribute="leading" id="5NB-E9-GCE"/>
-                                    <constraint firstAttribute="trailing" secondItem="zEW-kJ-3HY" secondAttribute="trailing" id="J0s-rw-r1v"/>
-                                    <constraint firstItem="zEW-kJ-3HY" firstAttribute="top" secondItem="roA-aP-zEN" secondAttribute="top" id="NdE-Gj-MMB"/>
-                                    <constraint firstAttribute="bottom" secondItem="zEW-kJ-3HY" secondAttribute="bottom" id="kMv-yc-vRd"/>
-                                    <constraint firstAttribute="height" constant="50" id="lLB-CG-paZ"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="boI-Oh-m7d">
                                 <rect key="frame" x="0.0" y="80" width="30" height="40"/>
                                 <subviews>
@@ -1111,24 +1076,62 @@
                                     <constraint firstAttribute="bottom" secondItem="cod-Wx-4Ho" secondAttribute="bottom" id="qeM-Ag-Jmq"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="roA-aP-zEN">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-kJ-3HY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QG8-KP-Gc4">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelBtnPressed:" destination="o9I-wB-oZz" eventType="touchUpInside" id="mH7-VF-Y39"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sil-CG-5ER">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
+                                                <color key="backgroundColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Save">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="7BH-Kz-pm1"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zEW-kJ-3HY" secondAttribute="trailing" id="542-em-mBM"/>
+                                    <constraint firstAttribute="bottom" secondItem="zEW-kJ-3HY" secondAttribute="bottom" id="SXI-1n-1hh"/>
+                                    <constraint firstItem="zEW-kJ-3HY" firstAttribute="leading" secondItem="roA-aP-zEN" secondAttribute="leading" id="WMQ-sS-1yP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="lFR-E6-mIc"/>
+                                    <constraint firstAttribute="height" constant="50" id="lLB-CG-paZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Od7-Pu-bYT" firstAttribute="top" secondItem="gr4-hA-2fX" secondAttribute="bottom" id="0Mr-02-FAB"/>
+                            <constraint firstItem="Vo7-ls-rkT" firstAttribute="bottom" secondItem="jbH-RB-XTz" secondAttribute="bottom" constant="50" id="ANU-2N-4fv"/>
                             <constraint firstItem="jbH-RB-XTz" firstAttribute="trailing" secondItem="Vo7-ls-rkT" secondAttribute="trailing" id="BGq-0I-U3G"/>
-                            <constraint firstItem="roA-aP-zEN" firstAttribute="trailing" secondItem="Vo7-ls-rkT" secondAttribute="trailing" id="Hkg-z0-ZLF"/>
                             <constraint firstItem="Od7-Pu-bYT" firstAttribute="leading" secondItem="Vo7-ls-rkT" secondAttribute="leading" constant="30" id="NPT-nf-xP5"/>
                             <constraint firstItem="gr4-hA-2fX" firstAttribute="trailing" secondItem="Vo7-ls-rkT" secondAttribute="trailing" id="Tao-6H-wMB"/>
                             <constraint firstItem="Od7-Pu-bYT" firstAttribute="top" secondItem="gr4-hA-2fX" secondAttribute="bottom" id="TgB-rE-twA"/>
+                            <constraint firstItem="Vo7-ls-rkT" firstAttribute="trailing" secondItem="roA-aP-zEN" secondAttribute="trailing" id="UoR-Qs-8hE"/>
                             <constraint firstItem="Od7-Pu-bYT" firstAttribute="trailing" secondItem="Vo7-ls-rkT" secondAttribute="trailing" id="V2v-7y-kqy"/>
+                            <constraint firstItem="roA-aP-zEN" firstAttribute="leading" secondItem="Vo7-ls-rkT" secondAttribute="leading" id="WS8-rN-tsK"/>
                             <constraint firstItem="jbH-RB-XTz" firstAttribute="leading" secondItem="Vo7-ls-rkT" secondAttribute="leading" id="Xhi-6Y-mPA"/>
                             <constraint firstItem="gr4-hA-2fX" firstAttribute="leading" secondItem="Vo7-ls-rkT" secondAttribute="leading" id="abX-By-vm5"/>
-                            <constraint firstItem="roA-aP-zEN" firstAttribute="leading" secondItem="Vo7-ls-rkT" secondAttribute="leading" id="b2b-1B-OgE"/>
-                            <constraint firstItem="roA-aP-zEN" firstAttribute="top" secondItem="jbH-RB-XTz" secondAttribute="bottom" id="bs8-mc-Fjv"/>
                             <constraint firstItem="boI-Oh-m7d" firstAttribute="leading" secondItem="Vo7-ls-rkT" secondAttribute="leading" id="ghk-K1-WY8"/>
+                            <constraint firstItem="roA-aP-zEN" firstAttribute="bottom" secondItem="Vo7-ls-rkT" secondAttribute="bottom" id="muQ-vg-w7C"/>
                             <constraint firstItem="boI-Oh-m7d" firstAttribute="top" secondItem="gr4-hA-2fX" secondAttribute="bottom" id="nKz-I5-8vu"/>
                             <constraint firstItem="jbH-RB-XTz" firstAttribute="top" secondItem="Od7-Pu-bYT" secondAttribute="bottom" id="o8s-kW-0mX"/>
-                            <constraint firstItem="roA-aP-zEN" firstAttribute="bottom" secondItem="Vo7-ls-rkT" secondAttribute="bottom" id="p8v-8X-iuh"/>
                             <constraint firstItem="gr4-hA-2fX" firstAttribute="top" secondItem="57B-Rl-oR0" secondAttribute="top" id="uZF-39-YEi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vo7-ls-rkT"/>
@@ -1136,6 +1139,8 @@
                     <connections>
                         <outlet property="actionBtnsView" destination="roA-aP-zEN" id="3ME-hp-Mg8"/>
                         <outlet property="tableView" destination="jbH-RB-XTz" id="aLc-u7-tCo"/>
+                        <outlet property="tableViewBottomConstraint" destination="ANU-2N-4fv" id="kMS-a6-81b"/>
+                        <outlet property="tableViewTopConstraint" destination="o8s-kW-0mX" id="SEB-c1-FVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ki-nQ-qLB" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,7 +17,8 @@ class EditDeckVC: UIViewController {
     //Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var actionBtnsView: UIView!
-    
+    @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     //Variables
     var folder: Folder!
@@ -28,7 +29,7 @@ class EditDeckVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(EditDeckVC.textViewChanged(_:)), name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,6 +53,31 @@ class EditDeckVC: UIViewController {
     
     
     //Functions
+    @objc func textViewChanged(_ notif: Notification) {
+        UIView.setAnimationsEnabled(false) // Disable animations
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+        
+        // Might need to insert additional stuff here if scrolls
+        // table in an unexpected way.  This scrolls to the bottom
+        // of the table. (Though you might need something more
+        // complicated if editing in the middle.)
+        
+//        tableViewTopConstraint.constant = 0
+//        tableViewBottomConstraint.constant = 50
+//        tableView.layoutIfNeeded()
+        
+        
+//        let scrollTo = self.tableView.contentSize.height - self.tableView.frame.size.height
+//        self.tableView.setContentOffset(CGPoint(x: 0, y: scrollTo), animated: false)
+        
+//        tableViewTopConstraint.constant = 0
+//        tableViewBottomConstraint.constant = 50
+//        tableView.layoutIfNeeded()
+        
+        UIView.setAnimationsEnabled(true)  // Re-enable animations.
+    }
+    
     func updateView() {
         if defaults.integer(forKey: "wordsAtTime") != 0 {
             self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
@@ -108,30 +134,7 @@ extension EditDeckVC: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension EditDeckVC: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        
-        let startHeight = textView.frame.size.height
-        let calcHeight = textView.sizeThatFits(textView.frame.size).height  //iOS 8+ only
-        
-        if startHeight != calcHeight {
-            
-            UIView.setAnimationsEnabled(false) // Disable animations
-            self.tableView.beginUpdates()
-            self.tableView.endUpdates()
-            
-            // Might need to insert additional stuff here if scrolls
-            // table in an unexpected way.  This scrolls to the bottom
-            // of the table. (Though you might need something more
-            // complicated if editing in the middle.)
-            
-            let scrollTo = self.tableView.contentSize.height - self.tableView.frame.size.height
-            self.tableView.setContentOffset(CGPoint(x: 0, y: scrollTo), animated: false)
-            
-            UIView.setAnimationsEnabled(true)  // Re-enable animations.
-        }
-    }
-}
+
 
 
 

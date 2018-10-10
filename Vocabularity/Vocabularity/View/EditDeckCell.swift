@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditDeckCell: UITableViewCell, UITextViewDelegate {
+class EditDeckCell: UITableViewCell {
 
     //Outlets
     @IBOutlet weak var counterLbl: UILabel!
@@ -35,4 +35,17 @@ class EditDeckCell: UITableViewCell, UITextViewDelegate {
     
 }
 
-
+extension EditDeckCell: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        
+        let startHeight = textView.frame.size.height
+        let calcHeight = textView.sizeThatFits(textView.frame.size).height  //iOS 8+ only
+        
+        if startHeight != calcHeight {
+            
+            NotificationCenter.default.post(name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
+            
+            
+        }
+    }
+}

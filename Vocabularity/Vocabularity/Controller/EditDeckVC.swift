@@ -28,10 +28,14 @@ class EditDeckVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         actionBtnsView.bindToKeyboard()
+        
+        self.tableView.estimatedRowHeight = 69.0
         
         updateView()
     }
@@ -98,6 +102,36 @@ extension EditDeckVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
 }
+
+extension EditDeckVC: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        
+        let startHeight = textView.frame.size.height
+        let calcHeight = textView.sizeThatFits(textView.frame.size).height  //iOS 8+ only
+        
+        if startHeight != calcHeight {
+            
+            UIView.setAnimationsEnabled(false) // Disable animations
+            self.tableView.beginUpdates()
+            self.tableView.endUpdates()
+            
+            // Might need to insert additional stuff here if scrolls
+            // table in an unexpected way.  This scrolls to the bottom
+            // of the table. (Though you might need something more
+            // complicated if editing in the middle.)
+            
+            let scrollTo = self.tableView.contentSize.height - self.tableView.frame.size.height
+            self.tableView.setContentOffset(CGPoint(x: 0, y: scrollTo), animated: false)
+            
+            UIView.setAnimationsEnabled(true)  // Re-enable animations.
+        }
+    }
+}
+
+
 

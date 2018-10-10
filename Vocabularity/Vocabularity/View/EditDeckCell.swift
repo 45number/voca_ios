@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditDeckCell: UITableViewCell {
+class EditDeckCell: UITableViewCell, UITextViewDelegate {
 
     //Outlets
     @IBOutlet weak var counterLbl: UILabel!
@@ -18,6 +18,8 @@ class EditDeckCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        wordTextView.delegate = self
+        translationTextView.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,3 +34,5 @@ class EditDeckCell: UITableViewCell {
     }
     
 }
+
+

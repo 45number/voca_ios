@@ -12,7 +12,7 @@ struct Deck {
     
     public private(set) var title: String
     public private(set) var info: String
-    public private(set) var marked: Bool
+    public var marked: Bool
     
     init(title: String, info: String, marked: Bool) {
         self.title = title

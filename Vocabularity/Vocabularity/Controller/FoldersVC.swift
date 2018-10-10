@@ -350,13 +350,14 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
             let chosenFolder = folders[indexPath.row]
             if chosenFolder.marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
         } else {
-            markTitle = "MARK"
+            if decks[indexPath.row].marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
         }
         
         let markAction = UITableViewRowAction(style: .normal, title: markTitle) { (rowAction, indexPath) in
             if self.folders.count > 1 {
                 self.markFolder(atIndexPath: indexPath)
             } else {
+                self.decks[indexPath.row].marked = !self.decks[indexPath.row].marked
                 self.markDeck(atIndexPath: indexPath)
             }
             tableView.reloadRows(at: [indexPath], with: .automatic)

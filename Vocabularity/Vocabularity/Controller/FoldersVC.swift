@@ -651,10 +651,10 @@ extension FoldersVC {
     
     func isDeckMarked(index: Int, markedDecks: [DeckMarked]) -> Bool {
         for mark in markedDecks {
-            print("------------------")
-            print("mark.number: \(mark.number)")
-            print("index: \(index)")
-            print("------------------")
+//            print("------------------")
+//            print("mark.number: \(mark.number)")
+//            print("index: \(index)")
+//            print("------------------")
             if (mark.number + 1) == index {
                 return true
             }

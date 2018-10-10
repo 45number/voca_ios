@@ -49,10 +49,35 @@ class EditDeckVC: UIViewController {
     @IBAction func cancelBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func saveBtnPressed(_ sender: Any) {
+        saveDeck()
+    }
     
     
     
     //Functions
+    func saveDeck() {
+        
+        let index = IndexPath(row: 0, section: 0)
+        let cell: EditDeckCell = self.tableView.cellForRow(at: index) as! EditDeckCell
+        let word = cell.wordTextView.text!
+        let translation = cell.translationTextView.text!
+        
+        print("Word: \(word), Translation: \(translation)")
+        
+//        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+//        for word in words {
+//            word.word = word.word?.trimmingCharacters(in: .whitespacesAndNewlines)
+//            word.translation = word.translation?.trimmingCharacters(in: .whitespacesAndNewlines)
+//            do {
+//                try managedContext.save()
+//            } catch {
+//                debugPrint("Could not save: \(error.localizedDescription)")
+//            }
+//        }
+    }
+    
     @objc func textViewChanged(_ notif: Notification) {
         UIView.setAnimationsEnabled(false) // Disable animations
         self.tableView.beginUpdates()

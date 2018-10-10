@@ -1098,6 +1098,9 @@
                                                 <state key="normal" title="Save">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="saveBtnPressed:" destination="o9I-wB-oZz" eventType="touchUpInside" id="9uH-IY-V0g"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

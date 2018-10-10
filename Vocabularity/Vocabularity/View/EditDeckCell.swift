@@ -15,6 +15,16 @@ class EditDeckCell: UITableViewCell {
     @IBOutlet weak var wordTextView: UITextView!
     @IBOutlet weak var translationTextView: UITextView!
     
+    //Variables
+//    var word: Word
+//
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//    }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,10 +52,9 @@ extension EditDeckCell: UITextViewDelegate {
         let calcHeight = textView.sizeThatFits(textView.frame.size).height  //iOS 8+ only
         
         if startHeight != calcHeight {
-            
             NotificationCenter.default.post(name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
-            
-            
         }
+        
+        
     }
 }

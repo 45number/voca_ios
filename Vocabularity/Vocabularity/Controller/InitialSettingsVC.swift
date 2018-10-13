@@ -19,6 +19,9 @@ class InitialSettingsVC: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(InitialSettingsVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+        
+        
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 
         self.dataSource = self
@@ -39,9 +42,9 @@ class InitialSettingsVC: UIPageViewController {
         pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 50, width: UIScreen.main.bounds.width, height: 50))
         pageControl.numberOfPages = orderedViewControllers.count
         pageControl.currentPage = 0
-        pageControl.tintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        pageControl.tintColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        pageControl.pageIndicatorTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
         self.view.addSubview(pageControl)
     }
     
@@ -49,6 +52,39 @@ class InitialSettingsVC: UIPageViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
     }
 
+    
+    
+    
+    
+    //Funcs
+    @objc func languagesChanged(_ notif: Notification) {
+//        let learningLanguages = getLearningLanguages()
+//        getCurrentLearningLanguage()
+//        updateView()
+//        setTabView(learningLanguages: learningLanguages)
+        
+        self.setViewControllers(orderedViewControllers,
+                                direction: UIPageViewControllerNavigationDirection.forward,
+                                              animated: true,
+                                              completion: nil)
+        
+    }
+    
+//    func getLearningLanguages() -> [LearningLanguage] {
+//        var learningLanguages: [LearningLanguage] = []
+//        if defaults.bool(forKey: "english") {
+//            learningLanguages.append(LearningLanguage(name: "English", tag: 1, image: nil, selectedImage: nil))
+//        }
+//        if defaults.bool(forKey: "russian") {
+//            learningLanguages.append(LearningLanguage(name: "Russian", tag: 2, image: nil, selectedImage: nil))
+//        }
+//        if defaults.bool(forKey: "arabic") {
+//            learningLanguages.append(LearningLanguage(name: "Arabic", tag: 3, image: nil, selectedImage: nil))
+//        }
+//        return learningLanguages
+//    }
+    
+    
 }
 
 extension InitialSettingsVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -61,6 +97,7 @@ extension InitialSettingsVC: UIPageViewControllerDelegate, UIPageViewControllerD
         }
         guard orderedViewControllers.count > previousIndex else {return nil}
         return orderedViewControllers[previousIndex]
+//        return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -73,7 +110,7 @@ extension InitialSettingsVC: UIPageViewControllerDelegate, UIPageViewControllerD
         }
         guard orderedViewControllers.count > nextIndex else {return nil}
         return orderedViewControllers[nextIndex]
-        
+//        return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {

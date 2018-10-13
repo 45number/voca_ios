@@ -343,7 +343,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
-            if self.folders.count > 1 {
+            if self.folders.count > 0 {
                 self.editFolder(atIndexPath: indexPath)
             } else {
                 self.editDeck(atIndexPath: indexPath)
@@ -353,7 +353,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         var markTitle = "MARK"
-        if folders.count > 1 {
+        if folders.count > 0 {
             let chosenFolder = folders[indexPath.row]
             if chosenFolder.marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
         } else {
@@ -361,7 +361,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         let markAction = UITableViewRowAction(style: .normal, title: markTitle) { (rowAction, indexPath) in
-            if self.folders.count > 1 {
+            if self.folders.count > 0 {
                 self.markFolder(atIndexPath: indexPath)
             } else {
                 self.decks[indexPath.row].marked = !self.decks[indexPath.row].marked

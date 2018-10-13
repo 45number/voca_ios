@@ -13,9 +13,18 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+//        let rootViewController = storyboard.instantiateViewController(withIdentifier: UserDefaults.standard.bool(forKey: "termsAccepted") ? "termsViewControllerID" : "homeViewControllerID")
+        let rootViewController = storyboard.instantiateViewController(withIdentifier: "initialSettingsVC")
+        
+        window?.rootViewController = rootViewController
+        
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }

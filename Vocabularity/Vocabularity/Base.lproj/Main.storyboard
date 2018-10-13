@@ -20,6 +20,44 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Initial SettingsVC-->
+        <scene sceneID="dU6-hf-qM8">
+            <objects>
+                <pageViewController storyboardIdentifier="initialSettingsVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="lDj-2h-5id" customClass="InitialSettingsVC" customModule="Vocabularity" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50s-Fo-ldt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1714" y="70"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Vlf-7e-dHa">
+            <objects>
+                <viewController storyboardIdentifier="initLanguages" id="ZXU-we-Qrx" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gMn-E9-5sn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.16955294679999999" blue="0.089680283969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="X1F-Pg-eeR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAl-NO-CBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1714" y="743"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hvo-1p-QPt">
+            <objects>
+                <viewController storyboardIdentifier="initWords" id="YaQ-Vs-Xac" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wTD-vq-TlD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="UBE-rT-N1k"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rAA-W7-Dj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1022" y="743"/>
+        </scene>
         <!--FoldersVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>

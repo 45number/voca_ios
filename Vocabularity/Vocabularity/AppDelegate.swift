@@ -18,7 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
 //        let rootViewController = storyboard.instantiateViewController(withIdentifier: UserDefaults.standard.bool(forKey: "termsAccepted") ? "termsViewControllerID" : "homeViewControllerID")
-        let rootViewController = storyboard.instantiateViewController(withIdentifier: "initialSettingsVC")
+        var rootViewController = storyboard.instantiateViewController(withIdentifier: "foldersVC")
+        
+        
+        let defaults = UserDefaults.standard
+        if (!defaults.bool(forKey: "english") &&
+            !defaults.bool(forKey: "russian") &&
+            !defaults.bool(forKey: "arabic")) ||
+            defaults.integer(forKey: "wordsAtTime") < 5 {
+            
+            rootViewController = storyboard.instantiateViewController(withIdentifier: "initialSettingsVC")
+            
+        }
         
         window?.rootViewController = rootViewController
         

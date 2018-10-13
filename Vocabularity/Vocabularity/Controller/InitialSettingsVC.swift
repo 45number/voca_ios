@@ -14,12 +14,19 @@ class InitialSettingsVC: UIPageViewController {
         return [self.newVC(viewController: "initLanguages"), self.newVC(viewController: "initWords")]
     }()
     
+//    var pages:[UIViewController] = [
+//        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageOneVC"),
+//        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageTwoVC"),
+//        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageThreeVC"),
+//        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageFourVC")
+//    ]
+    
     var pageControl = UIPageControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(InitialSettingsVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(InitialSettingsVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         
         
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -55,20 +62,7 @@ class InitialSettingsVC: UIPageViewController {
     
     
     
-    
-    //Funcs
-    @objc func languagesChanged(_ notif: Notification) {
-//        let learningLanguages = getLearningLanguages()
-//        getCurrentLearningLanguage()
-//        updateView()
-//        setTabView(learningLanguages: learningLanguages)
-        
-        self.setViewControllers(orderedViewControllers,
-                                direction: UIPageViewControllerNavigationDirection.forward,
-                                              animated: true,
-                                              completion: nil)
-        
-    }
+
     
 //    func getLearningLanguages() -> [LearningLanguage] {
 //        var learningLanguages: [LearningLanguage] = []
@@ -89,28 +83,31 @@ class InitialSettingsVC: UIPageViewController {
 
 extension InitialSettingsVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {return nil}
-        let previousIndex = viewControllerIndex - 1
-        guard previousIndex >= 0 else {
-//            return orderedViewControllers.last
-            return nil
-        }
-        guard orderedViewControllers.count > previousIndex else {return nil}
-        return orderedViewControllers[previousIndex]
-//        return nil
+        
+//        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {return nil}
+//        let previousIndex = viewControllerIndex - 1
+//        guard previousIndex >= 0 else {
+////            return orderedViewControllers.last
+//            return nil
+//        }
+//        guard orderedViewControllers.count > previousIndex else {return nil}
+//        return orderedViewControllers[previousIndex]
+        return nil
+        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {return nil}
-        let nextIndex = viewControllerIndex + 1
-        guard orderedViewControllers.count != nextIndex else {
-//            return orderedViewControllers.first
-            return nil
-        }
-        guard orderedViewControllers.count > nextIndex else {return nil}
-        return orderedViewControllers[nextIndex]
-//        return nil
+//        guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {return nil}
+//        let nextIndex = viewControllerIndex + 1
+//        guard orderedViewControllers.count != nextIndex else {
+////            return orderedViewControllers.first
+//            return nil
+//        }
+//        guard orderedViewControllers.count > nextIndex else {return nil}
+//        return orderedViewControllers[nextIndex]
+        return nil
+        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {

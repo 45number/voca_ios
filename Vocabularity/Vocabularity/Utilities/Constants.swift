@@ -13,6 +13,7 @@ let TO_CREATE_FOLDER = "toCreateFolder"
 let TO_CREATE_WORD = "toCreateWord"
 let TO_SETTINGS = "toSettings"
 let TO_EDIT_DECK = "toEditDeck"
+let TO_MAIN_VIEW = "toMainView"
 
 //Notification Constants
 let NOTIF_WORDS_COUNT_DID_CHANGE = Notification.Name("notifUserDataChanged")

@@ -58,6 +58,7 @@
                                                 <rect key="frame" x="266" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="englishSwitchPressed:" destination="CAT-b6-jZW" eventType="valueChanged" id="7SD-ta-kYH"/>
+                                                    <action selector="englishSwitchPressed:" destination="ZXU-we-Qrx" eventType="valueChanged" id="Ncp-lp-HdE"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -75,6 +76,7 @@
                                                 <rect key="frame" x="266" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="russianSwitchPressed:" destination="CAT-b6-jZW" eventType="valueChanged" id="PUK-SQ-KDV"/>
+                                                    <action selector="russianSwitchPressed:" destination="ZXU-we-Qrx" eventType="valueChanged" id="yF6-6M-sBz"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -92,6 +94,7 @@
                                                 <rect key="frame" x="266" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="arabicSwitchPressed:" destination="CAT-b6-jZW" eventType="valueChanged" id="igg-SW-BxY"/>
+                                                    <action selector="arabicSwitchPressed:" destination="ZXU-we-Qrx" eventType="valueChanged" id="ikN-mi-Ug8"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -125,12 +128,20 @@
                                     <action selector="nextBtnPressed:" destination="ZXU-we-Qrx" eventType="touchUpInside" id="Sr5-NF-VQR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have to choose at least one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-Io-plj">
+                                <rect key="frame" x="63" y="308.5" width="250" height="23.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.16955294679999999" blue="0.089680283969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="X1F-Pg-eeR" firstAttribute="bottom" secondItem="gBp-me-BQB" secondAttribute="bottom" constant="50" id="3v0-q5-803"/>
+                            <constraint firstItem="5Kh-Io-plj" firstAttribute="centerX" secondItem="gMn-E9-5sn" secondAttribute="centerX" id="8lP-IL-rYE"/>
                             <constraint firstItem="h1E-Xb-cJu" firstAttribute="top" secondItem="X1F-Pg-eeR" secondAttribute="top" constant="50" id="BNV-Zr-DAg"/>
                             <constraint firstItem="X1F-Pg-eeR" firstAttribute="trailing" secondItem="gBp-me-BQB" secondAttribute="trailing" constant="30" id="Gcb-1x-W5A"/>
                             <constraint firstItem="gBp-me-BQB" firstAttribute="leading" secondItem="X1F-Pg-eeR" secondAttribute="leading" constant="30" id="KYc-sJ-kZR"/>
+                            <constraint firstItem="5Kh-Io-plj" firstAttribute="top" secondItem="cNc-u0-uU1" secondAttribute="bottom" constant="40" id="VlH-32-xFr"/>
                             <constraint firstItem="cNc-u0-uU1" firstAttribute="leading" secondItem="X1F-Pg-eeR" secondAttribute="leading" constant="30" id="d8f-R2-dVs"/>
                             <constraint firstItem="X1F-Pg-eeR" firstAttribute="trailing" secondItem="cNc-u0-uU1" secondAttribute="trailing" constant="30" id="l1j-bK-pA1"/>
                             <constraint firstItem="h1E-Xb-cJu" firstAttribute="centerX" secondItem="gMn-E9-5sn" secondAttribute="centerX" id="ooY-Mw-Hro"/>
@@ -138,15 +149,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X1F-Pg-eeR"/>
                     </view>
+                    <connections>
+                        <outlet property="arabicSwitch" destination="VSB-ZP-1Lv" id="XvG-UI-ySe"/>
+                        <outlet property="englishSwitch" destination="ZZw-Xa-Ckl" id="suE-XG-DI5"/>
+                        <outlet property="russianSwitch" destination="yFk-kD-q36" id="Hip-2Q-19n"/>
+                        <outlet property="warningLbl" destination="5Kh-Io-plj" id="h4e-bQ-Mnu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAl-NO-CBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1714" y="743"/>
         </scene>
-        <!--View Controller-->
+        <!--Initial Settings Words-->
         <scene sceneID="Hvo-1p-QPt">
             <objects>
-                <viewController storyboardIdentifier="initWords" id="YaQ-Vs-Xac" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="initWords" id="YaQ-Vs-Xac" customClass="InitialSettingsWords" customModule="Vocabularity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wTD-vq-TlD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,8 +180,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="if5-j4-hBi">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minimumValue="5" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="if5-j4-hBi">
                                 <rect key="frame" x="140" y="296" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="YaQ-Vs-Xac" eventType="valueChanged" id="HzQ-MN-h86"/>
+                                </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll2-ev-byw" customClass="RoundedButton" customModule="Vocabularity" customModuleProvider="target">
                                 <rect key="frame" x="30" y="567" width="315" height="50"/>
@@ -182,6 +202,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextBtnPressed:" destination="YaQ-Vs-Xac" eventType="touchUpInside" id="81g-Mj-9UX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -197,6 +220,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UBE-rT-N1k"/>
                     </view>
+                    <connections>
+                        <outlet property="counterLbl" destination="9YN-fl-QuN" id="feg-eF-cmR"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMainView" id="NmY-yB-vqI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAA-W7-Dj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +232,7 @@
         <!--FoldersVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FoldersVC" customModule="Vocabularity" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="foldersVC" id="BYZ-38-t0r" customClass="FoldersVC" customModule="Vocabularity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

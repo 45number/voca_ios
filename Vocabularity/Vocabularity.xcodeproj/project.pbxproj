@@ -33,6 +33,7 @@
 		844DD6B0216360F20021C4BD /* MemorizeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844DD6AE216360F20021C4BD /* MemorizeVC.xib */; };
 		84829BA221720D7300DCA5A2 /* InitialSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829BA121720D7300DCA5A2 /* InitialSettingsVC.swift */; };
 		84829BA42172213F00DCA5A2 /* InitialSettingsLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829BA32172213F00DCA5A2 /* InitialSettingsLanguages.swift */; };
+		84829BA6217263C600DCA5A2 /* InitialSettingsWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829BA5217263C600DCA5A2 /* InitialSettingsWords.swift */; };
 		84FA0D4F2165362F0073641F /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA0D4E2165362F0073641F /* RoundShadowView.swift */; };
 		84FBAC8A215ABFF100936F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC89215ABFF100936F61 /* AppDelegate.swift */; };
 		84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC8B215ABFF100936F61 /* FoldersVC.swift */; };
@@ -70,6 +71,7 @@
 		844DD6AE216360F20021C4BD /* MemorizeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemorizeVC.xib; sourceTree = "<group>"; };
 		84829BA121720D7300DCA5A2 /* InitialSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsVC.swift; sourceTree = "<group>"; };
 		84829BA32172213F00DCA5A2 /* InitialSettingsLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsLanguages.swift; sourceTree = "<group>"; };
+		84829BA5217263C600DCA5A2 /* InitialSettingsWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsWords.swift; sourceTree = "<group>"; };
 		84FA0D4E2165362F0073641F /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		84FBAC86215ABFF100936F61 /* Vocabularity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabularity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FBAC89215ABFF100936F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				84392059216E02CE003E5CB5 /* EditDeckVC.swift */,
 				84829BA121720D7300DCA5A2 /* InitialSettingsVC.swift */,
 				84829BA32172213F00DCA5A2 /* InitialSettingsLanguages.swift */,
+				84829BA5217263C600DCA5A2 /* InitialSettingsWords.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				84379A8D216906D4008AD3B4 /* CustomAlertView.swift in Sources */,
 				84381E8D2162AE300052FDD9 /* Deck.swift in Sources */,
 				84381E8B2162533F0052FDD9 /* CreateWordVC.swift in Sources */,
+				84829BA6217263C600DCA5A2 /* InitialSettingsWords.swift in Sources */,
 				84379A90216906EF008AD3B4 /* UIButton+Border.swift in Sources */,
 				8439205C216E1131003E5CB5 /* EditDeckCell.swift in Sources */,
 				8439205E216E25F8003E5CB5 /* TextViewAutoHeight.swift in Sources */,

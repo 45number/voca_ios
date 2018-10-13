@@ -55,7 +55,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         
         
-        defaults.set(true, forKey: "english")
+//        defaults.set(true, forKey: "english")
         
         getCurrentLearningLanguage()
         let learningLanguages = getLearningLanguages()

@@ -34,6 +34,7 @@
 		84829BA221720D7300DCA5A2 /* InitialSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829BA121720D7300DCA5A2 /* InitialSettingsVC.swift */; };
 		84829BA42172213F00DCA5A2 /* InitialSettingsLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829BA32172213F00DCA5A2 /* InitialSettingsLanguages.swift */; };
 		84829BA6217263C600DCA5A2 /* InitialSettingsWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829BA5217263C600DCA5A2 /* InitialSettingsWords.swift */; };
+		84F9C39B2173D25F005F93A9 /* one.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 84F9C39A2173D25F005F93A9 /* one.xlsx */; };
 		84FA0D4F2165362F0073641F /* RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA0D4E2165362F0073641F /* RoundShadowView.swift */; };
 		84FBAC8A215ABFF100936F61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC89215ABFF100936F61 /* AppDelegate.swift */; };
 		84FBAC8C215ABFF100936F61 /* FoldersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBAC8B215ABFF100936F61 /* FoldersVC.swift */; };
@@ -72,6 +73,8 @@
 		84829BA121720D7300DCA5A2 /* InitialSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsVC.swift; sourceTree = "<group>"; };
 		84829BA32172213F00DCA5A2 /* InitialSettingsLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsLanguages.swift; sourceTree = "<group>"; };
 		84829BA5217263C600DCA5A2 /* InitialSettingsWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsWords.swift; sourceTree = "<group>"; };
+		84F9C3992173C5A4005F93A9 /* Excel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Excel-Bridging-Header.h"; sourceTree = "<group>"; };
+		84F9C39A2173D25F005F93A9 /* one.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = one.xlsx; sourceTree = "<group>"; };
 		84FA0D4E2165362F0073641F /* RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundShadowView.swift; sourceTree = "<group>"; };
 		84FBAC86215ABFF100936F61 /* Vocabularity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabularity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FBAC89215ABFF100936F61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +164,15 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		84F9C3982173C54A005F93A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84F9C3992173C5A4005F93A9 /* Excel-Bridging-Header.h */,
+				84F9C39A2173D25F005F93A9 /* one.xlsx */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		84FBAC7D215ABFF100936F61 = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +194,7 @@
 		84FBAC88215ABFF100936F61 /* Vocabularity */ = {
 			isa = PBXGroup;
 			children = (
+				84F9C3982173C54A005F93A9 /* Supporting Files */,
 				84379A8A216906D4008AD3B4 /* CustomAlertView */,
 				844DD6B12163610B0021C4BD /* XIBs */,
 				844383A4215E4397009246EC /* Model */,
@@ -298,6 +311,7 @@
 				844DD6B0216360F20021C4BD /* MemorizeVC.xib in Resources */,
 				84FBAC8F215ABFF100936F61 /* Main.storyboard in Resources */,
 				84392D9321664F9000D37C2A /* SpellingVC.xib in Resources */,
+				84F9C39B2173D25F005F93A9 /* one.xlsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,10 +344,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Vocabularity/Pods-Vocabularity-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
+				"${BUILT_PRODUCTS_DIR}/XlsxReaderWriter/XlsxReaderWriter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XlsxReaderWriter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

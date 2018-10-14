@@ -1,16 +1,25 @@
 PODS:
   - CropViewController (2.3.8)
+  - SSZipArchive (2.1.4)
+  - XlsxReaderWriter (2.4.0-beta.4):
+    - SSZipArchive (~> 2.1)
 
 DEPENDENCIES:
   - CropViewController
+  - XlsxReaderWriter (~> 2.4.0-beta)
 
 SPEC REPOS:
+  https://github.com/charlymr/XlsxReaderWriter-Podspecs.git:
+    - XlsxReaderWriter
   https://github.com/cocoapods/specs.git:
     - CropViewController
+    - SSZipArchive
 
 SPEC CHECKSUMS:
   CropViewController: 7be882b7d3fb3faef48a41924e80f689e9df2514
+  SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
+  XlsxReaderWriter: 4a68962d5f9ae66a6e9afcfc2829ec1a68be9cf5
 
-PODFILE CHECKSUM: 09e71b647993bb222cfa0e8e4d53bde4b632ff47
+PODFILE CHECKSUM: f238f6fad7ab86f4005789b8af556709916ff8e9
 
 COCOAPODS: 1.5.2

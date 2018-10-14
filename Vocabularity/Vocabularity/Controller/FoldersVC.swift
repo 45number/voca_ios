@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import XlsxReaderWriter
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
@@ -134,6 +135,19 @@ class FoldersVC: UIViewController, UITabBarDelegate {
 //        self.tabBar.selectedItem = self.tabBar.items?[0]
     }
     
+    func opa() {
+        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
+        let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(documentPath)
+        //First worksheet in the workbook
+        let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
+        let string: String = worksheet.cell(forCellReference: "A1").stringValue()
+        let string2: String = worksheet.cell(forCellReference: "B1").stringValue()
+        print("--------")
+        print(string)
+        print(string2)
+        print("--------")
+    }
+    
     func hideTabBar() {
         tabBar.isHidden = true
         tableViewBottomConstraint.constant = 0
@@ -217,6 +231,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             }))
             alert.addAction(UIAlertAction(title: "Word", style: .default, handler: { action in
                 self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Excel", style: .default, handler: { action in
+                self.opa()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { action in }))
             self.present(alert, animated: true, completion: nil)

@@ -7,8 +7,10 @@ target 'Vocabularity' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Vocabularity
+  # Pods for Vocabularity  
 
   pod 'CropViewController'
+  
+    pod 'XlsxReaderWriter', '~> 2.4.0-beta', :source => 'https://github.com/charlymr/XlsxReaderWriter-Podspecs.git'
 
 end

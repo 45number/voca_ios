@@ -7,58 +7,185 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		001FDB7B4A8172DA2FA156753D1AAB37 /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = AAD74B1E114AF9A90540B94EA766B226 /* ru.lproj */; };
-		04B258408B165BD61707E214205A9582 /* CropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 067FD9CE2592E89AB6AB68566C1C09B8 /* CropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		186062E9DB2E0411A1D43D6B3C4DAD8E /* pt.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7FBA565BD2A6D4845F0C21BA4A275B81 /* pt.lproj */; };
-		1D2598CF9876A8A3CAC4C90D961822A4 /* Pods-Vocabularity-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDC8118B549333C146C887A7CABBC6A3 /* Pods-Vocabularity-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2069B2E9606B52CB8B3EB6E4E2B5EA46 /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF51C9F95524B54621B530E238816C /* tr.lproj */; };
-		31B025E4510BC547729090ACCC68F4E6 /* TOActivityCroppedImageProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = EFD643882138005FB323B9262FCE7428 /* TOActivityCroppedImageProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		346D3F9AA4449874AB4713B42A4CA9BB /* Pods-Vocabularity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5886F1C053E31763FE59AC8151A75AF8 /* Pods-Vocabularity-dummy.m */; };
-		38F7217D1D7587C97F78A451384F7061 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 102B714F8CB8E1D5C2B2A23E6C81CB6F /* TOCropToolbar.m */; };
-		3B3D2AB6A3E900C7CFE44029DCE5D29D /* TOCropToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = BC25E839FD38C6FF097D3FB8455A8463 /* TOCropToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3C3C4B9BBCD0386E4A2735C46B18CCF1 /* TOCroppedImageAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BBBBF47E5681EAF811075E9CC364F75 /* TOCroppedImageAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3EC84F5E6B5AF7A004001A77F50EAAB5 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 41BBE3CDB023E311926C9C09130A6DE1 /* es.lproj */; };
-		40FE6759253DD6EBB0508C4471A3331D /* TOCropOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EAB2A0FD062107AAE1A4264563B3169 /* TOCropOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F61EFC5206D2E81DFC81E42E72EC3DE /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = BE3E2DEA1CF30E969D3CCE89E74AB43F /* Base.lproj */; };
-		54520A0BC534254876A4E97D7BEF3992 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 460ED2C300BAF629753A1DC8E354CB60 /* UIImage+CropRotate.m */; };
-		5736AC74345118B0C83D55C5E808235C /* TOCropScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = EB34D1105E12B53E717FD6D61AF6AD0B /* TOCropScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		57AF73B9C88B2C90E815F255AA22DC6A /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 276D4DF49207FF3BE2F90E183D2874B5 /* id.lproj */; };
-		5825DA23CD61891140B2D68873E0E6E5 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F450DC760E95C3FA00CEFF76654D0 /* TOCropView.m */; };
-		59C2C280E01DE15538BB043749FFC208 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 08EBABC2111606E27CDC2B210300E73F /* en.lproj */; };
-		60E0BDC75F1364BB1F9A7EA5ED508EAB /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C9C91A108F1E069173DFE78709D064 /* CropViewController.swift */; };
-		642B8A108F74FF9F6F4C26C2447D09FE /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = D207FED6BC00778B65A661E4A2E75AA8 /* it.lproj */; };
-		6B450755BFD40039C86EE1C3DA847504 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F21EC21C0AC303FF6C93DA98D3B0DD61 /* pl.lproj */; };
-		6BF76AE5E4054B51251B362808B22A02 /* ms.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E3FFFB14DE43D02AE4B5B26BBB4BA9BA /* ms.lproj */; };
-		6DF0166D45023BDF39E56A424D680384 /* ar.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 70232AF1E8A738F95EDAF60F0D06C10A /* ar.lproj */; };
-		6EEE34E332D5BCD74D34B06D50E48393 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D48C0717AC7B75104A9140D5AF2C416 /* TOCropViewControllerTransitioning.m */; };
-		747A356E110EE626E789D61CD5517F0E /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27558A29B77063AEE53F7E375A7B494F /* TOCropScrollView.m */; };
-		762B8D8AFEE143C93181856F6A8A0A16 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2896470A7D73FC3762814B6AFEB05DEB /* TOCroppedImageAttributes.m */; };
-		78EF1D3DDBD53DD5857401AF6910FF66 /* UIImage+CropRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = 31A673D5FF0F7ADE15C332C89580B44A /* UIImage+CropRotate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		812E345D1D976992DA79CF89B84FEA9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		8D369FB43723D0C94DC2B9C6B19BB09A /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 76A9AFA10FC9B87C56AEDACC0361A49D /* zh-Hant.lproj */; };
-		927AA2BF969DB7857D5FEA3FDDF04B1B /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F0F99FAA30AB0B5A393B362F84382D /* TOCropOverlayView.m */; };
-		94588C21B85F1BABD0FCAD88FBEBE696 /* TOCropViewControllerTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = EB5B6655D0A1E687C656ED91DA1EBD7B /* TOCropViewControllerTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		958D54AEF9658EBECB362185550C30F0 /* CropViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 91A0165AE84037FFF8A020A026E115EB /* CropViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B11F3555EAFEC19468F177E2DD4ED5B /* TOCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D9C0B5C7B4125BB0D64FCCD88D3719 /* TOCropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9EE9723F9A932CEF363BEB27872808D5 /* TOCropViewControllerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 545E5B6F024177DC01D72BD282BD3CC7 /* TOCropViewControllerBundle.bundle */; };
-		A600DD0BAA3E133ECCBCFCBE518D5456 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7467E3A59401684B5E02248D3F087735 /* zh-Hans.lproj */; };
-		AEA8AA191D0E3E90A611FF2C5E1C9C6D /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F409437DAE63284C6FB35A227659128 /* TOCropViewController.m */; };
-		AEAFD5126BE095A4D9011A3403C8B170 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 38BE362C27BBD9833F37237676173A25 /* de.lproj */; };
-		AFB21C29ADDA647B8EBF599A8232EFF3 /* da-DK.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 678BFDED166F21A7C9CC891DF72CE611 /* da-DK.lproj */; };
-		B5279AC20990FC396CA1749A3F6B8CCA /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EFC22983E6E0E3123E2C0A8166C86EAF /* vi.lproj */; };
-		C007BBA650D7D15BCA678704B2378179 /* CropViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDBB09E01F92D327CCDB58E0E1846AF /* CropViewController-dummy.m */; };
-		C7EC539AA5EA7E6744D88E0EAE0ECAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		C858819E7ACBDCA2FB0E7AE8F273E4C4 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 800FE1F457F56C68C532261C6438D416 /* nl.lproj */; };
-		C936B9E677435320AB4159340E2840CA /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F7C973D5FA89CE6F39DC3263586BE2EE /* ja.lproj */; };
-		CB6B9C47429F19A1C7A0BAF461B6CA80 /* ko.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 18B6DE18DA237C71B3C33A5F919FDF7B /* ko.lproj */; };
-		CCA7D2E225D6900C1C466D2C30F5CE9B /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = DCA1934DD83B20B72BCACC1D6FF6C4A6 /* fr.lproj */; };
-		E7DF973DCA3A7C6DD717D059B5DC3EF3 /* TOCropViewConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F5ABC34C93BC6D3493E082807585EF0 /* TOCropViewConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7E33D6CC4706FD8BA8CFEF95883C23B /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E56474495B1033F619A722D50A3F051F /* TOActivityCroppedImageProvider.m */; };
-		E925A17DBF05E8CB8B749B619A50A8FF /* TOCropView.h in Headers */ = {isa = PBXBuildFile; fileRef = 509DDDBF4C9A77D5171A931BF0F75394 /* TOCropView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		001FDB7B4A8172DA2FA156753D1AAB37 /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C4509F18DB8593105DB6D353F4DCEB7F /* ru.lproj */; };
+		032944ACEF4C6272C41E6DF067918134 /* SSZipArchive-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9ABA3161C0F3697571401AE0717D7D14 /* SSZipArchive-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03DB9259C2E84EF49BA6FAAE446BD5BC /* BRASheet.h in Headers */ = {isa = PBXBuildFile; fileRef = EE4F28ED2AADCAFDE1C89777D29832E2 /* BRASheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03FC7B70F4C9C3C846C382E1DF276C2B /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = C944C9FD41D0C6124DB19F1AFECF1FE3 /* unzip.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		04A19D0DC000AF15B0042AD300072F71 /* BRACellFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = FC708E9681C3A50CFCA78FB532A267A5 /* BRACellFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04B258408B165BD61707E214205A9582 /* CropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B2374BD75B938D84FEC67D7D6B3A458 /* CropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05BC6BBD5A165B7188F7E4791E02FACB /* fileenc.h in Headers */ = {isa = PBXBuildFile; fileRef = 7930EBB8C3BC8FB094A941BE5A28BAA5 /* fileenc.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		08B3DD8328B5F9023A8B1A13897FA2A6 /* hmac.h in Headers */ = {isa = PBXBuildFile; fileRef = C9FF466C05FAC0866E8817C99B93C297 /* hmac.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		090620AA3E253A322A3AA24A4453E33E /* pwd2key.c in Sources */ = {isa = PBXBuildFile; fileRef = 72F674C91483EDE27CF5FB6B4BC30ACC /* pwd2key.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0A043770B4267A8EC644AF47ECE06814 /* BRAMergeCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 96E69CB49B584C9BCE568FB7875AEBAE /* BRAMergeCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B2A27A8CBDDBA2E6C29503069DD3ADF /* XlsxReaderWriter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5F0F9876CB642179EC525805C254F4 /* XlsxReaderWriter-dummy.m */; };
+		0D488DA833CC1DB0197C1584D0A11758 /* BRAVmlDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F32558B9FAB041F2DE5BF9432402AAF /* BRAVmlDrawing.m */; };
+		0D814BFC4C003F1114B8D110594A6DB2 /* BRAOpenXmlElement.h in Headers */ = {isa = PBXBuildFile; fileRef = CDABC4A787190E751C5A7EFAD3C27E8C /* BRAOpenXmlElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10E64EDA66E1C7830BE31539946C9C10 /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FA65AEBE200BFFA157A1D34EBD4217A /* hmac.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		116B7625594C25CCB911E3A55C002400 /* SSZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A90F302A50B055B0352E86A41D3F9D /* SSZipArchive.framework */; };
+		1269A24C97E445AA21E1DFBC4D391DB7 /* BRAColumn.m in Sources */ = {isa = PBXBuildFile; fileRef = 79C71235E14460B4CA8EBE0DE9440620 /* BRAColumn.m */; };
+		129836783036E7E3B9CEDC5490605BAD /* ioapi_mem.c in Sources */ = {isa = PBXBuildFile; fileRef = BE7AE6ECC8C0DB0457E26503EBDB17D4 /* ioapi_mem.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		186062E9DB2E0411A1D43D6B3C4DAD8E /* pt.lproj in Resources */ = {isa = PBXBuildFile; fileRef = FDD3BA5A8745F0F2F8F56AB8C32AC9C0 /* pt.lproj */; };
+		190F7CD9E49A5E32EFA72F90CDE2376A /* BRATheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B485AE8EE506000F9941A7B75ACD0B94 /* BRATheme.m */; };
+		197D4C7349B36841C0D93E70A10A8340 /* BRADrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 44E95ED34E571D7810B181DA52D93EF9 /* BRADrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AF4ECFCCAD569300D0A6090019029AA /* BRAContentTypesDefaultExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 53056B56A3AC47AF75B2EDCEF38FBA68 /* BRAContentTypesDefaultExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2069B2E9606B52CB8B3EB6E4E2B5EA46 /* tr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 763B7CA0FCB1ACE0B8DDCF5E8BA8BC76 /* tr.lproj */; };
+		20C34661156878C09F3723F0F8A77799 /* BRAWorksheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CFF1CA2064B6EDC23DD6BF43249FCB /* BRAWorksheet.m */; };
+		22605118806A0C93C442D6647F8BA9EE /* BRARelationships.h in Headers */ = {isa = PBXBuildFile; fileRef = BC75A2605E20C72DFD6A799AF1B752C4 /* BRARelationships.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		227AA1F13815D1E47741602253E090B5 /* BRAPlatformSpecificDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = B14ECDB56CBE350691F17F1CB41E0B48 /* BRAPlatformSpecificDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2371ED2102431F54FE64B80B9BAEC8CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9680ECF87E076325DAC71A80B3A9D386 /* UIKit.framework */; };
+		23C6EE2A4100889C78D8C1C683C4BB18 /* SSZipCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFC19C696C14A00F020C9A33A4BF6C0 /* SSZipCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		240E24D762979B70DFE92B583BA26E5D /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A19B7AFA97905CC6FA7C2550F06731 /* SSZipArchive.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		24D2BB9ECD9D533DA211FA135DF01527 /* BRAContentTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3008437C066B1EB79887B6E2407D3B82 /* BRAContentTypes.m */; };
+		24E5D2939633EE3F60EFF610917F3D3A /* BRAStyles.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C7E814C6EBFEF061C865173D9323D64 /* BRAStyles.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		263B4617FB1EB22F904F1EB0F96B25E2 /* crypt.c in Sources */ = {isa = PBXBuildFile; fileRef = 1548D22CF801D46C7AD1424BEC842AD5 /* crypt.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2ABD7DD70F43F96EBD96E41F2A144E8B /* BRACalcChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1563FF5A294388B8092F312554D9E74D /* BRACalcChain.m */; };
+		2B30B76C4C96E9A80BB87ADBB08BBB11 /* BRASharedString.m in Sources */ = {isa = PBXBuildFile; fileRef = FF720479AA0B46CA50F009D1DA1A138A /* BRASharedString.m */; };
+		2C7112D9EA62F8BB71224425799FC534 /* unzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC781E7ED5E29CEF2B4A3D1A4947447 /* unzip.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2E7B778A5D7DA2A4D040DA55B0117BEC /* NativeFont+BoldItalic.m in Sources */ = {isa = PBXBuildFile; fileRef = 010B871B2A4DD09B71E72FF4DC3327B6 /* NativeFont+BoldItalic.m */; };
+		31A3E3781300851E40E646ED010D55A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFAEAAB8EF90C69E9F39C3850267C53 /* Foundation.framework */; };
+		31B025E4510BC547729090ACCC68F4E6 /* TOActivityCroppedImageProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = D58D0906F793EA468F8940CB8F370C05 /* TOActivityCroppedImageProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		328B7FF1340634C50A5C8A6CEA6CE224 /* BRAOpenXmlSubElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 6457B1636263D43FC59A2E0012D09D99 /* BRAOpenXmlSubElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		337BE31A5D2A7561642D7F97402BEB18 /* NativeColor+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E46B72E8813406D610F6685FBDB62B4 /* NativeColor+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		348A02FB30C151C38D18FA0E8AE56694 /* brg_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E4B863FDF8252C719327C5A56F790D7 /* brg_types.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		38F7217D1D7587C97F78A451384F7061 /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E33B0C50ABA7473183811FD596C509B6 /* TOCropToolbar.m */; };
+		39E622BDCB8EF4B5B6AF7CCA07E7C9BF /* SSZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = CB4DA13E763120DFE4D4B42190E1F0ED /* SSZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3AEA4C3F92F3D5BCF79126903FE54A4B /* BRAOfficeDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C81C913AE93440847705F96A0E56FE7 /* BRAOfficeDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B3D2AB6A3E900C7CFE44029DCE5D29D /* TOCropToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 13CFED31730DF65D705777F478E2F152 /* TOCropToolbar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C3C4B9BBCD0386E4A2735C46B18CCF1 /* TOCroppedImageAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = B5359AEE76CADD4778DE388117E1A8C8 /* TOCroppedImageAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3EC84F5E6B5AF7A004001A77F50EAAB5 /* es.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 76E65452471DF28D4597A259C045196D /* es.lproj */; };
+		3FF1831792AA41CC6EB1E9D85AD67CF1 /* BRAOpenXmlElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 47ED3558057B615A6B2442762B998CFE /* BRAOpenXmlElement.m */; };
+		403CA96CEB33717DFD145A1B8EABE56D /* ioapi_mem.h in Headers */ = {isa = PBXBuildFile; fileRef = C01A6E5F849CB0832C34CC7124A7F978 /* ioapi_mem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		40FE6759253DD6EBB0508C4471A3331D /* TOCropOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 97C1CC287DB7D453084F0C1331F03A8C /* TOCropOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4352C2AB8795E25D0E57C05739805453 /* aes_ni.h in Headers */ = {isa = PBXBuildFile; fileRef = 90CDA098C5974B25637801A2E3F1053E /* aes_ni.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		43D0B55B77529E903875C3A9A9C2610D /* BRAComment.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFB58A2053576D7B71D760738227E46 /* BRAComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44A399846A51BB1A157F13301957CE7F /* BRACellFill.h in Headers */ = {isa = PBXBuildFile; fileRef = D37E9E3A8840407F0C4C107BB6ADE57F /* BRACellFill.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46DD9090E513E180F419255BCBEA39C6 /* BRARelatedToColumnAndRowProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FA1775186E55E78EB14E2F6AC3101CB6 /* BRARelatedToColumnAndRowProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C8ED9D6783AB66CAB3D18EDAB81EF6D /* SSZipArchive-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 378DEA9F0F508BFCF7263B824306B4DB /* SSZipArchive-dummy.m */; };
+		4E6165234C7CF8460D0074CDA97E2CB2 /* BRASharedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB10B919C0E69DD59D0DF5A12F9168 /* BRASharedStrings.m */; };
+		4F182B3461ADA493BFB32252EA3806C1 /* brg_endian.h in Headers */ = {isa = PBXBuildFile; fileRef = AE4BFA24E1A1A307BFA4596AEC6642E4 /* brg_endian.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4F61EFC5206D2E81DFC81E42E72EC3DE /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = DDDD79D234627DF243B6F78261D7FB46 /* Base.lproj */; };
+		511BE6B1499EFC597B9E0E225A6B1C30 /* BRATheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 740B6567DC317B7C1F38A179FBE4C557 /* BRATheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		52F0DEA2120424BD2EEDFCB428A5CE5A /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = CDAA9011963653E88B4F467CFE1C8F6E /* sha1.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		54520A0BC534254876A4E97D7BEF3992 /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCE27B397DAA9281CEBA9BABCDCB2C46 /* UIImage+CropRotate.m */; };
+		557B45419E6F612F4E1308D02391A4F4 /* BRADrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = C4251C19C027EAB4561CCE5EEB94B517 /* BRADrawing.m */; };
+		5736AC74345118B0C83D55C5E808235C /* TOCropScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 66FB30E36EA39EAF012C0CD6C4A5745F /* TOCropScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57AF73B9C88B2C90E815F255AA22DC6A /* id.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5B13F3F6DEC0116C0F69DA9D5F84CC8D /* id.lproj */; };
+		5825DA23CD61891140B2D68873E0E6E5 /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD5666206E1E2A4ED0C53BE5FBD3DF9 /* TOCropView.m */; };
+		59C2C280E01DE15538BB043749FFC208 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = CCC2A48E09AD74480B0FD8B4D6335B28 /* en.lproj */; };
+		59CE7A075B74C35680A4D34901F82475 /* Pods-Vocabularity-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5886F1C053E31763FE59AC8151A75AF8 /* Pods-Vocabularity-dummy.m */; };
+		5C38C37AFD75E1BEB06BB82CE8A92636 /* BRASharedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 64E4FB1003D7D2E2F3A57EB7A65132D6 /* BRASharedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C6EFF8A664EA21608A56F63FA73092A /* XlsxReaderXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = FCDB2C08ACDFF9698F52926165BA8857 /* XlsxReaderXMLDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60E0BDC75F1364BB1F9A7EA5ED508EAB /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058A095E343E10CD78BBB2C34F1ECAC1 /* CropViewController.swift */; };
+		61C0A7749EA23248A2E9441EEDA77392 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E54B5801E7853B7E770DF4E8FEDA8A /* NSDictionary+OpenXMLDictionaryParser.m */; };
+		63F9770BF35F1D1A30022AFA6541AD69 /* BRAWorksheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D83271F4B50EA49B4F758B8D510830C /* BRAWorksheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		642B8A108F74FF9F6F4C26C2447D09FE /* it.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6332BF45472D1AA5871869DA7760720C /* it.lproj */; };
+		6658292F2324A57BECD7B55BAE544FB8 /* BRAVmlDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = C146DCB185B58F07B3E4508651DE0AC5 /* BRAVmlDrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		669E61E63AE099AC6A670DCC96BA36DC /* BRAWorksheetDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 939BE76C212E236FE2A317ACB1237395 /* BRAWorksheetDrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		695EAF997901945F213CDF88FC81E5C1 /* BRARelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBB009F77033C8168F33CCE67E287E4 /* BRARelationship.m */; };
+		6A915DB17F6D3B5AA9FD5CA8FDEEA233 /* ioapi_buf.c in Sources */ = {isa = PBXBuildFile; fileRef = 1CB563674503CA0445CB772DEA689563 /* ioapi_buf.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6B450755BFD40039C86EE1C3DA847504 /* pl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = DC2C3A5ED4CEF4C8B0FE17C889A4EADA /* pl.lproj */; };
+		6BF76AE5E4054B51251B362808B22A02 /* ms.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C73E98E459E879AA84644F21B5B7624D /* ms.lproj */; };
+		6C741E0DB64DA41240FC34C151A27D99 /* NSDictionary+OpenXmlString.m in Sources */ = {isa = PBXBuildFile; fileRef = 147800C0358C3B09014B5F9BB8AE2B8E /* NSDictionary+OpenXmlString.m */; };
+		6D0854B338E615155BF92491519E6056 /* BRASheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3DF119977B307A61994A3C92FD7097 /* BRASheet.m */; };
+		6DF0166D45023BDF39E56A424D680384 /* ar.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 0907266E450191738A1ED8554C032C2A /* ar.lproj */; };
+		6EEE34E332D5BCD74D34B06D50E48393 /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 3078B1CB97779E1FFBCB46C4F54CCD82 /* TOCropViewControllerTransitioning.m */; };
+		70105014C5ABD88FB4C49B3468502E7B /* XlsxReaderXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CBF5A7A10F13AAF5CE52232D735FC5 /* XlsxReaderXMLDictionary.m */; };
+		7076A9AEC3F46B4A4695D6F40BC93CA4 /* prng.c in Sources */ = {isa = PBXBuildFile; fileRef = 488DEBD8614893B319DF50BB27564994 /* prng.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7354483592879BA6576DDE1C9D4BF00E /* BRAStyles.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D729927F878087AC6673D9551DF644 /* BRAStyles.m */; };
+		73C879583D971D72AD190B10C496902A /* Pods-Vocabularity-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EDC8118B549333C146C887A7CABBC6A3 /* Pods-Vocabularity-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		747A356E110EE626E789D61CD5517F0E /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB70608AECF55EF3811587285B42F342 /* TOCropScrollView.m */; };
+		74E670C628D4EDD65E59E5DDF331EB25 /* NativeFont+BoldItalic.h in Headers */ = {isa = PBXBuildFile; fileRef = 51895BC2E260E143F4EF65CA765F3EB7 /* NativeFont+BoldItalic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		762B8D8AFEE143C93181856F6A8A0A16 /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAE1F031E524D5292BA9EF36A8B466 /* TOCroppedImageAttributes.m */; };
+		771974658CAB074636A43885FE99593F /* zip.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A4E539D12A98737C3B13C6CB21C26B /* zip.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		77827F37D8D151C33A91729C23926815 /* ioapi.h in Headers */ = {isa = PBXBuildFile; fileRef = DE8B65B8AABE1D54EB38CF588EC6F0A4 /* ioapi.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		78EF1D3DDBD53DD5857401AF6910FF66 /* UIImage+CropRotate.h in Headers */ = {isa = PBXBuildFile; fileRef = A9A9B271559ABB758156C09594D76C1B /* UIImage+CropRotate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		795CBB1C7EC5B18B3A915C5ED7C244CA /* aestab.c in Sources */ = {isa = PBXBuildFile; fileRef = CA999F05034919578AE002A75BA0A4B9 /* aestab.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7CD129FB566FA6EB05908E29D9131CC9 /* NativeColor+OpenXML.m in Sources */ = {isa = PBXBuildFile; fileRef = A658BA564CC9DE92D73171689EE14B01 /* NativeColor+OpenXML.m */; };
+		7DEBD4F2F8949D8D218D0B9444E5C1F4 /* BRACalcChainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 698976E59603B01CD7C5D498E607BAD9 /* BRACalcChainCell.m */; };
+		812E345D1D976992DA79CF89B84FEA9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFAEAAB8EF90C69E9F39C3850267C53 /* Foundation.framework */; };
+		83824FC5343B342EF3286C3CFB4C0ED9 /* BRACalcChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A50C28408A22E5D495043311EC72AB1 /* BRACalcChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83EBF32F9144A5793204BA7C150E8396 /* aescrypt.c in Sources */ = {isa = PBXBuildFile; fileRef = BFD7728BE248507380ED31F918ECEBB0 /* aescrypt.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8571D53B17AA3DB3F3A697D455ED4DE1 /* BRAContentTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 26EFBAE42A54CD88D04CAABA2667D7DF /* BRAContentTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		865773BFB0EA863DD0A5DB3919206B2F /* BRARelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B8ED4731BB7033475F3142CC6AF17 /* BRARelationships.m */; };
+		8A3149E283899639FD81469DFABD1618 /* BRAImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3277B9EACB48E7821ADAE6FBFC9D1C1D /* BRAImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B004C0D3573B9C6FE09BBA21EBB7526 /* BRAContentTypesDefaultExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FBAD62801882D03E507D17452130510 /* BRAContentTypesDefaultExtension.m */; };
+		8D369FB43723D0C94DC2B9C6B19BB09A /* zh-Hant.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 404D841DC79EA7801E0B64537486BEF4 /* zh-Hant.lproj */; };
+		8DA2E11836258955FF59C35EB76D315C /* crypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 97307A5A88534E0E2E021666662C8422 /* crypt.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8F4C6CBC97D64C0F33A205A200CA6F33 /* BRANumberFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D4B721C5A91B7C45E669090272C19 /* BRANumberFormat.m */; };
+		8F67EC385D3824DDE1337375D8FA826C /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 4442EA20EFB1BA538BBE4DD76D29B996 /* zip.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		907CA03959E51B0190766666662807F3 /* BRAElementWithRelationships.h in Headers */ = {isa = PBXBuildFile; fileRef = 65AA114B086391528AF65E0179F8BC53 /* BRAElementWithRelationships.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		910C44B7997C9203890D4FD844D15F37 /* BRAComments.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C23FB687D39E58E1E86A8B24A7655 /* BRAComments.m */; };
+		927AA2BF969DB7857D5FEA3FDDF04B1B /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 087D8B546475089CF242F5C27543E5BC /* TOCropOverlayView.m */; };
+		933A0CC63A24765E77A07169053F1C29 /* BRACell.h in Headers */ = {isa = PBXBuildFile; fileRef = F599B8E08FC959A5CFBC92CF09FB2BE8 /* BRACell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94588C21B85F1BABD0FCAD88FBEBE696 /* TOCropViewControllerTransitioning.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E5BFEC0CEED6444BAC3D5F2B5766A0 /* TOCropViewControllerTransitioning.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		958D54AEF9658EBECB362185550C30F0 /* CropViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD3A772883C8102C24AD8629E35E31C5 /* CropViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A4A8131CD786604797D6EC3D63551E1 /* BRAMergeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AEBC5A733F63E027AFD938E1CFC779 /* BRAMergeCell.m */; };
+		9AFBBE826A012E25F8355091BF027BCF /* BRACellFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3B3C0FB229228A27B798806197C9B /* BRACellFormat.m */; };
+		9B11F3555EAFEC19468F177E2DD4ED5B /* TOCropViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EE0EACD4DCC9E3B3E1CF5CE701AD91A1 /* TOCropViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BEE529793D382DFD016129F090751D9 /* BRASharedStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = C7308BF1DD3B9655EA457DD9C2CD3998 /* BRASharedStrings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EE9723F9A932CEF363BEB27872808D5 /* TOCropViewControllerBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FFEDA9805B488E8E50746830D53E65BE /* TOCropViewControllerBundle.bundle */; };
+		A1C1C28A7F4093A8CE2E2AF2C6087376 /* BRAElementWithRelationships.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B8036FF381059A572958AF0025DEFB /* BRAElementWithRelationships.m */; };
+		A5ECD64D2D32D81C83754B31C18F7E46 /* BRAOfficeDocumentPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0D4FF20FDACD43DF43940F7B547AF7 /* BRAOfficeDocumentPackage.m */; };
+		A600DD0BAA3E133ECCBCFCBE518D5456 /* zh-Hans.lproj in Resources */ = {isa = PBXBuildFile; fileRef = B1424C2088836A065C644947E54E7F46 /* zh-Hans.lproj */; };
+		A70D05FAFF8613DE4EDCA4CD733FD6BA /* prng.h in Headers */ = {isa = PBXBuildFile; fileRef = DABEF85A48924659D895319BD2BBC5C2 /* prng.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AC87A5F4CCAE37FFC73C67469113F0C3 /* minishared.h in Headers */ = {isa = PBXBuildFile; fileRef = DB521683EDA88066B0EDCC0052D738EC /* minishared.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AE7ABFD9B8125D47F2068E82C3EF558A /* NSDictionary+OpenXMLDictionaryParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EBE1B784F2EB33EE64DE68E965A3579 /* NSDictionary+OpenXMLDictionaryParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AEA8AA191D0E3E90A611FF2C5E1C9C6D /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EB07EC0637B0E13A2898AA5DB5CAE4C /* TOCropViewController.m */; };
+		AEAFD5126BE095A4D9011A3403C8B170 /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 8E0387F9CFC901F8756E65427ED275F4 /* de.lproj */; };
+		AFB21C29ADDA647B8EBF599A8232EFF3 /* da-DK.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E7723F30A9D2020797CAEA896C557046 /* da-DK.lproj */; };
+		B006CF8E98364555D17511F409FB162A /* BRACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E906BAEFF8182AC14D0051F6D161B5 /* BRACell.m */; };
+		B0B7075E415D4B4387B0965A014C2A9E /* BRAWorksheetDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE27EFAD4B076918BA40979617C0F80 /* BRAWorksheetDrawing.m */; };
+		B0FBEB6B7E026482E28DA5E8CAE5C3EB /* BRARow.h in Headers */ = {isa = PBXBuildFile; fileRef = AC9E86826088C2408CCABD7F9B73F3E5 /* BRARow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1B618D003DEEA8720B7792E053D7F49 /* ioapi_buf.h in Headers */ = {isa = PBXBuildFile; fileRef = 75AF58BC35BB1650450754FFB39EBDD9 /* ioapi_buf.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B5279AC20990FC396CA1749A3F6B8CCA /* vi.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5EBC2FE6BDE6839742FFC89CC7869ADD /* vi.lproj */; };
+		B6FAB6508F0507397BC5BD70E1A68A0D /* aesopt.h in Headers */ = {isa = PBXBuildFile; fileRef = 1872416862BD8D06C75E78A48F4A3ED5 /* aesopt.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B70A8E718194CC39289342ACB93B28A0 /* BRAContentTypesOverride.h in Headers */ = {isa = PBXBuildFile; fileRef = B9999EF6A105D2438139894E9D53CDD2 /* BRAContentTypesOverride.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B96263AEC02525BD21C50A19C128964E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFAEAAB8EF90C69E9F39C3850267C53 /* Foundation.framework */; };
+		BB9B9D100EE7E21EF4062494898160B5 /* BRAContentTypesOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD1B8D7C046113057D002A08A443AB /* BRAContentTypesOverride.m */; };
+		BC66B7DBCC7E76E529B0B284C00516B1 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 8860E7515989AB90E7DCC4B2BEFEC09B /* ioapi.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C007BBA650D7D15BCA678704B2378179 /* CropViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8BB743E09364FA6D6AFEA30620BC71 /* CropViewController-dummy.m */; };
+		C0B743CB3B74711EF609998E964C0132 /* XlsxReaderWriter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE7FD257AD01F81ECCA37B439DAABAE7 /* XlsxReaderWriter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4A5F4B8EA089F3C379F758057D4C7FB /* ZipArchive.h in Headers */ = {isa = PBXBuildFile; fileRef = C31C241D5E03707CA6FCCB40BBAD2844 /* ZipArchive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C858819E7ACBDCA2FB0E7AE8F273E4C4 /* nl.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 5CD58EE1E1167088A1018BBE9D7F7F43 /* nl.lproj */; };
+		C936B9E677435320AB4159340E2840CA /* ja.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 6807994836430C3E6F6CB2D3EC66DFA9 /* ja.lproj */; };
+		C997A64CAB80EDE2974196393014EAE0 /* BRARow.m in Sources */ = {isa = PBXBuildFile; fileRef = FE49D123F7DB0D073D6E86E523DA809F /* BRARow.m */; };
+		C9B9F98DCF1382E1FDCECC30DD3C825E /* NativeColor+OpenXML.h in Headers */ = {isa = PBXBuildFile; fileRef = C58F1EB11247D7289D72F030991B4AFB /* NativeColor+OpenXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9F18FDE92FE1A8355211677A1AC6619 /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 42C294F83D7E845D5FAC38087F96294C /* aes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CB6B9C47429F19A1C7A0BAF461B6CA80 /* ko.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 07FBAB02DD283148D0EDF5984752E775 /* ko.lproj */; };
+		CB81D5CC9204D31CD5D03B0504BEC4D1 /* BRACalcChainCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B16329059278125189B7C2491B111AE /* BRACalcChainCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC09F73D0FFBE218CDD117B7BBFB3FD6 /* BRACellRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 4342559D28F47274D7971A6221A37952 /* BRACellRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC5D160CAB322768BEAE17D85D0B21A5 /* BRAOfficeDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BB252C1AC5692FB15402EFD58A5C63 /* BRAOfficeDocument.m */; };
+		CCA7D2E225D6900C1C466D2C30F5CE9B /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1FFA883A98E25AC46AAE65488F6FAA42 /* fr.lproj */; };
+		D130C810795E8BA4C29456E51BE103C7 /* BRAComments.h in Headers */ = {isa = PBXBuildFile; fileRef = E48653D2A95A37A7C53A1479BDBBE3AA /* BRAComments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1310F3CE35111E8313F620F415F17C6 /* aestab.h in Headers */ = {isa = PBXBuildFile; fileRef = 64C2DF7E78599DE6A09E9AD71E52C767 /* aestab.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D3788FFDE1544DD3CEF4F5450A4399C8 /* BRANumberFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = C4E4059FF621121D0523788CAB37E430 /* BRANumberFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6112EE527BC171E518C082F14BCDDED /* NativeColor+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5455976C4A697030C9136EFD6C0FCAD4 /* NativeColor+HTML.m */; };
+		D7A85129E99BDFE2ED260174E92C4F7F /* pwd2key.h in Headers */ = {isa = PBXBuildFile; fileRef = 0046880ADAEB4738C3659FA9C152BD56 /* pwd2key.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D8C7D8869C153D2F12A3F5F4F8EDC630 /* NSDictionary+OpenXmlString.h in Headers */ = {isa = PBXBuildFile; fileRef = F14F42E442D49C3DD134A352C5553CA1 /* NSDictionary+OpenXmlString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA83206A80EDFF595D7D16F74F781E14 /* BRACellRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 361B116833F758A5A56AB0246AD727F5 /* BRACellRange.m */; };
+		DBC23F5B23BD1336183B20A368546BF1 /* BRAImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FD5F3D696456910B7AE55D34E107E /* BRAImage.m */; };
+		DE3B78DED0BC556B58B8EF24B3EC7987 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFAEAAB8EF90C69E9F39C3850267C53 /* Foundation.framework */; };
+		DE869314EADBBA0C531CD5B6D5F2F126 /* NSDictionary+DeepCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = FECF77D92FACF1FE23FAC833AE98BC19 /* NSDictionary+DeepCopy.m */; };
+		E005D6785952AE94CDF4C15156CCD623 /* BRAComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BB603B80E2D31C65A8CF273CF8CFCA /* BRAComment.m */; };
+		E1ACD2FD7D277071D6C42545D887FE10 /* XlsxReaderWriter-swift-bridge.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F9DA46DD5BC4CCE562C98B3AB6877C /* XlsxReaderWriter-swift-bridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E35BEB1D71D4ADA0AEBAEA2617190887 /* BRAOpenXmlSubElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB1A7B4A14B027A4F14D1D7D9DE6E0E /* BRAOpenXmlSubElement.m */; };
+		E45415460EE9822594D6F01DB766190A /* fileenc.c in Sources */ = {isa = PBXBuildFile; fileRef = C7BC41394BB0B153758AE065585A41F4 /* fileenc.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E5129584DB32687CE86907078073917A /* BRACellFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC51BF09D5621D9695DD4AB05E98DC1 /* BRACellFill.m */; };
+		E7A6EA17E62F3871A08E5F8C06B024A9 /* NSDictionary+DeepCopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F2AB1D46C7DC966D4E5176444FE53F6 /* NSDictionary+DeepCopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7DF973DCA3A7C6DD717D059B5DC3EF3 /* TOCropViewConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = EC547467215AC98288ACB0C569DB4FAD /* TOCropViewConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7E33D6CC4706FD8BA8CFEF95883C23B /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A012D88132FBD0B6E315A150F024B7 /* TOActivityCroppedImageProvider.m */; };
+		E925A17DBF05E8CB8B749B619A50A8FF /* TOCropView.h in Headers */ = {isa = PBXBuildFile; fileRef = 493D220D7F9EFD7070D6EB8EA4D1E77E /* TOCropView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA0747849712C8C9D620D0BB93B00A77 /* BRARelationship.h in Headers */ = {isa = PBXBuildFile; fileRef = 64B6DBD343F4E5B927A49135BE515E83 /* BRARelationship.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC32D951C8A488B4F664162C13C28AB4 /* aes_ni.c in Sources */ = {isa = PBXBuildFile; fileRef = B4A86FFA63139D2D1CC8019991F6B568 /* aes_ni.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EEA381B1DE4213FA022B0791A321332E /* BRAColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = A3E66D15222AE50F2E2B10F591D85C3E /* BRAColumn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2819C669F2C766E5BA6167A5BBE17EF /* BRAOfficeDocumentPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 29F52518CFF487EF52D8FC16600566EA /* BRAOfficeDocumentPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3D4232774EC9511EEDE4532A4AB31C3 /* aeskey.c in Sources */ = {isa = PBXBuildFile; fileRef = 66EF06386E49023949AB40D0D756F797 /* aeskey.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FDC52F34FABFBFC1152FAB27DDB0EA88 /* minishared.c in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4DBD15B034BE2E734F4E4B0A9F0E5 /* minishared.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FDC5749C172ADAC7316BF86F30BC4EF0 /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = B1A7431B2E1ED58CBE5253C5DAC7E702 /* sha1.c */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9BFDDE617B2A91E00DCD078DB9FB6EE8 /* PBXContainerItemProxy */ = {
+		895A526E2D78843E05D62867AA6EEF98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -72,79 +199,261 @@
 			remoteGlobalIDString = 72F599DFFF3C499C3ADBDED7DDCD7B7C;
 			remoteInfo = "CropViewController-TOCropViewControllerBundle";
 		};
+		E5E963FD3554C6BCF5BEB0CBA373D198 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C4BB09644900A65F94AE3A545D98172;
+			remoteInfo = XlsxReaderWriter;
+		};
+		F9D7DE86D604FC4F4408703533F8DE57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF1DBC76F75D023FD3885AB1EC047F85;
+			remoteInfo = SSZipArchive;
+		};
+		FADDF06683C234B1DC5C9BC516ABAADD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF1DBC76F75D023FD3885AB1EC047F85;
+			remoteInfo = SSZipArchive;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01F0F99FAA30AB0B5A393B362F84382D /* TOCropOverlayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropOverlayView.m; path = "Objective-C/TOCropViewController/Views/TOCropOverlayView.m"; sourceTree = "<group>"; };
-		067FD9CE2592E89AB6AB68566C1C09B8 /* CropViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CropViewController.h; path = Swift/CropViewController/CropViewController.h; sourceTree = "<group>"; };
-		08EBABC2111606E27CDC2B210300E73F /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = "Objective-C/TOCropViewController/Resources/en.lproj"; sourceTree = "<group>"; };
-		102B714F8CB8E1D5C2B2A23E6C81CB6F /* TOCropToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropToolbar.m; path = "Objective-C/TOCropViewController/Views/TOCropToolbar.m"; sourceTree = "<group>"; };
-		174F9637D80E9F56163FE78FBE7269F1 /* CropViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CropViewController.xcconfig; sourceTree = "<group>"; };
+		0046880ADAEB4738C3659FA9C152BD56 /* pwd2key.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pwd2key.h; path = SSZipArchive/minizip/aes/pwd2key.h; sourceTree = "<group>"; };
+		010B871B2A4DD09B71E72FF4DC3327B6 /* NativeFont+BoldItalic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NativeFont+BoldItalic.m"; path = "XlsxReaderWriter/NativeFont+BoldItalic.m"; sourceTree = "<group>"; };
+		03A90F302A50B055B0352E86A41D3F9D /* SSZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSZipArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		058A095E343E10CD78BBB2C34F1ECAC1 /* CropViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropViewController.swift; path = Swift/CropViewController/CropViewController.swift; sourceTree = "<group>"; };
+		07FBAB02DD283148D0EDF5984752E775 /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ko.lproj; path = "Objective-C/TOCropViewController/Resources/ko.lproj"; sourceTree = "<group>"; };
+		087D8B546475089CF242F5C27543E5BC /* TOCropOverlayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropOverlayView.m; path = "Objective-C/TOCropViewController/Views/TOCropOverlayView.m"; sourceTree = "<group>"; };
+		0907266E450191738A1ED8554C032C2A /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ar.lproj; path = "Objective-C/TOCropViewController/Resources/ar.lproj"; sourceTree = "<group>"; };
+		0DD30191F8591CA82AE4F66494CBF8DC /* CropViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CropViewController-prefix.pch"; sourceTree = "<group>"; };
+		12184ABB3EB033501B03FC95B41DCFF2 /* Pods_Vocabularity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Vocabularity.framework; path = "Pods-Vocabularity.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13CFED31730DF65D705777F478E2F152 /* TOCropToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropToolbar.h; path = "Objective-C/TOCropViewController/Views/TOCropToolbar.h"; sourceTree = "<group>"; };
+		147800C0358C3B09014B5F9BB8AE2B8E /* NSDictionary+OpenXmlString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+OpenXmlString.m"; path = "XlsxReaderWriter/NSDictionary+OpenXmlString.m"; sourceTree = "<group>"; };
+		1548D22CF801D46C7AD1424BEC842AD5 /* crypt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = crypt.c; path = SSZipArchive/minizip/crypt.c; sourceTree = "<group>"; };
+		1563FF5A294388B8092F312554D9E74D /* BRACalcChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRACalcChain.m; path = XlsxReaderWriter/BRACalcChain.m; sourceTree = "<group>"; };
 		18551B2A1D822DC27A43AED8DFE1A902 /* Pods-Vocabularity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Vocabularity.debug.xcconfig"; sourceTree = "<group>"; };
-		18B6DE18DA237C71B3C33A5F919FDF7B /* ko.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ko.lproj; path = "Objective-C/TOCropViewController/Resources/ko.lproj"; sourceTree = "<group>"; };
-		1F5ABC34C93BC6D3493E082807585EF0 /* TOCropViewConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropViewConstants.h; path = "Objective-C/TOCropViewController/Constants/TOCropViewConstants.h"; sourceTree = "<group>"; };
+		1872416862BD8D06C75E78A48F4A3ED5 /* aesopt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aesopt.h; path = SSZipArchive/minizip/aes/aesopt.h; sourceTree = "<group>"; };
+		1A50C28408A22E5D495043311EC72AB1 /* BRACalcChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRACalcChain.h; path = XlsxReaderWriter/BRACalcChain.h; sourceTree = "<group>"; };
+		1AD4DBD15B034BE2E734F4E4B0A9F0E5 /* minishared.c */ = {isa = PBXFileReference; includeInIndex = 1; name = minishared.c; path = SSZipArchive/minizip/minishared.c; sourceTree = "<group>"; };
+		1C81C913AE93440847705F96A0E56FE7 /* BRAOfficeDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAOfficeDocument.h; path = XlsxReaderWriter/BRAOfficeDocument.h; sourceTree = "<group>"; };
+		1CB563674503CA0445CB772DEA689563 /* ioapi_buf.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ioapi_buf.c; path = SSZipArchive/minizip/ioapi_buf.c; sourceTree = "<group>"; };
+		1EBE1B784F2EB33EE64DE68E965A3579 /* NSDictionary+OpenXMLDictionaryParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+OpenXMLDictionaryParser.h"; path = "XlsxReaderWriter/NSDictionary+OpenXMLDictionaryParser.h"; sourceTree = "<group>"; };
+		1EC781E7ED5E29CEF2B4A3D1A4947447 /* unzip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = unzip.h; path = SSZipArchive/minizip/unzip.h; sourceTree = "<group>"; };
+		1FA65AEBE200BFFA157A1D34EBD4217A /* hmac.c */ = {isa = PBXFileReference; includeInIndex = 1; name = hmac.c; path = SSZipArchive/minizip/aes/hmac.c; sourceTree = "<group>"; };
+		1FBAD62801882D03E507D17452130510 /* BRAContentTypesDefaultExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAContentTypesDefaultExtension.m; path = XlsxReaderWriter/BRAContentTypesDefaultExtension.m; sourceTree = "<group>"; };
+		1FFA883A98E25AC46AAE65488F6FAA42 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = "Objective-C/TOCropViewController/Resources/fr.lproj"; sourceTree = "<group>"; };
+		21A4E539D12A98737C3B13C6CB21C26B /* zip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = zip.h; path = SSZipArchive/minizip/zip.h; sourceTree = "<group>"; };
 		227FD7B5732BB25C8F1D7B1B50761F5E /* Pods-Vocabularity-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Vocabularity-acknowledgements.markdown"; sourceTree = "<group>"; };
-		27558A29B77063AEE53F7E375A7B494F /* TOCropScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropScrollView.m; path = "Objective-C/TOCropViewController/Views/TOCropScrollView.m"; sourceTree = "<group>"; };
-		276D4DF49207FF3BE2F90E183D2874B5 /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = id.lproj; path = "Objective-C/TOCropViewController/Resources/id.lproj"; sourceTree = "<group>"; };
-		2804201FB23C42D12B667595332C9C33 /* CropViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CropViewController.modulemap; sourceTree = "<group>"; };
-		2896470A7D73FC3762814B6AFEB05DEB /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCroppedImageAttributes.m; path = "Objective-C/TOCropViewController/Models/TOCroppedImageAttributes.m"; sourceTree = "<group>"; };
-		312F3C6C3AAC1C3EC9B713C2C043D8D7 /* CropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CropViewController.framework; path = CropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		31A673D5FF0F7ADE15C332C89580B44A /* UIImage+CropRotate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CropRotate.h"; path = "Objective-C/TOCropViewController/Categories/UIImage+CropRotate.h"; sourceTree = "<group>"; };
-		38BE362C27BBD9833F37237676173A25 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = "Objective-C/TOCropViewController/Resources/de.lproj"; sourceTree = "<group>"; };
-		41BBE3CDB023E311926C9C09130A6DE1 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = "Objective-C/TOCropViewController/Resources/es.lproj"; sourceTree = "<group>"; };
-		460ED2C300BAF629753A1DC8E354CB60 /* UIImage+CropRotate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropRotate.m"; path = "Objective-C/TOCropViewController/Categories/UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		24AEBC5A733F63E027AFD938E1CFC779 /* BRAMergeCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAMergeCell.m; path = XlsxReaderWriter/BRAMergeCell.m; sourceTree = "<group>"; };
+		26EFBAE42A54CD88D04CAABA2667D7DF /* BRAContentTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAContentTypes.h; path = XlsxReaderWriter/BRAContentTypes.h; sourceTree = "<group>"; };
+		29D729927F878087AC6673D9551DF644 /* BRAStyles.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAStyles.m; path = XlsxReaderWriter/BRAStyles.m; sourceTree = "<group>"; };
+		29F52518CFF487EF52D8FC16600566EA /* BRAOfficeDocumentPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAOfficeDocumentPackage.h; path = XlsxReaderWriter/BRAOfficeDocumentPackage.h; sourceTree = "<group>"; };
+		2B2B8ED4731BB7033475F3142CC6AF17 /* BRARelationships.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRARelationships.m; path = XlsxReaderWriter/BRARelationships.m; sourceTree = "<group>"; };
+		2E46B72E8813406D610F6685FBDB62B4 /* NativeColor+HTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NativeColor+HTML.h"; path = "XlsxReaderWriter/NativeColor+HTML.h"; sourceTree = "<group>"; };
+		2EB07EC0637B0E13A2898AA5DB5CAE4C /* TOCropViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropViewController.m; path = "Objective-C/TOCropViewController/TOCropViewController.m"; sourceTree = "<group>"; };
+		3008437C066B1EB79887B6E2407D3B82 /* BRAContentTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAContentTypes.m; path = XlsxReaderWriter/BRAContentTypes.m; sourceTree = "<group>"; };
+		3078B1CB97779E1FFBCB46C4F54CCD82 /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropViewControllerTransitioning.m; path = "Objective-C/TOCropViewController/Models/TOCropViewControllerTransitioning.m"; sourceTree = "<group>"; };
+		30E5BFEC0CEED6444BAC3D5F2B5766A0 /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropViewControllerTransitioning.h; path = "Objective-C/TOCropViewController/Models/TOCropViewControllerTransitioning.h"; sourceTree = "<group>"; };
+		3277B9EACB48E7821ADAE6FBFC9D1C1D /* BRAImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAImage.h; path = XlsxReaderWriter/BRAImage.h; sourceTree = "<group>"; };
+		32CFF1CA2064B6EDC23DD6BF43249FCB /* BRAWorksheet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAWorksheet.m; path = XlsxReaderWriter/BRAWorksheet.m; sourceTree = "<group>"; };
+		361B116833F758A5A56AB0246AD727F5 /* BRACellRange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRACellRange.m; path = XlsxReaderWriter/BRACellRange.m; sourceTree = "<group>"; };
+		378DEA9F0F508BFCF7263B824306B4DB /* SSZipArchive-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SSZipArchive-dummy.m"; sourceTree = "<group>"; };
+		3D3DF119977B307A61994A3C92FD7097 /* BRASheet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRASheet.m; path = XlsxReaderWriter/BRASheet.m; sourceTree = "<group>"; };
+		3DC51BF09D5621D9695DD4AB05E98DC1 /* BRACellFill.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRACellFill.m; path = XlsxReaderWriter/BRACellFill.m; sourceTree = "<group>"; };
+		3FFC19C696C14A00F020C9A33A4BF6C0 /* SSZipCommon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSZipCommon.h; path = SSZipArchive/SSZipCommon.h; sourceTree = "<group>"; };
+		404D841DC79EA7801E0B64537486BEF4 /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "Objective-C/TOCropViewController/Resources/zh-Hant.lproj"; sourceTree = "<group>"; };
+		42C294F83D7E845D5FAC38087F96294C /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = SSZipArchive/minizip/aes/aes.h; sourceTree = "<group>"; };
+		4342559D28F47274D7971A6221A37952 /* BRACellRange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRACellRange.h; path = XlsxReaderWriter/BRACellRange.h; sourceTree = "<group>"; };
+		43BB252C1AC5692FB15402EFD58A5C63 /* BRAOfficeDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAOfficeDocument.m; path = XlsxReaderWriter/BRAOfficeDocument.m; sourceTree = "<group>"; };
+		4442EA20EFB1BA538BBE4DD76D29B996 /* zip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = zip.c; path = SSZipArchive/minizip/zip.c; sourceTree = "<group>"; };
+		44E95ED34E571D7810B181DA52D93EF9 /* BRADrawing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRADrawing.h; path = XlsxReaderWriter/BRADrawing.h; sourceTree = "<group>"; };
 		478A05FB5FFF85F650C2D86FB9E200AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F409437DAE63284C6FB35A227659128 /* TOCropViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropViewController.m; path = "Objective-C/TOCropViewController/TOCropViewController.m"; sourceTree = "<group>"; };
-		509DDDBF4C9A77D5171A931BF0F75394 /* TOCropView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropView.h; path = "Objective-C/TOCropViewController/Views/TOCropView.h"; sourceTree = "<group>"; };
-		545E5B6F024177DC01D72BD282BD3CC7 /* TOCropViewControllerBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TOCropViewControllerBundle.bundle; path = "CropViewController-TOCropViewControllerBundle.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47ED3558057B615A6B2442762B998CFE /* BRAOpenXmlElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAOpenXmlElement.m; path = XlsxReaderWriter/BRAOpenXmlElement.m; sourceTree = "<group>"; };
+		488DEBD8614893B319DF50BB27564994 /* prng.c */ = {isa = PBXFileReference; includeInIndex = 1; name = prng.c; path = SSZipArchive/minizip/aes/prng.c; sourceTree = "<group>"; };
+		493D220D7F9EFD7070D6EB8EA4D1E77E /* TOCropView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropView.h; path = "Objective-C/TOCropViewController/Views/TOCropView.h"; sourceTree = "<group>"; };
+		4A6D4B721C5A91B7C45E669090272C19 /* BRANumberFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRANumberFormat.m; path = XlsxReaderWriter/BRANumberFormat.m; sourceTree = "<group>"; };
+		4ADD1B8D7C046113057D002A08A443AB /* BRAContentTypesOverride.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAContentTypesOverride.m; path = XlsxReaderWriter/BRAContentTypesOverride.m; sourceTree = "<group>"; };
+		4F8BB743E09364FA6D6AFEA30620BC71 /* CropViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CropViewController-dummy.m"; sourceTree = "<group>"; };
+		51463E4B10D28F50C4013E9E79885E19 /* CropViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = CropViewController.modulemap; sourceTree = "<group>"; };
+		5165FFDE11A083A3A54B8124E7C1EE50 /* SSZipArchive-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSZipArchive-prefix.pch"; sourceTree = "<group>"; };
+		51895BC2E260E143F4EF65CA765F3EB7 /* NativeFont+BoldItalic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NativeFont+BoldItalic.h"; path = "XlsxReaderWriter/NativeFont+BoldItalic.h"; sourceTree = "<group>"; };
+		52E906BAEFF8182AC14D0051F6D161B5 /* BRACell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRACell.m; path = XlsxReaderWriter/BRACell.m; sourceTree = "<group>"; };
+		53056B56A3AC47AF75B2EDCEF38FBA68 /* BRAContentTypesDefaultExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAContentTypesDefaultExtension.h; path = XlsxReaderWriter/BRAContentTypesDefaultExtension.h; sourceTree = "<group>"; };
+		5455976C4A697030C9136EFD6C0FCAD4 /* NativeColor+HTML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NativeColor+HTML.m"; path = "XlsxReaderWriter/NativeColor+HTML.m"; sourceTree = "<group>"; };
+		5522A94B6792B9455B6BEF74D4029EFB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56F47AEAEF47B1721D1B6F4EF8FEC01F /* XlsxReaderWriter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriter-prefix.pch"; sourceTree = "<group>"; };
 		5886F1C053E31763FE59AC8151A75AF8 /* Pods-Vocabularity-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Vocabularity-dummy.m"; sourceTree = "<group>"; };
-		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5C4F450DC760E95C3FA00CEFF76654D0 /* TOCropView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropView.m; path = "Objective-C/TOCropViewController/Views/TOCropView.m"; sourceTree = "<group>"; };
-		5DCF51C9F95524B54621B530E238816C /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = "Objective-C/TOCropViewController/Resources/tr.lproj"; sourceTree = "<group>"; };
-		678BFDED166F21A7C9CC891DF72CE611 /* da-DK.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "da-DK.lproj"; path = "Objective-C/TOCropViewController/Resources/da-DK.lproj"; sourceTree = "<group>"; };
-		6E36D29FF58BE1A0CB5FA82CB1F965D0 /* ResourceBundle-TOCropViewControllerBundle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TOCropViewControllerBundle-Info.plist"; sourceTree = "<group>"; };
-		70232AF1E8A738F95EDAF60F0D06C10A /* ar.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ar.lproj; path = "Objective-C/TOCropViewController/Resources/ar.lproj"; sourceTree = "<group>"; };
-		72C9C91A108F1E069173DFE78709D064 /* CropViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropViewController.swift; path = Swift/CropViewController/CropViewController.swift; sourceTree = "<group>"; };
-		7467E3A59401684B5E02248D3F087735 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "Objective-C/TOCropViewController/Resources/zh-Hans.lproj"; sourceTree = "<group>"; };
-		75D9C0B5C7B4125BB0D64FCCD88D3719 /* TOCropViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropViewController.h; path = "Objective-C/TOCropViewController/TOCropViewController.h"; sourceTree = "<group>"; };
-		76A9AFA10FC9B87C56AEDACC0361A49D /* zh-Hant.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hant.lproj"; path = "Objective-C/TOCropViewController/Resources/zh-Hant.lproj"; sourceTree = "<group>"; };
+		595F98AD5C5A1E91B190F3C209A358C3 /* XlsxReaderWriter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XlsxReaderWriter.framework; path = XlsxReaderWriter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59A19B7AFA97905CC6FA7C2550F06731 /* SSZipArchive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SSZipArchive.m; path = SSZipArchive/SSZipArchive.m; sourceTree = "<group>"; };
+		5A7FD5F3D696456910B7AE55D34E107E /* BRAImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAImage.m; path = XlsxReaderWriter/BRAImage.m; sourceTree = "<group>"; };
+		5AFAEAAB8EF90C69E9F39C3850267C53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5B13F3F6DEC0116C0F69DA9D5F84CC8D /* id.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = id.lproj; path = "Objective-C/TOCropViewController/Resources/id.lproj"; sourceTree = "<group>"; };
+		5C0D4FF20FDACD43DF43940F7B547AF7 /* BRAOfficeDocumentPackage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAOfficeDocumentPackage.m; path = XlsxReaderWriter/BRAOfficeDocumentPackage.m; sourceTree = "<group>"; };
+		5CD58EE1E1167088A1018BBE9D7F7F43 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = "Objective-C/TOCropViewController/Resources/nl.lproj"; sourceTree = "<group>"; };
+		5D83271F4B50EA49B4F758B8D510830C /* BRAWorksheet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAWorksheet.h; path = XlsxReaderWriter/BRAWorksheet.h; sourceTree = "<group>"; };
+		5E4B863FDF8252C719327C5A56F790D7 /* brg_types.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = brg_types.h; path = SSZipArchive/minizip/aes/brg_types.h; sourceTree = "<group>"; };
+		5EBC2FE6BDE6839742FFC89CC7869ADD /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = "Objective-C/TOCropViewController/Resources/vi.lproj"; sourceTree = "<group>"; };
+		6332BF45472D1AA5871869DA7760720C /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = "Objective-C/TOCropViewController/Resources/it.lproj"; sourceTree = "<group>"; };
+		6457B1636263D43FC59A2E0012D09D99 /* BRAOpenXmlSubElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAOpenXmlSubElement.h; path = XlsxReaderWriter/BRAOpenXmlSubElement.h; sourceTree = "<group>"; };
+		64B6DBD343F4E5B927A49135BE515E83 /* BRARelationship.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRARelationship.h; path = XlsxReaderWriter/BRARelationship.h; sourceTree = "<group>"; };
+		64C2DF7E78599DE6A09E9AD71E52C767 /* aestab.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aestab.h; path = SSZipArchive/minizip/aes/aestab.h; sourceTree = "<group>"; };
+		64E4FB1003D7D2E2F3A57EB7A65132D6 /* BRASharedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRASharedString.h; path = XlsxReaderWriter/BRASharedString.h; sourceTree = "<group>"; };
+		65AA114B086391528AF65E0179F8BC53 /* BRAElementWithRelationships.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAElementWithRelationships.h; path = XlsxReaderWriter/BRAElementWithRelationships.h; sourceTree = "<group>"; };
+		66EF06386E49023949AB40D0D756F797 /* aeskey.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aeskey.c; path = SSZipArchive/minizip/aes/aeskey.c; sourceTree = "<group>"; };
+		66FB30E36EA39EAF012C0CD6C4A5745F /* TOCropScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropScrollView.h; path = "Objective-C/TOCropViewController/Views/TOCropScrollView.h"; sourceTree = "<group>"; };
+		6807994836430C3E6F6CB2D3EC66DFA9 /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = "Objective-C/TOCropViewController/Resources/ja.lproj"; sourceTree = "<group>"; };
+		698976E59603B01CD7C5D498E607BAD9 /* BRACalcChainCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRACalcChainCell.m; path = XlsxReaderWriter/BRACalcChainCell.m; sourceTree = "<group>"; };
+		6B2374BD75B938D84FEC67D7D6B3A458 /* CropViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CropViewController.h; path = Swift/CropViewController/CropViewController.h; sourceTree = "<group>"; };
+		6BF3B3C0FB229228A27B798806197C9B /* BRACellFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRACellFormat.m; path = XlsxReaderWriter/BRACellFormat.m; sourceTree = "<group>"; };
+		6DB1A7B4A14B027A4F14D1D7D9DE6E0E /* BRAOpenXmlSubElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAOpenXmlSubElement.m; path = XlsxReaderWriter/BRAOpenXmlSubElement.m; sourceTree = "<group>"; };
+		6DBB009F77033C8168F33CCE67E287E4 /* BRARelationship.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRARelationship.m; path = XlsxReaderWriter/BRARelationship.m; sourceTree = "<group>"; };
+		6F32558B9FAB041F2DE5BF9432402AAF /* BRAVmlDrawing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAVmlDrawing.m; path = XlsxReaderWriter/BRAVmlDrawing.m; sourceTree = "<group>"; };
+		72BB603B80E2D31C65A8CF273CF8CFCA /* BRAComment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAComment.m; path = XlsxReaderWriter/BRAComment.m; sourceTree = "<group>"; };
+		72F674C91483EDE27CF5FB6B4BC30ACC /* pwd2key.c */ = {isa = PBXFileReference; includeInIndex = 1; name = pwd2key.c; path = SSZipArchive/minizip/aes/pwd2key.c; sourceTree = "<group>"; };
+		740B6567DC317B7C1F38A179FBE4C557 /* BRATheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRATheme.h; path = XlsxReaderWriter/BRATheme.h; sourceTree = "<group>"; };
+		75AF58BC35BB1650450754FFB39EBDD9 /* ioapi_buf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi_buf.h; path = SSZipArchive/minizip/ioapi_buf.h; sourceTree = "<group>"; };
+		763B7CA0FCB1ACE0B8DDCF5E8BA8BC76 /* tr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = tr.lproj; path = "Objective-C/TOCropViewController/Resources/tr.lproj"; sourceTree = "<group>"; };
+		76E65452471DF28D4597A259C045196D /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = "Objective-C/TOCropViewController/Resources/es.lproj"; sourceTree = "<group>"; };
+		7930EBB8C3BC8FB094A941BE5A28BAA5 /* fileenc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fileenc.h; path = SSZipArchive/minizip/aes/fileenc.h; sourceTree = "<group>"; };
+		79C71235E14460B4CA8EBE0DE9440620 /* BRAColumn.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAColumn.m; path = XlsxReaderWriter/BRAColumn.m; sourceTree = "<group>"; };
+		7B16329059278125189B7C2491B111AE /* BRACalcChainCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRACalcChainCell.h; path = XlsxReaderWriter/BRACalcChainCell.h; sourceTree = "<group>"; };
 		7C1F0F0B59736E624C5F7067A0533DF7 /* Pods-Vocabularity-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Vocabularity-resources.sh"; sourceTree = "<group>"; };
-		7FBA565BD2A6D4845F0C21BA4A275B81 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = "Objective-C/TOCropViewController/Resources/pt.lproj"; sourceTree = "<group>"; };
-		800FE1F457F56C68C532261C6438D416 /* nl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = nl.lproj; path = "Objective-C/TOCropViewController/Resources/nl.lproj"; sourceTree = "<group>"; };
-		8D48C0717AC7B75104A9140D5AF2C416 /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropViewControllerTransitioning.m; path = "Objective-C/TOCropViewController/Models/TOCropViewControllerTransitioning.m"; sourceTree = "<group>"; };
-		91A0165AE84037FFF8A020A026E115EB /* CropViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CropViewController-umbrella.h"; sourceTree = "<group>"; };
+		7EFB58A2053576D7B71D760738227E46 /* BRAComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAComment.h; path = XlsxReaderWriter/BRAComment.h; sourceTree = "<group>"; };
+		86E54B5801E7853B7E770DF4E8FEDA8A /* NSDictionary+OpenXMLDictionaryParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+OpenXMLDictionaryParser.m"; path = "XlsxReaderWriter/NSDictionary+OpenXMLDictionaryParser.m"; sourceTree = "<group>"; };
+		8860E7515989AB90E7DCC4B2BEFEC09B /* ioapi.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ioapi.c; path = SSZipArchive/minizip/ioapi.c; sourceTree = "<group>"; };
+		8E0387F9CFC901F8756E65427ED275F4 /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = de.lproj; path = "Objective-C/TOCropViewController/Resources/de.lproj"; sourceTree = "<group>"; };
+		8F1110792B349BD4208BE8484B6CAC7A /* CropViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CropViewController.framework; path = CropViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90CDA098C5974B25637801A2E3F1053E /* aes_ni.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes_ni.h; path = SSZipArchive/minizip/aes/aes_ni.h; sourceTree = "<group>"; };
 		93403F95E91B999C191EA4293ECFCDCA /* Pods-Vocabularity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Vocabularity.release.xcconfig"; sourceTree = "<group>"; };
+		939BE76C212E236FE2A317ACB1237395 /* BRAWorksheetDrawing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAWorksheetDrawing.h; path = XlsxReaderWriter/BRAWorksheetDrawing.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		98B2F9A498B3344B9CAE12FC4B80F7F1 /* Pods_Vocabularity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Vocabularity.framework; path = "Pods-Vocabularity.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BBBBF47E5681EAF811075E9CC364F75 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCroppedImageAttributes.h; path = "Objective-C/TOCropViewController/Models/TOCroppedImageAttributes.h"; sourceTree = "<group>"; };
-		9EAB2A0FD062107AAE1A4264563B3169 /* TOCropOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropOverlayView.h; path = "Objective-C/TOCropViewController/Views/TOCropOverlayView.h"; sourceTree = "<group>"; };
-		A32AD75A2AF7690DCFAFD5C600FD77B2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAD74B1E114AF9A90540B94EA766B226 /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = "Objective-C/TOCropViewController/Resources/ru.lproj"; sourceTree = "<group>"; };
+		93B8036FF381059A572958AF0025DEFB /* BRAElementWithRelationships.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAElementWithRelationships.m; path = XlsxReaderWriter/BRAElementWithRelationships.m; sourceTree = "<group>"; };
+		9680ECF87E076325DAC71A80B3A9D386 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		96E69CB49B584C9BCE568FB7875AEBAE /* BRAMergeCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAMergeCell.h; path = XlsxReaderWriter/BRAMergeCell.h; sourceTree = "<group>"; };
+		97307A5A88534E0E2E021666662C8422 /* crypt.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypt.h; path = SSZipArchive/minizip/crypt.h; sourceTree = "<group>"; };
+		97C1CC287DB7D453084F0C1331F03A8C /* TOCropOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropOverlayView.h; path = "Objective-C/TOCropViewController/Views/TOCropOverlayView.h"; sourceTree = "<group>"; };
+		9ABA3161C0F3697571401AE0717D7D14 /* SSZipArchive-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SSZipArchive-umbrella.h"; sourceTree = "<group>"; };
+		9C7E814C6EBFEF061C865173D9323D64 /* BRAStyles.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAStyles.h; path = XlsxReaderWriter/BRAStyles.h; sourceTree = "<group>"; };
+		9F2AB1D46C7DC966D4E5176444FE53F6 /* NSDictionary+DeepCopy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+DeepCopy.h"; path = "XlsxReaderWriter/NSDictionary+DeepCopy.h"; sourceTree = "<group>"; };
+		A3E66D15222AE50F2E2B10F591D85C3E /* BRAColumn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAColumn.h; path = XlsxReaderWriter/BRAColumn.h; sourceTree = "<group>"; };
+		A5A012D88132FBD0B6E315A150F024B7 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOActivityCroppedImageProvider.m; path = "Objective-C/TOCropViewController/Models/TOActivityCroppedImageProvider.m"; sourceTree = "<group>"; };
+		A658BA564CC9DE92D73171689EE14B01 /* NativeColor+OpenXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NativeColor+OpenXML.m"; path = "XlsxReaderWriter/NativeColor+OpenXML.m"; sourceTree = "<group>"; };
+		A6B7F9C1B0D4E1144D8691660A3C7776 /* SSZipArchive.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SSZipArchive.modulemap; sourceTree = "<group>"; };
+		A74F415E289A02A9DE054BC14DB3A816 /* CropViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CropViewController.xcconfig; sourceTree = "<group>"; };
+		A9A9B271559ABB758156C09594D76C1B /* UIImage+CropRotate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+CropRotate.h"; path = "Objective-C/TOCropViewController/Categories/UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		AC9E86826088C2408CCABD7F9B73F3E5 /* BRARow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRARow.h; path = XlsxReaderWriter/BRARow.h; sourceTree = "<group>"; };
+		AE4BFA24E1A1A307BFA4596AEC6642E4 /* brg_endian.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = brg_endian.h; path = SSZipArchive/minizip/aes/brg_endian.h; sourceTree = "<group>"; };
+		B1424C2088836A065C644947E54E7F46 /* zh-Hans.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "zh-Hans.lproj"; path = "Objective-C/TOCropViewController/Resources/zh-Hans.lproj"; sourceTree = "<group>"; };
+		B14ECDB56CBE350691F17F1CB41E0B48 /* BRAPlatformSpecificDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAPlatformSpecificDefines.h; path = XlsxReaderWriter/BRAPlatformSpecificDefines.h; sourceTree = "<group>"; };
+		B1A7431B2E1ED58CBE5253C5DAC7E702 /* sha1.c */ = {isa = PBXFileReference; includeInIndex = 1; name = sha1.c; path = SSZipArchive/minizip/aes/sha1.c; sourceTree = "<group>"; };
 		B1DBD56E1422CADB32CA9C0A94BCF4EE /* Pods-Vocabularity.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Vocabularity.modulemap"; sourceTree = "<group>"; };
-		BC25E839FD38C6FF097D3FB8455A8463 /* TOCropToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropToolbar.h; path = "Objective-C/TOCropViewController/Views/TOCropToolbar.h"; sourceTree = "<group>"; };
-		BDDBB09E01F92D327CCDB58E0E1846AF /* CropViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CropViewController-dummy.m"; sourceTree = "<group>"; };
-		BE3E2DEA1CF30E969D3CCE89E74AB43F /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = Base.lproj; path = "Objective-C/TOCropViewController/Resources/Base.lproj"; sourceTree = "<group>"; };
-		D207FED6BC00778B65A661E4A2E75AA8 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = it.lproj; path = "Objective-C/TOCropViewController/Resources/it.lproj"; sourceTree = "<group>"; };
-		D31329001BD6C63A0209F3D5EDAFE2B1 /* CropViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CropViewController-prefix.pch"; sourceTree = "<group>"; };
-		DCA1934DD83B20B72BCACC1D6FF6C4A6 /* fr.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = fr.lproj; path = "Objective-C/TOCropViewController/Resources/fr.lproj"; sourceTree = "<group>"; };
-		E3FFFB14DE43D02AE4B5B26BBB4BA9BA /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ms.lproj; path = "Objective-C/TOCropViewController/Resources/ms.lproj"; sourceTree = "<group>"; };
+		B3F9DA46DD5BC4CCE562C98B3AB6877C /* XlsxReaderWriter-swift-bridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XlsxReaderWriter-swift-bridge.h"; path = "XlsxReaderWriter/XlsxReaderWriter-swift-bridge.h"; sourceTree = "<group>"; };
+		B485AE8EE506000F9941A7B75ACD0B94 /* BRATheme.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRATheme.m; path = XlsxReaderWriter/BRATheme.m; sourceTree = "<group>"; };
+		B4A86FFA63139D2D1CC8019991F6B568 /* aes_ni.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aes_ni.c; path = SSZipArchive/minizip/aes/aes_ni.c; sourceTree = "<group>"; };
+		B5359AEE76CADD4778DE388117E1A8C8 /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCroppedImageAttributes.h; path = "Objective-C/TOCropViewController/Models/TOCroppedImageAttributes.h"; sourceTree = "<group>"; };
+		B9999EF6A105D2438139894E9D53CDD2 /* BRAContentTypesOverride.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAContentTypesOverride.h; path = XlsxReaderWriter/BRAContentTypesOverride.h; sourceTree = "<group>"; };
+		BC75A2605E20C72DFD6A799AF1B752C4 /* BRARelationships.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRARelationships.h; path = XlsxReaderWriter/BRARelationships.h; sourceTree = "<group>"; };
+		BCE27B397DAA9281CEBA9BABCDCB2C46 /* UIImage+CropRotate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+CropRotate.m"; path = "Objective-C/TOCropViewController/Categories/UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		BE7AE6ECC8C0DB0457E26503EBDB17D4 /* ioapi_mem.c */ = {isa = PBXFileReference; includeInIndex = 1; name = ioapi_mem.c; path = SSZipArchive/minizip/ioapi_mem.c; sourceTree = "<group>"; };
+		BE9FA0F2563DA6CC5036BE1E2B8F4A8C /* XlsxReaderWriter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XlsxReaderWriter.xcconfig; sourceTree = "<group>"; };
+		BF5C23FB687D39E58E1E86A8B24A7655 /* BRAComments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAComments.m; path = XlsxReaderWriter/BRAComments.m; sourceTree = "<group>"; };
+		BFD7728BE248507380ED31F918ECEBB0 /* aescrypt.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aescrypt.c; path = SSZipArchive/minizip/aes/aescrypt.c; sourceTree = "<group>"; };
+		C01A6E5F849CB0832C34CC7124A7F978 /* ioapi_mem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi_mem.h; path = SSZipArchive/minizip/ioapi_mem.h; sourceTree = "<group>"; };
+		C146DCB185B58F07B3E4508651DE0AC5 /* BRAVmlDrawing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAVmlDrawing.h; path = XlsxReaderWriter/BRAVmlDrawing.h; sourceTree = "<group>"; };
+		C31C241D5E03707CA6FCCB40BBAD2844 /* ZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZipArchive.h; path = SSZipArchive/ZipArchive.h; sourceTree = "<group>"; };
+		C4251C19C027EAB4561CCE5EEB94B517 /* BRADrawing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRADrawing.m; path = XlsxReaderWriter/BRADrawing.m; sourceTree = "<group>"; };
+		C4509F18DB8593105DB6D353F4DCEB7F /* ru.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ru.lproj; path = "Objective-C/TOCropViewController/Resources/ru.lproj"; sourceTree = "<group>"; };
+		C4E4059FF621121D0523788CAB37E430 /* BRANumberFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRANumberFormat.h; path = XlsxReaderWriter/BRANumberFormat.h; sourceTree = "<group>"; };
+		C58F1EB11247D7289D72F030991B4AFB /* NativeColor+OpenXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NativeColor+OpenXML.h"; path = "XlsxReaderWriter/NativeColor+OpenXML.h"; sourceTree = "<group>"; };
+		C7308BF1DD3B9655EA457DD9C2CD3998 /* BRASharedStrings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRASharedStrings.h; path = XlsxReaderWriter/BRASharedStrings.h; sourceTree = "<group>"; };
+		C73E98E459E879AA84644F21B5B7624D /* ms.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ms.lproj; path = "Objective-C/TOCropViewController/Resources/ms.lproj"; sourceTree = "<group>"; };
+		C7BC41394BB0B153758AE065585A41F4 /* fileenc.c */ = {isa = PBXFileReference; includeInIndex = 1; name = fileenc.c; path = SSZipArchive/minizip/aes/fileenc.c; sourceTree = "<group>"; };
+		C944C9FD41D0C6124DB19F1AFECF1FE3 /* unzip.c */ = {isa = PBXFileReference; includeInIndex = 1; name = unzip.c; path = SSZipArchive/minizip/unzip.c; sourceTree = "<group>"; };
+		C9FF466C05FAC0866E8817C99B93C297 /* hmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hmac.h; path = SSZipArchive/minizip/aes/hmac.h; sourceTree = "<group>"; };
+		CA999F05034919578AE002A75BA0A4B9 /* aestab.c */ = {isa = PBXFileReference; includeInIndex = 1; name = aestab.c; path = SSZipArchive/minizip/aes/aestab.c; sourceTree = "<group>"; };
+		CB4DA13E763120DFE4D4B42190E1F0ED /* SSZipArchive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SSZipArchive.h; path = SSZipArchive/SSZipArchive.h; sourceTree = "<group>"; };
+		CCC2A48E09AD74480B0FD8B4D6335B28 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = en.lproj; path = "Objective-C/TOCropViewController/Resources/en.lproj"; sourceTree = "<group>"; };
+		CD3A772883C8102C24AD8629E35E31C5 /* CropViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CropViewController-umbrella.h"; sourceTree = "<group>"; };
+		CDAA9011963653E88B4F467CFE1C8F6E /* sha1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = sha1.h; path = SSZipArchive/minizip/aes/sha1.h; sourceTree = "<group>"; };
+		CDABC4A787190E751C5A7EFAD3C27E8C /* BRAOpenXmlElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAOpenXmlElement.h; path = XlsxReaderWriter/BRAOpenXmlElement.h; sourceTree = "<group>"; };
+		CE5F0F9876CB642179EC525805C254F4 /* XlsxReaderWriter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XlsxReaderWriter-dummy.m"; sourceTree = "<group>"; };
+		D37E9E3A8840407F0C4C107BB6ADE57F /* BRACellFill.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRACellFill.h; path = XlsxReaderWriter/BRACellFill.h; sourceTree = "<group>"; };
+		D58D0906F793EA468F8940CB8F370C05 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOActivityCroppedImageProvider.h; path = "Objective-C/TOCropViewController/Models/TOActivityCroppedImageProvider.h"; sourceTree = "<group>"; };
+		D5DB10B919C0E69DD59D0DF5A12F9168 /* BRASharedStrings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRASharedStrings.m; path = XlsxReaderWriter/BRASharedStrings.m; sourceTree = "<group>"; };
+		DABEF85A48924659D895319BD2BBC5C2 /* prng.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = prng.h; path = SSZipArchive/minizip/aes/prng.h; sourceTree = "<group>"; };
+		DACAE1F031E524D5292BA9EF36A8B466 /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCroppedImageAttributes.m; path = "Objective-C/TOCropViewController/Models/TOCroppedImageAttributes.m"; sourceTree = "<group>"; };
+		DB521683EDA88066B0EDCC0052D738EC /* minishared.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = minishared.h; path = SSZipArchive/minizip/minishared.h; sourceTree = "<group>"; };
+		DB70608AECF55EF3811587285B42F342 /* TOCropScrollView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropScrollView.m; path = "Objective-C/TOCropViewController/Views/TOCropScrollView.m"; sourceTree = "<group>"; };
+		DC2C3A5ED4CEF4C8B0FE17C889A4EADA /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = "Objective-C/TOCropViewController/Resources/pl.lproj"; sourceTree = "<group>"; };
+		DDDD79D234627DF243B6F78261D7FB46 /* Base.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = Base.lproj; path = "Objective-C/TOCropViewController/Resources/Base.lproj"; sourceTree = "<group>"; };
+		DE7FD257AD01F81ECCA37B439DAABAE7 /* XlsxReaderWriter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XlsxReaderWriter-umbrella.h"; sourceTree = "<group>"; };
+		DE8B65B8AABE1D54EB38CF588EC6F0A4 /* ioapi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ioapi.h; path = SSZipArchive/minizip/ioapi.h; sourceTree = "<group>"; };
+		DEE27EFAD4B076918BA40979617C0F80 /* BRAWorksheetDrawing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRAWorksheetDrawing.m; path = XlsxReaderWriter/BRAWorksheetDrawing.m; sourceTree = "<group>"; };
+		E0BC5D550CF8CE2F10993330D5B1938C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E33B0C50ABA7473183811FD596C509B6 /* TOCropToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropToolbar.m; path = "Objective-C/TOCropViewController/Views/TOCropToolbar.m"; sourceTree = "<group>"; };
+		E48653D2A95A37A7C53A1479BDBBE3AA /* BRAComments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRAComments.h; path = XlsxReaderWriter/BRAComments.h; sourceTree = "<group>"; };
 		E526C6BA2144ACB55A6407526DAC5F38 /* Pods-Vocabularity-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Vocabularity-frameworks.sh"; sourceTree = "<group>"; };
-		E56474495B1033F619A722D50A3F051F /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOActivityCroppedImageProvider.m; path = "Objective-C/TOCropViewController/Models/TOActivityCroppedImageProvider.m"; sourceTree = "<group>"; };
-		EB34D1105E12B53E717FD6D61AF6AD0B /* TOCropScrollView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropScrollView.h; path = "Objective-C/TOCropViewController/Views/TOCropScrollView.h"; sourceTree = "<group>"; };
-		EB5B6655D0A1E687C656ED91DA1EBD7B /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropViewControllerTransitioning.h; path = "Objective-C/TOCropViewController/Models/TOCropViewControllerTransitioning.h"; sourceTree = "<group>"; };
+		E556697F3AAE31437250DFF76FCD1431 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7723F30A9D2020797CAEA896C557046 /* da-DK.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = "da-DK.lproj"; path = "Objective-C/TOCropViewController/Resources/da-DK.lproj"; sourceTree = "<group>"; };
+		E78B9CDC21C3D8F40D2B999E555958CF /* SSZipArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SSZipArchive.framework; path = SSZipArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CBF5A7A10F13AAF5CE52232D735FC5 /* XlsxReaderXMLDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XlsxReaderXMLDictionary.m; path = XlsxReaderWriter/XlsxReaderXMLDictionary.m; sourceTree = "<group>"; };
+		EB49A075E1FFC1EF72EF2A1D84EA87F1 /* XlsxReaderWriter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = XlsxReaderWriter.modulemap; sourceTree = "<group>"; };
+		EBD5666206E1E2A4ED0C53BE5FBD3DF9 /* TOCropView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TOCropView.m; path = "Objective-C/TOCropViewController/Views/TOCropView.m"; sourceTree = "<group>"; };
+		EC547467215AC98288ACB0C569DB4FAD /* TOCropViewConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropViewConstants.h; path = "Objective-C/TOCropViewController/Constants/TOCropViewConstants.h"; sourceTree = "<group>"; };
 		EDC8118B549333C146C887A7CABBC6A3 /* Pods-Vocabularity-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Vocabularity-umbrella.h"; sourceTree = "<group>"; };
-		EFC22983E6E0E3123E2C0A8166C86EAF /* vi.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = vi.lproj; path = "Objective-C/TOCropViewController/Resources/vi.lproj"; sourceTree = "<group>"; };
-		EFD643882138005FB323B9262FCE7428 /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOActivityCroppedImageProvider.h; path = "Objective-C/TOCropViewController/Models/TOActivityCroppedImageProvider.h"; sourceTree = "<group>"; };
-		F21EC21C0AC303FF6C93DA98D3B0DD61 /* pl.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pl.lproj; path = "Objective-C/TOCropViewController/Resources/pl.lproj"; sourceTree = "<group>"; };
-		F7C973D5FA89CE6F39DC3263586BE2EE /* ja.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = ja.lproj; path = "Objective-C/TOCropViewController/Resources/ja.lproj"; sourceTree = "<group>"; };
+		EE0EACD4DCC9E3B3E1CF5CE701AD91A1 /* TOCropViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TOCropViewController.h; path = "Objective-C/TOCropViewController/TOCropViewController.h"; sourceTree = "<group>"; };
+		EE4F28ED2AADCAFDE1C89777D29832E2 /* BRASheet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRASheet.h; path = XlsxReaderWriter/BRASheet.h; sourceTree = "<group>"; };
+		F14F42E442D49C3DD134A352C5553CA1 /* NSDictionary+OpenXmlString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+OpenXmlString.h"; path = "XlsxReaderWriter/NSDictionary+OpenXmlString.h"; sourceTree = "<group>"; };
+		F275D21FA860916FF408FAE6331DDE64 /* ResourceBundle-TOCropViewControllerBundle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TOCropViewControllerBundle-Info.plist"; sourceTree = "<group>"; };
+		F2C82A828D0F921F72A888A1DC08D457 /* SSZipArchive.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SSZipArchive.xcconfig; sourceTree = "<group>"; };
+		F599B8E08FC959A5CFBC92CF09FB2BE8 /* BRACell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRACell.h; path = XlsxReaderWriter/BRACell.h; sourceTree = "<group>"; };
+		FA1775186E55E78EB14E2F6AC3101CB6 /* BRARelatedToColumnAndRowProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRARelatedToColumnAndRowProtocol.h; path = XlsxReaderWriter/BRARelatedToColumnAndRowProtocol.h; sourceTree = "<group>"; };
 		FAE3F6098251ACD9BE2F078F78562062 /* Pods-Vocabularity-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Vocabularity-acknowledgements.plist"; sourceTree = "<group>"; };
+		FC708E9681C3A50CFCA78FB532A267A5 /* BRACellFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BRACellFormat.h; path = XlsxReaderWriter/BRACellFormat.h; sourceTree = "<group>"; };
+		FCDB2C08ACDFF9698F52926165BA8857 /* XlsxReaderXMLDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XlsxReaderXMLDictionary.h; path = XlsxReaderWriter/XlsxReaderXMLDictionary.h; sourceTree = "<group>"; };
+		FDD3BA5A8745F0F2F8F56AB8C32AC9C0 /* pt.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = pt.lproj; path = "Objective-C/TOCropViewController/Resources/pt.lproj"; sourceTree = "<group>"; };
+		FE49D123F7DB0D073D6E86E523DA809F /* BRARow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRARow.m; path = XlsxReaderWriter/BRARow.m; sourceTree = "<group>"; };
+		FECF77D92FACF1FE23FAC833AE98BC19 /* NSDictionary+DeepCopy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+DeepCopy.m"; path = "XlsxReaderWriter/NSDictionary+DeepCopy.m"; sourceTree = "<group>"; };
+		FF720479AA0B46CA50F009D1DA1A138A /* BRASharedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BRASharedString.m; path = XlsxReaderWriter/BRASharedString.m; sourceTree = "<group>"; };
+		FFEDA9805B488E8E50746830D53E65BE /* TOCropViewControllerBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TOCropViewControllerBundle.bundle; path = "CropViewController-TOCropViewControllerBundle.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5C61405CC1B329243CDB7DBCA137256F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96263AEC02525BD21C50A19C128964E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6B738D15E3ABDA2092F161BCCF47D414 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE7D366EE467F60BF547838E5EC63C49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE3B78DED0BC556B58B8EF24B3EC7987 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6D838008CC47907C7DC73C115A114F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31A3E3781300851E40E646ED010D55A7 /* Foundation.framework in Frameworks */,
+				116B7625594C25CCB911E3A55C002400 /* SSZipArchive.framework in Frameworks */,
+				2371ED2102431F54FE64B80B9BAEC8CA /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,71 +465,101 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4A0F2ACA11B6CA3E880F147EA2175E2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C7EC539AA5EA7E6744D88E0EAE0ECAED /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		110526225485CAC8C8493D2A729A440C /* Support Files */ = {
+		1C13486B3FB20AC1C8B14E72269A82DB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2804201FB23C42D12B667595332C9C33 /* CropViewController.modulemap */,
-				174F9637D80E9F56163FE78FBE7269F1 /* CropViewController.xcconfig */,
-				BDDBB09E01F92D327CCDB58E0E1846AF /* CropViewController-dummy.m */,
-				D31329001BD6C63A0209F3D5EDAFE2B1 /* CropViewController-prefix.pch */,
-				91A0165AE84037FFF8A020A026E115EB /* CropViewController-umbrella.h */,
-				A32AD75A2AF7690DCFAFD5C600FD77B2 /* Info.plist */,
-				6E36D29FF58BE1A0CB5FA82CB1F965D0 /* ResourceBundle-TOCropViewControllerBundle-Info.plist */,
+				5522A94B6792B9455B6BEF74D4029EFB /* Info.plist */,
+				EB49A075E1FFC1EF72EF2A1D84EA87F1 /* XlsxReaderWriter.modulemap */,
+				BE9FA0F2563DA6CC5036BE1E2B8F4A8C /* XlsxReaderWriter.xcconfig */,
+				CE5F0F9876CB642179EC525805C254F4 /* XlsxReaderWriter-dummy.m */,
+				56F47AEAEF47B1721D1B6F4EF8FEC01F /* XlsxReaderWriter-prefix.pch */,
+				DE7FD257AD01F81ECCA37B439DAABAE7 /* XlsxReaderWriter-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/CropViewController";
+			path = "../Target Support Files/XlsxReaderWriter";
 			sourceTree = "<group>";
 		};
-		1D5B27498AEC4B67CB21295027B61C50 /* CropViewController */ = {
+		1C54FF18D2F48F9EFE34C571BBF24713 /* SSZipArchive */ = {
 			isa = PBXGroup;
 			children = (
-				067FD9CE2592E89AB6AB68566C1C09B8 /* CropViewController.h */,
-				72C9C91A108F1E069173DFE78709D064 /* CropViewController.swift */,
-				EFD643882138005FB323B9262FCE7428 /* TOActivityCroppedImageProvider.h */,
-				E56474495B1033F619A722D50A3F051F /* TOActivityCroppedImageProvider.m */,
-				9EAB2A0FD062107AAE1A4264563B3169 /* TOCropOverlayView.h */,
-				01F0F99FAA30AB0B5A393B362F84382D /* TOCropOverlayView.m */,
-				9BBBBF47E5681EAF811075E9CC364F75 /* TOCroppedImageAttributes.h */,
-				2896470A7D73FC3762814B6AFEB05DEB /* TOCroppedImageAttributes.m */,
-				EB34D1105E12B53E717FD6D61AF6AD0B /* TOCropScrollView.h */,
-				27558A29B77063AEE53F7E375A7B494F /* TOCropScrollView.m */,
-				BC25E839FD38C6FF097D3FB8455A8463 /* TOCropToolbar.h */,
-				102B714F8CB8E1D5C2B2A23E6C81CB6F /* TOCropToolbar.m */,
-				509DDDBF4C9A77D5171A931BF0F75394 /* TOCropView.h */,
-				5C4F450DC760E95C3FA00CEFF76654D0 /* TOCropView.m */,
-				1F5ABC34C93BC6D3493E082807585EF0 /* TOCropViewConstants.h */,
-				75D9C0B5C7B4125BB0D64FCCD88D3719 /* TOCropViewController.h */,
-				4F409437DAE63284C6FB35A227659128 /* TOCropViewController.m */,
-				EB5B6655D0A1E687C656ED91DA1EBD7B /* TOCropViewControllerTransitioning.h */,
-				8D48C0717AC7B75104A9140D5AF2C416 /* TOCropViewControllerTransitioning.m */,
-				31A673D5FF0F7ADE15C332C89580B44A /* UIImage+CropRotate.h */,
-				460ED2C300BAF629753A1DC8E354CB60 /* UIImage+CropRotate.m */,
-				B679D9FB556CD426775BF62F677E36B2 /* Resources */,
-				110526225485CAC8C8493D2A729A440C /* Support Files */,
+				42C294F83D7E845D5FAC38087F96294C /* aes.h */,
+				B4A86FFA63139D2D1CC8019991F6B568 /* aes_ni.c */,
+				90CDA098C5974B25637801A2E3F1053E /* aes_ni.h */,
+				BFD7728BE248507380ED31F918ECEBB0 /* aescrypt.c */,
+				66EF06386E49023949AB40D0D756F797 /* aeskey.c */,
+				1872416862BD8D06C75E78A48F4A3ED5 /* aesopt.h */,
+				CA999F05034919578AE002A75BA0A4B9 /* aestab.c */,
+				64C2DF7E78599DE6A09E9AD71E52C767 /* aestab.h */,
+				AE4BFA24E1A1A307BFA4596AEC6642E4 /* brg_endian.h */,
+				5E4B863FDF8252C719327C5A56F790D7 /* brg_types.h */,
+				1548D22CF801D46C7AD1424BEC842AD5 /* crypt.c */,
+				97307A5A88534E0E2E021666662C8422 /* crypt.h */,
+				C7BC41394BB0B153758AE065585A41F4 /* fileenc.c */,
+				7930EBB8C3BC8FB094A941BE5A28BAA5 /* fileenc.h */,
+				1FA65AEBE200BFFA157A1D34EBD4217A /* hmac.c */,
+				C9FF466C05FAC0866E8817C99B93C297 /* hmac.h */,
+				8860E7515989AB90E7DCC4B2BEFEC09B /* ioapi.c */,
+				DE8B65B8AABE1D54EB38CF588EC6F0A4 /* ioapi.h */,
+				1CB563674503CA0445CB772DEA689563 /* ioapi_buf.c */,
+				75AF58BC35BB1650450754FFB39EBDD9 /* ioapi_buf.h */,
+				BE7AE6ECC8C0DB0457E26503EBDB17D4 /* ioapi_mem.c */,
+				C01A6E5F849CB0832C34CC7124A7F978 /* ioapi_mem.h */,
+				1AD4DBD15B034BE2E734F4E4B0A9F0E5 /* minishared.c */,
+				DB521683EDA88066B0EDCC0052D738EC /* minishared.h */,
+				488DEBD8614893B319DF50BB27564994 /* prng.c */,
+				DABEF85A48924659D895319BD2BBC5C2 /* prng.h */,
+				72F674C91483EDE27CF5FB6B4BC30ACC /* pwd2key.c */,
+				0046880ADAEB4738C3659FA9C152BD56 /* pwd2key.h */,
+				B1A7431B2E1ED58CBE5253C5DAC7E702 /* sha1.c */,
+				CDAA9011963653E88B4F467CFE1C8F6E /* sha1.h */,
+				CB4DA13E763120DFE4D4B42190E1F0ED /* SSZipArchive.h */,
+				59A19B7AFA97905CC6FA7C2550F06731 /* SSZipArchive.m */,
+				3FFC19C696C14A00F020C9A33A4BF6C0 /* SSZipCommon.h */,
+				C944C9FD41D0C6124DB19F1AFECF1FE3 /* unzip.c */,
+				1EC781E7ED5E29CEF2B4A3D1A4947447 /* unzip.h */,
+				4442EA20EFB1BA538BBE4DD76D29B996 /* zip.c */,
+				21A4E539D12A98737C3B13C6CB21C26B /* zip.h */,
+				C31C241D5E03707CA6FCCB40BBAD2844 /* ZipArchive.h */,
+				43F803B45C36B20FFDC0EAE1145AFD8A /* Support Files */,
 			);
-			name = CropViewController;
-			path = CropViewController;
+			name = SSZipArchive;
+			path = SSZipArchive;
 			sourceTree = "<group>";
 		};
-		3C58CD14EA84CA6414BFE7F31ECB6F78 /* Products */ = {
+		2E1C91EB155DF98A04814128AACF501D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				312F3C6C3AAC1C3EC9B713C2C043D8D7 /* CropViewController.framework */,
-				98B2F9A498B3344B9CAE12FC4B80F7F1 /* Pods_Vocabularity.framework */,
-				545E5B6F024177DC01D72BD282BD3CC7 /* TOCropViewControllerBundle.bundle */,
+				9FCA365B73782FD938B0E461D550F98D /* CropViewController */,
+				1C54FF18D2F48F9EFE34C571BBF24713 /* SSZipArchive */,
+				64CC004CF31D6965602A8510CEA5A8A7 /* XlsxReaderWriter */,
 			);
-			name = Products;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3E93970642F6C5F9A724E0CE3E5A39CB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5AFAEAAB8EF90C69E9F39C3850267C53 /* Foundation.framework */,
+				9680ECF87E076325DAC71A80B3A9D386 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		43F803B45C36B20FFDC0EAE1145AFD8A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E556697F3AAE31437250DFF76FCD1431 /* Info.plist */,
+				A6B7F9C1B0D4E1144D8691660A3C7776 /* SSZipArchive.modulemap */,
+				F2C82A828D0F921F72A888A1DC08D457 /* SSZipArchive.xcconfig */,
+				378DEA9F0F508BFCF7263B824306B4DB /* SSZipArchive-dummy.m */,
+				5165FFDE11A083A3A54B8124E7C1EE50 /* SSZipArchive-prefix.pch */,
+				9ABA3161C0F3697571401AE0717D7D14 /* SSZipArchive-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SSZipArchive";
 			sourceTree = "<group>";
 		};
 		51FBCC563B0545B94DE18D6EA49FAAE5 /* Targets Support Files */ = {
@@ -231,66 +570,184 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+		64CC004CF31D6965602A8510CEA5A8A7 /* XlsxReaderWriter */ = {
 			isa = PBXGroup;
 			children = (
-				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+				1A50C28408A22E5D495043311EC72AB1 /* BRACalcChain.h */,
+				1563FF5A294388B8092F312554D9E74D /* BRACalcChain.m */,
+				7B16329059278125189B7C2491B111AE /* BRACalcChainCell.h */,
+				698976E59603B01CD7C5D498E607BAD9 /* BRACalcChainCell.m */,
+				F599B8E08FC959A5CFBC92CF09FB2BE8 /* BRACell.h */,
+				52E906BAEFF8182AC14D0051F6D161B5 /* BRACell.m */,
+				D37E9E3A8840407F0C4C107BB6ADE57F /* BRACellFill.h */,
+				3DC51BF09D5621D9695DD4AB05E98DC1 /* BRACellFill.m */,
+				FC708E9681C3A50CFCA78FB532A267A5 /* BRACellFormat.h */,
+				6BF3B3C0FB229228A27B798806197C9B /* BRACellFormat.m */,
+				4342559D28F47274D7971A6221A37952 /* BRACellRange.h */,
+				361B116833F758A5A56AB0246AD727F5 /* BRACellRange.m */,
+				A3E66D15222AE50F2E2B10F591D85C3E /* BRAColumn.h */,
+				79C71235E14460B4CA8EBE0DE9440620 /* BRAColumn.m */,
+				7EFB58A2053576D7B71D760738227E46 /* BRAComment.h */,
+				72BB603B80E2D31C65A8CF273CF8CFCA /* BRAComment.m */,
+				E48653D2A95A37A7C53A1479BDBBE3AA /* BRAComments.h */,
+				BF5C23FB687D39E58E1E86A8B24A7655 /* BRAComments.m */,
+				26EFBAE42A54CD88D04CAABA2667D7DF /* BRAContentTypes.h */,
+				3008437C066B1EB79887B6E2407D3B82 /* BRAContentTypes.m */,
+				53056B56A3AC47AF75B2EDCEF38FBA68 /* BRAContentTypesDefaultExtension.h */,
+				1FBAD62801882D03E507D17452130510 /* BRAContentTypesDefaultExtension.m */,
+				B9999EF6A105D2438139894E9D53CDD2 /* BRAContentTypesOverride.h */,
+				4ADD1B8D7C046113057D002A08A443AB /* BRAContentTypesOverride.m */,
+				44E95ED34E571D7810B181DA52D93EF9 /* BRADrawing.h */,
+				C4251C19C027EAB4561CCE5EEB94B517 /* BRADrawing.m */,
+				65AA114B086391528AF65E0179F8BC53 /* BRAElementWithRelationships.h */,
+				93B8036FF381059A572958AF0025DEFB /* BRAElementWithRelationships.m */,
+				3277B9EACB48E7821ADAE6FBFC9D1C1D /* BRAImage.h */,
+				5A7FD5F3D696456910B7AE55D34E107E /* BRAImage.m */,
+				96E69CB49B584C9BCE568FB7875AEBAE /* BRAMergeCell.h */,
+				24AEBC5A733F63E027AFD938E1CFC779 /* BRAMergeCell.m */,
+				C4E4059FF621121D0523788CAB37E430 /* BRANumberFormat.h */,
+				4A6D4B721C5A91B7C45E669090272C19 /* BRANumberFormat.m */,
+				1C81C913AE93440847705F96A0E56FE7 /* BRAOfficeDocument.h */,
+				43BB252C1AC5692FB15402EFD58A5C63 /* BRAOfficeDocument.m */,
+				29F52518CFF487EF52D8FC16600566EA /* BRAOfficeDocumentPackage.h */,
+				5C0D4FF20FDACD43DF43940F7B547AF7 /* BRAOfficeDocumentPackage.m */,
+				CDABC4A787190E751C5A7EFAD3C27E8C /* BRAOpenXmlElement.h */,
+				47ED3558057B615A6B2442762B998CFE /* BRAOpenXmlElement.m */,
+				6457B1636263D43FC59A2E0012D09D99 /* BRAOpenXmlSubElement.h */,
+				6DB1A7B4A14B027A4F14D1D7D9DE6E0E /* BRAOpenXmlSubElement.m */,
+				B14ECDB56CBE350691F17F1CB41E0B48 /* BRAPlatformSpecificDefines.h */,
+				FA1775186E55E78EB14E2F6AC3101CB6 /* BRARelatedToColumnAndRowProtocol.h */,
+				64B6DBD343F4E5B927A49135BE515E83 /* BRARelationship.h */,
+				6DBB009F77033C8168F33CCE67E287E4 /* BRARelationship.m */,
+				BC75A2605E20C72DFD6A799AF1B752C4 /* BRARelationships.h */,
+				2B2B8ED4731BB7033475F3142CC6AF17 /* BRARelationships.m */,
+				AC9E86826088C2408CCABD7F9B73F3E5 /* BRARow.h */,
+				FE49D123F7DB0D073D6E86E523DA809F /* BRARow.m */,
+				64E4FB1003D7D2E2F3A57EB7A65132D6 /* BRASharedString.h */,
+				FF720479AA0B46CA50F009D1DA1A138A /* BRASharedString.m */,
+				C7308BF1DD3B9655EA457DD9C2CD3998 /* BRASharedStrings.h */,
+				D5DB10B919C0E69DD59D0DF5A12F9168 /* BRASharedStrings.m */,
+				EE4F28ED2AADCAFDE1C89777D29832E2 /* BRASheet.h */,
+				3D3DF119977B307A61994A3C92FD7097 /* BRASheet.m */,
+				9C7E814C6EBFEF061C865173D9323D64 /* BRAStyles.h */,
+				29D729927F878087AC6673D9551DF644 /* BRAStyles.m */,
+				740B6567DC317B7C1F38A179FBE4C557 /* BRATheme.h */,
+				B485AE8EE506000F9941A7B75ACD0B94 /* BRATheme.m */,
+				C146DCB185B58F07B3E4508651DE0AC5 /* BRAVmlDrawing.h */,
+				6F32558B9FAB041F2DE5BF9432402AAF /* BRAVmlDrawing.m */,
+				5D83271F4B50EA49B4F758B8D510830C /* BRAWorksheet.h */,
+				32CFF1CA2064B6EDC23DD6BF43249FCB /* BRAWorksheet.m */,
+				939BE76C212E236FE2A317ACB1237395 /* BRAWorksheetDrawing.h */,
+				DEE27EFAD4B076918BA40979617C0F80 /* BRAWorksheetDrawing.m */,
+				2E46B72E8813406D610F6685FBDB62B4 /* NativeColor+HTML.h */,
+				5455976C4A697030C9136EFD6C0FCAD4 /* NativeColor+HTML.m */,
+				C58F1EB11247D7289D72F030991B4AFB /* NativeColor+OpenXML.h */,
+				A658BA564CC9DE92D73171689EE14B01 /* NativeColor+OpenXML.m */,
+				51895BC2E260E143F4EF65CA765F3EB7 /* NativeFont+BoldItalic.h */,
+				010B871B2A4DD09B71E72FF4DC3327B6 /* NativeFont+BoldItalic.m */,
+				9F2AB1D46C7DC966D4E5176444FE53F6 /* NSDictionary+DeepCopy.h */,
+				FECF77D92FACF1FE23FAC833AE98BC19 /* NSDictionary+DeepCopy.m */,
+				1EBE1B784F2EB33EE64DE68E965A3579 /* NSDictionary+OpenXMLDictionaryParser.h */,
+				86E54B5801E7853B7E770DF4E8FEDA8A /* NSDictionary+OpenXMLDictionaryParser.m */,
+				F14F42E442D49C3DD134A352C5553CA1 /* NSDictionary+OpenXmlString.h */,
+				147800C0358C3B09014B5F9BB8AE2B8E /* NSDictionary+OpenXmlString.m */,
+				B3F9DA46DD5BC4CCE562C98B3AB6877C /* XlsxReaderWriter-swift-bridge.h */,
+				FCDB2C08ACDFF9698F52926165BA8857 /* XlsxReaderXMLDictionary.h */,
+				E9CBF5A7A10F13AAF5CE52232D735FC5 /* XlsxReaderXMLDictionary.m */,
+				1C13486B3FB20AC1C8B14E72269A82DB /* Support Files */,
 			);
-			name = iOS;
+			name = XlsxReaderWriter;
+			path = XlsxReaderWriter;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				D9E8A135522BDC20C11B95E1D612A6A6 /* Pods */,
-				3C58CD14EA84CA6414BFE7F31ECB6F78 /* Products */,
+				ABA0F136EF94F0C19D3527641F6423F3 /* Frameworks */,
+				2E1C91EB155DF98A04814128AACF501D /* Pods */,
+				AA8F9FA0045B120E557C822C8ACFD1F2 /* Products */,
 				51FBCC563B0545B94DE18D6EA49FAAE5 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B679D9FB556CD426775BF62F677E36B2 /* Resources */ = {
+		9B8A7FCB7FFFEF6310247EC1BD70CBE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				70232AF1E8A738F95EDAF60F0D06C10A /* ar.lproj */,
-				BE3E2DEA1CF30E969D3CCE89E74AB43F /* Base.lproj */,
-				678BFDED166F21A7C9CC891DF72CE611 /* da-DK.lproj */,
-				38BE362C27BBD9833F37237676173A25 /* de.lproj */,
-				08EBABC2111606E27CDC2B210300E73F /* en.lproj */,
-				41BBE3CDB023E311926C9C09130A6DE1 /* es.lproj */,
-				DCA1934DD83B20B72BCACC1D6FF6C4A6 /* fr.lproj */,
-				276D4DF49207FF3BE2F90E183D2874B5 /* id.lproj */,
-				D207FED6BC00778B65A661E4A2E75AA8 /* it.lproj */,
-				F7C973D5FA89CE6F39DC3263586BE2EE /* ja.lproj */,
-				18B6DE18DA237C71B3C33A5F919FDF7B /* ko.lproj */,
-				E3FFFB14DE43D02AE4B5B26BBB4BA9BA /* ms.lproj */,
-				800FE1F457F56C68C532261C6438D416 /* nl.lproj */,
-				F21EC21C0AC303FF6C93DA98D3B0DD61 /* pl.lproj */,
-				7FBA565BD2A6D4845F0C21BA4A275B81 /* pt.lproj */,
-				AAD74B1E114AF9A90540B94EA766B226 /* ru.lproj */,
-				5DCF51C9F95524B54621B530E238816C /* tr.lproj */,
-				EFC22983E6E0E3123E2C0A8166C86EAF /* vi.lproj */,
-				7467E3A59401684B5E02248D3F087735 /* zh-Hans.lproj */,
-				76A9AFA10FC9B87C56AEDACC0361A49D /* zh-Hant.lproj */,
+				0907266E450191738A1ED8554C032C2A /* ar.lproj */,
+				DDDD79D234627DF243B6F78261D7FB46 /* Base.lproj */,
+				E7723F30A9D2020797CAEA896C557046 /* da-DK.lproj */,
+				8E0387F9CFC901F8756E65427ED275F4 /* de.lproj */,
+				CCC2A48E09AD74480B0FD8B4D6335B28 /* en.lproj */,
+				76E65452471DF28D4597A259C045196D /* es.lproj */,
+				1FFA883A98E25AC46AAE65488F6FAA42 /* fr.lproj */,
+				5B13F3F6DEC0116C0F69DA9D5F84CC8D /* id.lproj */,
+				6332BF45472D1AA5871869DA7760720C /* it.lproj */,
+				6807994836430C3E6F6CB2D3EC66DFA9 /* ja.lproj */,
+				07FBAB02DD283148D0EDF5984752E775 /* ko.lproj */,
+				C73E98E459E879AA84644F21B5B7624D /* ms.lproj */,
+				5CD58EE1E1167088A1018BBE9D7F7F43 /* nl.lproj */,
+				DC2C3A5ED4CEF4C8B0FE17C889A4EADA /* pl.lproj */,
+				FDD3BA5A8745F0F2F8F56AB8C32AC9C0 /* pt.lproj */,
+				C4509F18DB8593105DB6D353F4DCEB7F /* ru.lproj */,
+				763B7CA0FCB1ACE0B8DDCF5E8BA8BC76 /* tr.lproj */,
+				5EBC2FE6BDE6839742FFC89CC7869ADD /* vi.lproj */,
+				B1424C2088836A065C644947E54E7F46 /* zh-Hans.lproj */,
+				404D841DC79EA7801E0B64537486BEF4 /* zh-Hant.lproj */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		9FCA365B73782FD938B0E461D550F98D /* CropViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+				6B2374BD75B938D84FEC67D7D6B3A458 /* CropViewController.h */,
+				058A095E343E10CD78BBB2C34F1ECAC1 /* CropViewController.swift */,
+				D58D0906F793EA468F8940CB8F370C05 /* TOActivityCroppedImageProvider.h */,
+				A5A012D88132FBD0B6E315A150F024B7 /* TOActivityCroppedImageProvider.m */,
+				97C1CC287DB7D453084F0C1331F03A8C /* TOCropOverlayView.h */,
+				087D8B546475089CF242F5C27543E5BC /* TOCropOverlayView.m */,
+				B5359AEE76CADD4778DE388117E1A8C8 /* TOCroppedImageAttributes.h */,
+				DACAE1F031E524D5292BA9EF36A8B466 /* TOCroppedImageAttributes.m */,
+				66FB30E36EA39EAF012C0CD6C4A5745F /* TOCropScrollView.h */,
+				DB70608AECF55EF3811587285B42F342 /* TOCropScrollView.m */,
+				13CFED31730DF65D705777F478E2F152 /* TOCropToolbar.h */,
+				E33B0C50ABA7473183811FD596C509B6 /* TOCropToolbar.m */,
+				493D220D7F9EFD7070D6EB8EA4D1E77E /* TOCropView.h */,
+				EBD5666206E1E2A4ED0C53BE5FBD3DF9 /* TOCropView.m */,
+				EC547467215AC98288ACB0C569DB4FAD /* TOCropViewConstants.h */,
+				EE0EACD4DCC9E3B3E1CF5CE701AD91A1 /* TOCropViewController.h */,
+				2EB07EC0637B0E13A2898AA5DB5CAE4C /* TOCropViewController.m */,
+				30E5BFEC0CEED6444BAC3D5F2B5766A0 /* TOCropViewControllerTransitioning.h */,
+				3078B1CB97779E1FFBCB46C4F54CCD82 /* TOCropViewControllerTransitioning.m */,
+				A9A9B271559ABB758156C09594D76C1B /* UIImage+CropRotate.h */,
+				BCE27B397DAA9281CEBA9BABCDCB2C46 /* UIImage+CropRotate.m */,
+				9B8A7FCB7FFFEF6310247EC1BD70CBE8 /* Resources */,
+				F4BF61B7086955E9AE9A7735A8C7DA6A /* Support Files */,
 			);
-			name = Frameworks;
+			name = CropViewController;
+			path = CropViewController;
 			sourceTree = "<group>";
 		};
-		D9E8A135522BDC20C11B95E1D612A6A6 /* Pods */ = {
+		AA8F9FA0045B120E557C822C8ACFD1F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D5B27498AEC4B67CB21295027B61C50 /* CropViewController */,
+				8F1110792B349BD4208BE8484B6CAC7A /* CropViewController.framework */,
+				12184ABB3EB033501B03FC95B41DCFF2 /* Pods_Vocabularity.framework */,
+				E78B9CDC21C3D8F40D2B999E555958CF /* SSZipArchive.framework */,
+				FFEDA9805B488E8E50746830D53E65BE /* TOCropViewControllerBundle.bundle */,
+				595F98AD5C5A1E91B190F3C209A358C3 /* XlsxReaderWriter.framework */,
 			);
-			name = Pods;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABA0F136EF94F0C19D3527641F6423F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03A90F302A50B055B0352E86A41D3F9D /* SSZipArchive.framework */,
+				3E93970642F6C5F9A724E0CE3E5A39CB /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F232306F838CBD913A38EB14A04CD574 /* Pods-Vocabularity */ = {
@@ -311,9 +768,32 @@
 			path = "Target Support Files/Pods-Vocabularity";
 			sourceTree = "<group>";
 		};
+		F4BF61B7086955E9AE9A7735A8C7DA6A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				51463E4B10D28F50C4013E9E79885E19 /* CropViewController.modulemap */,
+				A74F415E289A02A9DE054BC14DB3A816 /* CropViewController.xcconfig */,
+				4F8BB743E09364FA6D6AFEA30620BC71 /* CropViewController-dummy.m */,
+				0DD30191F8591CA82AE4F66494CBF8DC /* CropViewController-prefix.pch */,
+				CD3A772883C8102C24AD8629E35E31C5 /* CropViewController-umbrella.h */,
+				E0BC5D550CF8CE2F10993330D5B1938C /* Info.plist */,
+				F275D21FA860916FF408FAE6331DDE64 /* ResourceBundle-TOCropViewControllerBundle-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CropViewController";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		453FAFD65DB5518AC561CC4605F682E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73C879583D971D72AD190B10C496902A /* Pods-Vocabularity-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4B6F1EBB94F1EBE11B4EAFD197A6023C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,11 +813,82 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B6CD69C3627BB94E451E0D6848B0634 /* Headers */ = {
+		9B8D9E432F457A3C78264B594757A9EE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D2598CF9876A8A3CAC4C90D961822A4 /* Pods-Vocabularity-umbrella.h in Headers */,
+				C9F18FDE92FE1A8355211677A1AC6619 /* aes.h in Headers */,
+				4352C2AB8795E25D0E57C05739805453 /* aes_ni.h in Headers */,
+				B6FAB6508F0507397BC5BD70E1A68A0D /* aesopt.h in Headers */,
+				D1310F3CE35111E8313F620F415F17C6 /* aestab.h in Headers */,
+				4F182B3461ADA493BFB32252EA3806C1 /* brg_endian.h in Headers */,
+				348A02FB30C151C38D18FA0E8AE56694 /* brg_types.h in Headers */,
+				8DA2E11836258955FF59C35EB76D315C /* crypt.h in Headers */,
+				05BC6BBD5A165B7188F7E4791E02FACB /* fileenc.h in Headers */,
+				08B3DD8328B5F9023A8B1A13897FA2A6 /* hmac.h in Headers */,
+				77827F37D8D151C33A91729C23926815 /* ioapi.h in Headers */,
+				B1B618D003DEEA8720B7792E053D7F49 /* ioapi_buf.h in Headers */,
+				403CA96CEB33717DFD145A1B8EABE56D /* ioapi_mem.h in Headers */,
+				AC87A5F4CCAE37FFC73C67469113F0C3 /* minishared.h in Headers */,
+				A70D05FAFF8613DE4EDCA4CD733FD6BA /* prng.h in Headers */,
+				D7A85129E99BDFE2ED260174E92C4F7F /* pwd2key.h in Headers */,
+				52F0DEA2120424BD2EEDFCB428A5CE5A /* sha1.h in Headers */,
+				032944ACEF4C6272C41E6DF067918134 /* SSZipArchive-umbrella.h in Headers */,
+				39E622BDCB8EF4B5B6AF7CCA07E7C9BF /* SSZipArchive.h in Headers */,
+				23C6EE2A4100889C78D8C1C683C4BB18 /* SSZipCommon.h in Headers */,
+				2C7112D9EA62F8BB71224425799FC534 /* unzip.h in Headers */,
+				771974658CAB074636A43885FE99593F /* zip.h in Headers */,
+				C4A5F4B8EA089F3C379F758057D4C7FB /* ZipArchive.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC6564CB6FDA2022F7425BF06F4873C5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83824FC5343B342EF3286C3CFB4C0ED9 /* BRACalcChain.h in Headers */,
+				CB81D5CC9204D31CD5D03B0504BEC4D1 /* BRACalcChainCell.h in Headers */,
+				933A0CC63A24765E77A07169053F1C29 /* BRACell.h in Headers */,
+				44A399846A51BB1A157F13301957CE7F /* BRACellFill.h in Headers */,
+				04A19D0DC000AF15B0042AD300072F71 /* BRACellFormat.h in Headers */,
+				CC09F73D0FFBE218CDD117B7BBFB3FD6 /* BRACellRange.h in Headers */,
+				EEA381B1DE4213FA022B0791A321332E /* BRAColumn.h in Headers */,
+				43D0B55B77529E903875C3A9A9C2610D /* BRAComment.h in Headers */,
+				D130C810795E8BA4C29456E51BE103C7 /* BRAComments.h in Headers */,
+				8571D53B17AA3DB3F3A697D455ED4DE1 /* BRAContentTypes.h in Headers */,
+				1AF4ECFCCAD569300D0A6090019029AA /* BRAContentTypesDefaultExtension.h in Headers */,
+				B70A8E718194CC39289342ACB93B28A0 /* BRAContentTypesOverride.h in Headers */,
+				197D4C7349B36841C0D93E70A10A8340 /* BRADrawing.h in Headers */,
+				907CA03959E51B0190766666662807F3 /* BRAElementWithRelationships.h in Headers */,
+				8A3149E283899639FD81469DFABD1618 /* BRAImage.h in Headers */,
+				0A043770B4267A8EC644AF47ECE06814 /* BRAMergeCell.h in Headers */,
+				D3788FFDE1544DD3CEF4F5450A4399C8 /* BRANumberFormat.h in Headers */,
+				3AEA4C3F92F3D5BCF79126903FE54A4B /* BRAOfficeDocument.h in Headers */,
+				F2819C669F2C766E5BA6167A5BBE17EF /* BRAOfficeDocumentPackage.h in Headers */,
+				0D814BFC4C003F1114B8D110594A6DB2 /* BRAOpenXmlElement.h in Headers */,
+				328B7FF1340634C50A5C8A6CEA6CE224 /* BRAOpenXmlSubElement.h in Headers */,
+				227AA1F13815D1E47741602253E090B5 /* BRAPlatformSpecificDefines.h in Headers */,
+				46DD9090E513E180F419255BCBEA39C6 /* BRARelatedToColumnAndRowProtocol.h in Headers */,
+				EA0747849712C8C9D620D0BB93B00A77 /* BRARelationship.h in Headers */,
+				22605118806A0C93C442D6647F8BA9EE /* BRARelationships.h in Headers */,
+				B0FBEB6B7E026482E28DA5E8CAE5C3EB /* BRARow.h in Headers */,
+				5C38C37AFD75E1BEB06BB82CE8A92636 /* BRASharedString.h in Headers */,
+				9BEE529793D382DFD016129F090751D9 /* BRASharedStrings.h in Headers */,
+				03DB9259C2E84EF49BA6FAAE446BD5BC /* BRASheet.h in Headers */,
+				24E5D2939633EE3F60EFF610917F3D3A /* BRAStyles.h in Headers */,
+				511BE6B1499EFC597B9E0E225A6B1C30 /* BRATheme.h in Headers */,
+				6658292F2324A57BECD7B55BAE544FB8 /* BRAVmlDrawing.h in Headers */,
+				63F9770BF35F1D1A30022AFA6541AD69 /* BRAWorksheet.h in Headers */,
+				669E61E63AE099AC6A670DCC96BA36DC /* BRAWorksheetDrawing.h in Headers */,
+				337BE31A5D2A7561642D7F97402BEB18 /* NativeColor+HTML.h in Headers */,
+				C9B9F98DCF1382E1FDCECC30DD3C825E /* NativeColor+OpenXML.h in Headers */,
+				74E670C628D4EDD65E59E5DDF331EB25 /* NativeFont+BoldItalic.h in Headers */,
+				E7A6EA17E62F3871A08E5F8C06B024A9 /* NSDictionary+DeepCopy.h in Headers */,
+				AE7ABFD9B8125D47F2068E82C3EF558A /* NSDictionary+OpenXMLDictionaryParser.h in Headers */,
+				D8C7D8869C153D2F12A3F5F4F8EDC630 /* NSDictionary+OpenXmlString.h in Headers */,
+				E1ACD2FD7D277071D6C42545D887FE10 /* XlsxReaderWriter-swift-bridge.h in Headers */,
+				C0B743CB3B74711EF609998E964C0132 /* XlsxReaderWriter-umbrella.h in Headers */,
+				5C6EFF8A664EA21608A56F63FA73092A /* XlsxReaderXMLDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,25 +911,25 @@
 			);
 			name = CropViewController;
 			productName = CropViewController;
-			productReference = 312F3C6C3AAC1C3EC9B713C2C043D8D7 /* CropViewController.framework */;
+			productReference = 8F1110792B349BD4208BE8484B6CAC7A /* CropViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3796941BA802BC018550968A33A1BFD8 /* Pods-Vocabularity */ = {
+		1C4BB09644900A65F94AE3A545D98172 /* XlsxReaderWriter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDCF849D245793FB58183258625502B5 /* Build configuration list for PBXNativeTarget "Pods-Vocabularity" */;
+			buildConfigurationList = B057C405EBBB5D33BD901E098CA4DEA1 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter" */;
 			buildPhases = (
-				F4F4FBDD61F0F3F012EA212EE101B19D /* Sources */,
-				F4A0F2ACA11B6CA3E880F147EA2175E2 /* Frameworks */,
-				9B6CD69C3627BB94E451E0D6848B0634 /* Headers */,
+				15D12A7ABB2EBB939C2DDD3C59FB6586 /* Sources */,
+				E6D838008CC47907C7DC73C115A114F9 /* Frameworks */,
+				EC6564CB6FDA2022F7425BF06F4873C5 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				989C989D4F13F1A0279F2A0EF33C2376 /* PBXTargetDependency */,
+				83180450E1EB7AC4198CC08DD396D076 /* PBXTargetDependency */,
 			);
-			name = "Pods-Vocabularity";
-			productName = "Pods-Vocabularity";
-			productReference = 98B2F9A498B3344B9CAE12FC4B80F7F1 /* Pods_Vocabularity.framework */;
+			name = XlsxReaderWriter;
+			productName = XlsxReaderWriter;
+			productReference = 595F98AD5C5A1E91B190F3C209A358C3 /* XlsxReaderWriter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		72F599DFFF3C499C3ADBDED7DDCD7B7C /* CropViewController-TOCropViewControllerBundle */ = {
@@ -395,8 +946,45 @@
 			);
 			name = "CropViewController-TOCropViewControllerBundle";
 			productName = "CropViewController-TOCropViewControllerBundle";
-			productReference = 545E5B6F024177DC01D72BD282BD3CC7 /* TOCropViewControllerBundle.bundle */;
+			productReference = FFEDA9805B488E8E50746830D53E65BE /* TOCropViewControllerBundle.bundle */;
 			productType = "com.apple.product-type.bundle";
+		};
+		A20EB646750C0423805055111A599C6A /* Pods-Vocabularity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B97C1CD3D2CEE0FC5861B8908A065F2A /* Build configuration list for PBXNativeTarget "Pods-Vocabularity" */;
+			buildPhases = (
+				15C80A0FB82D7B32E36C5447D49993DB /* Sources */,
+				5C61405CC1B329243CDB7DBCA137256F /* Frameworks */,
+				453FAFD65DB5518AC561CC4605F682E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCE8042723DAA5F21E3BA2BBAC2316FB /* PBXTargetDependency */,
+				293D509FAA23D6749336ED069A99335E /* PBXTargetDependency */,
+				21596D058FC2CF474A1332E8260B35D2 /* PBXTargetDependency */,
+			);
+			name = "Pods-Vocabularity";
+			productName = "Pods-Vocabularity";
+			productReference = 12184ABB3EB033501B03FC95B41DCFF2 /* Pods_Vocabularity.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AF1DBC76F75D023FD3885AB1EC047F85 /* SSZipArchive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7401260FC0342191448BF0715FBAE4C3 /* Build configuration list for PBXNativeTarget "SSZipArchive" */;
+			buildPhases = (
+				CE2C79163B4CFB3DC40F1FB0865D419E /* Sources */,
+				CE7D366EE467F60BF547838E5EC63C49 /* Frameworks */,
+				9B8D9E432F457A3C78264B594757A9EE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSZipArchive;
+			productName = SSZipArchive;
+			productReference = E78B9CDC21C3D8F40D2B999E555958CF /* SSZipArchive.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -415,13 +1003,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 3C58CD14EA84CA6414BFE7F31ECB6F78 /* Products */;
+			productRefGroup = AA8F9FA0045B120E557C822C8ACFD1F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				01BD0CCD2335BA17BB83076FED022B47 /* CropViewController */,
 				72F599DFFF3C499C3ADBDED7DDCD7B7C /* CropViewController-TOCropViewControllerBundle */,
-				3796941BA802BC018550968A33A1BFD8 /* Pods-Vocabularity */,
+				A20EB646750C0423805055111A599C6A /* Pods-Vocabularity */,
+				AF1DBC76F75D023FD3885AB1EC047F85 /* SSZipArchive */,
+				1C4BB09644900A65F94AE3A545D98172 /* XlsxReaderWriter */,
 			);
 		};
 /* End PBXProject section */
@@ -472,6 +1062,86 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15C80A0FB82D7B32E36C5447D49993DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59CE7A075B74C35680A4D34901F82475 /* Pods-Vocabularity-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15D12A7ABB2EBB939C2DDD3C59FB6586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2ABD7DD70F43F96EBD96E41F2A144E8B /* BRACalcChain.m in Sources */,
+				7DEBD4F2F8949D8D218D0B9444E5C1F4 /* BRACalcChainCell.m in Sources */,
+				B006CF8E98364555D17511F409FB162A /* BRACell.m in Sources */,
+				E5129584DB32687CE86907078073917A /* BRACellFill.m in Sources */,
+				9AFBBE826A012E25F8355091BF027BCF /* BRACellFormat.m in Sources */,
+				DA83206A80EDFF595D7D16F74F781E14 /* BRACellRange.m in Sources */,
+				1269A24C97E445AA21E1DFBC4D391DB7 /* BRAColumn.m in Sources */,
+				E005D6785952AE94CDF4C15156CCD623 /* BRAComment.m in Sources */,
+				910C44B7997C9203890D4FD844D15F37 /* BRAComments.m in Sources */,
+				24D2BB9ECD9D533DA211FA135DF01527 /* BRAContentTypes.m in Sources */,
+				8B004C0D3573B9C6FE09BBA21EBB7526 /* BRAContentTypesDefaultExtension.m in Sources */,
+				BB9B9D100EE7E21EF4062494898160B5 /* BRAContentTypesOverride.m in Sources */,
+				557B45419E6F612F4E1308D02391A4F4 /* BRADrawing.m in Sources */,
+				A1C1C28A7F4093A8CE2E2AF2C6087376 /* BRAElementWithRelationships.m in Sources */,
+				DBC23F5B23BD1336183B20A368546BF1 /* BRAImage.m in Sources */,
+				9A4A8131CD786604797D6EC3D63551E1 /* BRAMergeCell.m in Sources */,
+				8F4C6CBC97D64C0F33A205A200CA6F33 /* BRANumberFormat.m in Sources */,
+				CC5D160CAB322768BEAE17D85D0B21A5 /* BRAOfficeDocument.m in Sources */,
+				A5ECD64D2D32D81C83754B31C18F7E46 /* BRAOfficeDocumentPackage.m in Sources */,
+				3FF1831792AA41CC6EB1E9D85AD67CF1 /* BRAOpenXmlElement.m in Sources */,
+				E35BEB1D71D4ADA0AEBAEA2617190887 /* BRAOpenXmlSubElement.m in Sources */,
+				695EAF997901945F213CDF88FC81E5C1 /* BRARelationship.m in Sources */,
+				865773BFB0EA863DD0A5DB3919206B2F /* BRARelationships.m in Sources */,
+				C997A64CAB80EDE2974196393014EAE0 /* BRARow.m in Sources */,
+				2B30B76C4C96E9A80BB87ADBB08BBB11 /* BRASharedString.m in Sources */,
+				4E6165234C7CF8460D0074CDA97E2CB2 /* BRASharedStrings.m in Sources */,
+				6D0854B338E615155BF92491519E6056 /* BRASheet.m in Sources */,
+				7354483592879BA6576DDE1C9D4BF00E /* BRAStyles.m in Sources */,
+				190F7CD9E49A5E32EFA72F90CDE2376A /* BRATheme.m in Sources */,
+				0D488DA833CC1DB0197C1584D0A11758 /* BRAVmlDrawing.m in Sources */,
+				20C34661156878C09F3723F0F8A77799 /* BRAWorksheet.m in Sources */,
+				B0B7075E415D4B4387B0965A014C2A9E /* BRAWorksheetDrawing.m in Sources */,
+				D6112EE527BC171E518C082F14BCDDED /* NativeColor+HTML.m in Sources */,
+				7CD129FB566FA6EB05908E29D9131CC9 /* NativeColor+OpenXML.m in Sources */,
+				2E7B778A5D7DA2A4D040DA55B0117BEC /* NativeFont+BoldItalic.m in Sources */,
+				DE869314EADBBA0C531CD5B6D5F2F126 /* NSDictionary+DeepCopy.m in Sources */,
+				61C0A7749EA23248A2E9441EEDA77392 /* NSDictionary+OpenXMLDictionaryParser.m in Sources */,
+				6C741E0DB64DA41240FC34C151A27D99 /* NSDictionary+OpenXmlString.m in Sources */,
+				0B2A27A8CBDDBA2E6C29503069DD3ADF /* XlsxReaderWriter-dummy.m in Sources */,
+				70105014C5ABD88FB4C49B3468502E7B /* XlsxReaderXMLDictionary.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE2C79163B4CFB3DC40F1FB0865D419E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC32D951C8A488B4F664162C13C28AB4 /* aes_ni.c in Sources */,
+				83EBF32F9144A5793204BA7C150E8396 /* aescrypt.c in Sources */,
+				F3D4232774EC9511EEDE4532A4AB31C3 /* aeskey.c in Sources */,
+				795CBB1C7EC5B18B3A915C5ED7C244CA /* aestab.c in Sources */,
+				263B4617FB1EB22F904F1EB0F96B25E2 /* crypt.c in Sources */,
+				E45415460EE9822594D6F01DB766190A /* fileenc.c in Sources */,
+				10E64EDA66E1C7830BE31539946C9C10 /* hmac.c in Sources */,
+				BC66B7DBCC7E76E529B0B284C00516B1 /* ioapi.c in Sources */,
+				6A915DB17F6D3B5AA9FD5CA8FDEEA233 /* ioapi_buf.c in Sources */,
+				129836783036E7E3B9CEDC5490605BAD /* ioapi_mem.c in Sources */,
+				FDC52F34FABFBFC1152FAB27DDB0EA88 /* minishared.c in Sources */,
+				7076A9AEC3F46B4A4695D6F40BC93CA4 /* prng.c in Sources */,
+				090620AA3E253A322A3AA24A4453E33E /* pwd2key.c in Sources */,
+				FDC5749C172ADAC7316BF86F30BC4EF0 /* sha1.c in Sources */,
+				4C8ED9D6783AB66CAB3D18EDAB81EF6D /* SSZipArchive-dummy.m in Sources */,
+				240E24D762979B70DFE92B583BA26E5D /* SSZipArchive.m in Sources */,
+				03FC7B70F4C9C3C846C382E1DF276C2B /* unzip.c in Sources */,
+				8F67EC385D3824DDE1337375D8FA826C /* zip.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E597297370A1D2BB389681CCF72BB827 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,35 +1160,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F4F4FBDD61F0F3F012EA212EE101B19D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				346D3F9AA4449874AB4713B42A4CA9BB /* Pods-Vocabularity-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		21596D058FC2CF474A1332E8260B35D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XlsxReaderWriter;
+			target = 1C4BB09644900A65F94AE3A545D98172 /* XlsxReaderWriter */;
+			targetProxy = E5E963FD3554C6BCF5BEB0CBA373D198 /* PBXContainerItemProxy */;
+		};
+		293D509FAA23D6749336ED069A99335E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSZipArchive;
+			target = AF1DBC76F75D023FD3885AB1EC047F85 /* SSZipArchive */;
+			targetProxy = FADDF06683C234B1DC5C9BC516ABAADD /* PBXContainerItemProxy */;
+		};
 		5212980E0A984AA04D4BD1B01D033FF9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "CropViewController-TOCropViewControllerBundle";
 			target = 72F599DFFF3C499C3ADBDED7DDCD7B7C /* CropViewController-TOCropViewControllerBundle */;
 			targetProxy = CAB6059B7ACB994A6E286DDA0F1A8E38 /* PBXContainerItemProxy */;
 		};
-		989C989D4F13F1A0279F2A0EF33C2376 /* PBXTargetDependency */ = {
+		83180450E1EB7AC4198CC08DD396D076 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SSZipArchive;
+			target = AF1DBC76F75D023FD3885AB1EC047F85 /* SSZipArchive */;
+			targetProxy = F9D7DE86D604FC4F4408703533F8DE57 /* PBXContainerItemProxy */;
+		};
+		BCE8042723DAA5F21E3BA2BBAC2316FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CropViewController;
 			target = 01BD0CCD2335BA17BB83076FED022B47 /* CropViewController */;
-			targetProxy = 9BFDDE617B2A91E00DCD078DB9FB6EE8 /* PBXContainerItemProxy */;
+			targetProxy = 895A526E2D78843E05D62867AA6EEF98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		35F7E5DA8085593B08BAC0C7DD3D3358 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 174F9637D80E9F56163FE78FBE7269F1 /* CropViewController.xcconfig */;
+			baseConfigurationReference = A74F415E289A02A9DE054BC14DB3A816 /* CropViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CropViewController";
@@ -529,46 +1209,6 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		4C709106816E34B36F4C53EABFE2EED7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18551B2A1D822DC27A43AED8DFE1A902 /* Pods-Vocabularity.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Vocabularity/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Vocabularity/Pods-Vocabularity.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
@@ -637,7 +1277,7 @@
 		};
 		7D72125C24CAD9510BC3D5FC36323A0E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 174F9637D80E9F56163FE78FBE7269F1 /* CropViewController.xcconfig */;
+			baseConfigurationReference = A74F415E289A02A9DE054BC14DB3A816 /* CropViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -665,6 +1305,117 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9DA61C6343753085122D901FB39ABA90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE9FA0F2563DA6CC5036BE1E2B8F4A8C /* XlsxReaderWriter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XlsxReaderWriter/XlsxReaderWriter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XlsxReaderWriter/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/XlsxReaderWriter/XlsxReaderWriter.modulemap";
+				PRODUCT_MODULE_NAME = XlsxReaderWriter;
+				PRODUCT_NAME = XlsxReaderWriter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A399CFB0EEC52C9D6E16FE7C98E0339B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE9FA0F2563DA6CC5036BE1E2B8F4A8C /* XlsxReaderWriter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/XlsxReaderWriter/XlsxReaderWriter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/XlsxReaderWriter/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/XlsxReaderWriter/XlsxReaderWriter.modulemap";
+				PRODUCT_MODULE_NAME = XlsxReaderWriter;
+				PRODUCT_NAME = XlsxReaderWriter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A8CDF74C13C41E527F99EB7C90A8CFED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18551B2A1D822DC27A43AED8DFE1A902 /* Pods-Vocabularity.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Vocabularity/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Vocabularity/Pods-Vocabularity.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -731,7 +1482,7 @@
 		};
 		AF647174D8EA4A1CB618303E8A238909 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 174F9637D80E9F56163FE78FBE7269F1 /* CropViewController.xcconfig */;
+			baseConfigurationReference = A74F415E289A02A9DE054BC14DB3A816 /* CropViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/CropViewController";
@@ -747,7 +1498,7 @@
 		};
 		AF8DA9B7B5F06141F3C811D29BB31AE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 174F9637D80E9F56163FE78FBE7269F1 /* CropViewController.xcconfig */;
+			baseConfigurationReference = A74F415E289A02A9DE054BC14DB3A816 /* CropViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -782,7 +1533,78 @@
 			};
 			name = Release;
 		};
-		F1AC61126FCA655807076CFE27CC1735 /* Release */ = {
+		C7AB66694CBBE4B78955649FAF92276B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2C82A828D0F921F72A888A1DC08D457 /* SSZipArchive.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SSZipArchive/SSZipArchive-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SSZipArchive/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SSZipArchive/SSZipArchive.modulemap";
+				PRODUCT_MODULE_NAME = SSZipArchive;
+				PRODUCT_NAME = SSZipArchive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DB2C1F657F948AD09FD6B2DC825B06F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2C82A828D0F921F72A888A1DC08D457 /* SSZipArchive.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SSZipArchive/SSZipArchive-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SSZipArchive/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SSZipArchive/SSZipArchive.modulemap";
+				PRODUCT_MODULE_NAME = SSZipArchive;
+				PRODUCT_NAME = SSZipArchive;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F5FFC9737DDB39F3C41A7FC861E86BF7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93403F95E91B999C191EA4293ECFCDCA /* Pods-Vocabularity.release.xcconfig */;
 			buildSettings = {
@@ -852,11 +1674,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDCF849D245793FB58183258625502B5 /* Build configuration list for PBXNativeTarget "Pods-Vocabularity" */ = {
+		7401260FC0342191448BF0715FBAE4C3 /* Build configuration list for PBXNativeTarget "SSZipArchive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C709106816E34B36F4C53EABFE2EED7 /* Debug */,
-				F1AC61126FCA655807076CFE27CC1735 /* Release */,
+				DB2C1F657F948AD09FD6B2DC825B06F7 /* Debug */,
+				C7AB66694CBBE4B78955649FAF92276B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B057C405EBBB5D33BD901E098CA4DEA1 /* Build configuration list for PBXNativeTarget "XlsxReaderWriter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A399CFB0EEC52C9D6E16FE7C98E0339B /* Debug */,
+				9DA61C6343753085122D901FB39ABA90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B97C1CD3D2CEE0FC5861B8908A065F2A /* Build configuration list for PBXNativeTarget "Pods-Vocabularity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8CDF74C13C41E527F99EB7C90A8CFED /* Debug */,
+				F5FFC9737DDB39F3C41A7FC861E86BF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

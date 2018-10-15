@@ -137,7 +137,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     func opa() {
         let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
+        
+        
         let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(documentPath)
+        
         //First worksheet in the workbook
         let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
         let string: String = worksheet.cell(forCellReference: "A1").stringValue()
@@ -233,7 +236,19 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                 self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
             }))
             alert.addAction(UIAlertAction(title: "Excel", style: .default, handler: { action in
-                self.opa()
+                
+                let docTypes = [
+                    //            "com.microsoft.excel.xls",
+                    "org.openxmlformats.spreadsheetml.sheet"
+                ]
+                
+                let documentPicker = UIDocumentPickerViewController(documentTypes: docTypes, in: .import)
+                
+                documentPicker.delegate = self
+                documentPicker.allowsMultipleSelection = false
+                self.present(documentPicker, animated: true, completion: nil)
+//                self.opa()
+                
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { action in }))
             self.present(alert, animated: true, completion: nil)
@@ -680,5 +695,60 @@ extension FoldersVC {
     }
     
 }
+
+extension FoldersVC: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        
+        
+        
+        guard let selectedFileURL = urls.first else {
+            return
+        }
+        
+//        let fileExtension = selectedFileURL.pathExtension
+//        print(fileExtension)
+        
+        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
+        print(documentPath)
+        print(sandboxFileURL.path)
+        let opop: String = selectedFileURL.path
+        print(opop)
+        
+        
+        
+        let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(opop)
+        
+//        BRAOfficeDocumentPackage.
+        
+        //First worksheet in the workbook
+        let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
+        let string: String = worksheet.cell(forCellReference: "A1").stringValue()
+        let string2: String = worksheet.cell(forCellReference: "B1").stringValue()
+        print("--------")
+        print(string)
+        print(string2)
+        print("--------")
+        
+        
+//        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+//            print("Already exists! Do nothing")
+//        }
+//        else {
+//
+//            do {
+//                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+//
+//                print("Copied file!")
+//            }
+//            catch {
+//                print("Error: \(error)")
+//            }
+//        }
+    }
+}
+
 
 

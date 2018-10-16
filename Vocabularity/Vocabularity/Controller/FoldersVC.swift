@@ -708,29 +708,83 @@ extension FoldersVC: UIDocumentPickerDelegate {
 //        let fileExtension = selectedFileURL.pathExtension
 //        print(fileExtension)
         
-        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+        if selectedFileURL.pathExtension != "xlsx" {
+            return
+        }
         
-        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
+//        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+//        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
 //        print(documentPath)
 //        print(sandboxFileURL.path)
-        let opop: String = selectedFileURL.path
-        print(opop)
+        let filePath: String = selectedFileURL.path
+//        print(filePath)
         
         
         
-        let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(opop)
-        
-//        BRAOfficeDocumentPackage.
-        
-        //First worksheet in the workbook
+        let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(filePath)
         let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
-        let string: String = worksheet.cell(forCellReference: "A1").stringValue()
-        let string2: String = worksheet.cell(forCellReference: "B1").stringValue()
-        print("--------")
-        print(string)
-        print(string2)
-        print("--------")
+        
+//        let cell: BRACell? = worksheet.cell(forCellReference: "A2")
+//        if cell != nil {
+//            let cellVal: String? = cell?.stringValue()
+//            print("--------")
+//            print(cellVal)
+//            //        print(string2)
+//            print("--------")
+//        } else {
+//            print("++++++++++++++///////")
+//        }
+        
+//        let string2: String = worksheet.cell(forCellReference: "B\(counter)").stringValue()
+        
+        
+        var counter = 1
+        
+//        let cell: BRACell? = worksheet.cell(forCellReference: "A\(counter)")
+//        let cell2: BRACell? = worksheet.cell(forCellReference: "B\(counter)")
+        while worksheet.cell(forCellReference: "A\(counter)") != nil &&
+            worksheet.cell(forCellReference: "B\(counter)") != nil {
+//            if cell != nil {
+                let word: String? = worksheet.cell(forCellReference: "A\(counter)")?.stringValue()
+                let translation: String? = worksheet.cell(forCellReference: "B\(counter)")?.stringValue()
+                
+//                +++++++++++++++
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+                
+                let newWord = Word(context: managedContext)
+                newWord.word = word?.trimmingCharacters(in: .whitespacesAndNewlines)
+                newWord.translation = translation?.trimmingCharacters(in: .whitespacesAndNewlines)
+                newWord.learningLang = Int32(defaults.integer(forKey: "currentLearningLanguage"))
+                newWord.repeatMem = false
+                newWord.repeatSpell = false
+                newWord.folder = self.getCurrentFolder()
+                
+                do {
+                    try managedContext.save()
+                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+                    print("Successfully saved data.")
+                    
+                } catch {
+                    debugPrint("Could not save: \(error.localizedDescription)")
+                }
+//                +++++++++++++++++
+                
+                
+//                print("--------")
+//                print(word as Any)
+//                print(translation as Any)
+//                print("--------")
+                
+                
+                
+                counter += 1
+//            } else { print("!!!!!!!!!!") }
+        }
+        
+        
         
         
 //        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {

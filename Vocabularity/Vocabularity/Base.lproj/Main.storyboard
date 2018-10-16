@@ -416,7 +416,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-gx-wH3" customClass="RoundedButton" customModule="Vocabularity" customModuleProvider="target">
-                                <rect key="frame" x="285" y="537" width="60" height="60"/>
+                                <rect key="frame" x="285" y="527" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.1388937848" green="0.16784127200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Do1-Cx-3TG"/>
@@ -430,13 +430,16 @@
                                         <real key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="repeatBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KFy-Q9-La0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZgZ-gx-wH3" secondAttribute="trailing" constant="30" id="0Bw-Wj-S7k"/>
                             <constraint firstItem="ZEO-HB-PUc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2yP-q0-bSW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZgZ-gx-wH3" secondAttribute="bottom" constant="70" id="Amc-b4-eZL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZgZ-gx-wH3" secondAttribute="bottom" constant="80" id="Amc-b4-eZL"/>
                             <constraint firstItem="ZEO-HB-PUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ep0-tD-94d"/>
                             <constraint firstItem="0bR-RN-sPY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QaF-GP-Agx"/>
                             <constraint firstItem="vz5-iO-ysp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QvH-Ma-3Tn"/>
@@ -455,6 +458,8 @@
                     </view>
                     <connections>
                         <outlet property="backBtn" destination="fTB-Lp-QHm" id="Dwi-1u-54Q"/>
+                        <outlet property="repeatBtn" destination="ZgZ-gx-wH3" id="bVh-Hy-JLN"/>
+                        <outlet property="repeatBtnBottomConstraint" destination="Amc-b4-eZL" id="c3S-cH-SmO"/>
                         <outlet property="tabBar" destination="vz5-iO-ysp" id="8r3-ow-9eO"/>
                         <outlet property="tableView" destination="ZEO-HB-PUc" id="jEj-ws-4FU"/>
                         <outlet property="tableViewBottomConstraint" destination="fpj-r3-cHf" id="NVz-Sm-nIJ"/>

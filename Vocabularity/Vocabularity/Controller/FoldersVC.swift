@@ -24,7 +24,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
-
+    @IBOutlet weak var repeatBtn: RoundedButton!
+    @IBOutlet weak var repeatBtnBottomConstraint: NSLayoutConstraint!
+    
     
     
     //Variables
@@ -54,9 +56,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.wordsWereMarked(_:)), name: NOTIF_WORD_WAS_MARKED, object: nil)
         
-        
-//        defaults.set(true, forKey: "english")
+//        defaults.set(true, forKey: "english")wordsWereMarked
         
         getCurrentLearningLanguage()
         let learningLanguages = getLearningLanguages()
@@ -97,6 +99,24 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         fetchCoreDataObjects(learningLanguage: defaults.integer(forKey: "currentLearningLanguage"), parent: getCurrentFolder())
         tableView.reloadData()
+        setRepeatButton()
+    }
+    
+    func setRepeatButton() {
+        let quantityMem = countRepeatedWords(mode: "repeatMem")
+        let quantitySpell = countRepeatedWords(mode: "repeatSpell")
+        if quantityMem != nil && quantitySpell != nil {
+            print("To memorize words = \(String(describing: quantityMem))")
+            print("To spelling words = \(String(describing: quantitySpell))")
+            
+            if quantityMem != 0 || quantitySpell != 0 {
+                self.repeatBtn.isHidden = false
+            } else {
+                self.repeatBtn.isHidden = true
+            }
+            
+        }
+    
     }
     
     func setTabView(learningLanguages: [LearningLanguage]) {
@@ -135,7 +155,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
 //        self.tabBar.selectedItem = self.tabBar.items?[0]
     }
     
-    func opa() {
+    /*func opa() {
         let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
         
         
@@ -145,22 +165,28 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
         let string: String = worksheet.cell(forCellReference: "A1").stringValue()
         let string2: String = worksheet.cell(forCellReference: "B1").stringValue()
-        print("--------")
-        print(string)
-        print(string2)
-        print("--------")
-    }
+//        print("--------")
+//        print(string)
+//        print(string2)
+//        print("--------")
+    }*/
     
     func hideTabBar() {
         tabBar.isHidden = true
         tableViewBottomConstraint.constant = 0
         tableView.layoutIfNeeded()
+        
+        repeatBtnBottomConstraint.constant = 30
+        repeatBtn.layoutIfNeeded()
     }
     
     func showTabBar() {
         tabBar.isHidden = false
         tableViewBottomConstraint.constant = 50
         tableView.layoutIfNeeded()
+        
+        repeatBtnBottomConstraint.constant = 80
+        repeatBtn.layoutIfNeeded()
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -184,6 +210,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         getCurrentLearningLanguage()
         updateView()
         setTabView(learningLanguages: learningLanguages)
+    }
+    
+    @objc func wordsWereMarked(_ notif: Notification) {
+        setRepeatButton()
     }
     
     func getLearningLanguages() -> [LearningLanguage] {
@@ -265,6 +295,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     @IBAction func dotsBtnPressed(_ sender: Any) {
         self.performSegue(withIdentifier: TO_SETTINGS, sender: nil)
     }
+    
+    @IBAction func repeatBtnPressed(_ sender: Any) {
+    }
+    
     
     
     
@@ -511,7 +545,7 @@ extension FoldersVC {
         chosenFolder.marked = !chosenFolder.marked
         do {
             try managedContext.save()
-            print("Successfully marked")
+//            print("Successfully marked")
         } catch {
             debugPrint("Could not set progress: \(error.localizedDescription)")
         }
@@ -544,7 +578,7 @@ extension FoldersVC {
         
         do {
             try managedContext.save()
-            print("Saved deckMarked")
+//            print("Saved deckMarked")
         } catch {
             debugPrint("Could not save: \(error.localizedDescription)")
         }
@@ -561,14 +595,14 @@ extension FoldersVC {
 
         do {
             try managedContext.save()
-            print("Successfully removed folders")
+//            print("Successfully removed folders")
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
         }
     }
     
     func removeDeck(atIndexPath indexPath: IndexPath) {
-        print("index Path: \(indexPath.row)")
+//        print("index Path: \(indexPath.row)")
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
@@ -600,8 +634,8 @@ extension FoldersVC {
 //        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         for folder in treeArray {
             if folder.image != "default.png" && folder.image != nil {
-                print(folder)
-                print("Hello [\(String(describing: folder.image))] Hello")
+//                print(folder)
+//                print("Hello [\(String(describing: folder.image))] Hello")
                 ImageStore.delete(imageNamed: folder.image!)
             }
 //            do {
@@ -652,17 +686,43 @@ extension FoldersVC {
                     for index in 1...decksQuantity {
                         let marked = isDeckMarked(index: index, markedDecks: markedDecks)
                         let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck", marked: marked)
-                        print(marked)
+//                        print(marked)
                         self.decks.append(deck)
                     }
                 }
             }
+            
+            
+            
+            
+            
+//            let fetchWordRequest = NSFetchRequest<Word>(entityName: "Word")
+//            fetchWordRequest.predicate = NSPredicate(format: "folder == %@", parent!)
+//            let words = try managedContext.fetch(fetchWordRequest)
             
             completion(true)
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")
             completion(false)
         }
+    }
+    
+    func countRepeatedWords(mode: String) -> Int? {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return nil}
+        let fetchREquest = NSFetchRequest<DeckMarked>(entityName: "Word")
+        let parentPredicate = NSPredicate(format: "learningLang == \(defaults.integer(forKey: "currentLearningLanguage"))")
+        let numberPredicate = NSPredicate(format: "\(mode) == true")
+        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [parentPredicate, numberPredicate])
+        fetchREquest.predicate = andPredicate
+        do {
+            let wordsQuantity = try managedContext.count(for: fetchREquest)
+//            print(wordsQuantity)
+            return wordsQuantity
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+        
+        return nil
     }
     
     func getMarkedDecks() -> [DeckMarked]? {
@@ -765,7 +825,7 @@ extension FoldersVC: UIDocumentPickerDelegate {
                 do {
                     try managedContext.save()
                     NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
-                    print("Successfully saved data.")
+//                    print("Successfully saved data.")
                     
                 } catch {
                     debugPrint("Could not save: \(error.localizedDescription)")

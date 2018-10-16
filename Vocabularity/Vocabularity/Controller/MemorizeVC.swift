@@ -126,6 +126,7 @@ class MemorizeVC: UIViewController {
         }
         
         setMarkBtnView()
+        NotificationCenter.default.post(name: NOTIF_WORD_WAS_MARKED, object: nil)
     }
     
     @IBAction func shuffleBtnPressed(_ sender: Any) {

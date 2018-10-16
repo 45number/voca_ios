@@ -297,6 +297,27 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func repeatBtnPressed(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Choose the mode", message: "Excercise mode ", preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: { action in
+//            let memorizeVC = MemorizeVC()
+//            memorizeVC.folder = self.getCurrentFolder()
+//            memorizeVC.part = indexPath.row
+//            memorizeVC.modalPresentationStyle = .custom
+//            self.present(memorizeVC, animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: { action in
+//            let spellingVC = SpellingVC()
+//            spellingVC.folder = self.getCurrentFolder()
+//            spellingVC.part = indexPath.row
+//            spellingVC.modalPresentationStyle = .custom
+//            self.present(spellingVC, animated: true, completion: nil)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+        
     }
     
     
@@ -482,7 +503,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 spellingVC.modalPresentationStyle = .custom
                 self.present(spellingVC, animated: true, completion: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 //            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (success) in
 //                self.tableView.deselectRow(at: indexPath, animated: false)
 //            }))

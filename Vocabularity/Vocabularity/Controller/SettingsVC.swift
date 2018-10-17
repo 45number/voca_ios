@@ -57,34 +57,57 @@ class SettingsVC: UIViewController {
    
     
     @IBAction func englishSwitchPressed(_ sender: UISwitch) {
+        
         if sender.isOn == true {
             defaults.set(true, forKey: "english")
+            NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         } else {
-            defaults.set(false, forKey: "english")
+            if defaults.bool(forKey: "russian") || defaults.bool(forKey: "arabic") {
+                defaults.set(false, forKey: "english")
+                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+            } else {
+                self.englishSwitch.setOn(true, animated: true)
+                self.warningCannotDeleteLanguage()
+            }
         }
-        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     @IBAction func russianSwitchPressed(_ sender: UISwitch) {
         if sender.isOn == true {
             defaults.set(true, forKey: "russian")
+            NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         } else {
-            defaults.set(false, forKey: "russian")
+            if defaults.bool(forKey: "english") || defaults.bool(forKey: "arabic") {
+                defaults.set(false, forKey: "russian")
+                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+            } else {
+                self.russianSwitch.setOn(true, animated: true)
+                self.warningCannotDeleteLanguage()
+            }
         }
-        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     @IBAction func arabicSwitchPressed(_ sender: UISwitch) {
         if sender.isOn == true {
             defaults.set(true, forKey: "arabic")
+            NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         } else {
-            defaults.set(false, forKey: "arabic")
+            if defaults.bool(forKey: "english") || defaults.bool(forKey: "russian") {
+                defaults.set(false, forKey: "arabic")
+                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+            } else {
+                self.arabicSwitch.setOn(true, animated: true)
+                self.warningCannotDeleteLanguage()
+            }
         }
-        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     
-    
+    func warningCannotDeleteLanguage() {
+        let alert = UIAlertController(title: "Oops!", message: "You should learn at least one language", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func setSwitchViews() {
         if defaults.bool(forKey: "english") { self.englishSwitch.setOn(true, animated: true) } else { self.englishSwitch.setOn(false, animated: true) }

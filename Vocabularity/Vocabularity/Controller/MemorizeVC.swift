@@ -36,8 +36,8 @@ class MemorizeVC: UIViewController {
     
     
     //Variables
-    var folder: Folder!
-    var part: Int!
+    var folder: Folder?
+    var part: Int?
     var wordsAtTime: Int = 25
     
     
@@ -272,22 +272,28 @@ class MemorizeVC: UIViewController {
         }
     }
     
-    func fetch (folder: Folder!, part: Int!, completion: (_ complete: Bool) -> ()) {
+    func fetch (folder: Folder?, part: Int?, completion: (_ complete: Bool) -> ()) {
 
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
-        fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
-        fetchREquest.fetchOffset = part * self.wordsAtTime
-        fetchREquest.fetchLimit = self.wordsAtTime
         
-//        print("wordsAtTime = \(self.wordsAtTime)")
-//        print("part = \(part)")
-//        print("offset = \(fetchREquest.fetchOffset)")
-//        print("limit = \(fetchREquest.fetchLimit)")
+        if folder != nil && part != nil {
+            fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
+            fetchREquest.fetchOffset = part! * self.wordsAtTime
+            fetchREquest.fetchLimit = self.wordsAtTime
+        } else {
+            
+            let memorizePredicate = NSPredicate(format: "repeatMem == true")
+            let languagePredicate = NSPredicate(format: "learningLang == \(defaults.integer(forKey: "currentLearningLanguage"))")
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [memorizePredicate, languagePredicate])
+            fetchREquest.predicate = andPredicate
+            
+//            fetchREquest.predicate = NSPredicate(format: "repeatMem == true")
+        }
+        
         
         do {
             words = try managedContext.fetch(fetchREquest)
-//            print("Successfully fetched words")
             completion(true)
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")

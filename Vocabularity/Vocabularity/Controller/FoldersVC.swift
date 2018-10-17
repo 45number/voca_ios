@@ -309,19 +309,19 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         
         let memorizeAction = UIAlertAction(title: "Memorize", style: .default, handler: { action in
-            //            let memorizeVC = MemorizeVC()
-            //            memorizeVC.folder = self.getCurrentFolder()
-            //            memorizeVC.part = indexPath.row
-            //            memorizeVC.modalPresentationStyle = .custom
-            //            self.present(memorizeVC, animated: true, completion: nil)
+                        let memorizeVC = MemorizeVC()
+                        memorizeVC.folder = nil
+                        memorizeVC.part = nil
+                        memorizeVC.modalPresentationStyle = .custom
+                        self.present(memorizeVC, animated: true, completion: nil)
         })
         
         let spellingAction = UIAlertAction(title: "Spelling", style: .default, handler: { action in
-            //            let spellingVC = SpellingVC()
-            //            spellingVC.folder = self.getCurrentFolder()
-            //            spellingVC.part = indexPath.row
-            //            spellingVC.modalPresentationStyle = .custom
-            //            self.present(spellingVC, animated: true, completion: nil)
+                        let spellingVC = SpellingVC()
+                        spellingVC.folder = nil
+                        spellingVC.part = nil
+                        spellingVC.modalPresentationStyle = .custom
+                        self.present(spellingVC, animated: true, completion: nil)
         })
         
         alertController.addAction(memorizeAction)

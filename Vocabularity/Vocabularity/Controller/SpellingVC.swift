@@ -32,8 +32,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     
     //Variables
-    var folder: Folder!
-    var part: Int!
+    var folder: Folder?
+    var part: Int?
     
     var isCorrect: Bool = false
     
@@ -387,7 +387,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         return label
     }
     
-    func fetchCoreDataObjects(folder: Folder!, part: Int!) {
+    func fetchCoreDataObjects(folder: Folder?, part: Int?) {
         self.fetch(folder: folder, part: part) { (complete) in
             if complete {
                 
@@ -399,13 +399,22 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func fetch (folder: Folder!, part: Int!, completion: (_ complete: Bool) -> ()) {
+    func fetch (folder: Folder?, part: Int?, completion: (_ complete: Bool) -> ()) {
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
-        fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
-        fetchREquest.fetchOffset = part * self.wordsAtTime
-        fetchREquest.fetchLimit = self.wordsAtTime
+        
+        if folder != nil && part != nil {
+            fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
+            fetchREquest.fetchOffset = part! * self.wordsAtTime
+            fetchREquest.fetchLimit = self.wordsAtTime
+        } else {
+            let spellingPredicate = NSPredicate(format: "repeatSpell == true")
+            let languagePredicate = NSPredicate(format: "learningLang == \(defaults.integer(forKey: "currentLearningLanguage"))")
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [spellingPredicate, languagePredicate])
+            fetchREquest.predicate = andPredicate
+        }
+        
         
         do {
             words = try managedContext.fetch(fetchREquest)

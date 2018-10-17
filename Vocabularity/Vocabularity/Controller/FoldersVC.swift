@@ -40,6 +40,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     var treeArray:[Folder] = []
     
+    
+    var toMemWords = 0
+    var toSpellWords = 0
+    
 //    var currentLearningLanguage: Int
     
     
@@ -108,6 +112,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         if quantityMem != nil && quantitySpell != nil {
             print("To memorize words = \(String(describing: quantityMem))")
             print("To spelling words = \(String(describing: quantitySpell))")
+            
+            self.toMemWords = quantityMem!
+            self.toSpellWords = quantitySpell!
             
             if quantityMem != 0 || quantitySpell != 0 {
                 self.repeatBtn.isHidden = false
@@ -300,20 +307,38 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         let alertController = UIAlertController(title: "Choose the mode", message: "Excercise mode ", preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: { action in
-//            let memorizeVC = MemorizeVC()
-//            memorizeVC.folder = self.getCurrentFolder()
-//            memorizeVC.part = indexPath.row
-//            memorizeVC.modalPresentationStyle = .custom
-//            self.present(memorizeVC, animated: true, completion: nil)
-        }))
-        alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: { action in
-//            let spellingVC = SpellingVC()
-//            spellingVC.folder = self.getCurrentFolder()
-//            spellingVC.part = indexPath.row
-//            spellingVC.modalPresentationStyle = .custom
-//            self.present(spellingVC, animated: true, completion: nil)
-        }))
+        
+        let memorizeAction = UIAlertAction(title: "Memorize", style: .default, handler: { action in
+            //            let memorizeVC = MemorizeVC()
+            //            memorizeVC.folder = self.getCurrentFolder()
+            //            memorizeVC.part = indexPath.row
+            //            memorizeVC.modalPresentationStyle = .custom
+            //            self.present(memorizeVC, animated: true, completion: nil)
+        })
+        
+        let spellingAction = UIAlertAction(title: "Spelling", style: .default, handler: { action in
+            //            let spellingVC = SpellingVC()
+            //            spellingVC.folder = self.getCurrentFolder()
+            //            spellingVC.part = indexPath.row
+            //            spellingVC.modalPresentationStyle = .custom
+            //            self.present(spellingVC, animated: true, completion: nil)
+        })
+        
+        alertController.addAction(memorizeAction)
+        alertController.addAction(spellingAction)
+        
+        if self.toMemWords > 0 {
+            memorizeAction.isEnabled = true
+        } else {
+            memorizeAction.isEnabled = false
+        }
+        
+        if self.toSpellWords > 0 {
+            spellingAction.isEnabled = true
+        } else {
+            spellingAction.isEnabled = false
+        }
+        
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alertController, animated: true, completion: nil)

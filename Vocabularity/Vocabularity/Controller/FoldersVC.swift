@@ -391,6 +391,15 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     func pushToPath(folder: Folder) {
         self.path.append(folder)
     }
+    
+    
+    
+//    func countDescendantFolders() {
+//        buildTreeArray(folder: folders[indexPath.row])
+//        navigateThroughTree(treeArray: self.treeArray)
+//    }
+//    
+    
 }
 
 extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
@@ -413,9 +422,17 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         
         if folders.count > 0 {
             let folder = folders[indexPath.row]
-            cell.configureCell(folder: folder)
+            
+            self.treeArray.removeAll()
+            buildTreeArray(folder: folders[indexPath.row])
+            let (decksQuantitiy, wordsQuantity) = countWordsInTree(treeArray: self.treeArray)
+            
+//            navigateThroughTree(treeArray: self.treeArray)
+            
+            cell.configureCell(folder: folder, folderInfo: "Folders: \(self.treeArray.count - 1) :: Decks: \(decksQuantitiy) :: Cards: \(wordsQuantity)")
         } else if decks.count > 0 {
             let deck = decks[indexPath.row]
+            
             cell.configureCellForDeck(deck: deck)
         }
 
@@ -693,6 +710,16 @@ extension FoldersVC {
         }
     }
     
+    func countWordsInTree(treeArray: [Folder]) -> (Int, Int) {
+        var quantity = 0
+        var decksQuantity = 0
+        for folder in treeArray {
+            quantity += (folder.words?.count)!
+            decksQuantity += Int(ceil(Double((folder.words?.count)!)/Double(self.wordsAtTime)))
+        }
+        return (decksQuantity, quantity)
+    }
+    
     func fetch(learningLanguage: Int, parent: Folder?, completion: (_ complete: Bool) -> ()) {
         
         self.decks.removeAll()
@@ -729,9 +756,16 @@ extension FoldersVC {
                     let markedDecks: [DeckMarked] = getMarkedDecks()!
                     
                     let decksQuantity = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
+                    let modulo = words.count % self.wordsAtTime
+                    print("Modulo is \(modulo)")
+                    
                     for index in 1...decksQuantity {
                         let marked = isDeckMarked(index: index, markedDecks: markedDecks)
-                        let deck = Deck(title: "Deck \(index)", info: "\(self.wordsAtTime) words in deck", marked: marked)
+                        var info = "\(self.wordsAtTime) cards in deck"
+                        if index == decksQuantity && modulo != 0 {
+                            info = "\(modulo) cards in deck"
+                        }
+                        let deck = Deck(title: "Deck \(index)", info: info, marked: marked)
 //                        print(marked)
                         self.decks.append(deck)
                     }

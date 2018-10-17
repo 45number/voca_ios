@@ -29,9 +29,9 @@ class FolderCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(folder: Folder) {
+    func configureCell(folder: Folder, folderInfo: String) {
         self.folderNameLbl.text = folder.folderName
-        self.folderInfoLbl.text = folder.image
+        self.folderInfoLbl.text = folderInfo
         
         if folder.image != "default.png" && folder.image != nil {
             let folderImg = ImageStore.retrieve(imageNamed: folder.image!)

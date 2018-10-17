@@ -302,8 +302,10 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             }
         }
         
-        return (attribString, mistakesCounter)
-        
+        attribString.deleteCharacters(in: NSRange(location:(attribString.length) - 1,length:1))
+//        let opa = attribString.deleteCharacters(in: NSRange(location:(attribString.length) - 1,length:1))
+//        return (attribString, mistakesCounter)
+        return (attribString , mistakesCounter)
     }
     
     /*

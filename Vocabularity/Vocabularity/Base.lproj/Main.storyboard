@@ -471,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="99"/>
+            <point key="canvasLocation" x="40.799999999999997" y="98.50074962518741"/>
         </scene>
         <!--Create FolderVC-->
         <scene sceneID="bzb-vC-nl4">

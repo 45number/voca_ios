@@ -449,7 +449,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
-            if self.folders.count > 1 {
+            if self.folders.count > 0 {
                 let alert = UIAlertController(title: "Delete folder", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
                 alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in

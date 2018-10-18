@@ -75,7 +75,39 @@ class MemorizeVC: UIViewController {
         firstLblTextField.isHidden = true
         secondLblTextField.isHidden = true
         editBtnsView.isHidden = true
+        
+        cardView.setNeedsDisplay()
     }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+                coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+        
+                    let orient = UIApplication.shared.statusBarOrientation
+        
+                    switch orient {
+        
+                    case .portrait:
+        
+                        print("Portrait")
+        
+                    case .landscapeLeft,.landscapeRight :
+        
+                        print("Landscape")
+        
+                    default:
+        
+                        print("Anything But Portrait")
+                    }
+        
+                }, completion: { (UIViewControllerTransitionCoordinatorContext) -> Void in
+                    //refresh view once rotation is completed not in will transition as it returns incorrect frame size.Refresh here
+                    
+                    
+        
+                })
+                super.viewWillTransition(to: size, with: coordinator)
+            }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

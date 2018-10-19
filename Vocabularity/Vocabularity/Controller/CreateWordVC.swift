@@ -69,6 +69,7 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
             NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
             print("Successfully saved data.")
             self.wordTxtField.resignFirstResponder()
+            self.wordTxtField.becomeFirstResponder()
             
             self.savedLbl.isHidden = false
             self.savedLbl.alpha = 1.0
@@ -110,7 +111,7 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
                     self.translationTxtField.text = ""
                 }
             }
-            wordTxtField.becomeFirstResponder()
+            
         }
         return true
     }

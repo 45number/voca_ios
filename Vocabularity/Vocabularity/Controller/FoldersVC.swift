@@ -230,13 +230,13 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     func getLearningLanguages() -> [LearningLanguage] {
         var learningLanguages: [LearningLanguage] = []
         if defaults.bool(forKey: "english") {
-            learningLanguages.append(LearningLanguage(name: "English", tag: 1, image: nil, selectedImage: nil))
+            learningLanguages.append(LearningLanguage(name: "English", tag: 1, image: UIImage(named: "english"), selectedImage: nil))
         }
         if defaults.bool(forKey: "russian") {
-            learningLanguages.append(LearningLanguage(name: "Russian", tag: 2, image: nil, selectedImage: nil))
+            learningLanguages.append(LearningLanguage(name: "Russian", tag: 2, image: UIImage(named: "russian"), selectedImage: nil))
         }
         if defaults.bool(forKey: "arabic") {
-            learningLanguages.append(LearningLanguage(name: "Arabic", tag: 3, image: nil, selectedImage: nil))
+            learningLanguages.append(LearningLanguage(name: "Arabic", tag: 3, image: UIImage(named: "arabic"), selectedImage: nil))
         }
         return learningLanguages
     }
@@ -262,67 +262,67 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     //Actions
     @IBAction func addBtnPressed(_ sender: Any) {
-        
-//        if path.count == 0 || folders.count > 0 {
-//            performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
-//        } else if decks.count > 0 {
-//            performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
-//        } else {
-        
-            let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
-            
-            
-            let addFolder = UIAlertAction(title: "Add folder", style: .default, handler: { action in
-                self.performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
-            })
-            
-            let addWords = UIAlertAction(title: "Add words", style: .default, handler: { action in
-                self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
-            })
-            
-            let uploadExcel = UIAlertAction(title: "Upload excel file", style: .default, handler: { action in
-                
-                self.uploadingView.isHidden = false
-                self.uploadingViewWrapper.isHidden = false
-                
-                let docTypes = [
-                    //            "com.microsoft.excel.xls",
-                    "org.openxmlformats.spreadsheetml.sheet"
-                ]
-                
-                let documentPicker = UIDocumentPickerViewController(documentTypes: docTypes, in: .import)
-                
-                documentPicker.delegate = self
-                documentPicker.allowsMultipleSelection = false
-                self.present(documentPicker, animated: true, completion: nil)
-            })
-            
-            alert.addAction(addFolder)
-            alert.addAction(addWords)
-            alert.addAction(uploadExcel)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
-            
-            if path.count == 0 || folders.count > 0 {
-                addFolder.isEnabled = true
-                addWords.isEnabled = false
-                uploadExcel.isEnabled = false
-            } else if decks.count > 0 {
-                addFolder.isEnabled = false
-                addWords.isEnabled = true
-                uploadExcel.isEnabled = true
-            } else {
-                addFolder.isEnabled = true
-                addWords.isEnabled = true
-                uploadExcel.isEnabled = true
-            }
-            
-            
-            
-            self.present(alert, animated: true, completion: nil)
-            
-//        }
-
+        addAlert()
     }
+    
+    @IBAction func createBtnPressed(_ sender: Any) {
+        addAlert()
+    }
+    
+    
+    func addAlert() {
+        let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        let addFolder = UIAlertAction(title: "Add folder", style: .default, handler: { action in
+            self.performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
+        })
+        
+        let addWords = UIAlertAction(title: "Add words", style: .default, handler: { action in
+            self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
+        })
+        
+        let uploadExcel = UIAlertAction(title: "Upload excel file", style: .default, handler: { action in
+            
+            self.uploadingView.isHidden = false
+            self.uploadingViewWrapper.isHidden = false
+            
+            let docTypes = [
+                //            "com.microsoft.excel.xls",
+                "org.openxmlformats.spreadsheetml.sheet"
+            ]
+            
+            let documentPicker = UIDocumentPickerViewController(documentTypes: docTypes, in: .import)
+            
+            documentPicker.delegate = self
+            documentPicker.allowsMultipleSelection = false
+            self.present(documentPicker, animated: true, completion: nil)
+        })
+        
+        alert.addAction(addFolder)
+        alert.addAction(addWords)
+        alert.addAction(uploadExcel)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
+        
+        if path.count == 0 || folders.count > 0 {
+            addFolder.isEnabled = true
+            addWords.isEnabled = false
+            uploadExcel.isEnabled = false
+        } else if decks.count > 0 {
+            addFolder.isEnabled = false
+            addWords.isEnabled = true
+            uploadExcel.isEnabled = true
+        } else {
+            addFolder.isEnabled = true
+            addWords.isEnabled = true
+            uploadExcel.isEnabled = true
+        }
+        
+        
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func backBtnPressed(_ sender: Any) {
         self.path.removeLast()
         self.fetchCoreDataObjects(learningLanguage: defaults.integer(forKey: "currentLearningLanguage"), parent: self.getCurrentFolder())

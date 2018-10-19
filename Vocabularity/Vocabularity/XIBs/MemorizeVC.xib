@@ -42,10 +42,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chV-rY-i6E">
-                    <rect key="frame" x="16" y="38.5" width="14" height="25"/>
+                    <rect key="frame" x="0.0" y="29" width="50" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="14" id="eaS-wB-uQc"/>
-                        <constraint firstAttribute="height" constant="25" id="utL-Sh-hPh"/>
+                        <constraint firstAttribute="width" constant="50" id="eaS-wB-uQc"/>
+                        <constraint firstAttribute="height" constant="44" id="utL-Sh-hPh"/>
                     </constraints>
                     <state key="normal" image="back"/>
                     <connections>
@@ -271,7 +271,7 @@
                 <constraint firstItem="EgL-na-wu8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="TwB-9M-Z98"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XKd-NC-WzS" secondAttribute="bottom" constant="30" id="Ub9-jn-1JN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="gQY-aX-zLv" secondAttribute="bottom" constant="100" id="WQa-QO-pcZ"/>
-                <constraint firstItem="chV-rY-i6E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="XAV-MI-jEL"/>
+                <constraint firstItem="chV-rY-i6E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XAV-MI-jEL"/>
                 <constraint firstItem="LrY-YK-Se0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YAc-Dh-2ku"/>
                 <constraint firstItem="LrY-YK-Se0" firstAttribute="centerY" secondItem="EgL-na-wu8" secondAttribute="centerY" id="p4E-Qg-6Yh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xKh-KC-8F5" secondAttribute="trailing" constant="30" id="pQ3-Wi-OIg"/>

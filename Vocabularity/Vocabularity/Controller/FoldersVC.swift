@@ -259,20 +259,24 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     //Actions
     @IBAction func addBtnPressed(_ sender: Any) {
         
-        if path.count == 0 || folders.count > 0 {
-            performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
-        } else if decks.count > 0 {
-            performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
-        } else {
-            
+//        if path.count == 0 || folders.count > 0 {
+//            performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
+//        } else if decks.count > 0 {
+//            performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
+//        } else {
+        
             let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Folder", style: .default, handler: { action in
+            
+            
+            let addFolder = UIAlertAction(title: "Add folder", style: .default, handler: { action in
                 self.performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Word", style: .default, handler: { action in
+            })
+            
+            let addWords = UIAlertAction(title: "Add words", style: .default, handler: { action in
                 self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Excel", style: .default, handler: { action in
+            })
+            
+            let uploadExcel = UIAlertAction(title: "Upload excel file", style: .default, handler: { action in
                 
                 let docTypes = [
                     //            "com.microsoft.excel.xls",
@@ -284,13 +288,32 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                 documentPicker.delegate = self
                 documentPicker.allowsMultipleSelection = false
                 self.present(documentPicker, animated: true, completion: nil)
-//                self.opa()
-                
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { action in }))
+            })
+            
+            alert.addAction(addFolder)
+            alert.addAction(addWords)
+            alert.addAction(uploadExcel)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
+            
+            if path.count == 0 || folders.count > 0 {
+                addFolder.isEnabled = true
+                addWords.isEnabled = false
+                uploadExcel.isEnabled = false
+            } else if decks.count > 0 {
+                addFolder.isEnabled = false
+                addWords.isEnabled = true
+                uploadExcel.isEnabled = true
+            } else {
+                addFolder.isEnabled = true
+                addWords.isEnabled = true
+                uploadExcel.isEnabled = true
+            }
+            
+            
+            
             self.present(alert, animated: true, completion: nil)
             
-        }
+//        }
 
     }
     @IBAction func backBtnPressed(_ sender: Any) {

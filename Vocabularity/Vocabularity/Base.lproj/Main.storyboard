@@ -954,8 +954,8 @@
                                             <action selector="backBtnPressed:" destination="UKO-Bd-KkH" eventType="touchUpInside" id="W0J-3I-oqy"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYJ-Il-6jN">
-                                        <rect key="frame" x="142.5" y="47" width="90.5" height="23.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add words" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYJ-Il-6jN">
+                                        <rect key="frame" x="145.5" y="46.5" width="85" height="23.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1005,7 +1005,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                <state key="normal" title="Cancel">
+                                                <state key="normal" title="Finish">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
@@ -1017,7 +1017,7 @@
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
                                                 <color key="backgroundColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                                <state key="normal" title="Ok">
+                                                <state key="normal" title="Save">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
@@ -1030,11 +1030,19 @@
                                             <constraint firstAttribute="height" constant="50" id="HTR-Eb-FJo"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbG-2f-llq">
+                                        <rect key="frame" x="164" y="20" width="47.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qBI-rg-hfs" firstAttribute="leading" secondItem="akF-1y-CUs" secondAttribute="leading" id="AXv-Ee-2RR"/>
+                                    <constraint firstItem="TbG-2f-llq" firstAttribute="top" secondItem="akF-1y-CUs" secondAttribute="top" constant="20" id="I0V-b8-fQh"/>
                                     <constraint firstAttribute="trailing" secondItem="qBI-rg-hfs" secondAttribute="trailing" id="JTb-HM-zUe"/>
+                                    <constraint firstItem="TbG-2f-llq" firstAttribute="centerX" secondItem="akF-1y-CUs" secondAttribute="centerX" id="ZGd-ht-7UC"/>
                                     <constraint firstAttribute="bottom" secondItem="qBI-rg-hfs" secondAttribute="bottom" id="tFE-KK-Hfa"/>
                                 </constraints>
                             </view>
@@ -1056,13 +1064,14 @@
                     </view>
                     <connections>
                         <outlet property="buttonsStackView" destination="qBI-rg-hfs" id="56Z-Y0-A4j"/>
+                        <outlet property="savedLbl" destination="TbG-2f-llq" id="M27-IN-oP3"/>
                         <outlet property="translationTxtField" destination="XH1-JM-3wc" id="Tg9-Td-PmC"/>
                         <outlet property="wordTxtField" destination="Zjg-V8-drw" id="xd5-mO-K08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="891-5m-M6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="533"/>
+            <point key="canvasLocation" x="933.60000000000002" y="532.98350824587715"/>
         </scene>
         <!--Edit DeckVC-->
         <scene sceneID="ewD-qr-BKS">

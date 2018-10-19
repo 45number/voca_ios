@@ -27,6 +27,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     @IBOutlet weak var repeatBtn: RoundedButton!
     @IBOutlet weak var repeatBtnBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var uploadingViewWrapper: UIView!
+    @IBOutlet weak var uploadingView: RoundShadowView!
+    
+    
     
     
     //Variables
@@ -55,8 +59,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         tabBar.delegate = self
         
-        
-        
+        uploadingView.isHidden = true
+        uploadingViewWrapper.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.wordsAtTimeDidChange(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
@@ -277,6 +281,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             })
             
             let uploadExcel = UIAlertAction(title: "Upload excel file", style: .default, handler: { action in
+                
+                self.uploadingView.isHidden = false
+                self.uploadingViewWrapper.isHidden = false
                 
                 let docTypes = [
                     //            "com.microsoft.excel.xls",
@@ -863,57 +870,140 @@ extension FoldersVC: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
         
+        uploadFromExcel(urls: urls) { (success) in
+            if success {
+                self.uploadingView.isHidden = true
+                self.uploadingViewWrapper.isHidden = true
+            }
+        }
+//        guard let selectedFileURL = urls.first else {
+//            return
+//        }
+//
+////        let fileExtension = selectedFileURL.pathExtension
+////        print(fileExtension)
+//
+//        if selectedFileURL.pathExtension != "xlsx" {
+//            return
+//        }
+//
+////        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+////        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
+//
+////        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
+////        print(documentPath)
+////        print(sandboxFileURL.path)
+//        let filePath: String = selectedFileURL.path
+////        print(filePath)
+//
+//
+//
+//        let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(filePath)
+//        let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
+//
+////        let cell: BRACell? = worksheet.cell(forCellReference: "A2")
+////        if cell != nil {
+////            let cellVal: String? = cell?.stringValue()
+////            print("--------")
+////            print(cellVal)
+////            //        print(string2)
+////            print("--------")
+////        } else {
+////            print("++++++++++++++///////")
+////        }
+//
+////        let string2: String = worksheet.cell(forCellReference: "B\(counter)").stringValue()
+//
+//
+//        var counter = 1
+//
+////        let cell: BRACell? = worksheet.cell(forCellReference: "A\(counter)")
+////        let cell2: BRACell? = worksheet.cell(forCellReference: "B\(counter)")
+//        while worksheet.cell(forCellReference: "A\(counter)") != nil &&
+//            worksheet.cell(forCellReference: "B\(counter)") != nil {
+////            if cell != nil {
+//                let word: String? = worksheet.cell(forCellReference: "A\(counter)")?.stringValue()
+//                let translation: String? = worksheet.cell(forCellReference: "B\(counter)")?.stringValue()
+//
+////                +++++++++++++++
+//                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//                guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+//
+//                let newWord = Word(context: managedContext)
+//                newWord.word = word?.trimmingCharacters(in: .whitespacesAndNewlines)
+//                newWord.translation = translation?.trimmingCharacters(in: .whitespacesAndNewlines)
+//                newWord.learningLang = Int32(defaults.integer(forKey: "currentLearningLanguage"))
+//                newWord.repeatMem = false
+//                newWord.repeatSpell = false
+//                newWord.folder = self.getCurrentFolder()
+//
+//                do {
+//                    try managedContext.save()
+//                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+////                    print("Successfully saved data.")
+//
+//                } catch {
+//                    debugPrint("Could not save: \(error.localizedDescription)")
+//                }
+////                +++++++++++++++++
+//
+//
+////                print("--------")
+////                print(word as Any)
+////                print(translation as Any)
+////                print("--------")
+//
+//
+//
+//                counter += 1
+////            } else { print("!!!!!!!!!!") }
+//        }
+//
+//
+//
+//
+////        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+////            print("Already exists! Do nothing")
+////        }
+////        else {
+////
+////            do {
+////                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+////
+////                print("Copied file!")
+////            }
+////            catch {
+////                print("Error: \(error)")
+////            }
+////        }
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        self.uploadingView.isHidden = true
+        self.uploadingViewWrapper.isHidden = true
+    }
+    
+    
+    func uploadFromExcel(urls: [URL],completion: (_ finished: Bool) -> ()) {
+        
+        
         
         guard let selectedFileURL = urls.first else {
             return
         }
-        
-//        let fileExtension = selectedFileURL.pathExtension
-//        print(fileExtension)
-        
         if selectedFileURL.pathExtension != "xlsx" {
             return
         }
-        
-//        let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//        let sandboxFileURL = dir.appendingPathComponent(selectedFileURL.lastPathComponent)
-        
-//        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
-//        print(documentPath)
-//        print(sandboxFileURL.path)
         let filePath: String = selectedFileURL.path
-//        print(filePath)
-        
-        
-        
         let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(filePath)
         let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
         
-//        let cell: BRACell? = worksheet.cell(forCellReference: "A2")
-//        if cell != nil {
-//            let cellVal: String? = cell?.stringValue()
-//            print("--------")
-//            print(cellVal)
-//            //        print(string2)
-//            print("--------")
-//        } else {
-//            print("++++++++++++++///////")
-//        }
-        
-//        let string2: String = worksheet.cell(forCellReference: "B\(counter)").stringValue()
-        
-        
         var counter = 1
-        
-//        let cell: BRACell? = worksheet.cell(forCellReference: "A\(counter)")
-//        let cell2: BRACell? = worksheet.cell(forCellReference: "B\(counter)")
         while worksheet.cell(forCellReference: "A\(counter)") != nil &&
             worksheet.cell(forCellReference: "B\(counter)") != nil {
-//            if cell != nil {
                 let word: String? = worksheet.cell(forCellReference: "A\(counter)")?.stringValue()
                 let translation: String? = worksheet.cell(forCellReference: "B\(counter)")?.stringValue()
                 
-//                +++++++++++++++
                 let appDelegate = UIApplication.shared.delegate as? AppDelegate
                 guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
                 
@@ -928,43 +1018,16 @@ extension FoldersVC: UIDocumentPickerDelegate {
                 do {
                     try managedContext.save()
                     NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
-//                    print("Successfully saved data.")
-                    
+                    completion(true)
                 } catch {
                     debugPrint("Could not save: \(error.localizedDescription)")
+                    completion(false)
                 }
-//                +++++++++++++++++
-                
-                
-//                print("--------")
-//                print(word as Any)
-//                print(translation as Any)
-//                print("--------")
-                
-                
-                
                 counter += 1
-//            } else { print("!!!!!!!!!!") }
         }
         
-        
-        
-        
-//        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
-//            print("Already exists! Do nothing")
-//        }
-//        else {
-//
-//            do {
-//                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
-//
-//                print("Copied file!")
-//            }
-//            catch {
-//                print("Error: \(error)")
-//            }
-//        }
     }
+    
 }
 
 

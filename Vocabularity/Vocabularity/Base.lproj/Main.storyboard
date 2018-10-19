@@ -275,27 +275,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiC-tA-w5S">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lsw-Os-2un">
-                                        <rect key="frame" x="299" y="42" width="60" height="22"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="lsw-Os-2un">
+                                        <rect key="frame" x="286" y="36" width="89" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FqP-1E-ncJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="22" id="BjS-y7-rlu"/>
-                                                    <constraint firstAttribute="height" constant="22" id="OBX-cf-3Ci"/>
+                                                    <constraint firstAttribute="width" constant="44" id="BjS-y7-rlu"/>
+                                                    <constraint firstAttribute="height" constant="44" id="OBX-cf-3Ci"/>
                                                 </constraints>
-                                                <state key="normal" image="add"/>
+                                                <state key="normal" image="plus_icon"/>
                                                 <connections>
                                                     <action selector="addBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vXy-cl-DRg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svN-6d-L71">
-                                                <rect key="frame" x="38" y="0.0" width="22" height="22"/>
+                                                <rect key="frame" x="45" y="0.0" width="44" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="34R-MI-CHm"/>
-                                                    <constraint firstAttribute="width" constant="22" id="f3R-Yh-YPJ"/>
+                                                    <constraint firstAttribute="height" constant="44" id="34R-MI-CHm"/>
+                                                    <constraint firstAttribute="width" constant="44" id="f3R-Yh-YPJ"/>
                                                 </constraints>
-                                                <state key="normal" image="dots"/>
+                                                <state key="normal" image="settings_icon"/>
                                                 <connections>
                                                     <action selector="dotsBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pAN-dh-wxi"/>
                                                 </connections>
@@ -323,12 +323,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="lsw-Os-2un" firstAttribute="top" secondItem="CiC-tA-w5S" secondAttribute="top" constant="42" id="2rg-N0-S3D"/>
                                     <constraint firstItem="QS0-yz-MzI" firstAttribute="centerY" secondItem="fTB-Lp-QHm" secondAttribute="centerY" id="IIM-BH-8zd"/>
                                     <constraint firstItem="QS0-yz-MzI" firstAttribute="centerX" secondItem="CiC-tA-w5S" secondAttribute="centerX" id="K7s-Gn-fnB"/>
-                                    <constraint firstAttribute="trailing" secondItem="lsw-Os-2un" secondAttribute="trailing" constant="16" id="Qyt-yb-S7j"/>
+                                    <constraint firstAttribute="trailing" secondItem="lsw-Os-2un" secondAttribute="trailing" id="Qyt-yb-S7j"/>
                                     <constraint firstAttribute="bottom" secondItem="fTB-Lp-QHm" secondAttribute="bottom" id="WWP-Op-UpS"/>
                                     <constraint firstAttribute="height" constant="80" id="dy9-J7-8oj"/>
+                                    <constraint firstAttribute="bottom" secondItem="lsw-Os-2un" secondAttribute="bottom" id="eb0-U4-n9d"/>
                                     <constraint firstItem="fTB-Lp-QHm" firstAttribute="leading" secondItem="CiC-tA-w5S" secondAttribute="leading" id="zYI-SV-eMm"/>
                                 </constraints>
                             </view>
@@ -1420,11 +1420,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="32" height="32"/>
         <image name="back" width="14" height="25"/>
-        <image name="dots" width="32" height="32"/>
         <image name="marked" width="24" height="24"/>
         <image name="photo" width="128" height="128"/>
+        <image name="plus_icon" width="44" height="44"/>
         <image name="repeat_button" width="60" height="60"/>
+        <image name="settings_icon" width="44" height="44"/>
     </resources>
 </document>

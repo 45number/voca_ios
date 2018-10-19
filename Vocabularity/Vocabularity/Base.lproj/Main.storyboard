@@ -43,7 +43,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="cNc-u0-uU1">
-                                <rect key="frame" x="30" y="147.5" width="315" height="121"/>
+                                <rect key="frame" x="30" y="179.5" width="315" height="121"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWl-0Z-s46">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="31"/>
@@ -109,6 +109,12 @@
                                     <constraint firstAttribute="trailing" secondItem="qeo-Mt-dGh" secondAttribute="trailing" id="qTf-95-NEV"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have to choose at least one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-Io-plj">
+                                <rect key="frame" x="63" y="350.5" width="250" height="23.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.16955294679999999" blue="0.089680283969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBp-me-BQB" customClass="RoundedButton" customModule="Vocabularity" customModuleProvider="target">
                                 <rect key="frame" x="30" y="567" width="315" height="50"/>
                                 <color key="backgroundColor" red="0.1388937848" green="0.16784127200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,24 +134,26 @@
                                     <action selector="nextBtnPressed:" destination="ZXU-we-Qrx" eventType="touchUpInside" id="Sr5-NF-VQR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have to choose at least one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kh-Io-plj">
-                                <rect key="frame" x="63" y="308.5" width="250" height="23.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.16955294679999999" blue="0.089680283969999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose languages you are going to learn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwS-bB-dyH">
+                                <rect key="frame" x="42.5" y="117.5" width="291.5" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="X1F-Pg-eeR" firstAttribute="bottom" secondItem="gBp-me-BQB" secondAttribute="bottom" constant="50" id="3v0-q5-803"/>
-                            <constraint firstItem="5Kh-Io-plj" firstAttribute="centerX" secondItem="gMn-E9-5sn" secondAttribute="centerX" id="8lP-IL-rYE"/>
+                            <constraint firstItem="5Kh-Io-plj" firstAttribute="centerX" secondItem="gMn-E9-5sn" secondAttribute="centerX" id="9se-1C-4Rw"/>
                             <constraint firstItem="h1E-Xb-cJu" firstAttribute="top" secondItem="X1F-Pg-eeR" secondAttribute="top" constant="50" id="BNV-Zr-DAg"/>
                             <constraint firstItem="X1F-Pg-eeR" firstAttribute="trailing" secondItem="gBp-me-BQB" secondAttribute="trailing" constant="30" id="Gcb-1x-W5A"/>
                             <constraint firstItem="gBp-me-BQB" firstAttribute="leading" secondItem="X1F-Pg-eeR" secondAttribute="leading" constant="30" id="KYc-sJ-kZR"/>
-                            <constraint firstItem="5Kh-Io-plj" firstAttribute="top" secondItem="cNc-u0-uU1" secondAttribute="bottom" constant="40" id="VlH-32-xFr"/>
+                            <constraint firstItem="5Kh-Io-plj" firstAttribute="top" secondItem="cNc-u0-uU1" secondAttribute="bottom" constant="50" id="RWV-Fb-XaN"/>
                             <constraint firstItem="cNc-u0-uU1" firstAttribute="leading" secondItem="X1F-Pg-eeR" secondAttribute="leading" constant="30" id="d8f-R2-dVs"/>
                             <constraint firstItem="X1F-Pg-eeR" firstAttribute="trailing" secondItem="cNc-u0-uU1" secondAttribute="trailing" constant="30" id="l1j-bK-pA1"/>
                             <constraint firstItem="h1E-Xb-cJu" firstAttribute="centerX" secondItem="gMn-E9-5sn" secondAttribute="centerX" id="ooY-Mw-Hro"/>
-                            <constraint firstItem="cNc-u0-uU1" firstAttribute="top" secondItem="h1E-Xb-cJu" secondAttribute="bottom" constant="50" id="zHa-ss-1Ps"/>
+                            <constraint firstItem="LwS-bB-dyH" firstAttribute="centerX" secondItem="gMn-E9-5sn" secondAttribute="centerX" id="s3X-XJ-Fvr"/>
+                            <constraint firstItem="cNc-u0-uU1" firstAttribute="top" secondItem="LwS-bB-dyH" secondAttribute="bottom" constant="40" id="y90-hN-CMI"/>
+                            <constraint firstItem="LwS-bB-dyH" firstAttribute="top" secondItem="h1E-Xb-cJu" secondAttribute="bottom" constant="20" id="zSH-5e-1Qm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X1F-Pg-eeR"/>
                     </view>
@@ -158,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAl-NO-CBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1714" y="743"/>
+            <point key="canvasLocation" x="-1714.4000000000001" y="742.5787106446777"/>
         </scene>
         <!--Initial Settings Words-->
         <scene sceneID="Hvo-1p-QPt">
@@ -174,18 +182,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YN-fl-QuN">
-                                <rect key="frame" x="159" y="177.5" width="57.5" height="68.5"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="50"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minimumValue="5" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="if5-j4-hBi">
-                                <rect key="frame" x="140" y="296" width="94" height="29"/>
-                                <connections>
-                                    <action selector="stepperPressed:" destination="YaQ-Vs-Xac" eventType="valueChanged" id="HzQ-MN-h86"/>
-                                </connections>
-                            </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll2-ev-byw" customClass="RoundedButton" customModule="Vocabularity" customModuleProvider="target">
                                 <rect key="frame" x="30" y="567" width="315" height="50"/>
                                 <color key="backgroundColor" red="0.1388937848" green="0.16784127200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -206,17 +202,39 @@
                                     <action selector="nextBtnPressed:" destination="YaQ-Vs-Xac" eventType="touchUpInside" id="81g-Mj-9UX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many words you are going to memorize at once?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwO-nw-QSG">
+                                <rect key="frame" x="30" y="123" width="315" height="44"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YN-fl-QuN">
+                                <rect key="frame" x="159" y="207" width="57.5" height="68.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minimumValue="5" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="if5-j4-hBi">
+                                <rect key="frame" x="140" y="326" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="YaQ-Vs-Xac" eventType="valueChanged" id="HzQ-MN-h86"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <constraints>
                             <constraint firstItem="UBE-rT-N1k" firstAttribute="trailing" secondItem="ll2-ev-byw" secondAttribute="trailing" constant="30" id="2PI-5l-Elk"/>
+                            <constraint firstItem="SwO-nw-QSG" firstAttribute="centerX" secondItem="wTD-vq-TlD" secondAttribute="centerX" id="33e-8n-PuG"/>
                             <constraint firstItem="if5-j4-hBi" firstAttribute="centerX" secondItem="wTD-vq-TlD" secondAttribute="centerX" id="914-4k-lGD"/>
+                            <constraint firstItem="SwO-nw-QSG" firstAttribute="leading" secondItem="wTD-vq-TlD" secondAttribute="leading" constant="30" id="AOp-UB-gph"/>
                             <constraint firstItem="9YN-fl-QuN" firstAttribute="centerX" secondItem="wTD-vq-TlD" secondAttribute="centerX" id="Bms-Fo-k0g"/>
                             <constraint firstItem="UBE-rT-N1k" firstAttribute="bottom" secondItem="ll2-ev-byw" secondAttribute="bottom" constant="50" id="Jc8-qn-ipJ"/>
                             <constraint firstItem="if5-j4-hBi" firstAttribute="top" secondItem="9YN-fl-QuN" secondAttribute="bottom" constant="50" id="Pyi-fg-cBh"/>
+                            <constraint firstAttribute="trailing" secondItem="SwO-nw-QSG" secondAttribute="trailing" constant="30" id="TAd-zH-4F0"/>
                             <constraint firstItem="bdP-fy-wTt" firstAttribute="top" secondItem="UBE-rT-N1k" secondAttribute="top" constant="50" id="XEf-HG-Ll0"/>
                             <constraint firstItem="bdP-fy-wTt" firstAttribute="centerX" secondItem="wTD-vq-TlD" secondAttribute="centerX" id="g0J-Ab-NPv"/>
                             <constraint firstItem="ll2-ev-byw" firstAttribute="leading" secondItem="UBE-rT-N1k" secondAttribute="leading" constant="30" id="noi-9Y-pGx"/>
-                            <constraint firstItem="9YN-fl-QuN" firstAttribute="top" secondItem="bdP-fy-wTt" secondAttribute="bottom" constant="80" id="ye2-s6-F1z"/>
+                            <constraint firstItem="9YN-fl-QuN" firstAttribute="top" secondItem="SwO-nw-QSG" secondAttribute="bottom" constant="40" id="rwy-gQ-56V"/>
+                            <constraint firstItem="SwO-nw-QSG" firstAttribute="top" secondItem="bdP-fy-wTt" secondAttribute="bottom" constant="25" id="z0e-c6-2r2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UBE-rT-N1k"/>
                     </view>
@@ -227,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAA-W7-Dj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1022" y="743"/>
+            <point key="canvasLocation" x="-1023.2" y="742.5787106446777"/>
         </scene>
         <!--FoldersVC-->
         <scene sceneID="tne-QT-ifu">
@@ -501,12 +519,20 @@
                                             <action selector="backBtnPressed:" destination="EN8-lw-f17" eventType="touchUpInside" id="Rih-Qz-gJ1"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Qt-4g-6dl">
+                                        <rect key="frame" x="139" y="46.5" width="97.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="8Qt-4g-6dl" firstAttribute="centerY" secondItem="vlx-m3-w0l" secondAttribute="centerY" id="8R2-rV-A76"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="G0u-k6-q11"/>
                                     <constraint firstItem="vlx-m3-w0l" firstAttribute="leading" secondItem="HxX-VV-rQi" secondAttribute="leading" id="MOO-3d-Api"/>
                                     <constraint firstAttribute="bottom" secondItem="vlx-m3-w0l" secondAttribute="bottom" id="OcK-vP-Yjo"/>
+                                    <constraint firstItem="8Qt-4g-6dl" firstAttribute="centerX" secondItem="HxX-VV-rQi" secondAttribute="centerX" id="mfg-uO-oQ5"/>
                                     <constraint firstAttribute="height" constant="80" id="zYM-YK-zry"/>
                                 </constraints>
                             </view>
@@ -928,13 +954,21 @@
                                             <action selector="backBtnPressed:" destination="UKO-Bd-KkH" eventType="touchUpInside" id="W0J-3I-oqy"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYJ-Il-6jN">
+                                        <rect key="frame" x="142.5" y="47" width="90.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="319-S1-Yyj"/>
                                     <constraint firstItem="PIN-hP-7Yz" firstAttribute="leading" secondItem="Oen-Xp-laK" secondAttribute="leading" id="D3K-FQ-Qbo"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="HXp-8w-ubQ"/>
+                                    <constraint firstItem="CYJ-Il-6jN" firstAttribute="centerY" secondItem="PIN-hP-7Yz" secondAttribute="centerY" id="MqX-kN-5dR"/>
                                     <constraint firstAttribute="height" constant="80" id="b8c-ni-VwU"/>
+                                    <constraint firstItem="CYJ-Il-6jN" firstAttribute="centerX" secondItem="Oen-Xp-laK" secondAttribute="centerX" id="d2d-lS-PPP"/>
                                     <constraint firstAttribute="bottom" secondItem="PIN-hP-7Yz" secondAttribute="bottom" id="jgJ-2l-h99"/>
                                 </constraints>
                             </view>
@@ -969,20 +1003,22 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cF-Ls-qEd" customClass="BorderButton" customModule="Vocabularity" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelBtnPressed:" destination="EN8-lw-f17" eventType="touchUpInside" id="4L9-aU-1Mn"/>
                                                     <action selector="cancelBtnPressed:" destination="UKO-Bd-KkH" eventType="touchUpInside" id="5Ns-tU-EWe"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzn-tp-J3K" customClass="BorderButton" customModule="Vocabularity" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jzn-tp-J3K">
                                                 <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                                <color key="backgroundColor" red="0.14901960780000001" green="0.72156862749999995" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                 <state key="normal" title="Ok">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="okBtnPressed:" destination="EN8-lw-f17" eventType="touchUpInside" id="L64-kA-cIR"/>

@@ -1,0 +1,147 @@
+
+/* Class = "UILabel"; text = "Translation"; ObjectID = "0u9-vW-WuY"; */
+"0u9-vW-WuY.text" = "Перевод";
+
+/* Class = "UIButton"; normalTitle = "Finish"; ObjectID = "1cF-Ls-qEd"; */
+"1cF-Ls-qEd.normalTitle" = "Закончить";
+
+/* Class = "UITextField"; placeholder = "Folder Title"; ObjectID = "5Am-Q1-Y8R"; */
+"5Am-Q1-Y8R.placeholder" = "Имя папки";
+
+/* Class = "UILabel"; text = "Russian"; ObjectID = "5HZ-ay-d9s"; */
+"5HZ-ay-d9s.text" = "Русский";
+
+/* Class = "UILabel"; text = "You have to choose at least one"; ObjectID = "5Kh-Io-plj"; */
+"5Kh-Io-plj.text" = "Вы должны выбрать хотя бы один";
+
+/* Class = "UILabel"; text = "Set how much words should be in one deck"; ObjectID = "6qs-Au-e1c"; */
+"6qs-Au-e1c.text" = "Сколько слов будет в одной колоде?";
+
+/* Class = "UIButton"; normalTitle = "Ok"; ObjectID = "7Fw-vE-ceJ"; */
+"7Fw-vE-ceJ.normalTitle" = "Ок";
+
+/* Class = "UILabel"; text = "Add a folder"; ObjectID = "8Qt-4g-6dl"; */
+"8Qt-4g-6dl.text" = "Добавление папки";
+
+/* Class = "UILabel"; text = "25"; ObjectID = "9YN-fl-QuN"; */
+"9YN-fl-QuN.text" = "25";
+
+/* Class = "UILabel"; text = "Words at time"; ObjectID = "BKN-1K-6Nl"; */
+"BKN-1K-6Nl.text" = "Слов в колоде";
+
+/* Class = "UIButton"; normalTitle = "Words at time"; ObjectID = "CBy-D8-Fiq"; */
+"CBy-D8-Fiq.normalTitle" = "Слов в колоде";
+
+/* Class = "UILabel"; text = "Add words"; ObjectID = "CYJ-Il-6jN"; */
+"CYJ-Il-6jN.text" = "Добавить слова";
+
+/* Class = "UIButton"; normalTitle = "25"; ObjectID = "EGM-ry-Xii"; */
+"EGM-ry-Xii.normalTitle" = "25";
+
+/* Class = "UIButton"; normalTitle = "Create"; ObjectID = "Evt-Fp-03k"; */
+"Evt-Fp-03k.normalTitle" = "Создать";
+
+/* Class = "UILabel"; text = "Learning languages"; ObjectID = "HMV-Md-itr"; */
+"HMV-Md-itr.text" = "Изучаемые языки";
+
+/* Class = "UILabel"; text = "Arabic"; ObjectID = "IA6-x1-Tyy"; */
+"IA6-x1-Tyy.text" = "Арабский";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Jzn-tp-J3K"; */
+"Jzn-tp-J3K.normalTitle" = "Сохранить";
+
+/* Class = "UILabel"; text = "Word"; ObjectID = "KB9-op-8J5"; */
+"KB9-op-8J5.text" = "Слово";
+
+/* Class = "UILabel"; text = "Choose languages you are going to learn"; ObjectID = "LwS-bB-dyH"; */
+"LwS-bB-dyH.text" = "Выберите изучаемые языки";
+
+/* Class = "UILabel"; text = "Edit Deck"; ObjectID = "NCr-dq-yT7"; */
+"NCr-dq-yT7.text" = "Редактирование колоды";
+
+/* Class = "UILabel"; text = "Uploading..."; ObjectID = "NQb-7F-k0O"; */
+"NQb-7F-k0O.text" = "Выгрузка...";
+
+/* Class = "UILabel"; text = "Russian"; ObjectID = "Opu-yY-CbM"; */
+"Opu-yY-CbM.text" = "Русский";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "POD-sg-KFa"; */
+"POD-sg-KFa.text" = "Настройки";
+
+/* Class = "UILabel"; text = "Folders"; ObjectID = "QS0-yz-MzI"; */
+"QS0-yz-MzI.text" = "Папки";
+
+/* Class = "UIButton"; normalTitle = "Ok"; ObjectID = "Sil-CG-5ER"; */
+"Sil-CG-5ER.normalTitle" = "Ок";
+
+/* Class = "UILabel"; text = "How many words you are going to memorize at once?"; ObjectID = "SwO-nw-QSG"; */
+"SwO-nw-QSG.text" = "Сколько слов вы планируете учить за раз?";
+
+/* Class = "UILabel"; text = "Arabic"; ObjectID = "TPb-d9-JoF"; */
+"TPb-d9-JoF.text" = "Арабский";
+
+/* Class = "UILabel"; text = "Saved"; ObjectID = "TbG-2f-llq"; */
+"TbG-2f-llq.text" = "Сохранено";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Uiu-Xr-In4"; */
+"Uiu-Xr-In4.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Translation"; ObjectID = "XH1-JM-3wc"; */
+"XH1-JM-3wc.placeholder" = "Перевод";
+
+/* Class = "UITextField"; placeholder = "Word"; ObjectID = "Zjg-V8-drw"; */
+"Zjg-V8-drw.placeholder" = "Слово";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "a6w-DE-DAE"; */
+"a6w-DE-DAE.text" = "1";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "bAe-Ny-plg"; */
+"bAe-Ny-plg.normalTitle" = "Отмена";
+
+/* Class = "UILabel"; text = "Words at Time"; ObjectID = "bdP-fy-wTt"; */
+"bdP-fy-wTt.text" = "Слов в колоде";
+
+/* Class = "UILabel"; text = "Welcome to Vocabularity"; ObjectID = "cEX-XK-bbd"; */
+"cEX-XK-bbd.text" = "Добро пожаловать!";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "e2P-ZZ-HAA"; */
+"e2P-ZZ-HAA.text" = "Английский";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "gBp-me-BQB"; */
+"gBp-me-BQB.normalTitle" = "Дальше";
+
+/* Class = "UIButton"; normalTitle = "Ok"; ObjectID = "gnz-Ab-cno"; */
+"gnz-Ab-cno.normalTitle" = "Ок";
+
+/* Class = "UILabel"; text = "Learning languages"; ObjectID = "h1E-Xb-cJu"; */
+"h1E-Xb-cJu.text" = "Изучаемые языки";
+
+/* Class = "UILabel"; text = "To begin, create a folder"; ObjectID = "ic2-0c-xDX"; */
+"ic2-0c-xDX.text" = "Чтобы начать, создайте папку";
+
+/* Class = "UIButton"; normalTitle = "Let's start"; ObjectID = "ll2-ev-byw"; */
+"ll2-ev-byw.normalTitle" = "Начнем!";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "rCI-N4-aHG"; */
+"rCI-N4-aHG.normalTitle" = "Отмена";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rwe-wz-erf"; */
+"rwe-wz-erf.text" = "Label";
+
+/* Class = "UILabel"; text = "Set words"; ObjectID = "tGM-LI-xcW"; */
+"tGM-LI-xcW.text" = "Установите количество";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "th0-oZ-fGz"; */
+"th0-oZ-fGz.text" = "Английский";
+
+/* Class = "UIButton"; normalTitle = "Add Image"; ObjectID = "ucU-3F-nNS"; */
+"ucU-3F-nNS.normalTitle" = "Добавить картинку";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "w5u-Vr-wTV"; */
+"w5u-Vr-wTV.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "zBq-bB-dWp"; */
+"zBq-bB-dWp.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Learned"; ObjectID = "zQQ-aD-1RP"; */
+"zQQ-aD-1RP.text" = "Изучено  ";

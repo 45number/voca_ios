@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Vocabularity
+
+  Created by Admin on 20.10.2018.
+  Copyright © 2018 vocabularity. All rights reserved.
+*/
+"add" = "Добавить";
+"whatToAdd" = "Что добавить?";
+"addFolder" = "Добавить папку";
+"addWords" = "Добавить слова";
+"uploadExcelFile" = "Выгрузить из excel";
+"cancel" = "Отмена";

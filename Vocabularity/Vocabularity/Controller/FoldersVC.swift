@@ -114,8 +114,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         let quantityMem = countRepeatedWords(mode: "repeatMem")
         let quantitySpell = countRepeatedWords(mode: "repeatSpell")
         if quantityMem != nil && quantitySpell != nil {
-            print("To memorize words = \(String(describing: quantityMem))")
-            print("To spelling words = \(String(describing: quantitySpell))")
+//            print("To memorize words = \(String(describing: quantityMem))")
+//            print("To spelling words = \(String(describing: quantitySpell))")
             
             self.toMemWords = quantityMem!
             self.toSpellWords = quantitySpell!
@@ -271,18 +271,18 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     
     func addAlert() {
-        let alert = UIAlertController(title: "Add", message: "What to add:", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: NSLocalizedString("add", comment: "Add"), message: NSLocalizedString("whatToAdd", comment: "What to add:"), preferredStyle: UIAlertControllerStyle.alert)
         
-        
-        let addFolder = UIAlertAction(title: "Add folder", style: .default, handler: { action in
+        let addFolderTitle: String = NSLocalizedString("addFolder", comment: "Add folder")
+        let addFolder = UIAlertAction(title: addFolderTitle, style: .default, handler: { action in
             self.performSegue(withIdentifier: TO_CREATE_FOLDER, sender: nil)
         })
         
-        let addWords = UIAlertAction(title: "Add words", style: .default, handler: { action in
+        let addWords = UIAlertAction(title: NSLocalizedString("addWords", comment: "Add words"), style: .default, handler: { action in
             self.performSegue(withIdentifier: TO_CREATE_WORD, sender: nil)
         })
         
-        let uploadExcel = UIAlertAction(title: "Upload excel file", style: .default, handler: { action in
+        let uploadExcel = UIAlertAction(title: NSLocalizedString("uploadExcelFile", comment: "Upload excel file"), style: .default, handler: { action in
             
             self.uploadingView.isHidden = false
             self.uploadingViewWrapper.isHidden = false
@@ -302,7 +302,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         alert.addAction(addFolder)
         alert.addAction(addWords)
         alert.addAction(uploadExcel)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .cancel, handler: { action in }))
         
         if path.count == 0 || folders.count > 0 {
             addFolder.isEnabled = true

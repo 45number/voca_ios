@@ -13,4 +13,36 @@
 "uploadExcelFile" = "Upload excel file";
 "cancel" = "Cancel";
 
+"english" = "English";
+"russian" = "Russian";
+"arabic" = "Arabic";
+
+"chooseTheMode" = "Choose the mode";
+"excerciseMode" = "Excercise mode";
+"memorize" = "Memorize";
+"spelling" = "Spelling";
+
+"folders" = "Folders";
+"decks" = "Decks";
+"cards" = "Cards";
+
+"delete" = "DELETE";
+"edit" = "EDIT";
+"mark" = "MARK";
+"unmark" = "UNMARK";
+
+"deleteFolder" = "Delete folder";
+"areYouSure?" = "Are you sure?";
+"ok" = "Ok";
+"deleteDeck" = "Delete deck of cards";
+
+"cardsInDeck" = "Cards in deck";
+"deck" = "Deck";
+
+
+
+
+"editFolder" = "Edit a folder";
+"addImage" = "Add Image";
+"changeImage" = "Change Image";
 

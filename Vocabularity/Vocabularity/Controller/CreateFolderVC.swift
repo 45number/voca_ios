@@ -17,6 +17,10 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var folderImgBtn: UIButton!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var folderImg: CircleImage!
+    @IBOutlet weak var titleLbl: UILabel!
+    
+    
+    
     
     //Variables
     var imagePicker = UIImagePickerController()
@@ -128,14 +132,18 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     
     func initializeEditingViews() {
 //        folderImg
+        if editingFolder != nil {
+            self.titleLbl.text = STRING_EDIT_FOLDER
+        }
+        
         textField.text = editingFolder?.folderName
         if editingFolder?.image == "default.png" {
-            self.folderImgBtn.setTitle("Add Image", for: .normal)
+            self.folderImgBtn.setTitle(STRING_ADD_IMAGE, for: .normal)
         }
         if editingFolder?.image != "default.png" && editingFolder?.image != nil {
             let folderImage = ImageStore.retrieve(imageNamed: (editingFolder?.image)!)
             self.folderImg.image = folderImage
-            self.folderImgBtn.setTitle("Change Image", for: .normal)
+            self.folderImgBtn.setTitle(STRING_CHANGE_IMAGE, for: .normal)
         }
     }
     

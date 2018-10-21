@@ -5,9 +5,48 @@
   Created by Admin on 20.10.2018.
   Copyright © 2018 vocabularity. All rights reserved.
 */
+
 "add" = "Добавить";
 "whatToAdd" = "Что добавить?";
 "addFolder" = "Добавить папку";
 "addWords" = "Добавить слова";
-"uploadExcelFile" = "Выгрузить из excel";
+"uploadExcelFile" = "Выгрузить из Excel";
 "cancel" = "Отмена";
+
+"english" = "Английский";
+"russian" = "Русский";
+"arabic" = "Арабский";
+
+"chooseTheMode" = "Выберите режим";
+"excerciseMode" = "Режим тренировки";
+"memorize" = "Запоминание";
+"spelling" = "Написание";
+
+"folders" = "Папок";
+"decks" = "Колод";
+"cards" = "Карточек";
+
+"delete" = "УДАЛИТЬ";
+"edit" = "РЕД.";
+"mark" = "ОТМЕТИТЬ";
+"unmark" = "НЕ ОТМ.";
+
+"deleteFolder" = "Удалить папку";
+"areYouSure?" = "Вы уверены?";
+"ok" = "Oк";
+"deleteDeck" = "Удалить колоду слов?";
+
+"cardsInDeck" = "Карт в колоде";
+"deck" = "Колода";
+
+
+
+
+"editFolder" = "Редактирование папки";
+"addImage" = "Добавить картинку";
+"changeImage" = "Изменить";
+
+
+
+
+

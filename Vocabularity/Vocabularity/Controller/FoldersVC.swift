@@ -114,8 +114,6 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         let quantityMem = countRepeatedWords(mode: "repeatMem")
         let quantitySpell = countRepeatedWords(mode: "repeatSpell")
         if quantityMem != nil && quantitySpell != nil {
-//            print("To memorize words = \(String(describing: quantityMem))")
-//            print("To spelling words = \(String(describing: quantitySpell))")
             
             self.toMemWords = quantityMem!
             self.toSpellWords = quantitySpell!
@@ -146,41 +144,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             }
             
             self.tabBar.setItems(tabBarList, animated: true)
-            
-            
-            
-//            print("first \(defaults.integer(forKey: "currentLearningLanguage") - 1)")
             self.tabBar.selectedItem = self.tabBar.items?[currentLangPosition ]
-            
-//            print("secont \(self.tabBar.items?[defaults.integer(forKey: "currentLearningLanguage") - 1].tag)")
         }
-        
-//        let barItem1 = UITabBarItem(title: "English", image: nil, selectedImage: nil)
-//        let barItem2 = UITabBarItem(title: "Russian", image: nil, selectedImage: nil)
-//
-//        barItem1.tag = 0
-//        barItem2.tag = 1
-//        let tabBarList = [barItem1, barItem2]
-//
-//        self.tabBar.setItems(tabBarList, animated: true )
-//        self.tabBar.selectedItem = self.tabBar.items?[0]
     }
-    
-    /*func opa() {
-        let documentPath: String = Bundle.main.path(forResource: "one", ofType: "xlsx")!
-        
-        
-        let spreadsheet: BRAOfficeDocumentPackage = BRAOfficeDocumentPackage.open(documentPath)
-        
-        //First worksheet in the workbook
-        let worksheet: BRAWorksheet = spreadsheet.workbook.worksheets[0] as! BRAWorksheet
-        let string: String = worksheet.cell(forCellReference: "A1").stringValue()
-        let string2: String = worksheet.cell(forCellReference: "B1").stringValue()
-//        print("--------")
-//        print(string)
-//        print(string2)
-//        print("--------")
-    }*/
     
     func hideTabBar() {
         tabBar.isHidden = true
@@ -201,19 +167,9 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        self.currentLearningLanguage = item.tag
         defaults.set(item.tag, forKey: "currentLearningLanguage")
-//        var path: [Folder] = []
         self.path.removeAll()
         updateView()
-        
-//        if(item.tag == 1) {
-//            self.currentLearningLanguage = item.tag
-//        } else if(item.tag == 2) {
-//            self.currentLearningLanguage = item.tag
-//        } else if(item.tag == 3) {
-//            self.currentLearningLanguage = item.tag
-//        }
     }
     
     @objc func languagesChanged(_ notif: Notification) {
@@ -230,13 +186,13 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     func getLearningLanguages() -> [LearningLanguage] {
         var learningLanguages: [LearningLanguage] = []
         if defaults.bool(forKey: "english") {
-            learningLanguages.append(LearningLanguage(name: "English", tag: 1, image: UIImage(named: "english"), selectedImage: nil))
+            learningLanguages.append(LearningLanguage(name: NSLocalizedString("english", comment: "English"), tag: 1, image: UIImage(named: "english"), selectedImage: nil))
         }
         if defaults.bool(forKey: "russian") {
-            learningLanguages.append(LearningLanguage(name: "Russian", tag: 2, image: UIImage(named: "russian"), selectedImage: nil))
+            learningLanguages.append(LearningLanguage(name: NSLocalizedString("russian", comment: "Russian"), tag: 2, image: UIImage(named: "russian"), selectedImage: nil))
         }
         if defaults.bool(forKey: "arabic") {
-            learningLanguages.append(LearningLanguage(name: "Arabic", tag: 3, image: UIImage(named: "arabic"), selectedImage: nil))
+            learningLanguages.append(LearningLanguage(name: NSLocalizedString("arabic", comment: "Arabic"), tag: 3, image: UIImage(named: "arabic"), selectedImage: nil))
         }
         return learningLanguages
     }
@@ -335,10 +291,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     @IBAction func repeatBtnPressed(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "Choose the mode", message: "Excercise mode ", preferredStyle: .alert)
+        let alertController = UIAlertController(title: STRING_CHOOSE_THE_MODE, message: STRING_EXCERCISE_MODE, preferredStyle: .alert)
         
         
-        let memorizeAction = UIAlertAction(title: "Memorize", style: .default, handler: { action in
+        let memorizeAction = UIAlertAction(title: STRING_MEMORIZE, style: .default, handler: { action in
                         let memorizeVC = MemorizeVC()
                         memorizeVC.folder = nil
                         memorizeVC.part = nil
@@ -346,7 +302,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                         self.present(memorizeVC, animated: true, completion: nil)
         })
         
-        let spellingAction = UIAlertAction(title: "Spelling", style: .default, handler: { action in
+        let spellingAction = UIAlertAction(title: STRING_SPELLING, style: .default, handler: { action in
                         let spellingVC = SpellingVC()
                         spellingVC.folder = nil
                         spellingVC.part = nil
@@ -369,7 +325,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             spellingAction.isEnabled = false
         }
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .cancel, handler: nil))
         
         present(alertController, animated: true, completion: nil)
         
@@ -459,7 +415,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
             
 //            navigateThroughTree(treeArray: self.treeArray)
             
-            cell.configureCell(folder: folder, folderInfo: "Folders: \(self.treeArray.count - 1) :: Decks: \(decksQuantitiy) :: Cards: \(wordsQuantity)")
+            cell.configureCell(folder: folder, folderInfo: "\(NSLocalizedString("folders", comment: "Folders")): \(self.treeArray.count - 1) : : \(NSLocalizedString("decks", comment: "Decks")): \(decksQuantitiy) : : \(NSLocalizedString("cards", comment: "Cards")): \(wordsQuantity)")
         } else if decks.count > 0 {
             let deck = decks[indexPath.row]
             
@@ -478,20 +434,20 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: NSLocalizedString("delete", comment: "DELETE")) { (rowAction, indexPath) in
             if self.folders.count > 0 {
-                let alert = UIAlertController(title: "Delete folder", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
-                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: STRING_DELETE_FOLDER, message: STRING_ARE_YOU_SURE, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: STRING_CANCEL, style: .default, handler: { action in }))
+                alert.addAction(UIAlertAction(title: STRING_OK, style: .destructive, handler: { action in
                     self.removeFolder(atIndexPath: indexPath)
                     self.updateView()
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
                 
-                let alert = UIAlertController(title: "Delete deck of cards", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in }))
-                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { action in
+                let alert = UIAlertController(title: STRING_DELETE_DECK, message: STRING_ARE_YOU_SURE, preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: STRING_CANCEL, style: .default, handler: { action in }))
+                alert.addAction(UIAlertAction(title: STRING_OK, style: .destructive, handler: { action in
                     self.removeDeck(atIndexPath: indexPath)
                     self.updateView()
                 }))
@@ -501,7 +457,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
-        let addAction = UITableViewRowAction(style: .normal, title: "EDIT") { (rowAction, indexPath) in
+        let addAction = UITableViewRowAction(style: .normal, title: NSLocalizedString("edit", comment: "EDIT")) { (rowAction, indexPath) in
             if self.folders.count > 0 {
                 self.editFolder(atIndexPath: indexPath)
             } else {
@@ -511,12 +467,12 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
-        var markTitle = "MARK"
+        var markTitle = STRING_MARK
         if folders.count > 0 {
             let chosenFolder = folders[indexPath.row]
-            if chosenFolder.marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
+            if chosenFolder.marked == true { markTitle = STRING_UNMARK } else { markTitle = STRING_MARK }
         } else {
-            if decks[indexPath.row].marked == true { markTitle = "UNMARK" } else { markTitle = "MARK" }
+            if decks[indexPath.row].marked == true { markTitle = STRING_UNMARK } else { markTitle = STRING_MARK }
         }
         
         let markAction = UITableViewRowAction(style: .normal, title: markTitle) { (rowAction, indexPath) in
@@ -559,23 +515,23 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
             //getting the text of that cell
 //            let currentItem = currentCell.folderNameLbl.text
             
-            let alertController = UIAlertController(title: "Choose the mode", message: "Excercise mode ", preferredStyle: .alert)
+            let alertController = UIAlertController(title: STRING_CHOOSE_THE_MODE, message: STRING_EXCERCISE_MODE, preferredStyle: .alert)
             
-            alertController.addAction(UIAlertAction(title: "Memorize", style: .default, handler: { action in
+            alertController.addAction(UIAlertAction(title: STRING_MEMORIZE, style: .default, handler: { action in
                 let memorizeVC = MemorizeVC()
                 memorizeVC.folder = self.getCurrentFolder()
                 memorizeVC.part = indexPath.row
                 memorizeVC.modalPresentationStyle = .custom
                 self.present(memorizeVC, animated: true, completion: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "Spelling", style: .default, handler: { action in
+            alertController.addAction(UIAlertAction(title: STRING_SPELLING, style: .default, handler: { action in
                 let spellingVC = SpellingVC()
                 spellingVC.folder = self.getCurrentFolder()
                 spellingVC.part = indexPath.row
                 spellingVC.modalPresentationStyle = .custom
                 self.present(spellingVC, animated: true, completion: nil)
             }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alertController.addAction(UIAlertAction(title: STRING_CANCEL, style: .cancel, handler: nil))
 //            alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: { (success) in
 //                self.tableView.deselectRow(at: indexPath, animated: false)
 //            }))
@@ -791,24 +747,15 @@ extension FoldersVC {
                     
                     for index in 1...decksQuantity {
                         let marked = isDeckMarked(index: index, markedDecks: markedDecks)
-                        var info = "\(self.wordsAtTime) cards in deck"
+                        var info = "\(STRING_CARDS_IN_DECK): \(self.wordsAtTime)"
                         if index == decksQuantity && modulo != 0 {
-                            info = "\(modulo) cards in deck"
+                            info = "\(STRING_CARDS_IN_DECK): \(modulo)"
                         }
-                        let deck = Deck(title: "Deck \(index)", info: info, marked: marked)
-//                        print(marked)
+                        let deck = Deck(title: "\(STRING_DECK) \(index)", info: info, marked: marked)
                         self.decks.append(deck)
                     }
                 }
             }
-            
-            
-            
-            
-            
-//            let fetchWordRequest = NSFetchRequest<Word>(entityName: "Word")
-//            fetchWordRequest.predicate = NSPredicate(format: "folder == %@", parent!)
-//            let words = try managedContext.fetch(fetchWordRequest)
             
             completion(true)
         } catch {

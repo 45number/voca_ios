@@ -31,7 +31,9 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var navigateBtnsView: UIView!
     
-    
+    @IBOutlet weak var deleteBtn: RoundedButton!
+    @IBOutlet weak var cancelBtn: RoundedButton!
+    @IBOutlet weak var saveBtn: RoundedButton!
     
     
     
@@ -75,6 +77,12 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         firstLblTextField.isHidden = true
         secondLblTextField.isHidden = true
         editBtnsView.isHidden = true
+        
+        
+        
+        deleteBtn.setTitle(STRING_DELETE, for: .normal)
+        cancelBtn.setTitle(STRING_CANCEL, for: .normal)
+        saveBtn.setTitle(STRING_SAVE, for: .normal)
     }
     
     

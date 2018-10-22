@@ -31,7 +31,12 @@ class MemorizeVC: UIViewController {
     @IBOutlet weak var secondLblTextField: UITextField!
     @IBOutlet weak var editBtnsView: UIView!
     
+    
+    @IBOutlet weak var deleteBtn: RoundedButton!
     @IBOutlet weak var cancelBtn: RoundedButton!
+    @IBOutlet weak var saveBtn: RoundedButton!
+    
+    
     @IBOutlet weak var editBtn: UIButton!
     
     
@@ -77,6 +82,10 @@ class MemorizeVC: UIViewController {
         editBtnsView.isHidden = true
         
         cardView.setNeedsDisplay()
+        
+        deleteBtn.setTitle(STRING_DELETE, for: .normal)
+        cancelBtn.setTitle(STRING_CANCEL, for: .normal)
+        saveBtn.setTitle(STRING_SAVE, for: .normal)
     }
     
     

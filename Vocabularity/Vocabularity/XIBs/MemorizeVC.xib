@@ -20,6 +20,7 @@
                 <outlet property="cancelBtn" destination="7hN-RH-sou" id="y3b-cc-Rl9"/>
                 <outlet property="cardView" destination="gQY-aX-zLv" id="Npl-mk-0xR"/>
                 <outlet property="circleBtn" destination="xKh-KC-8F5" id="X2k-eP-nTJ"/>
+                <outlet property="deleteBtn" destination="drq-1N-AAP" id="sog-Zi-D6C"/>
                 <outlet property="directionBtn" destination="EgL-na-wu8" id="Ivb-T6-Rl7"/>
                 <outlet property="editBtn" destination="OPu-3e-bkM" id="ysG-iv-pZI"/>
                 <outlet property="editBtnsView" destination="xBc-12-Id1" id="CLW-gx-nmO"/>
@@ -29,6 +30,7 @@
                 <outlet property="nextBtn" destination="A12-kh-Uoc" id="Psl-w0-HEJ"/>
                 <outlet property="previousBtn" destination="KsG-oF-kEr" id="4dN-51-mPU"/>
                 <outlet property="quantityLbl" destination="LrY-YK-Se0" id="8pI-Hr-vDs"/>
+                <outlet property="saveBtn" destination="cLf-cw-ILf" id="KZe-1Z-ujk"/>
                 <outlet property="secondLbl" destination="g5x-8g-64Y" id="cCd-8f-QIV"/>
                 <outlet property="secondLblTextField" destination="MPV-1W-5WJ" id="eYq-GH-QEE"/>
                 <outlet property="shuffleBtn" destination="3NL-nr-5am" id="pp4-qO-s7c"/>
@@ -53,7 +55,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LrY-YK-Se0">
-                    <rect key="frame" x="153.5" y="39.5" width="68.5" height="23.5"/>
+                    <rect key="frame" x="154" y="40" width="68.5" height="23.5"/>
                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -69,29 +71,50 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gQY-aX-zLv" customClass="RoundShadowView" customModule="Vocabularity" customModuleProvider="target">
                     <rect key="frame" x="16" y="86" width="343" height="481"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-MM-7bA">
-                            <rect key="frame" x="30" y="-66.5" width="283" height="414"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-MM-7bA">
+                            <rect key="frame" x="30" y="45.5" width="283" height="290"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstLbl" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGt-ax-7hA">
-                                    <rect key="frame" x="101" y="0.0" width="81.5" height="40"/>
+                                    <rect key="frame" x="109.5" y="0.0" width="64.5" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="T6U-t2-VEQ"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                    </variation>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1I-3o-iRQ">
-                                    <rect key="frame" x="0.0" y="90" width="283" height="42"/>
+                                    <rect key="frame" x="0.0" y="60" width="283" height="40"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="WIN-xM-VHR"/>
                                         <constraint firstAttribute="height" constant="42" id="h5h-8f-7kS"/>
                                     </constraints>
                                     <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="WIN-xM-VHR"/>
+                                            <exclude reference="h5h-8f-7kS"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="WIN-xM-VHR"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                        <mask key="constraints">
+                                            <exclude reference="h5h-8f-7kS"/>
+                                        </mask>
+                                    </variation>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aZ-fA-XQb">
-                                    <rect key="frame" x="121.5" y="182" width="40" height="40"/>
+                                    <rect key="frame" x="121.5" y="120" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="3XU-9a-LcV"/>
                                         <constraint firstAttribute="width" constant="40" id="7hi-gD-SJw"/>
@@ -104,23 +127,53 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5x-8g-64Y">
-                                    <rect key="frame" x="116.5" y="272" width="50" height="50"/>
+                                    <rect key="frame" x="116.5" y="180" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="6KI-DK-RLA"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rO9-eW-uX0"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="23"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="6KI-DK-RLA"/>
+                                            <exclude reference="rO9-eW-uX0"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                        <mask key="constraints">
+                                            <include reference="6KI-DK-RLA"/>
+                                            <include reference="rO9-eW-uX0"/>
+                                        </mask>
+                                    </variation>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPV-1W-5WJ">
-                                    <rect key="frame" x="0.0" y="372" width="283" height="42"/>
+                                    <rect key="frame" x="0.0" y="250" width="283" height="40"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="3fx-8L-muz"/>
                                         <constraint firstAttribute="height" constant="42" id="BVa-cj-1WY"/>
                                     </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="23"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="3fx-8L-muz"/>
+                                            <exclude reference="BVa-cj-1WY"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="3fx-8L-muz"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <mask key="constraints">
+                                            <include reference="BVa-cj-1WY"/>
+                                        </mask>
+                                    </variation>
                                 </textField>
                             </subviews>
                             <constraints>
@@ -129,6 +182,7 @@
                                 <constraint firstItem="K1I-3o-iRQ" firstAttribute="leading" secondItem="4Qx-MM-7bA" secondAttribute="leading" id="Zp0-OY-UAl"/>
                                 <constraint firstAttribute="trailing" secondItem="MPV-1W-5WJ" secondAttribute="trailing" id="dik-He-aAU"/>
                             </constraints>
+                            <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPu-3e-bkM">
                             <rect key="frame" x="305" y="8" width="30" height="30"/>
@@ -142,7 +196,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBc-12-Id1">
-                            <rect key="frame" x="30" y="397.5" width="283" height="40"/>
+                            <rect key="frame" x="30" y="385.5" width="283" height="40"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ggE-SG-Hxy">
                                     <rect key="frame" x="0.0" y="0.0" width="283" height="40"/>
@@ -209,13 +263,24 @@
                     <constraints>
                         <constraint firstItem="4Qx-MM-7bA" firstAttribute="leading" secondItem="gQY-aX-zLv" secondAttribute="leading" constant="30" id="57c-MU-Cd6"/>
                         <constraint firstItem="xBc-12-Id1" firstAttribute="top" secondItem="4Qx-MM-7bA" secondAttribute="bottom" constant="50" id="DjR-oT-98b"/>
-                        <constraint firstItem="4Qx-MM-7bA" firstAttribute="centerX" secondItem="gQY-aX-zLv" secondAttribute="centerX" id="Kzd-Ml-uay"/>
+                        <constraint firstItem="4Qx-MM-7bA" firstAttribute="centerX" secondItem="gQY-aX-zLv" secondAttribute="centerX" id="HfB-IY-5X6"/>
+                        <constraint firstItem="4Qx-MM-7bA" firstAttribute="centerY" secondItem="gQY-aX-zLv" secondAttribute="centerY" constant="-50" id="RTM-1W-gRM"/>
                         <constraint firstItem="xBc-12-Id1" firstAttribute="leading" secondItem="gQY-aX-zLv" secondAttribute="leading" constant="30" id="URR-Nz-1uW"/>
                         <constraint firstAttribute="trailing" secondItem="xBc-12-Id1" secondAttribute="trailing" constant="30" id="dha-DO-GMV"/>
                         <constraint firstItem="OPu-3e-bkM" firstAttribute="top" secondItem="gQY-aX-zLv" secondAttribute="top" constant="8" id="hYB-8r-Pvb"/>
                         <constraint firstAttribute="trailing" secondItem="OPu-3e-bkM" secondAttribute="trailing" constant="8" id="rNc-t2-WNX"/>
                         <constraint firstItem="4Qx-MM-7bA" firstAttribute="centerY" secondItem="gQY-aX-zLv" secondAttribute="centerY" constant="-100" id="wCO-OK-bVv"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="wCO-OK-bVv"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="wCO-OK-bVv"/>
+                        </mask>
+                    </variation>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XKd-NC-WzS">
                     <rect key="frame" x="102.5" y="602" width="170" height="35"/>

@@ -26,7 +26,7 @@
 "decks" = "Decks";
 "cards" = "Cards";
 
-"delete" = "DELETE";
+"deleteOption" = "DELETE";
 "edit" = "EDIT";
 "mark" = "MARK";
 "unmark" = "UNMARK";
@@ -45,4 +45,11 @@
 "editFolder" = "Edit a folder";
 "addImage" = "Add Image";
 "changeImage" = "Change Image";
+
+"delete" = "Delete";
+"save" = "Save";
+
+
+
+
 

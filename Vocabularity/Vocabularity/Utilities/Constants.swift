@@ -35,12 +35,14 @@ let STRING_MEMORIZE = NSLocalizedString("memorize", comment: "Memorize")
 let STRING_SPELLING = NSLocalizedString("spelling", comment: "Spelling")
 let STRING_CARDS_IN_DECK = NSLocalizedString("cardsInDeck", comment: "Cards in deck:")
 let STRING_DECK = NSLocalizedString("deck", comment: "Deck")
+let STRING_DELETE_OPTION = NSLocalizedString("deleteOption", comment: "DELETE")
 
 let STRING_EDIT_FOLDER = NSLocalizedString("editFolder", comment: "Edit the folder")
 let STRING_ADD_IMAGE = NSLocalizedString("addImage", comment: "Add Image")
 let STRING_CHANGE_IMAGE = NSLocalizedString("changeImage", comment: "Change Image")
 
-
+let STRING_DELETE = NSLocalizedString("delete", comment: "Delete")
+let STRING_SAVE = NSLocalizedString("save", comment: "Save")
 
 
 

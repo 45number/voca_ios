@@ -20,6 +20,10 @@ class EditDeckVC: UIViewController {
     @IBOutlet weak var tableViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var wrapperBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var wrapperView: UIView!
+    
     //Variables
     var folder: Folder!
     var part: Int!
@@ -30,12 +34,17 @@ class EditDeckVC: UIViewController {
         super.viewDidLoad()
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(EditDeckVC.textViewChanged(_:)), name: NOTIF_TEXT_VIEW_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange_01(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        
         
         tableView.delegate = self
         tableView.dataSource = self
         
+//        wrapperBottomConstraint.bindToKeyboard()
+//        wrapperView.bindToKeyboard_01()
         
-        tableViewBottomConstraint.bindToKeyboard()
+//        tableViewBottomConstraint.bindToKeyboard()
         actionBtnsView.bindToKeyboard()
         
         self.tableView.estimatedRowHeight = 69.0
@@ -43,6 +52,34 @@ class EditDeckVC: UIViewController {
         updateView()
     }
 
+    @objc func keyboardWillChange_01(_ notification: NSNotification) {
+        let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+        let curve = notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! UInt
+        let startingFrame = (notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let endingFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let deltaY = endingFrame.origin.y - startingFrame.origin.y
+        
+        //        self.constr
+//        print(self.constraints.count)
+        
+        wrapperBottomConstraint.constant -= deltaY
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
+//            // Your code with delay
+//            self.wrapperView.updateConstraints()
+//        }
+        
+        UIView.animateKeyframes(withDuration: duration, delay: 0.25, options: UIViewKeyframeAnimationOptions.init(rawValue: curve), animations: {
+            //            self.frame.origin.y += deltaY
+            self.wrapperView.updateConstraints()
+//            self.wrapperView.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    
+    
+    
+    
     
     //Actions
     @IBAction func backBtnPressed(_ sender: Any) {

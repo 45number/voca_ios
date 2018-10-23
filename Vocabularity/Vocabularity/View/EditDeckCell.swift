@@ -36,6 +36,7 @@ class EditDeckCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         wordTextView.delegate = self
+        
         translationTextView.delegate = self
     }
 

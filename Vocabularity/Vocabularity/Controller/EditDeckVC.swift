@@ -34,6 +34,8 @@ class EditDeckVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        tableViewBottomConstraint.bindToKeyboard()
         actionBtnsView.bindToKeyboard()
         
         self.tableView.estimatedRowHeight = 69.0
@@ -131,6 +133,9 @@ class EditDeckVC: UIViewController {
             completion(false)
         }
     }
+    
+    
+    
     
     
     

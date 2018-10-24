@@ -255,9 +255,20 @@ class FoldersVC: UIViewController, UITabBarDelegate {
             self.present(documentPicker, animated: true, completion: nil)
         })
         
+        let opa = UIAlertAction(title: "opa", style: .default) { (action) in
+            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "TutorialExcel") as! TutorialExcel
+            customAlert.providesPresentationContextTransitionStyle = true
+            customAlert.definesPresentationContext = true
+            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            customAlert.delegate = self
+            self.present(customAlert, animated: true, completion: nil)
+        }
+        
         alert.addAction(addFolder)
         alert.addAction(addWords)
         alert.addAction(uploadExcel)
+        alert.addAction(opa)
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .cancel, handler: { action in }))
         
         if path.count == 0 || folders.count > 0 {
@@ -869,7 +880,7 @@ extension FoldersVC: UIDocumentPickerDelegate {
 //        while worksheet.cell(forCellReference: "A\(counter)") != nil &&
 //            worksheet.cell(forCellReference: "B\(counter)") != nil {
 ////            if cell != nil {
-//                let word: String? = worksheet.cell(forCellReference: "A\(counter)")?.stringValue()
+//                let word: String? = worksheet.c ell(forCellReference: "A\(counter)")?.stringValue()
 //                let translation: String? = worksheet.cell(forCellReference: "B\(counter)")?.stringValue()
 //
 ////                +++++++++++++++
@@ -976,6 +987,27 @@ extension FoldersVC: UIDocumentPickerDelegate {
     }
     
 }
+
+
+extension FoldersVC: CustomAlertViewDelegate {
+    func okButtonTapped(selectedOption: Int) {
+//        defaults.set(selectedOption, forKey: "wordsAtTime")
+//        NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+        print("okButtonTapped")
+    }
+    
+    func cancelButtonTapped() {
+        print("cancelButtonTapped")
+    }
+}
+
+
+
+
+
+
+
+
 
 
 

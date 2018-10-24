@@ -1610,9 +1610,113 @@
             </objects>
             <point key="canvasLocation" x="40.799999999999997" y="888.30584707646187"/>
         </scene>
+        <!--Tutorial Excel-->
+        <scene sceneID="P57-jd-4W8">
+            <objects>
+                <viewController storyboardIdentifier="TutorialExcel" id="5Sq-mb-Tuo" customClass="TutorialExcel" customModule="Vocabularity" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="so8-9k-krX">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VlI-zG-dC1">
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayA-pe-3MM">
+                                        <rect key="frame" x="50" y="100" width="734" height="409.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload words from excel file" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDI-ci-JLR">
+                                                <rect key="frame" x="254.5" y="16.5" width="226.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To create decs from excel just put words in the A column and translation into B column" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-XC-edc">
+                                                <rect key="frame" x="122.5" y="45" width="489" height="14.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="excel" translatesAutoresizingMaskIntoConstraints="NO" id="eEK-MF-eVg">
+                                                <rect key="frame" x="38" y="79.5" width="634" height="250"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="e2X-V9-agr"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noC-cs-Wid">
+                                                <rect key="frame" x="0.0" y="364" width="367" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="rdi-Ks-GBw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="onTapCancelButton:" destination="5Sq-mb-Tuo" eventType="touchUpInside" id="a5n-nc-Z0e"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gdh-za-9Zv">
+                                                <rect key="frame" x="367" y="364" width="367" height="46"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Ok"/>
+                                                <connections>
+                                                    <action selector="onTapOkButton:" destination="5Sq-mb-Tuo" eventType="touchUpInside" id="q0X-Rw-Nv6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="eEK-MF-eVg" firstAttribute="leading" secondItem="ayA-pe-3MM" secondAttribute="leading" constant="38" id="061-eO-iHY"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gdh-za-9Zv" secondAttribute="bottom" id="3D8-Ps-gLc"/>
+                                            <constraint firstItem="MDI-ci-JLR" firstAttribute="top" secondItem="ayA-pe-3MM" secondAttribute="top" constant="16" id="7NS-rE-SLW"/>
+                                            <constraint firstItem="eEK-MF-eVg" firstAttribute="centerX" secondItem="ayA-pe-3MM" secondAttribute="centerX" constant="-12" id="9NJ-Rt-ZtL"/>
+                                            <constraint firstItem="Gdh-za-9Zv" firstAttribute="width" secondItem="noC-cs-Wid" secondAttribute="width" id="Bhj-aP-HbG"/>
+                                            <constraint firstAttribute="trailing" secondItem="eEK-MF-eVg" secondAttribute="trailing" constant="62" id="Jzs-EG-A8c"/>
+                                            <constraint firstAttribute="bottom" secondItem="eEK-MF-eVg" secondAttribute="bottom" constant="80" id="VXH-rb-Q7p"/>
+                                            <constraint firstItem="eEK-MF-eVg" firstAttribute="top" secondItem="5Hr-XC-edc" secondAttribute="bottom" constant="20" id="Wyz-uF-fpJ"/>
+                                            <constraint firstItem="5Hr-XC-edc" firstAttribute="top" secondItem="MDI-ci-JLR" secondAttribute="bottom" constant="8" id="Xa2-bi-cDQ"/>
+                                            <constraint firstItem="noC-cs-Wid" firstAttribute="leading" secondItem="ayA-pe-3MM" secondAttribute="leading" id="Ylz-xT-ZHS"/>
+                                            <constraint firstItem="5Hr-XC-edc" firstAttribute="centerX" secondItem="ayA-pe-3MM" secondAttribute="centerX" id="b4R-Ee-0v6"/>
+                                            <constraint firstItem="Gdh-za-9Zv" firstAttribute="height" secondItem="noC-cs-Wid" secondAttribute="height" id="cd6-Oh-93s"/>
+                                            <constraint firstItem="noC-cs-Wid" firstAttribute="width" secondItem="ayA-pe-3MM" secondAttribute="width" multiplier="0.5" id="jhz-52-uoA"/>
+                                            <constraint firstAttribute="bottom" secondItem="noC-cs-Wid" secondAttribute="bottom" id="nnp-iG-rlq"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gdh-za-9Zv" secondAttribute="trailing" id="tUm-KL-oYn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ayA-pe-3MM" firstAttribute="leading" secondItem="VlI-zG-dC1" secondAttribute="leading" constant="50" id="3qS-bp-gvV"/>
+                                    <constraint firstAttribute="trailing" secondItem="ayA-pe-3MM" secondAttribute="trailing" constant="50" id="BNV-KN-kst"/>
+                                    <constraint firstItem="ayA-pe-3MM" firstAttribute="centerX" secondItem="VlI-zG-dC1" secondAttribute="centerX" id="TmC-pD-ESJ"/>
+                                    <constraint firstItem="ayA-pe-3MM" firstAttribute="top" secondItem="VlI-zG-dC1" secondAttribute="top" constant="100" id="fhD-97-KkB"/>
+                                    <constraint firstItem="MDI-ci-JLR" firstAttribute="centerX" secondItem="VlI-zG-dC1" secondAttribute="centerX" id="mdv-qs-mio"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tLg-nL-c1Y" firstAttribute="bottom" secondItem="VlI-zG-dC1" secondAttribute="bottom" id="0CU-P3-aT8"/>
+                            <constraint firstItem="tLg-nL-c1Y" firstAttribute="trailing" secondItem="VlI-zG-dC1" secondAttribute="trailing" id="0PV-IB-pAB"/>
+                            <constraint firstItem="VlI-zG-dC1" firstAttribute="top" secondItem="so8-9k-krX" secondAttribute="top" id="Glb-pv-dic"/>
+                            <constraint firstItem="VlI-zG-dC1" firstAttribute="leading" secondItem="so8-9k-krX" secondAttribute="leading" id="Wkk-Yt-W9r"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tLg-nL-c1Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertView" destination="ayA-pe-3MM" id="CUp-1y-hUs"/>
+                        <outlet property="cancelButton" destination="noC-cs-Wid" id="eMO-rS-Myv"/>
+                        <outlet property="messageLabel" destination="5Hr-XC-edc" id="v99-Hc-Yuq"/>
+                        <outlet property="okButton" destination="Gdh-za-9Zv" id="CZr-WQ-dgZ"/>
+                        <outlet property="titleLabel" destination="MDI-ci-JLR" id="4Kz-0L-qXn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPw-8Z-C4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40" y="-597"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="14" height="25"/>
+        <image name="excel" width="624" height="184"/>
         <image name="marked" width="24" height="24"/>
         <image name="photo" width="128" height="128"/>
         <image name="plus_icon" width="44" height="44"/>

@@ -17,10 +17,13 @@ class TutorialExcel: UIViewController {
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
-    @IBOutlet weak var pickerView: UIPickerView!
+//    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var dontShowAgainSwitch: UISwitch!
+    
+    
     
 //    private let dataSource = ["Apple", "Microsoft", "Samsung", "Android", "Google"]
-    private var dataSource1: [Int] = []
+//    private var dataSource1: [Int] = []
     
     var delegate: CustomAlertViewDelegate?
     //    var selectedOption = "First"
@@ -30,17 +33,18 @@ class TutorialExcel: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        populateDataSource()
+//        populateDataSource()
         
-        pickerView.dataSource = self
-        pickerView.delegate = self
+//        pickerView.dataSource = self
+//        pickerView.delegate = self
         
-        if defaults.integer(forKey: "wordsAtTime") != 0 {
-            //            self.selectedOption1 = defaults.integer(forKey: "wordsAtTime")
-            let initialRow = defaults.integer(forKey: "wordsAtTime") - 5
-            pickerView.selectRow(initialRow, inComponent: 0, animated: true)
-        }
-        
+//        if !defaults.bool(forKey: "excelTutorialShowed") {
+//            self.selectedOption1 = defaults.integer(forKey: "wordsAtTime")
+//            let initialRow = defaults.integer(forKey: "wordsAtTime") - 5
+//            pickerView.selectRow(initialRow, inComponent: 0, animated: true)
+            
+//        }
+        if defaults.bool(forKey: "excelTutorialShowed") { self.dontShowAgainSwitch.setOn(true, animated: true) } else { self.dontShowAgainSwitch.setOn(false, animated: true) }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,11 +70,11 @@ class TutorialExcel: UIViewController {
         })
     }
     
-    func populateDataSource() {
-        for index in 5...100 {
-            self.dataSource1.append(index)
-        }
-    }
+//    func populateDataSource() {
+//        for index in 5...100 {
+//            self.dataSource1.append(index)
+//        }
+//    }
     
     @IBAction func onTapCancelButton(_ sender: Any) {
         delegate?.cancelButtonTapped()
@@ -78,29 +82,34 @@ class TutorialExcel: UIViewController {
     }
     
     @IBAction func onTapOkButton(_ sender: Any) {
-        if self.selectedOption1 != 0 {
-            delegate?.okButtonTapped(selectedOption: self.selectedOption1)
+//        if self.selectedOption1 != 0 {
+            delegate?.okButtonTapped(selectedOption: 0)
             self.dismiss(animated: true, completion: nil)
-        }
+//        }
     }
+    
+    @IBAction func dontShowAgainPressed(_ sender: UISwitch) {
+    }
+    
+    
 }
 
-extension TutorialExcel: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataSource1.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        //        detailLabel.text = dataSource[row]
-        self.selectedOption1 = dataSource1[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(dataSource1[row])
-    }
-    
-}
+//extension TutorialExcel: UIPickerViewDelegate, UIPickerViewDataSource {
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return dataSource1.count
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        //        detailLabel.text = dataSource[row]
+//        self.selectedOption1 = dataSource1[row]
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return String(dataSource1[row])
+//    }
+//
+//}

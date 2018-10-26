@@ -19,6 +19,9 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var folderImg: CircleImage!
     @IBOutlet weak var titleLbl: UILabel!
     
+
+    
+    
     
     
     
@@ -42,7 +45,14 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
             self.initializeEditingViews()
         }
         
+        self.hideKeyboardWhenTappedAround()
+        
+//        let cancelBtnTapped 
+//        textField.resignFirstResponder()
 //        textField.becomeFirstResponder()
+//        self.textField.resignFirstResponder()
+//        self.textField.becomeFirstResponder()
+        
         buttonsStackView.bindToKeyboard()
     }
 
@@ -57,6 +67,10 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func okBtnPressed(_ sender: Any) {
+        createFolder()
+    }
+    
+    func createFolder() {
         if textField.text != "" {
             var imageName = "default.png"
             
@@ -146,6 +160,14 @@ class CreateFolderVC: UIViewController, UITextFieldDelegate {
             self.folderImgBtn.setTitle(STRING_CHANGE_IMAGE, for: .normal)
         }
     }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        createFolder()
+        return true
+    }
+    
+    
     
 }
 

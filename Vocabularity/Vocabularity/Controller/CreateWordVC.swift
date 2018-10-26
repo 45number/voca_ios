@@ -32,6 +32,9 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
         
         buttonsStackView.bindToKeyboard()
         savedLbl.isHidden = true
+        
+        self.hideKeyboardWhenTappedAround()
+        
     }
 
     //Actions
@@ -99,19 +102,28 @@ class CreateWordVC: UIViewController, UITextFieldDelegate  {
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == wordTxtField {
-            textField.resignFirstResponder()
-            translationTxtField.becomeFirstResponder()
-        } else if textField == translationTxtField {
-            if (self.wordTxtField.text != "" || self.wordTxtField.text != nil) &&
-                (self.translationTxtField.text != "" || self.translationTxtField.text != nil) {
+            if (self.wordTxtField.text != "" && self.wordTxtField.text != nil) &&
+                (self.translationTxtField.text != "" && self.translationTxtField.text != nil) {
                 self.save(learningLanguage: self.learningLanguage!, word: wordTxtField.text!, translation: translationTxtField.text!) { (success) in
                     self.wordTxtField.text = ""
                     self.translationTxtField.text = ""
                 }
+            } else {
+                self.wordTxtField.resignFirstResponder()
+                self.translationTxtField.becomeFirstResponder()
             }
-            
+        } else if textField == translationTxtField {
+            if (self.wordTxtField.text != "" && self.wordTxtField.text != nil) &&
+                (self.translationTxtField.text != "" && self.translationTxtField.text != nil) {
+                self.save(learningLanguage: self.learningLanguage!, word: wordTxtField.text!, translation: translationTxtField.text!) { (success) in
+                    self.wordTxtField.text = ""
+                    self.translationTxtField.text = ""
+                }
+            } else {
+                self.translationTxtField.resignFirstResponder()
+                self.wordTxtField.becomeFirstResponder()
+            }
         }
         return true
     }

@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import AVFoundation
 
-class MemorizeVC: UIViewController {
+class MemorizeVC: UIViewController, UITextFieldDelegate {
 
     let defaults = UserDefaults.standard
     
@@ -46,6 +46,9 @@ class MemorizeVC: UIViewController {
     var wordsAtTime: Int = 25
     
     
+    
+    
+    
     var words: [Word] = []
     
     private var indexCounter: Int = 0
@@ -65,8 +68,8 @@ class MemorizeVC: UIViewController {
         let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
         cardView.addGestureRecognizer(cardTap)
         
-        let cancelBtnTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.dismissKeyboard(_:)))
-        cancelBtn.addGestureRecognizer(cancelBtnTap)
+//        let cancelBtnTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.dismissKeyboard(_:)))
+//        cancelBtn.addGestureRecognizer(cancelBtnTap)
         
         self.fetchCoreDataObjects(folder: folder, part: part)
         self.displayCurrentWord(index: indexCounter)
@@ -86,6 +89,10 @@ class MemorizeVC: UIViewController {
         deleteBtn.setTitle(STRING_DELETE, for: .normal)
         cancelBtn.setTitle(STRING_CANCEL, for: .normal)
         saveBtn.setTitle(STRING_SAVE, for: .normal)
+        
+        firstLblTextField.delegate = self
+        secondLblTextField.delegate = self
+//        self.hideKeyboardWhenTappedAround()
     }
     
     
@@ -218,6 +225,11 @@ class MemorizeVC: UIViewController {
         editBtnsView.isHidden = false
         editBtn.isHidden = true
         
+//        let editTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.editTap(_:)))
+//        cardView.addGestureRecognizer(editTap)
+//        cardView.removeGestureRecognizer(cardView.gestureRecognizers![0])
+//        cardView
+//        self.hideKeyboardWhenTappedAround()
         
     }
     
@@ -240,10 +252,10 @@ class MemorizeVC: UIViewController {
                     self.nextWord()
                     self.setQuantity(index: self.indexCounter)
                 } else {
-                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+                    
                     self.dismiss(animated: true, completion: nil)
                 }
-                
+                NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
             } catch {
                 debugPrint("Could not remove: \(error.localizedDescription)")
             }
@@ -251,11 +263,16 @@ class MemorizeVC: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func cancelBtnPressed(_ sender: Any) {
         cancelEditing()
     }
     
     func cancelEditing() {
+        
+        firstLblTextField.resignFirstResponder()
+        secondLblTextField.resignFirstResponder()
+        
         firstLblTextField.isHidden = true
         secondLblTextField.isHidden = true
         
@@ -411,6 +428,10 @@ class MemorizeVC: UIViewController {
         }
         mCardSwitcher = !mCardSwitcher
     }
+    
+//    @objc func editTap(_ recognizer: UITapGestureRecognizer) {
+//        self.hideKeyboardWhenTappedAround()
+//    }
     
     func nextWord() {
         if defaults.bool(forKey: "looped") && self.indexCounter == (self.words.count - 1) {

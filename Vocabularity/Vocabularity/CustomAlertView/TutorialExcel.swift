@@ -83,12 +83,33 @@ class TutorialExcel: UIViewController {
     
     @IBAction func onTapOkButton(_ sender: Any) {
 //        if self.selectedOption1 != 0 {
+        
+        if dontShowAgainSwitch.isOn {
+            defaults.set(true, forKey: "excelTutorialShowed")
+        } else {
+            defaults.set(false, forKey: "excelTutorialShowed")
+        }
             delegate?.okButtonTapped(selectedOption: 0)
             self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: NOTIF_EXCEL_TUTORIAL_SHOWED, object: nil)
+//        FoldersVC().uploadExcelControllerPresent()
 //        }
     }
     
     @IBAction func dontShowAgainPressed(_ sender: UISwitch) {
+        if sender.isOn == true {
+            defaults.set(true, forKey: "excelTutorialShowed")
+//            NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+        } else {
+            defaults.set(false, forKey: "excelTutorialShowed")
+//            if defaults.bool(forKey: "english") || defaults.bool(forKey: "russian") {
+//                defaults.set(false, forKey: "arabic")
+//                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+//            } else {
+//                self.arabicSwitch.setOn(true, animated: true)
+//                self.warningCannotDeleteLanguage()
+//            }
+        }
     }
     
     

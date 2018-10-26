@@ -466,9 +466,11 @@ class MemorizeVC: UIViewController {
     
     func setDirectionBtnView() {
         if defaults.bool(forKey: "directionReversed") {
-            directionBtn.setTitle("En - Ru", for: .normal)
+            directionBtn.setImage(UIImage(named: "exchange_pressed"), for:.normal);
+//            directionBtn.setTitle("En - Ru", for: .normal)
         } else {
-            directionBtn.setTitle("Ru - En", for: .normal)
+            directionBtn.setImage(UIImage(named: "exchange"), for:.normal);
+//            directionBtn.setTitle("Ru - En", for: .normal)
         }
     }
     

@@ -66,6 +66,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.languagesChanged(_:)), name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.wordsWereMarked(_:)), name: NOTIF_WORD_WAS_MARKED, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.excelTutorialShowed(_:)), name: NOTIF_EXCEL_TUTORIAL_SHOWED, object: nil)
+        
 //        defaults.set(true, forKey: "english")wordsWereMarked
         
         getCurrentLearningLanguage()
@@ -73,6 +75,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         setTabView(learningLanguages: learningLanguages)
         
         updateView()
+        
+//        defaults.set(false, forKey: "excelTutorialShowed")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -183,6 +187,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         setRepeatButton()
     }
     
+    @objc func excelTutorialShowed(_ notif: Notification) {
+        uploadExcelControllerPresent()
+    }
+    
     func getLearningLanguages() -> [LearningLanguage] {
         var learningLanguages: [LearningLanguage] = []
         if defaults.bool(forKey: "english") {
@@ -240,35 +248,22 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         let uploadExcel = UIAlertAction(title: NSLocalizedString("uploadExcelFile", comment: "Upload excel file"), style: .default, handler: { action in
             
-            self.uploadingView.isHidden = false
-            self.uploadingViewWrapper.isHidden = false
+            if self.defaults.bool(forKey: "excelTutorialShowed") {
+                self.uploadExcelControllerPresent()
+            } else {
+                self.showExcelTutorial()
+            }
             
-            let docTypes = [
-                //            "com.microsoft.excel.xls",
-                "org.openxmlformats.spreadsheetml.sheet"
-            ]
-            
-            let documentPicker = UIDocumentPickerViewController(documentTypes: docTypes, in: .import)
-            
-            documentPicker.delegate = self
-            documentPicker.allowsMultipleSelection = false
-            self.present(documentPicker, animated: true, completion: nil)
         })
         
-        let opa = UIAlertAction(title: "opa", style: .default) { (action) in
-            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "TutorialExcel") as! TutorialExcel
-            customAlert.providesPresentationContextTransitionStyle = true
-            customAlert.definesPresentationContext = true
-            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            customAlert.delegate = self
-            self.present(customAlert, animated: true, completion: nil)
-        }
+//        let opa = UIAlertAction(title: "opa", style: .default) { (action) in
+//
+//        }
         
         alert.addAction(addFolder)
         alert.addAction(addWords)
         alert.addAction(uploadExcel)
-        alert.addAction(opa)
+//        alert.addAction(opa)
         alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .cancel, handler: { action in }))
         
         if path.count == 0 || folders.count > 0 {
@@ -288,6 +283,32 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func uploadExcelControllerPresent() {
+        self.uploadingView.isHidden = false
+        self.uploadingViewWrapper.isHidden = false
+        
+        let docTypes = [
+            //            "com.microsoft.excel.xls",
+            "org.openxmlformats.spreadsheetml.sheet"
+        ]
+        
+        let documentPicker = UIDocumentPickerViewController(documentTypes: docTypes, in: .import)
+        
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        self.present(documentPicker, animated: true, completion: nil)
+    }
+    
+    func showExcelTutorial() {
+        let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "TutorialExcel") as! TutorialExcel
+        customAlert.providesPresentationContextTransitionStyle = true
+        customAlert.definesPresentationContext = true
+        customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        customAlert.delegate = self
+        self.present(customAlert, animated: true, completion: nil)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
@@ -829,6 +850,10 @@ extension FoldersVC: UIDocumentPickerDelegate {
         
         
         uploadFromExcel(urls: urls) { (success) in
+            
+//            self.uploadingView.isHidden = true
+//            self.uploadingViewWrapper.isHidden = true
+            
             if success {
                 self.uploadingView.isHidden = true
                 self.uploadingViewWrapper.isHidden = true
@@ -975,14 +1000,15 @@ extension FoldersVC: UIDocumentPickerDelegate {
                 
                 do {
                     try managedContext.save()
-                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
-                    completion(true)
+                    
                 } catch {
                     debugPrint("Could not save: \(error.localizedDescription)")
                     completion(false)
                 }
                 counter += 1
         }
+        NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+        completion(true)
         
     }
     

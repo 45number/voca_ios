@@ -20,6 +20,7 @@ let NOTIF_WORDS_COUNT_DID_CHANGE = Notification.Name("notifUserDataChanged")
 let NOTIF_LANGUAGES_DID_CHANGE = Notification.Name("notifLearningLanguagesChanged")
 let NOTIF_TEXT_VIEW_DID_CHANGE = Notification.Name("notifTextViewChanged")
 let NOTIF_WORD_WAS_MARKED = Notification.Name("notifWordWasMarked")
+let NOTIF_EXCEL_TUTORIAL_SHOWED = Notification.Name("excelTutorialShowed")
 
 //Strings
 let STRING_MARK = NSLocalizedString("mark", comment: "MARK")

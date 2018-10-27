@@ -83,6 +83,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         deleteBtn.setTitle(STRING_DELETE, for: .normal)
         cancelBtn.setTitle(STRING_CANCEL, for: .normal)
         saveBtn.setTitle(STRING_SAVE, for: .normal)
+        
+        self.textField.becomeFirstResponder()
     }
     
     

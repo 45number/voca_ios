@@ -30,6 +30,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     @IBOutlet weak var uploadingViewWrapper: UIView!
     @IBOutlet weak var uploadingView: RoundShadowView!
     
+    @IBOutlet weak var pathLbl: UILabel!
+    
     
     
     
@@ -223,8 +225,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                     }
                 } else {
                     self.backBtn.isHidden = true
+                    pathString = "Main"
                 }
-                print(pathString)
+                self.pathLbl.text = pathString
+//                print(pathString)
             }
         }
     }

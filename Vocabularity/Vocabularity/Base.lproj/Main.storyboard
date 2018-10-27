@@ -351,20 +351,27 @@
                                     <constraint firstItem="fTB-Lp-QHm" firstAttribute="leading" secondItem="CiC-tA-w5S" secondAttribute="leading" id="zYI-SV-eMm"/>
                                 </constraints>
                             </view>
-                            <tabBar contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="vz5-iO-ysp">
-                                <rect key="frame" x="0.0" y="1062" width="834" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abV-HG-Dkw">
+                                <rect key="frame" x="0.0" y="80" width="834" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdK-Qb-FOC">
+                                        <rect key="frame" x="16" y="0.0" width="802" height="20"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="aL9-dN-yuJ"/>
+                                    <constraint firstItem="AdK-Qb-FOC" firstAttribute="leading" secondItem="abV-HG-Dkw" secondAttribute="leading" constant="16" id="SKP-5q-Iaa"/>
+                                    <constraint firstAttribute="height" constant="20" id="nMi-pU-I55"/>
+                                    <constraint firstAttribute="trailing" secondItem="AdK-Qb-FOC" secondAttribute="trailing" constant="16" id="tzj-Tr-msj"/>
+                                    <constraint firstAttribute="bottom" secondItem="AdK-Qb-FOC" secondAttribute="bottom" id="uoi-ed-7sC"/>
+                                    <constraint firstItem="AdK-Qb-FOC" firstAttribute="top" secondItem="abV-HG-Dkw" secondAttribute="top" id="yNR-RK-KI9"/>
                                 </constraints>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="elH-8h-LNo"/>
-                                    <tabBarItem systemItem="more" id="l7m-YO-LwE"/>
-                                </items>
-                                <color key="selectedImageTintColor" red="0.1388937848" green="0.16784127200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tabBar>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZEO-HB-PUc">
-                                <rect key="frame" x="0.0" y="80" width="834" height="982"/>
+                                <rect key="frame" x="0.0" y="100" width="834" height="962"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -461,6 +468,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <tabBar contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="vz5-iO-ysp">
+                                <rect key="frame" x="0.0" y="1062" width="834" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aL9-dN-yuJ"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="elH-8h-LNo"/>
+                                    <tabBarItem systemItem="more" id="l7m-YO-LwE"/>
+                                </items>
+                                <color key="selectedImageTintColor" red="0.1388937848" green="0.16784127200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tabBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgZ-gx-wH3" customClass="RoundedButton" customModule="Vocabularity" customModuleProvider="target">
                                 <rect key="frame" x="744" y="972" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.1388937848" green="0.16784127200000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -521,6 +540,7 @@
                             <constraint firstItem="5hj-vG-dHp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="CVP-hJ-SSx"/>
                             <constraint firstItem="ZEO-HB-PUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ep0-tD-94d"/>
                             <constraint firstItem="8yz-jI-R3s" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="L7H-ft-RbM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="abV-HG-Dkw" secondAttribute="trailing" id="O01-AW-aGa"/>
                             <constraint firstItem="0bR-RN-sPY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QaF-GP-Agx"/>
                             <constraint firstItem="vz5-iO-ysp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QvH-Ma-3Tn"/>
                             <constraint firstItem="8yz-jI-R3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RET-7p-gEN"/>
@@ -533,14 +553,17 @@
                             <constraint firstItem="Evt-Fp-03k" firstAttribute="baseline" secondItem="0bR-RN-sPY" secondAttribute="baseline" constant="70" id="jMr-ts-ZBB"/>
                             <constraint firstItem="CiC-tA-w5S" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oaE-xU-y7e"/>
                             <constraint firstItem="5hj-vG-dHp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qb3-lD-R1G"/>
-                            <constraint firstItem="ZEO-HB-PUc" firstAttribute="top" secondItem="CiC-tA-w5S" secondAttribute="bottom" id="xaf-S0-b7I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="abV-HG-Dkw" secondAttribute="top" constant="-60" id="s5y-iQ-d3r"/>
+                            <constraint firstItem="ZEO-HB-PUc" firstAttribute="top" secondItem="CiC-tA-w5S" secondAttribute="bottom" constant="20" id="xaf-S0-b7I"/>
                             <constraint firstItem="CiC-tA-w5S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xf6-c6-B0m"/>
                             <constraint firstItem="vz5-iO-ysp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ySC-Kb-zvU"/>
+                            <constraint firstItem="abV-HG-Dkw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zzY-wt-zCD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="backBtn" destination="fTB-Lp-QHm" id="Dwi-1u-54Q"/>
+                        <outlet property="pathLbl" destination="AdK-Qb-FOC" id="Mrr-9H-jfB"/>
                         <outlet property="repeatBtn" destination="ZgZ-gx-wH3" id="bVh-Hy-JLN"/>
                         <outlet property="repeatBtnBottomConstraint" destination="Amc-b4-eZL" id="c3S-cH-SmO"/>
                         <outlet property="tabBar" destination="vz5-iO-ysp" id="8r3-ow-9eO"/>

@@ -213,13 +213,18 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                 } else {
                     tableView.isHidden = true
                 }
+               
+                var pathString: String = "Main"
                 
                 if path.count > 0 {
                     self.backBtn.isHidden = false
+                    for folder in path {
+                        pathString += "/" + folder.folderName!
+                    }
                 } else {
                     self.backBtn.isHidden = true
                 }
-                
+                print(pathString)
             }
         }
     }

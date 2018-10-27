@@ -448,6 +448,9 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
 //            navigateThroughTree(treeArray: self.treeArray)
             
             cell.configureCell(folder: folder, folderInfo: "\(NSLocalizedString("folders", comment: "Folders")): \(self.treeArray.count - 1) : : \(NSLocalizedString("decks", comment: "Decks")): \(decksQuantitiy) : : \(NSLocalizedString("cards", comment: "Cards")): \(wordsQuantity)")
+            
+//            cell.configureCell(folder: folder, folderInfo: folder.image!)
+            
         } else if decks.count > 0 {
             let deck = decks[indexPath.row]
             
@@ -471,6 +474,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 let alert = UIAlertController(title: STRING_DELETE_FOLDER, message: STRING_ARE_YOU_SURE, preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: STRING_CANCEL, style: .default, handler: { action in }))
                 alert.addAction(UIAlertAction(title: STRING_OK, style: .destructive, handler: { action in
+                    
                     self.removeFolder(atIndexPath: indexPath)
                     self.updateView()
                 }))
@@ -669,6 +673,8 @@ extension FoldersVC {
         
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
 
+        self.treeArray.removeAll()
+        
         buildTreeArray(folder: folders[indexPath.row])
         navigateThroughTree(treeArray: self.treeArray)
         
@@ -714,6 +720,7 @@ extension FoldersVC {
     func navigateThroughTree(treeArray: [Folder]) {
 //        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         for folder in treeArray {
+//            print(folder.folderName)
             if folder.image != "default.png" && folder.image != nil {
 //                print(folder)
 //                print("Hello [\(String(describing: folder.image))] Hello")

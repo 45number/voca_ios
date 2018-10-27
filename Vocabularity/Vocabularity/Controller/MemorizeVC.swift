@@ -39,12 +39,13 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var editBtn: UIButton!
     
+    @IBOutlet weak var pathLbl: UILabel!
     
     //Variables
     var folder: Folder?
     var part: Int?
     var wordsAtTime: Int = 25
-    
+    var pathString: String?
     
     
     
@@ -97,7 +98,9 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         secondLblTextField.delegate = self
 //        self.hideKeyboardWhenTappedAround()
         
+        pathLbl.text = pathString
         
+//        print(pathString)
         
     }
     

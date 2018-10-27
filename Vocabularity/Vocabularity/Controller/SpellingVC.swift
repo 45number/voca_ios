@@ -35,6 +35,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelBtn: RoundedButton!
     @IBOutlet weak var saveBtn: RoundedButton!
     
+    @IBOutlet weak var pathLbl: UILabel!
+    
     
     
     //Variables
@@ -48,6 +50,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     private var indexCounter: Int = 0
     private var mCardSwitcher: Bool = false
     var wordsAtTime: Int = 25
+    
+    var pathString: String?
     
     
     override func viewDidLoad() {
@@ -85,6 +89,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         saveBtn.setTitle(STRING_SAVE, for: .normal)
         
         self.textField.becomeFirstResponder()
+        
+        pathLbl.text = pathString
     }
     
     

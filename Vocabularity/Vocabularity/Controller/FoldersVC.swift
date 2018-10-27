@@ -46,6 +46,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     
     var treeArray:[Folder] = []
     
+    var pathString: String = "Main"
     
     var toMemWords = 0
     var toSpellWords = 0
@@ -216,18 +217,18 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                     tableView.isHidden = true
                 }
                
-                var pathString: String = "Main"
+                self.pathString = "Main"
                 
                 if path.count > 0 {
                     self.backBtn.isHidden = false
                     for folder in path {
-                        pathString += "/" + folder.folderName!
+                        self.pathString += "/" + folder.folderName!
                     }
                 } else {
                     self.backBtn.isHidden = true
-                    pathString = "Main"
+                    self.pathString = "Main"
                 }
-                self.pathLbl.text = pathString
+                self.pathLbl.text = self.pathString
 //                print(pathString)
             }
         }
@@ -339,6 +340,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                         let memorizeVC = MemorizeVC()
                         memorizeVC.folder = nil
                         memorizeVC.part = nil
+                        memorizeVC.pathString = "Repeat mode"
                         memorizeVC.modalPresentationStyle = .custom
                         self.present(memorizeVC, animated: true, completion: nil)
         })
@@ -347,6 +349,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                         let spellingVC = SpellingVC()
                         spellingVC.folder = nil
                         spellingVC.part = nil
+                        spellingVC.pathString = "Repeat mode"
                         spellingVC.modalPresentationStyle = .custom
                         self.present(spellingVC, animated: true, completion: nil)
         })
@@ -566,6 +569,8 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 let memorizeVC = MemorizeVC()
                 memorizeVC.folder = self.getCurrentFolder()
                 memorizeVC.part = indexPath.row
+                memorizeVC.pathString = "\(self.pathString)/\(STRING_DECK) \(indexPath.row + 1)"
+//                self.pathString + "/" + STRING_DECK + " " + indexPath.row
                 memorizeVC.modalPresentationStyle = .custom
                 self.present(memorizeVC, animated: true, completion: nil)
             }))
@@ -573,6 +578,7 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 let spellingVC = SpellingVC()
                 spellingVC.folder = self.getCurrentFolder()
                 spellingVC.part = indexPath.row
+                spellingVC.pathString = "\(self.pathString)/\(STRING_DECK) \(indexPath.row + 1)"
                 spellingVC.modalPresentationStyle = .custom
                 self.present(spellingVC, animated: true, completion: nil)
             }))

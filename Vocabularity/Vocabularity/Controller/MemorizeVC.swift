@@ -64,9 +64,12 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         speakBtn.setImage(UIImage(named: "speaking"), for:.normal);
         speakBtn.setImage(UIImage(named: "speaking_pressed"), for:.highlighted);
         
+        self.hideKeyboardWhenTappedAround()
         
-        let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
-        cardView.addGestureRecognizer(cardTap)
+//        let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
+//        cardView.addGestureRecognizer(cardTap)
+        
+        cardTapped()
         
 //        let cancelBtnTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.dismissKeyboard(_:)))
 //        cancelBtn.addGestureRecognizer(cancelBtnTap)
@@ -93,8 +96,15 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         firstLblTextField.delegate = self
         secondLblTextField.delegate = self
 //        self.hideKeyboardWhenTappedAround()
+        
+        
+        
     }
     
+    func cardTapped() {
+        let cardTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.onCardTap(_:)))
+        cardView.addGestureRecognizer(cardTap)
+    }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
                 coordinator.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) -> Void in
@@ -225,11 +235,9 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         editBtnsView.isHidden = false
         editBtn.isHidden = true
         
-//        let editTap = UITapGestureRecognizer(target: self, action: #selector(MemorizeVC.editTap(_:)))
-//        cardView.addGestureRecognizer(editTap)
+        cardView.gestureRecognizers?.forEach(cardView.removeGestureRecognizer)
 //        cardView.removeGestureRecognizer(cardView.gestureRecognizers![0])
-//        cardView
-//        self.hideKeyboardWhenTappedAround()
+        
         
     }
     
@@ -285,6 +293,8 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         
         editBtnsView.isHidden = true
         editBtn.isHidden = false
+        
+        cardTapped()
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {

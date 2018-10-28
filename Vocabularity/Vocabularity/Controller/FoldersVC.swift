@@ -592,6 +592,10 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 spellingVC.folder = self.getCurrentFolder()
                 spellingVC.part = indexPath.row
                 spellingVC.pathString = "\(self.pathString)/\(STRING_DECK) \(indexPath.row + 1)"
+                
+                spellingVC.mModulo = self.mModulo
+                spellingVC.lastDeck = self.mLastDeck
+                
                 spellingVC.modalPresentationStyle = .custom
                 self.present(spellingVC, animated: true, completion: nil)
             }))

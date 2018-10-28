@@ -188,10 +188,11 @@ class SettingsVC: UIViewController {
 extension SettingsVC: CustomAlertViewDelegate {
     
     func okButtonTapped(selectedOption: Int) {
-        
+        clearDecksMarked()
         defaults.set(selectedOption, forKey: "wordsAtTime")
         NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
         print("okButtonTapped with \(selectedOption) option selected")
+        
 //        print("TextField has value: \(textFieldValue)")
 //        , textFieldValue: String
     }
@@ -199,5 +200,35 @@ extension SettingsVC: CustomAlertViewDelegate {
     func cancelButtonTapped() {
         print("cancelButtonTapped")
     }
+    
+    func clearDecksMarked() {
+//        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+//        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "DeckMarked")
+//        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+//        do {
+//            try managedContext.execute(request)
+//            print("deleted DeckMarked")
+//        } catch {
+//            debugPrint("Could not remove: \(error.localizedDescription)")
+//        }
+        
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+        do {
+            let decksMarked = try managedContext.fetch(fetchDeckRequest)
+            for deck in decksMarked {
+                do {
+                    managedContext.delete(deck)
+                    try managedContext.save()
+                } catch {
+                    debugPrint("Could not fetch: \(error.localizedDescription)")
+                }
+            }
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+        
+    }
+    
 }
 

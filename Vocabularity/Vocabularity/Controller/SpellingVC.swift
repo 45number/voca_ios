@@ -55,6 +55,15 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     var pathString: String?
     
     
+    var mModulo: Int?
+    
+    var lastDeck: Int?
+    
+    var deletedWordsCounter: Int = 0
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -222,6 +231,10 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                     self.indexCounter -= 1
                     self.nextWord()
                     self.setQuantity(index: self.indexCounter)
+                    
+                    self.deletedWordsCounter += 1
+                    self.checkLastDeck()
+                    
                 } else {
                     self.checkAndDeleteDeck()
                     self.dismiss(animated: true, completion: nil)
@@ -276,6 +289,44 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
             }
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+    }
+    
+    func checkLastDeck() {
+        if mModulo == 0 {
+            mModulo = defaults.integer(forKey: "wordsAtTime")
+        }
+        if self.deletedWordsCounter == mModulo {
+            var deckNumber = 0
+            if self.lastDeck != nil {
+                deckNumber = self.lastDeck! - 1
+            } else {
+                return
+            }
+            
+            guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+            let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+            let parentPredicate = NSPredicate(format: "folder == %@", folder!)
+            let learningLanguagePredicate = NSPredicate(format: "number == \(Int32(deckNumber))")
+            print(Int32(deckNumber))
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [parentPredicate, learningLanguagePredicate])
+            fetchDeckRequest.predicate = andPredicate
+            
+            do {
+                let decksMarked = try managedContext.fetch(fetchDeckRequest)
+                for deck in decksMarked {
+                    
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                }
+                
+            } catch {
+                debugPrint("Could not fetch: \(error.localizedDescription)")
+            }
         }
     }
     

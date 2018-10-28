@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import CoreData
 
 class CustomAlertView: UIViewController {
     
@@ -79,10 +80,14 @@ class CustomAlertView: UIViewController {
     
     @IBAction func onTapOkButton(_ sender: Any) {
         if self.selectedOption1 != 0 {
+            
             delegate?.okButtonTapped(selectedOption: self.selectedOption1)
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    
+    
 }
 
 extension CustomAlertView: UIPickerViewDelegate, UIPickerViewDataSource {

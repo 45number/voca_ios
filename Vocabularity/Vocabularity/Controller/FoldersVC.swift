@@ -684,7 +684,6 @@ extension FoldersVC {
         
         do {
             try managedContext.save()
-//            print("Saved deckMarked")
         } catch {
             debugPrint("Could not save: \(error.localizedDescription)")
         }
@@ -736,10 +735,7 @@ extension FoldersVC {
         do {
             let decksMarked = try managedContext.fetch(fetchDeckRequest)
             for deck in decksMarked {
-                print("-------------------")
-                print("deck number is \(deck.number)")
-                print("indexPath is \(indexPath.row)")
-                print("-------------------")
+
                 if deck.number == indexPath.row {
                     do {
                         managedContext.delete(deck)
@@ -749,14 +745,23 @@ extension FoldersVC {
                     }
                 } else if deck.number > indexPath.row {
                     
-                    let indexPath1 = IndexPath(row: Int(deck.number) - 1, section: 0)
-                    self.markDeck(atIndexPath: indexPath1)
                     
-                    let indexPath = IndexPath(row: Int(deck.number), section: 0)
-                    self.markDeck(atIndexPath: indexPath)
+                    let deckNew = DeckMarked(context: managedContext)
+                    deckNew.number = Int32(deck.number - 1)
+                    deckNew.folder = self.getCurrentFolder()
+                    do {
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not save: \(error.localizedDescription)")
+                    }
                     
-//                    Int(deck.number - 1)
                     
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
                 }
             }
         } catch {

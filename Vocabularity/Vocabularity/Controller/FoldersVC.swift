@@ -180,6 +180,12 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     }
     
     @objc func languagesChanged(_ notif: Notification) {
+        self.path.removeAll()
+        
+        
+        
+        
+        
         let learningLanguages = getLearningLanguages()
         getCurrentLearningLanguage()
         updateView()

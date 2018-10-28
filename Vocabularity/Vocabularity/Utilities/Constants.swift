@@ -45,5 +45,8 @@ let STRING_CHANGE_IMAGE = NSLocalizedString("changeImage", comment: "Change Imag
 let STRING_DELETE = NSLocalizedString("delete", comment: "Delete")
 let STRING_SAVE = NSLocalizedString("save", comment: "Save")
 
-
+//Languages
+let LANG_ENG = "english"
+let LANG_RU = "russian"
+let LANG_AR = "arabic"
 

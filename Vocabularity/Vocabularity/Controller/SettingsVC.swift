@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SettingsVC: UIViewController {
 
@@ -22,7 +23,7 @@ class SettingsVC: UIViewController {
     
     
     //Variables
-    
+    var treeArray:[Folder] = []
     
     
     override func viewDidLoad() {
@@ -59,12 +60,11 @@ class SettingsVC: UIViewController {
     @IBAction func englishSwitchPressed(_ sender: UISwitch) {
         
         if sender.isOn == true {
-            defaults.set(true, forKey: "english")
+            defaults.set(true, forKey: LANG_ENG)
             NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         } else {
-            if defaults.bool(forKey: "russian") || defaults.bool(forKey: "arabic") {
-                defaults.set(false, forKey: "english")
-                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+            if defaults.bool(forKey: LANG_RU) || defaults.bool(forKey: LANG_AR) {
+                self.warningDeleteLanguage(language: LANG_ENG)
             } else {
                 self.englishSwitch.setOn(true, animated: true)
                 self.warningCannotDeleteLanguage()
@@ -74,12 +74,11 @@ class SettingsVC: UIViewController {
     
     @IBAction func russianSwitchPressed(_ sender: UISwitch) {
         if sender.isOn == true {
-            defaults.set(true, forKey: "russian")
+            defaults.set(true, forKey: LANG_RU)
             NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         } else {
-            if defaults.bool(forKey: "english") || defaults.bool(forKey: "arabic") {
-                defaults.set(false, forKey: "russian")
-                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+            if defaults.bool(forKey: LANG_ENG) || defaults.bool(forKey: LANG_AR) {
+                self.warningDeleteLanguage(language: LANG_RU)
             } else {
                 self.russianSwitch.setOn(true, animated: true)
                 self.warningCannotDeleteLanguage()
@@ -89,17 +88,66 @@ class SettingsVC: UIViewController {
     
     @IBAction func arabicSwitchPressed(_ sender: UISwitch) {
         if sender.isOn == true {
-            defaults.set(true, forKey: "arabic")
+            defaults.set(true, forKey: LANG_AR)
             NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
         } else {
-            if defaults.bool(forKey: "english") || defaults.bool(forKey: "russian") {
-                defaults.set(false, forKey: "arabic")
-                NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
+            if defaults.bool(forKey: LANG_ENG) || defaults.bool(forKey: LANG_RU) {
+                self.warningDeleteLanguage(language: LANG_AR)
             } else {
                 self.arabicSwitch.setOn(true, animated: true)
                 self.warningCannotDeleteLanguage()
             }
         }
+    }
+    
+    func warningDeleteLanguage(language: String!) {
+        let alert = UIAlertController(title: "Are you sure!", message: "Delete this language with folders?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+            if language == LANG_ENG {
+                self.englishSwitch.setOn(true, animated: true)
+            } else if language == LANG_RU {
+                self.russianSwitch.setOn(true, animated: true)
+            } else if language == LANG_AR {
+                self.arabicSwitch.setOn(true, animated: true)
+            } else {
+                return
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            self.deleteLanguage(language: language)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteLanguage(language: String!) {
+        var langId = 0
+        if language == LANG_ENG {
+            langId = 1
+        } else if language == LANG_RU {
+            langId = 2
+        } else if language == LANG_AR {
+            langId = 3
+        } else {
+            return
+        }
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchREquest = NSFetchRequest<Folder>(entityName: "Folder")
+        fetchREquest.predicate = NSPredicate(format: "learningLang == \(langId)")
+        do {
+            let folders = try managedContext.fetch(fetchREquest)
+            for folder in folders {
+                if folder.image != "default.png" && folder.image != nil {
+                    ImageStore.delete(imageNamed: folder.image!)
+                }
+                managedContext.delete(folder)
+            }
+            try managedContext.save()
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+        
+        defaults.set(false, forKey: language)
+        NotificationCenter.default.post(name: NOTIF_LANGUAGES_DID_CHANGE, object: nil)
     }
     
     

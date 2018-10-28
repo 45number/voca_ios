@@ -710,24 +710,57 @@ extension FoldersVC {
     }
     
     func removeDeck(atIndexPath indexPath: IndexPath) {
-//        print("index Path: \(indexPath.row)")
-        
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")
         fetchREquest.predicate = NSPredicate(format: "folder == %@", getCurrentFolder()!)
         fetchREquest.fetchOffset = indexPath.row * self.wordsAtTime
         fetchREquest.fetchLimit = self.wordsAtTime
-        
         do {
             let words = try managedContext.fetch(fetchREquest)
             for word in words {
                 managedContext.delete(word)
             }
             try managedContext.save()
-//            completion(true)
         } catch {
             debugPrint("Could not fetch: \(error.localizedDescription)")
-//            completion(false)
+        }
+        
+        recalculateMarkedDecks(indexPath: indexPath)
+        
+    }
+    
+    func recalculateMarkedDecks(indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+        fetchDeckRequest.predicate = NSPredicate(format: "folder == %@", getCurrentFolder()!)
+        do {
+            let decksMarked = try managedContext.fetch(fetchDeckRequest)
+            for deck in decksMarked {
+                print("-------------------")
+                print("deck number is \(deck.number)")
+                print("indexPath is \(indexPath.row)")
+                print("-------------------")
+                if deck.number == indexPath.row {
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                } else if deck.number > indexPath.row {
+                    
+                    let indexPath1 = IndexPath(row: Int(deck.number) - 1, section: 0)
+                    self.markDeck(atIndexPath: indexPath1)
+                    
+                    let indexPath = IndexPath(row: Int(deck.number), section: 0)
+                    self.markDeck(atIndexPath: indexPath)
+                    
+//                    Int(deck.number - 1)
+                    
+                }
+            }
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
         }
     }
     
@@ -803,7 +836,7 @@ extension FoldersVC {
                     
                     let decksQuantity = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
                     let modulo = words.count % self.wordsAtTime
-                    print("Modulo is \(modulo)")
+//                    print("Modulo is \(modulo)")
                     
                     for index in 1...decksQuantity {
                         let marked = isDeckMarked(index: index, markedDecks: markedDecks)

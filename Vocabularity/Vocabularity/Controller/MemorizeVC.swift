@@ -46,8 +46,12 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
     var part: Int?
     var wordsAtTime: Int = 25
     var pathString: String?
+    var mModulo: Int?
     
+    var lastDeck: Int?
     
+    var deletedWordsCounter: Int = 0
+ 
     
     
     var words: [Word] = []
@@ -262,8 +266,12 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
                     self.indexCounter -= 1
                     self.nextWord()
                     self.setQuantity(index: self.indexCounter)
-                } else {
+                    self.deletedWordsCounter += 1
+                    self.checkLastDeck()
                     
+                } else {
+                    self.checkAndDeleteDeck()
+//                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE_DELETE_CURRENT_DECK, object: nil)
                     self.dismiss(animated: true, completion: nil)
                 }
                 NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
@@ -274,6 +282,90 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    func checkAndDeleteDeck() {
+        var partNumber = 0
+        if self.part != nil {
+            partNumber = self.part!
+        } else {
+            return
+        }
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+        fetchDeckRequest.predicate = NSPredicate(format: "folder == %@", folder!)
+        do {
+            let decksMarked = try managedContext.fetch(fetchDeckRequest)
+            for deck in decksMarked {
+                if deck.number == Int32(partNumber) {
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                } else if deck.number > Int32(partNumber) {
+                    let deckNew = DeckMarked(context: managedContext)
+                    deckNew.number = Int32(deck.number - 1)
+                    deckNew.folder = self.folder
+                    do {
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not save: \(error.localizedDescription)")
+                    }
+                    
+                    
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+    }
+    
+    func checkLastDeck() {
+        if mModulo == 0 {
+            mModulo = defaults.integer(forKey: "wordsAtTime")
+        }
+        if self.deletedWordsCounter == mModulo {
+            var deckNumber = 0
+            if self.lastDeck != nil {
+                deckNumber = self.lastDeck! - 1
+            } else {
+                return
+            }
+            
+            guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+            let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+            let parentPredicate = NSPredicate(format: "folder == %@", folder!)
+            let learningLanguagePredicate = NSPredicate(format: "number == \(Int32(deckNumber))")
+            print(Int32(deckNumber))
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [parentPredicate, learningLanguagePredicate])
+            fetchDeckRequest.predicate = andPredicate
+            
+            do {
+                let decksMarked = try managedContext.fetch(fetchDeckRequest)
+                for deck in decksMarked {
+
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                }
+                
+            } catch {
+                debugPrint("Could not fetch: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
         cancelEditing()
@@ -352,6 +444,9 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
             fetchREquest.predicate = NSPredicate(format: "folder == %@", folder!)
             fetchREquest.fetchOffset = part! * self.wordsAtTime
             fetchREquest.fetchLimit = self.wordsAtTime
+            
+//            self.lastDeck = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
+//            print("Las deck is \(self.lastDeck)")
         } else {
             
             let memorizePredicate = NSPredicate(format: "repeatMem == true")

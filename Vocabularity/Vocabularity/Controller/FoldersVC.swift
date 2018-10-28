@@ -51,6 +51,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
     var toMemWords = 0
     var toSpellWords = 0
     
+    var mModulo: Int = 0
+    var mLastDeck: Int = 0
 //    var currentLearningLanguage: Int
     
     
@@ -70,6 +72,8 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.wordsWereMarked(_:)), name: NOTIF_WORD_WAS_MARKED, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.excelTutorialShowed(_:)), name: NOTIF_EXCEL_TUTORIAL_SHOWED, object: nil)
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(FoldersVC.excelTutorialShowed(_:)), name: NOTIF_WORDS_COUNT_DID_CHANGE_DELETE_CURRENT_DECK, object: nil)
         
 //        defaults.set(true, forKey: "english")wordsWereMarked
         
@@ -111,6 +115,7 @@ class FoldersVC: UIViewController, UITabBarDelegate {
         if defaults.integer(forKey: "wordsAtTime") != 0 {
             self.wordsAtTime = defaults.integer(forKey: "wordsAtTime")
         }
+        
         
         fetchCoreDataObjects(learningLanguage: defaults.integer(forKey: "currentLearningLanguage"), parent: getCurrentFolder())
         tableView.reloadData()
@@ -576,6 +581,8 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
                 memorizeVC.folder = self.getCurrentFolder()
                 memorizeVC.part = indexPath.row
                 memorizeVC.pathString = "\(self.pathString)/\(STRING_DECK) \(indexPath.row + 1)"
+                memorizeVC.mModulo = self.mModulo
+                memorizeVC.lastDeck = self.mLastDeck
 //                self.pathString + "/" + STRING_DECK + " " + indexPath.row
                 memorizeVC.modalPresentationStyle = .custom
                 self.present(memorizeVC, animated: true, completion: nil)
@@ -608,7 +615,10 @@ extension FoldersVC: UITableViewDelegate, UITableViewDataSource {
         updateView()
     }
     
-    
+//    @objc func wordsAtTimeDidChangeDeleteCurrentDeck(_ notif: Notification) {
+//        recalculateMarkedDecks(indexPath: <#T##IndexPath#>, unmarkCurrent: true)
+//        updateView()
+//    }
     
 }
 
@@ -724,11 +734,11 @@ extension FoldersVC {
             debugPrint("Could not fetch: \(error.localizedDescription)")
         }
         
-        recalculateMarkedDecks(indexPath: indexPath)
+        recalculateMarkedDecks(indexPath: indexPath, unmarkCurrent: true)
         
     }
     
-    func recalculateMarkedDecks(indexPath: IndexPath) {
+    func recalculateMarkedDecks(indexPath: IndexPath, unmarkCurrent: Bool) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
         fetchDeckRequest.predicate = NSPredicate(format: "folder == %@", getCurrentFolder()!)
@@ -736,7 +746,7 @@ extension FoldersVC {
             let decksMarked = try managedContext.fetch(fetchDeckRequest)
             for deck in decksMarked {
 
-                if deck.number == indexPath.row {
+                if deck.number == indexPath.row && unmarkCurrent {
                     do {
                         managedContext.delete(deck)
                         try managedContext.save()
@@ -842,6 +852,8 @@ extension FoldersVC {
                     let decksQuantity = Int(ceil(Double(words.count)/Double(self.wordsAtTime)))
                     let modulo = words.count % self.wordsAtTime
 //                    print("Modulo is \(modulo)")
+                    self.mModulo = modulo
+                    self.mLastDeck = decksQuantity
                     
                     for index in 1...decksQuantity {
                         let marked = isDeckMarked(index: index, markedDecks: markedDecks)

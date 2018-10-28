@@ -223,10 +223,10 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
                     self.nextWord()
                     self.setQuantity(index: self.indexCounter)
                 } else {
-                    NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
+                    self.checkAndDeleteDeck()
                     self.dismiss(animated: true, completion: nil)
                 }
-                
+                NotificationCenter.default.post(name: NOTIF_WORDS_COUNT_DID_CHANGE, object: nil)
             } catch {
                 debugPrint("Could not remove: \(error.localizedDescription)")
             }
@@ -234,6 +234,55 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func checkAndDeleteDeck() {
+        var partNumber = 0
+        if self.part != nil {
+            partNumber = self.part!
+        } else {
+            return
+        }
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchDeckRequest = NSFetchRequest<DeckMarked>(entityName: "DeckMarked")
+        fetchDeckRequest.predicate = NSPredicate(format: "folder == %@", folder!)
+        do {
+            let decksMarked = try managedContext.fetch(fetchDeckRequest)
+            for deck in decksMarked {
+                if deck.number == Int32(partNumber) {
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                } else if deck.number > Int32(partNumber) {
+                    let deckNew = DeckMarked(context: managedContext)
+                    deckNew.number = Int32(deck.number - 1)
+                    deckNew.folder = self.folder
+                    do {
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not save: \(error.localizedDescription)")
+                    }
+                    
+                    
+                    do {
+                        managedContext.delete(deck)
+                        try managedContext.save()
+                    } catch {
+                        debugPrint("Could not fetch: \(error.localizedDescription)")
+                    }
+                }
+            }
+        } catch {
+            debugPrint("Could not fetch: \(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    
+    
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
         cancelEditing()

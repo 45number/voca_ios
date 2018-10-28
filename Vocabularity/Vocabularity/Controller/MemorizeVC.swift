@@ -41,6 +41,10 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var pathLbl: UILabel!
     
+    
+    
+    
+    
     //Variables
     var folder: Folder?
     var part: Int?
@@ -105,6 +109,9 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         pathLbl.text = pathString
         
 //        print(pathString)
+        if folder == nil || part == nil {
+            self.deleteBtn.isHidden = true
+        }
         
     }
     
@@ -435,7 +442,7 @@ class MemorizeVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func fetch (folder: Folder?, part: Int?, completion: (_ complete: Bool) -> ()) {
+    func fetch(folder: Folder?, part: Int?, completion: (_ complete: Bool) -> ()) {
 
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let fetchREquest = NSFetchRequest<Word>(entityName: "Word")

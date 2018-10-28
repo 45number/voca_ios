@@ -101,6 +101,11 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         self.textField.becomeFirstResponder()
         
         pathLbl.text = pathString
+        
+        if folder == nil || part == nil {
+            self.deleteBtn.isHidden = true
+        }
+        
     }
     
     

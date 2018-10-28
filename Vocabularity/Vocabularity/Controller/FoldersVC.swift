@@ -352,6 +352,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                         memorizeVC.folder = nil
                         memorizeVC.part = nil
                         memorizeVC.pathString = "Repeat mode"
+            
+                        memorizeVC.mModulo = self.mModulo
+                        memorizeVC.lastDeck = self.mLastDeck
+            
                         memorizeVC.modalPresentationStyle = .custom
                         self.present(memorizeVC, animated: true, completion: nil)
         })
@@ -361,6 +365,10 @@ class FoldersVC: UIViewController, UITabBarDelegate {
                         spellingVC.folder = nil
                         spellingVC.part = nil
                         spellingVC.pathString = "Repeat mode"
+            
+                        spellingVC.mModulo = self.mModulo
+                        spellingVC.lastDeck = self.mLastDeck
+            
                         spellingVC.modalPresentationStyle = .custom
                         self.present(spellingVC, animated: true, completion: nil)
         })

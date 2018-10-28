@@ -37,6 +37,7 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var pathLbl: UILabel!
     
+    @IBOutlet weak var cardView: RoundShadowView!
     
     
     //Variables
@@ -198,6 +199,9 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         
         editBtnsView.isHidden = false
         editBtn.isHidden = true
+        
+        firstLblTextField.becomeFirstResponder()
+//        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func deleteBtnPressed(_ sender: Any) {
@@ -252,6 +256,8 @@ class SpellingVC: UIViewController, UITextFieldDelegate {
         editBtnsView.isHidden = true
         editBtn.isHidden = false
         view.endEditing(true)
+        
+        textField.becomeFirstResponder()
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {

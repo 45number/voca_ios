@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SpellingVC" customModule="Vocabularity" customModuleProvider="target">
             <connections>
                 <outlet property="cancelBtn" destination="TLU-Ux-2Jy" id="FGh-g8-cxF"/>
+                <outlet property="cardView" destination="2br-PI-4G5" id="BQi-2a-amd"/>
                 <outlet property="circleBtn" destination="8eX-Nt-H3Q" id="gfg-91-PZv"/>
                 <outlet property="deleteBtn" destination="AoR-Td-zY7" id="ij6-wG-nNI"/>
                 <outlet property="editBtn" destination="ugD-4F-3Qg" id="UxW-IL-NQN"/>
